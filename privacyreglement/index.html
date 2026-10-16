@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="">
+        
+        <meta name="google-site-verification" content="DKFBX8FP7ZlreFXtKyNXPW_ER5zh-7SSc_d2K5WczZI">
+
+        <title>Privacyreglement — Apex Online Coaching</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Oswald:wght@700&family=Open+Sans:wght@400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+        <link rel="preload" as="image" href="/images/home/hero-jeroen.webp" fetchpriority="high">
+
+        <link rel="preload" as="style" href="/build/assets/app-Cjd4Muz0.css" /><link rel="stylesheet" href="/build/assets/app-Cjd4Muz0.css" data-navigate-track="reload" />        <script>
+    window.apexLeadSource = (function () {
+        var KEY = 'apexBron';
+        var CODES = ["a1","a2","a3","a4","a5","a6","a7","a8"];
+        var REFERRERS = [
+            [/(^|\.)instagram\.com$/, 'a1'],
+            [/(^|\.)(facebook\.com|fb\.com|fb\.me)$/, 'a2'],
+            [/(^|\.)(linkedin\.com|lnkd\.in)$/, 'a3'],
+            [/(^|\.)google\.[a-z.]+$/, 'a4']
+        ];
+        try {
+            var match = location.search.match(/[?&]r=([a-z0-9]+)/i);
+            var code = match && CODES.indexOf(match[1].toLowerCase()) !== -1 ? match[1].toLowerCase() : null;
+            if (!code && document.referrer) {
+                var host = new URL(document.referrer).hostname;
+                REFERRERS.forEach(function (r) { if (!code && r[0].test(host)) code = r[1]; });
+            }
+            if (code) localStorage.setItem(KEY, JSON.stringify({ code: code, at: Date.now() }));
+        } catch (e) {}
+
+        return function () {
+            try {
+                var stored = JSON.parse(localStorage.getItem(KEY) || 'null');
+                if (stored && Date.now() - stored.at < 30 * 24 * 60 * 60 * 1000) return stored.code;
+            } catch (e) {}
+            return null;
+        };
+    })();
+</script>
+
+        <style>
+            .font-poppins { font-family: 'Poppins', sans-serif; }
+            .font-oswald { font-family: 'Oswald', sans-serif; }
+            .font-opensans { font-family: 'Open Sans', Arial, sans-serif; }
+            .font-abril { font-family: 'Abril Fatface', serif; }
+            summary::-webkit-details-marker { display: none; }
+        </style>
+    <script id="browser-logger-active">
+(function() {
+    const ENDPOINT = '/_boost/browser-logs';
+    const logQueue = [];
+    let flushTimeout = null;
+    const captureTypes = ["error","warning","info","log","debug","table"];
+
+    console.log('🔍 Browser logger active (MCP server detected). Posting to: ' + ENDPOINT);
+
+    // Store original console methods
+    const originalConsole = {
+        log: console.log,
+        debug: console.debug,
+        info: console.info,
+        error: console.error,
+        warn: console.warn,
+        table: console.table
+    };
+
+    // Walk own enumerable keys so JSON.stringify cannot auto-invoke a proxy fake toJSON (e.g. Livewire's `$wire`) and fire a real request.
+    function toSafeValue(value, seen) {
+        if (value === null || typeof value !== 'object') {
+            return value;
+        }
+        if (value instanceof Error) {
+            return { name: value.name, message: value.message, stack: value.stack };
+        }
+        // Date has no own enumerable keys, so the walk below would collapse it to {}.
+        if (value instanceof Date) {
+            return value.toISOString();
+        }
+        if (seen.has(value)) {
+            return '[Circular]';
+        }
+        seen.add(value);
+        if (Array.isArray(value)) {
+            return value.map((item) => toSafeValue(item, seen));
+        }
+        const plain = {};
+        for (const key of Object.keys(value)) {
+            if (key === 'toJSON') continue;
+            try {
+                plain[key] = toSafeValue(value[key], seen);
+            } catch (e) {
+                plain[key] = '[Unreadable]';
+            }
+        }
+        return plain;
+    }
+
+    // Helper to safely stringify values
+    function safeStringify(obj) {
+        return JSON.stringify(toSafeValue(obj, new WeakSet()));
+    }
+
+    // Normalize log type for consistency (e.g., 'warn' to 'warning')
+    function normalizeType(type) {
+        return type === 'warn' ? 'warning' : type;
+    }
+
+    // Determine if a log type should be captured based on configured levels
+    function shouldCapture(type) {
+        return captureTypes.includes(normalizeType(type));
+    }
+
+    // Batch and send logs
+    function flushLogs() {
+        if (logQueue.length === 0) return;
+
+        const batch = logQueue.splice(0, logQueue.length);
+
+        fetch(ENDPOINT, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: JSON.stringify({ logs: batch })
+        }).catch(err => {
+            // Silently fail to avoid infinite loops
+            originalConsole.error('Failed to send logs:', err);
+        });
+    }
+
+    // Debounced flush (100ms)
+    function scheduleFlush() {
+        if (flushTimeout) clearTimeout(flushTimeout);
+        flushTimeout = setTimeout(flushLogs, 100);
+    }
+
+    // Intercept console methods
+    ['log', 'debug', 'info', 'error', 'warn', 'table'].forEach(method => {
+        console[method] = function(...args) {
+            // Call original method
+            originalConsole[method].apply(console, args);
+
+            // Capture log data
+            try {
+                if (!shouldCapture(method)) {
+                    return;
+                }
+
+                logQueue.push({
+                    type: method,
+                    timestamp: new Date().toISOString(),
+                    data: args.map(arg => {
+                        try {
+                            return typeof arg === 'object' ? JSON.parse(safeStringify(arg)) : arg;
+                        } catch (e) {
+                            return String(arg);
+                        }
+                    }),
+                    url: window.location.href,
+                    userAgent: navigator.userAgent
+                });
+
+                scheduleFlush();
+            } catch (e) {
+                // Fail silently
+            }
+        };
+    });
+
+    // Global error handlers for uncaught errors
+    const originalOnError = window.onerror;
+    window.onerror = function boostErrorHandler(errorMsg, url, lineNumber, colNumber, error) {
+        try {
+            if (shouldCapture('error')) {
+                logQueue.push({
+                    type: 'uncaught_error',
+                    timestamp: new Date().toISOString(),
+                    data: [{
+                        message: errorMsg,
+                        filename: url,
+                        lineno: lineNumber,
+                        colno: colNumber,
+                        error: error ? {
+                            name: error.name,
+                            message: error.message,
+                            stack: error.stack
+                        } : null
+                    }],
+                    url: window.location.href,
+                    userAgent: navigator.userAgent
+                });
+
+                scheduleFlush();
+            }
+
+        } catch (e) {
+            // Fail silently
+        }
+
+        // Call original handler if it exists
+        if (originalOnError && typeof originalOnError === 'function') {
+            return originalOnError(errorMsg, url, lineNumber, colNumber, error);
+        }
+
+        // Let the error continue to propagate
+        return false;
+    }
+    window.addEventListener('error', (event) => {
+        try {
+            if (!shouldCapture('error')) {
+                return false;
+            }
+
+            logQueue.push({
+                type: 'window_error',
+                timestamp: new Date().toISOString(),
+                data: [{
+                    message: event.message,
+                    filename: event.filename,
+                    lineno: event.lineno,
+                    colno: event.colno,
+                    error: event.error ? {
+                        name: event.error.name,
+                        message: event.error.message,
+                        stack: event.error.stack
+                    } : null
+                }],
+                url: window.location.href,
+                userAgent: navigator.userAgent
+            });
+
+            scheduleFlush();
+        } catch (e) {
+            // Fail silently
+        }
+
+        // Let the error continue to propagate
+        return false;
+    });
+    window.addEventListener('unhandledrejection', (event) => {
+        try {
+            if (!shouldCapture('error')) {
+                return false;
+            }
+
+            logQueue.push({
+                type: 'error',
+                timestamp: new Date().toISOString(),
+                data: [{
+                    message: 'Unhandled Promise Rejection',
+                    reason: toSafeValue(event.reason, new WeakSet())
+                }],
+                url: window.location.href,
+                userAgent: navigator.userAgent
+            });
+
+            scheduleFlush();
+        } catch (e) {
+            // Fail silently
+        }
+
+        // Let the rejection continue to propagate
+        return false;
+    });
+
+    // Flush on page unload
+    window.addEventListener('beforeunload', () => {
+        if (logQueue.length > 0) {
+            navigator.sendBeacon(ENDPOINT, JSON.stringify({ logs: logQueue }));
+        }
+    });
+})();
+</script>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script><script defer src="/_vercel/insights/script.js"></script>
+</head>
+    <body class="font-opensans antialiased" style="background:#1B3A6B;">
+
+                    <header class="sticky top-0 z-40" style="background:#1B3A6B;">
+                <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+                    <a href="/">
+                        <img src="/images/apex-logo.webp" alt="Apex Online Coaching" class="h-12 w-auto" width="150" height="48">
+                    </a>
+
+                    <nav class="hidden lg:flex items-center gap-6">
+                        <a href="/gratis" class="text-sm font-semibold hover:opacity-80 transition" style="color:#D4A574;">Gratis</a>
+                        <a href="/aanbod" class="text-sm font-semibold text-white hover:opacity-80 transition">Aanbod</a>
+                        <a href="/resultaten" class="text-sm font-semibold text-white hover:opacity-80 transition">Resultaten</a>
+                        <a href="/kennisbank" class="text-sm font-semibold text-white hover:opacity-80 transition">Kennisbank</a>
+                        <a href="/over-ons" class="text-sm font-semibold text-white hover:opacity-80 transition">Over ons</a>
+                    </nav>
+
+                    <div class="hidden lg:flex items-center gap-3">
+                                                    
+                            <a href="/waarom-de-performance-scan" class="brand-ghost-btn inline-block px-5 py-2 rounded-lg text-sm font-semibold">Performance Scan</a>
+                                            </div>
+
+                    <button type="button" id="nav-toggle" class="lg:hidden text-white" aria-label="Menu" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
+                </div>
+
+                <div id="nav-menu" hidden class="lg:hidden px-6 pb-6 space-y-3" style="border-top:1px solid rgba(212,165,116,0.2);">
+                    <a href="/gratis" class="block text-sm font-semibold pt-3" style="color:#D4A574;">Gratis</a>
+                    <a href="/aanbod" class="block text-sm font-semibold text-white">Aanbod</a>
+                    <a href="/resultaten" class="block text-sm font-semibold text-white">Resultaten</a>
+                    <a href="/kennisbank" class="block text-sm font-semibold text-white">Kennisbank</a>
+                    <a href="/over-ons" class="block text-sm font-semibold text-white">Over ons</a>
+                                            
+                        <a href="/waarom-de-performance-scan" class="brand-ghost-btn inline-block px-5 py-2 rounded-lg text-sm font-semibold">Performance Scan</a>
+                                    </div>
+            </header>
+        
+        <main>
+            <section class="brand-navy py-14 sm:py-16 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <p class="brand-eyebrow text-balance font-opensans font-bold uppercase text-xs sm:text-sm mb-4">Apex Online Coaching</p>
+            <h1 class="font-oswald font-bold text-white uppercase text-3xl sm:text-4xl mb-4">Privacyreglement</h1>
+            <p style="color:#dbe3f0;">Laatst bijgewerkt: oktober 2026</p>
+        </div>
+    </section>
+
+    <section class="py-14 px-6 bg-white">
+        <div class="max-w-3xl mx-auto space-y-10 leading-relaxed" style="color:#2A2A2A;">
+            <div class="space-y-3">
+                <p>Apex Online Coaching, gevestigd aan Papaverstraat 26B, 1131 HK Volendam, is verantwoordelijk voor de verwerking van persoonsgegevens zoals weergegeven in deze privacyverklaring.</p>
+                <p class="pl-4" style="border-left:3px solid #D4A574;">
+                    <strong style="color:#1B3A6B;">Contactgegevens</strong><br>
+                    Apex Online Coaching<br>
+                    Papaverstraat 26B, 1131 HK Volendam<br>
+                    E-mail: <a href="mailto:info@apexonlinecoaching.nl" class="underline">info@apexonlinecoaching.nl</a><br>
+                    KvK-nummer: 60937025
+                </p>
+                <p>Jeroen Schilder is Functionaris Gegevensbescherming bij Apex Online Coaching. Hij is bereikbaar via info@apexonlinecoaching.nl.</p>
+            </div>
+
+            <div class="space-y-3">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl" style="color:#1B3A6B;">Persoonsgegevens die wij verwerken</h2>
+                <p>Apex Online Coaching verwerkt uw persoonsgegevens omdat u gebruik maakt van onze diensten en/of omdat u deze gegevens aan ons verstrekt. Hieronder vindt u een overzicht van de persoonsgegevens die wij verwerken:</p>
+                <ul class="list-disc pl-8 space-y-1">
+                    <li>Voor- en achternaam</li>
+                    <li>Adresgegevens</li>
+                    <li>Telefoonnummer</li>
+                    <li>E-mailadres</li>
+                    <li>IP-adres</li>
+                    <li>Uw antwoorden op de Performance Scan en de uitslag daarvan, waaronder een indicatie van uw omzet</li>
+                    <li>Overige persoonsgegevens die u actief verstrekt, bijvoorbeeld in correspondentie en telefonisch</li>
+                    <li>Internetbrowser en apparaattype</li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl" style="color:#1B3A6B;">Bijzondere en/of gevoelige persoonsgegevens</h2>
+                <p>In de Performance Scan stellen wij ook vragen over uw leefstijl en gezondheid, zoals slaap, energie, voeding en beweging. Deze antwoorden gebruiken wij uitsluitend om uw uitslag op te stellen en, als u daarvoor kiest, om met u in gesprek te gaan over uw resultaten.</p>
+                <p>Onze website en/of dienst heeft niet de intentie gegevens te verzamelen van websitebezoekers die jonger zijn dan 16 jaar, tenzij deze bezoekers uitdrukkelijke toestemming hebben van ouder of voogd. We kunnen echter niet controleren of een bezoeker deze leeftijd al heeft bereikt. Wij raden de ouder of voogd dan ook aan betrokken te zijn bij de online activiteiten van hun kinderen, om gegevensverzameling zonder ouderlijke toestemming te voorkomen. Als u ervan overtuigd bent dat wij zonder toestemming persoonlijke gegevens hebben verzameld over een minderjarige, neem dan contact op via info@apexonlinecoaching.nl.</p>
+            </div>
+
+            <div class="space-y-3">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl" style="color:#1B3A6B;">Met welk doel wij persoonsgegevens verwerken</h2>
+                <p>Apex Online Coaching verwerkt uw persoonsgegevens voor de volgende doelen:</p>
+                <ul class="list-disc pl-8 space-y-1">
+                    <li>Het afhandelen van uw betaling</li>
+                    <li>Het verzenden van onze nieuwsbrief</li>
+                    <li>Het opstellen en toesturen van uw Performance Scan-uitslag, en u daarover kunnen benaderen</li>
+                    <li>Uw inschrijving voor sessies en het inplannen van afspraken</li>
+                    <li>U te kunnen bellen of e-mailen indien dit nodig is om onze dienstverlening uit te kunnen voeren</li>
+                    <li>Het toepassen van personalisaties in de dienstverlening</li>
+                    <li>U de mogelijkheid te bieden een account aan te maken</li>
+                    <li>Om goederen en diensten bij u af te leveren</li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl" style="color:#1B3A6B;">Geautomatiseerde besluitvorming</h2>
+                <p>De uitslag van de Performance Scan wordt automatisch berekend uit uw antwoorden. Apex Online Coaching neemt op basis van geautomatiseerde verwerkingen geen besluiten over zaken die (aanzienlijke) gevolgen kunnen hebben voor personen.</p>
+            </div>
+
+            <div class="space-y-3">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl" style="color:#1B3A6B;">Hoe lang we persoonsgegevens bewaren</h2>
+                <p>Apex Online Coaching bewaart uw persoonsgegevens niet langer dan strikt nodig is om de doelen te realiseren waarvoor uw gegevens zijn verzameld. Wij hanteren de volgende bewaartermijnen:</p>
+                <ul class="list-disc pl-8 space-y-2">
+                    <li><strong style="color:#1B3A6B;">Performance Scan:</strong> uw antwoorden en uitslag bewaren wij 12 maanden.</li>
+                    <li><strong style="color:#1B3A6B;">Vragenlijsten:</strong> zolang u gebruik maakt van onze dienstverlening en tot 1 jaar na het opschorten dan wel beëindigen van uw abonnement.</li>
+                    <li><strong style="color:#1B3A6B;">Lichaamscompositiegegevens (metingen en foto's):</strong> zolang u gebruik maakt van onze dienstverlening en tot 1 jaar na beëindiging van uw abonnement. Daarnaast kunt u toestemming geven om progressiefoto's te gebruiken voor reclamedoeleinden; deze gegevens blijven 5 jaar bewaard.</li>
+                    <li><strong style="color:#1B3A6B;">Verslaglegging van training of voeding:</strong> zolang u gebruik maakt van onze dienstverlening en tot 1 jaar na beëindiging van uw abonnement. De gegevens kunnen ook anoniem worden gebruikt voor interne analyses en rapportages.</li>
+                    <li><strong style="color:#1B3A6B;">Chatgeschiedenis:</strong> berichten via de chatfunctie bewaren wij maximaal 2 weken; daarna worden ze verwijderd.</li>
+                </ul>
+                <p>We bewaren en gebruiken persoonlijke gegevens niet langer dan noodzakelijk. Daarna worden alle persoonlijke gegevens verwijderd.</p>
+            </div>
+
+            <div class="space-y-3">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl" style="color:#1B3A6B;">Delen van persoonsgegevens met derden</h2>
+                <p>Apex Online Coaching verstrekt uitsluitend gegevens aan derden als dit nodig is voor de uitvoering van onze overeenkomst met u of om te voldoen aan een wettelijke verplichting. Voor onze website en dienstverlening maken wij gebruik van de volgende partijen, die uw gegevens alleen in onze opdracht verwerken:</p>
+                <ul class="list-disc pl-8 space-y-1">
+                                            <li><strong style="color:#1B3A6B;">Monday.com:</strong> beheer van aanmeldingen en leads (naam, e-mailadres, telefoonnummer en, bij de Performance Scan, de antwoorden en uitslag)</li>
+                                            <li><strong style="color:#1B3A6B;">ActiveCampaign (MailBlue):</strong> het versturen van de nieuwsbrief, de scanuitslag en andere e-mails</li>
+                                            <li><strong style="color:#1B3A6B;">Vercel:</strong> hosting van deze website en anonieme bezoekersstatistieken zonder cookies</li>
+                                            <li><strong style="color:#1B3A6B;">Vimeo:</strong> het tonen van video&#039;s; wij laden de speler pas na een klik en zonder trackingcookies</li>
+                                            <li><strong style="color:#1B3A6B;">TrainIn:</strong> het inplannen van afspraken, zoals de Doorbraak Sessie</li>
+                                    </ul>
+                <p>Apex Online Coaching werkt samen met coaches en trainers door Nederland en zorgt ervoor dat gegevens strikt vertrouwelijk blijven tussen coach en klant. Sommige gegevens worden anoniem gebruikt voor interne analyses en rapportages, bijvoorbeeld het percentage gevolgde lessen of de mate van activiteit op een account.</p>
+            </div>
+
+            <div class="space-y-3">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl" style="color:#1B3A6B;">Cookies</h2>
+                <p>Deze website plaatst geen advertentie- of trackingcookies. Wij meten het aantal bezoekers met Vercel Web Analytics; dat werkt zonder cookies en zonder persoonsgegevens op te slaan. Video's van Vimeo worden pas geladen als u op afspelen klikt, zonder trackingcookies. Alleen voor het goed laten werken van de website kunnen functionele gegevens in uw browser worden opgeslagen, bijvoorbeeld zodat de Performance Scan uw voortgang onthoudt.</p>
+                <p>U kunt opgeslagen informatie altijd verwijderen via de instellingen van uw browser. Zie voor een toelichting: <a href="https://veiliginternetten.nl/themes/situatie/cookies-wat-zijn-het-en-wat-doe-ik-ermee/" target="_blank" rel="noopener" class="underline">veiliginternetten.nl</a>.</p>
+            </div>
+
+            <div class="space-y-3">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl" style="color:#1B3A6B;">Gegevens inzien, aanpassen of verwijderen</h2>
+                <p>U heeft het recht om uw persoonsgegevens in te zien, te corrigeren of te verwijderen. Daarnaast heeft u het recht om uw eventuele toestemming voor de gegevensverwerking in te trekken of bezwaar te maken tegen de verwerking van uw persoonsgegevens door Apex Online Coaching, en heeft u het recht op gegevensoverdraagbaarheid. Dat betekent dat u bij ons een verzoek kunt indienen om de persoonsgegevens die wij van u hebben in een computerbestand naar u of een andere, door u genoemde organisatie te sturen.</p>
+                <p>U kunt een verzoek tot inzage, correctie, verwijdering of gegevensoverdracht, of een verzoek tot intrekking van uw toestemming of bezwaar tegen de verwerking, sturen naar info@apexonlinecoaching.nl. Om er zeker van te zijn dat het verzoek door u is gedaan, vragen wij u een kopie van uw identiteitsbewijs mee te sturen. Maak in deze kopie uw pasfoto, MRZ (de strook met nummers onderaan het paspoort), paspoortnummer en Burgerservicenummer (BSN) zwart. Dit ter bescherming van uw privacy. We reageren zo snel mogelijk, maar binnen vier weken, op uw verzoek.</p>
+                <p>U heeft ook de mogelijkheid om een klacht in te dienen bij de nationale toezichthouder, de Autoriteit Persoonsgegevens, via <a href="https://autoriteitpersoonsgegevens.nl/nl/contact-met-de-autoriteit-persoonsgegevens/tip-ons" target="_blank" rel="noopener" class="underline">autoriteitpersoonsgegevens.nl</a>.</p>
+            </div>
+
+            <div class="space-y-3">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl" style="color:#1B3A6B;">Hoe wij persoonsgegevens beveiligen</h2>
+                <p>Apex Online Coaching neemt de bescherming van uw gegevens serieus en neemt passende maatregelen om misbruik, verlies, onbevoegde toegang, ongewenste openbaarmaking en ongeoorloofde wijziging tegen te gaan. Als u de indruk heeft dat uw gegevens niet goed beveiligd zijn of er zijn aanwijzingen van misbruik, neem dan contact op via info@apexonlinecoaching.nl. Apex Online Coaching heeft de volgende maatregelen genomen om uw persoonsgegevens te beveiligen:</p>
+                <ul class="list-disc pl-8 space-y-1">
+                    <li>Beveiligingssoftware, zoals een virusscanner en firewall.</li>
+                    <li>TLS (voorheen SSL): wij versturen uw gegevens via een beveiligde internetverbinding. Dit ziet u aan 'https' en het hangslotje in de adresbalk.</li>
+                    <li>DKIM, SPF en DMARC: internetstandaarden die wij gebruiken om te voorkomen dat u uit onze naam e-mails ontvangt die virussen bevatten, spam zijn of bedoeld zijn om persoonlijke (inlog)gegevens te bemachtigen.</li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl" style="color:#1B3A6B;">Wijzigen van dit privacyreglement</h2>
+                <p>Apex Online Coaching behoudt te allen tijde het recht dit privacyreglement te wijzigen. Bij een wijziging worden alle leden geïnformeerd. Door gebruik te blijven maken van de diensten en functionaliteiten van Apex Online Coaching gaat de gebruiker akkoord met de wijzigingen. Na een wijziging is het te allen tijde mogelijk de overeenkomst met Apex Online Coaching op te zeggen als de gebruiker niet akkoord gaat met de wijzigingen.</p>
+                <p>Dit privacyreglement is van toepassing op de <a href="/algemene-voorwaarden" class="underline">algemene voorwaarden</a>, persoonlijke overeenkomsten met cliënten en andere voorwaarden zoals opgenomen op deze website. Bij vragen of onduidelijkheden kunt u contact opnemen met de Functionaris Gegevensbescherming.</p>
+                <p>Apex Online Coaching is niet verantwoordelijk voor de gevolgen die door onzorgvuldig gebruik door de gebruiker zijn ontstaan en die in strijd zijn met dit privacyreglement dan wel de AVG.</p>
+            </div>
+        </div>
+    </section>
+        </main>
+
+        <div id="exit-intent-overlay" hidden class="fixed inset-0 z-[60] px-4" style="background:rgba(13,28,56,0.8);">
+  <div id="exit-intent-backdrop" class="flex items-center justify-center h-full">
+    <div class="relative bg-white rounded-2xl max-w-md w-full p-8 text-center" style="box-shadow: 0 30px 60px -30px rgba(0,0,0,0.55);">
+        <button type="button" id="exit-intent-close" aria-label="Sluiten"
+                class="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition" style="color:#1B3A6B;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+
+        <div id="exit-intent-form-state">
+            <p class="font-opensans font-bold uppercase tracking-wide text-2xl mb-3" style="color:#c08f5c;">Voor je gaat</p>
+            <h2 class="font-oswald font-bold uppercase text-2xl mb-3" style="color:#1B3A6B;">Schrijf je in voor de nieuwsbrief</h2>
+            <p class="text-gray-600 text-sm mb-6">
+                Blijf op de hoogte van nieuwe inzichten over focus, leiderschap en groei.
+            </p>
+            <form id="exit-intent-form" class="flex flex-col gap-3">
+                <input type="email" name="email" required placeholder="Jouw e-mailadres"
+                       class="brand-input w-full rounded-lg px-4 py-3 text-sm">
+                <button type="submit" class="brand-gold-btn w-full px-6 py-3 rounded-lg font-bold uppercase text-sm">
+                    Aanmelden
+                </button>
+            </form>
+            <p id="exit-intent-error" hidden class="text-xs mt-3" style="color:#dc2626;">Er ging iets mis. Probeer het opnieuw.</p>
+        </div>
+
+        <div id="exit-intent-thanks-state" hidden>
+            <p class="text-3xl mb-3">✅</p>
+            <h2 class="font-oswald font-bold uppercase text-xl mb-2" style="color:#1B3A6B;">Je zit erin!</h2>
+            <p class="text-gray-600 text-sm">Je ontvangt binnenkort de eerste inzichten van Apex.</p>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    (function () {
+        var STORAGE_KEY = 'apex_exit_intent_dismissed_until';
+        var overlay = document.getElementById('exit-intent-overlay');
+
+        function isMobile() { return !window.matchMedia('(hover: hover) and (pointer: fine)').matches; }
+
+        function dismissedUntil() {
+            var v = localStorage.getItem(STORAGE_KEY);
+            return v ? parseInt(v, 10) : 0;
+        }
+
+        function suppress(days) {
+            localStorage.setItem(STORAGE_KEY, String(Date.now() + days * 24 * 60 * 60 * 1000));
+        }
+
+        if (isMobile() || Date.now() < dismissedUntil()) {
+            return;
+        }
+
+        var shown = false;
+        var armed = false;
+        setTimeout(function () { armed = true; }, 4000);
+
+        function show() {
+            if (shown || !armed) return;
+            shown = true;
+            overlay.removeAttribute('hidden');
+        }
+
+        function hide() {
+            overlay.setAttribute('hidden', '');
+        }
+
+        document.addEventListener('mouseleave', function (e) {
+            if (e.clientY <= 0) show();
+        });
+
+        document.getElementById('exit-intent-close').addEventListener('click', function () {
+            suppress(14);
+            hide();
+        });
+
+        document.getElementById('exit-intent-backdrop').addEventListener('click', function (e) {
+            if (e.target === e.currentTarget) {
+                suppress(14);
+                hide();
+            }
+        });
+
+        document.getElementById('exit-intent-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var email = e.target.email.value;
+            var errorEl = document.getElementById('exit-intent-error');
+            errorEl.setAttribute('hidden', '');
+
+            fetch('/nieuwsbrief/inschrijven', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ email: email, source: 'popup' })
+            }).then(function (res) {
+                if (!res.ok) throw new Error('failed');
+                suppress(3650);
+                document.getElementById('exit-intent-form-state').setAttribute('hidden', '');
+                document.getElementById('exit-intent-thanks-state').removeAttribute('hidden');
+            }).catch(function () {
+                errorEl.removeAttribute('hidden');
+            });
+        });
+    })();
+</script>
+
+        <footer class="py-8 px-6 text-center border-t" style="background:#1B3A6B; border-color:rgba(212,165,116,0.2);">
+            <img src="/images/apex-logo.webp" alt="Apex Online Coaching" class="h-8 w-auto mx-auto mb-3 opacity-80" loading="lazy" width="100" height="32">
+            <p class="text-[#9fb3d1] text-xs mb-2">
+                <a href="tel:0683232341" class="hover:text-white transition">06-83232341</a>
+                &middot;
+                <a href="mailto:jeroen@apexonlinecoaching.nl" class="hover:text-white transition">jeroen@apexonlinecoaching.nl</a>
+                &middot;
+                <a href="https://www.linkedin.com/in/jeroen-schilder/" target="_blank" rel="noopener" class="hover:text-white transition">LinkedIn</a>
+            </p>
+            <p class="text-[#9fb3d1] text-xs">
+                &copy; 2026 Apex Online Coaching. Alle rechten voorbehouden.
+                &middot; <a href="/algemene-voorwaarden" class="hover:text-white transition">Algemene voorwaarden</a>
+                &middot; <a href="/privacyreglement" target="_blank" rel="noopener" class="hover:text-white transition">Privacyreglement</a>
+            </p>
+        </footer>
+
+        <script>
+            (function () {
+                var btn = document.getElementById('nav-toggle');
+                var menu = document.getElementById('nav-menu');
+                if (!btn || !menu) return;
+                btn.addEventListener('click', function () {
+                    var isHidden = menu.hasAttribute('hidden');
+                    if (isHidden) {
+                        menu.removeAttribute('hidden');
+                        btn.setAttribute('aria-expanded', 'true');
+                    } else {
+                        menu.setAttribute('hidden', '');
+                        btn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            })();
+        </script>
+
+                    <script src="https://trainin.app/widget.js" data-base-domain="trainin.app" defer></script>
+
+            <trainin-floating-widget
+                client="apexonlinecoaching"
+                widget-shadow="0px 0px 4px 2px rgba(0, 0, 0, 0.08)"
+                container-padding="0"
+                widget-size="small"
+                widget-radius="9999px"
+                button-border-color="#e8e8e8"
+                divider-color="#e8e8e8"
+                card-border-color="#e8e8e8"
+                widget-background="#D4A574"
+                widget-card="#ffffff"
+                widget-text-color="#1B3A6B"
+            >
+                <trainin-floating-widget-button
+                    button-url="https://apexonlinecoaching.trainin.app/activities/LQ2Y2P/de-doorbraak-sessie"
+                    button-label="Doorbraak Sessie"
+                    button-background="#D4A574"
+                    button-text-color="#1B3A6B"
+                    button-size="small"
+                    button-radius="9999px 0 0 9999px"
+                    loader-color="#c08f5c"
+                >
+                </trainin-floating-widget-button>
+
+                <span class="widget-divider"></span>
+
+                <trainin-floating-widget-button
+                    button-url="https://wa.me/31683232341"
+                    button-label="WhatsApp"
+                    button-background="#D4A574"
+                    button-text-color="#1B3A6B"
+                    button-size="small"
+                    button-radius="0 9999px 9999px 0"
+                >
+                </trainin-floating-widget-button>
+            </trainin-floating-widget>
+        
+        <script>
+            (function () {
+                var widget = document.querySelector('trainin-floating-widget');
+                if (!widget) return;
+
+                function hideLogo() {
+                    if (!widget.shadowRoot) return false;
+                    if (widget.shadowRoot.getElementById('hide-trainin-logo')) return true;
+                    var style = document.createElement('style');
+                    style.id = 'hide-trainin-logo';
+                    style.textContent = '.trainin-logo { display: none !important; }';
+                    widget.shadowRoot.appendChild(style);
+                    return true;
+                }
+
+                if (hideLogo()) return;
+
+                var attempts = 0;
+                function tick() {
+                    attempts++;
+                    if (hideLogo() || attempts > 600) return;
+                    requestAnimationFrame(tick);
+                }
+                requestAnimationFrame(tick);
+            })();
+        </script>
+    </body>
+</html>

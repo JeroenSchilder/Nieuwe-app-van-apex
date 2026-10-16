@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="">
+        
+        <meta name="google-site-verification" content="DKFBX8FP7ZlreFXtKyNXPW_ER5zh-7SSc_d2K5WczZI">
+
+        <title>Algemene voorwaarden — Apex Online Coaching</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Oswald:wght@700&family=Open+Sans:wght@400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+        <link rel="preload" as="image" href="/images/home/hero-jeroen.webp" fetchpriority="high">
+
+        <link rel="preload" as="style" href="/build/assets/app-Cjd4Muz0.css" /><link rel="stylesheet" href="/build/assets/app-Cjd4Muz0.css" data-navigate-track="reload" />        <script>
+    window.apexLeadSource = (function () {
+        var KEY = 'apexBron';
+        var CODES = ["a1","a2","a3","a4","a5","a6","a7","a8"];
+        var REFERRERS = [
+            [/(^|\.)instagram\.com$/, 'a1'],
+            [/(^|\.)(facebook\.com|fb\.com|fb\.me)$/, 'a2'],
+            [/(^|\.)(linkedin\.com|lnkd\.in)$/, 'a3'],
+            [/(^|\.)google\.[a-z.]+$/, 'a4']
+        ];
+        try {
+            var match = location.search.match(/[?&]r=([a-z0-9]+)/i);
+            var code = match && CODES.indexOf(match[1].toLowerCase()) !== -1 ? match[1].toLowerCase() : null;
+            if (!code && document.referrer) {
+                var host = new URL(document.referrer).hostname;
+                REFERRERS.forEach(function (r) { if (!code && r[0].test(host)) code = r[1]; });
+            }
+            if (code) localStorage.setItem(KEY, JSON.stringify({ code: code, at: Date.now() }));
+        } catch (e) {}
+
+        return function () {
+            try {
+                var stored = JSON.parse(localStorage.getItem(KEY) || 'null');
+                if (stored && Date.now() - stored.at < 30 * 24 * 60 * 60 * 1000) return stored.code;
+            } catch (e) {}
+            return null;
+        };
+    })();
+</script>
+
+        <style>
+            .font-poppins { font-family: 'Poppins', sans-serif; }
+            .font-oswald { font-family: 'Oswald', sans-serif; }
+            .font-opensans { font-family: 'Open Sans', Arial, sans-serif; }
+            .font-abril { font-family: 'Abril Fatface', serif; }
+            summary::-webkit-details-marker { display: none; }
+        </style>
+    <script id="browser-logger-active">
+(function() {
+    const ENDPOINT = '/_boost/browser-logs';
+    const logQueue = [];
+    let flushTimeout = null;
+    const captureTypes = ["error","warning","info","log","debug","table"];
+
+    console.log('🔍 Browser logger active (MCP server detected). Posting to: ' + ENDPOINT);
+
+    // Store original console methods
+    const originalConsole = {
+        log: console.log,
+        debug: console.debug,
+        info: console.info,
+        error: console.error,
+        warn: console.warn,
+        table: console.table
+    };
+
+    // Walk own enumerable keys so JSON.stringify cannot auto-invoke a proxy fake toJSON (e.g. Livewire's `$wire`) and fire a real request.
+    function toSafeValue(value, seen) {
+        if (value === null || typeof value !== 'object') {
+            return value;
+        }
+        if (value instanceof Error) {
+            return { name: value.name, message: value.message, stack: value.stack };
+        }
+        // Date has no own enumerable keys, so the walk below would collapse it to {}.
+        if (value instanceof Date) {
+            return value.toISOString();
+        }
+        if (seen.has(value)) {
+            return '[Circular]';
+        }
+        seen.add(value);
+        if (Array.isArray(value)) {
+            return value.map((item) => toSafeValue(item, seen));
+        }
+        const plain = {};
+        for (const key of Object.keys(value)) {
+            if (key === 'toJSON') continue;
+            try {
+                plain[key] = toSafeValue(value[key], seen);
+            } catch (e) {
+                plain[key] = '[Unreadable]';
+            }
+        }
+        return plain;
+    }
+
+    // Helper to safely stringify values
+    function safeStringify(obj) {
+        return JSON.stringify(toSafeValue(obj, new WeakSet()));
+    }
+
+    // Normalize log type for consistency (e.g., 'warn' to 'warning')
+    function normalizeType(type) {
+        return type === 'warn' ? 'warning' : type;
+    }
+
+    // Determine if a log type should be captured based on configured levels
+    function shouldCapture(type) {
+        return captureTypes.includes(normalizeType(type));
+    }
+
+    // Batch and send logs
+    function flushLogs() {
+        if (logQueue.length === 0) return;
+
+        const batch = logQueue.splice(0, logQueue.length);
+
+        fetch(ENDPOINT, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: JSON.stringify({ logs: batch })
+        }).catch(err => {
+            // Silently fail to avoid infinite loops
+            originalConsole.error('Failed to send logs:', err);
+        });
+    }
+
+    // Debounced flush (100ms)
+    function scheduleFlush() {
+        if (flushTimeout) clearTimeout(flushTimeout);
+        flushTimeout = setTimeout(flushLogs, 100);
+    }
+
+    // Intercept console methods
+    ['log', 'debug', 'info', 'error', 'warn', 'table'].forEach(method => {
+        console[method] = function(...args) {
+            // Call original method
+            originalConsole[method].apply(console, args);
+
+            // Capture log data
+            try {
+                if (!shouldCapture(method)) {
+                    return;
+                }
+
+                logQueue.push({
+                    type: method,
+                    timestamp: new Date().toISOString(),
+                    data: args.map(arg => {
+                        try {
+                            return typeof arg === 'object' ? JSON.parse(safeStringify(arg)) : arg;
+                        } catch (e) {
+                            return String(arg);
+                        }
+                    }),
+                    url: window.location.href,
+                    userAgent: navigator.userAgent
+                });
+
+                scheduleFlush();
+            } catch (e) {
+                // Fail silently
+            }
+        };
+    });
+
+    // Global error handlers for uncaught errors
+    const originalOnError = window.onerror;
+    window.onerror = function boostErrorHandler(errorMsg, url, lineNumber, colNumber, error) {
+        try {
+            if (shouldCapture('error')) {
+                logQueue.push({
+                    type: 'uncaught_error',
+                    timestamp: new Date().toISOString(),
+                    data: [{
+                        message: errorMsg,
+                        filename: url,
+                        lineno: lineNumber,
+                        colno: colNumber,
+                        error: error ? {
+                            name: error.name,
+                            message: error.message,
+                            stack: error.stack
+                        } : null
+                    }],
+                    url: window.location.href,
+                    userAgent: navigator.userAgent
+                });
+
+                scheduleFlush();
+            }
+
+        } catch (e) {
+            // Fail silently
+        }
+
+        // Call original handler if it exists
+        if (originalOnError && typeof originalOnError === 'function') {
+            return originalOnError(errorMsg, url, lineNumber, colNumber, error);
+        }
+
+        // Let the error continue to propagate
+        return false;
+    }
+    window.addEventListener('error', (event) => {
+        try {
+            if (!shouldCapture('error')) {
+                return false;
+            }
+
+            logQueue.push({
+                type: 'window_error',
+                timestamp: new Date().toISOString(),
+                data: [{
+                    message: event.message,
+                    filename: event.filename,
+                    lineno: event.lineno,
+                    colno: event.colno,
+                    error: event.error ? {
+                        name: event.error.name,
+                        message: event.error.message,
+                        stack: event.error.stack
+                    } : null
+                }],
+                url: window.location.href,
+                userAgent: navigator.userAgent
+            });
+
+            scheduleFlush();
+        } catch (e) {
+            // Fail silently
+        }
+
+        // Let the error continue to propagate
+        return false;
+    });
+    window.addEventListener('unhandledrejection', (event) => {
+        try {
+            if (!shouldCapture('error')) {
+                return false;
+            }
+
+            logQueue.push({
+                type: 'error',
+                timestamp: new Date().toISOString(),
+                data: [{
+                    message: 'Unhandled Promise Rejection',
+                    reason: toSafeValue(event.reason, new WeakSet())
+                }],
+                url: window.location.href,
+                userAgent: navigator.userAgent
+            });
+
+            scheduleFlush();
+        } catch (e) {
+            // Fail silently
+        }
+
+        // Let the rejection continue to propagate
+        return false;
+    });
+
+    // Flush on page unload
+    window.addEventListener('beforeunload', () => {
+        if (logQueue.length > 0) {
+            navigator.sendBeacon(ENDPOINT, JSON.stringify({ logs: logQueue }));
+        }
+    });
+})();
+</script>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script><script defer src="/_vercel/insights/script.js"></script>
+</head>
+    <body class="font-opensans antialiased" style="background:#1B3A6B;">
+
+                    <header class="sticky top-0 z-40" style="background:#1B3A6B;">
+                <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+                    <a href="/">
+                        <img src="/images/apex-logo.webp" alt="Apex Online Coaching" class="h-12 w-auto" width="150" height="48">
+                    </a>
+
+                    <nav class="hidden lg:flex items-center gap-6">
+                        <a href="/gratis" class="text-sm font-semibold hover:opacity-80 transition" style="color:#D4A574;">Gratis</a>
+                        <a href="/aanbod" class="text-sm font-semibold text-white hover:opacity-80 transition">Aanbod</a>
+                        <a href="/resultaten" class="text-sm font-semibold text-white hover:opacity-80 transition">Resultaten</a>
+                        <a href="/kennisbank" class="text-sm font-semibold text-white hover:opacity-80 transition">Kennisbank</a>
+                        <a href="/over-ons" class="text-sm font-semibold text-white hover:opacity-80 transition">Over ons</a>
+                    </nav>
+
+                    <div class="hidden lg:flex items-center gap-3">
+                                                    
+                            <a href="/waarom-de-performance-scan" class="brand-ghost-btn inline-block px-5 py-2 rounded-lg text-sm font-semibold">Performance Scan</a>
+                                            </div>
+
+                    <button type="button" id="nav-toggle" class="lg:hidden text-white" aria-label="Menu" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
+                </div>
+
+                <div id="nav-menu" hidden class="lg:hidden px-6 pb-6 space-y-3" style="border-top:1px solid rgba(212,165,116,0.2);">
+                    <a href="/gratis" class="block text-sm font-semibold pt-3" style="color:#D4A574;">Gratis</a>
+                    <a href="/aanbod" class="block text-sm font-semibold text-white">Aanbod</a>
+                    <a href="/resultaten" class="block text-sm font-semibold text-white">Resultaten</a>
+                    <a href="/kennisbank" class="block text-sm font-semibold text-white">Kennisbank</a>
+                    <a href="/over-ons" class="block text-sm font-semibold text-white">Over ons</a>
+                                            
+                        <a href="/waarom-de-performance-scan" class="brand-ghost-btn inline-block px-5 py-2 rounded-lg text-sm font-semibold">Performance Scan</a>
+                                    </div>
+            </header>
+        
+        <main>
+            <section class="brand-navy py-14 sm:py-16 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <p class="brand-eyebrow text-balance font-opensans font-bold uppercase text-xs sm:text-sm mb-4">Apex Online Coaching</p>
+            <h1 class="font-oswald font-bold text-white uppercase text-3xl sm:text-4xl mb-4">Algemene voorwaarden</h1>
+            <p style="color:#dbe3f0;">Algemene Voorwaarden voor levering Apex Online Coaching.</p>
+        </div>
+    </section>
+
+    
+    <section class="py-14 px-6 bg-white">
+        <div class="max-w-3xl mx-auto">
+            <nav class="rounded-xl px-6 py-5 mb-12" style="background:#F5F5F5;" aria-label="Inhoud">
+                <p class="font-bold uppercase text-xs mb-3" style="color:#c08f5c; letter-spacing:.14em;">Inhoud</p>
+                <ol class="grid sm:grid-cols-2 gap-x-6 gap-y-1.5 text-sm">
+                    <li><a href="#artikel-1" class="hover:underline" style="color:#1B3A6B;">1. Definities en identiteit Apex Online Coaching</a></li>
+                    <li><a href="#artikel-2" class="hover:underline" style="color:#1B3A6B;">2. Toepasselijkheid</a></li>
+                    <li><a href="#artikel-3" class="hover:underline" style="color:#1B3A6B;">3. Aanbiedingen</a></li>
+                    <li><a href="#artikel-4" class="hover:underline" style="color:#1B3A6B;">4. Totstandkoming Overeenkomst</a></li>
+                    <li><a href="#artikel-5" class="hover:underline" style="color:#1B3A6B;">5. Herroepingsrecht</a></li>
+                    <li><a href="#artikel-6" class="hover:underline" style="color:#1B3A6B;">6. Prijzen</a></li>
+                    <li><a href="#artikel-7" class="hover:underline" style="color:#1B3A6B;">7. Betaling en facturering</a></li>
+                    <li><a href="#artikel-8" class="hover:underline" style="color:#1B3A6B;">8. Uitvoering Opdracht</a></li>
+                    <li><a href="#artikel-9" class="hover:underline" style="color:#1B3A6B;">9. Annulering, wijziging en/of beëindiging</a></li>
+                    <li><a href="#artikel-10" class="hover:underline" style="color:#1B3A6B;">10. Klachten</a></li>
+                    <li><a href="#artikel-11" class="hover:underline" style="color:#1B3A6B;">11. Intellectueel eigendom</a></li>
+                    <li><a href="#artikel-12" class="hover:underline" style="color:#1B3A6B;">12. Geheimhouding en verwerking persoonsgegevens</a></li>
+                    <li><a href="#artikel-13" class="hover:underline" style="color:#1B3A6B;">13. Aansprakelijkheid en vrijwaring</a></li>
+                    <li><a href="#artikel-14" class="hover:underline" style="color:#1B3A6B;">14. Toepasselijk recht en bevoegde rechten</a></li>
+                </ol>
+            </nav>
+
+            <div class="space-y-12 leading-relaxed" style="color:#2A2A2A;">
+            <section id="artikel-1" class="scroll-mt-24">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl mb-4" style="color:#1B3A6B;"><span class="brand-gold-text">1.</span> Definities en identiteit Apex Online Coaching</h2>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">1.1</span> In deze Algemene Voorwaarden en de Overeenkomsten waarop zij van toepassing zijn verklaard, wordt verstaan onder:</p>
+                <ol class="list-[lower-alpha] pl-8 mb-4 space-y-1.5">
+                    <li><strong style="color:#1B3A6B;">Apex Online Coaching:</strong> de eenmanszaak Apex Online Coaching, ingeschreven in het handelsregister van de Kamer van Koophandel onder nummer 60937025</li>
+                    <li><strong style="color:#1B3A6B;">Aanbieding:</strong> iedere vrijblijvende (online) aanbieding en prijsopgave (inclusief bijlagen, documentatie en afbeeldingen etc.) van Apex Online Coaching aan Cliënt.</li>
+                    <li><strong style="color:#1B3A6B;">Algemene Voorwaarden:</strong> de onderhavige Algemene Voorwaarden van Apex Online Coaching.</li>
+                    <li><strong style="color:#1B3A6B;">Consument:</strong> de natuurlijke persoon die (nog) niet handelt voor doeleinden die verband houden met zijn handels-, bedrijfs-, ambachts- of beroepsactiviteit.</li>
+                    <li><strong style="color:#1B3A6B;">Cliënt:</strong> de natuurlijke of rechtspersoon die een Overeenkomst sluit met Apex Online Coaching dan wel de intentie heeft een Overeenkomst te sluiten met Apex Online Coaching (waaronder tevens begrepen de Consument).</li>
+                    <li><strong style="color:#1B3A6B;">Deelnemer:</strong> iedere partij die een Programma volgt en/of aanwezig is bij een (les)dag van het programma.</li>
+                    <li><strong style="color:#1B3A6B;">Diensten:</strong> alle door Apex Online Coaching ten behoeve van de Cliënt te verlenen diensten, waaronder begrepen doch niet beperkt tot training en coaching middels programma’s, waartoe al dan niet door de Cliënt Opdracht is gegeven.</li>
+                    <li><strong style="color:#1B3A6B;">Opdracht:</strong> de Opdracht tot het verlenen van Diensten en/of het leveren van Producten.</li>
+                    <li><strong style="color:#1B3A6B;">Overeenkomst:</strong> iedere Overeenkomst gesloten tussen Cliënt en Apex Online Coaching.</li>
+                    <li><strong style="color:#1B3A6B;">Overeenkomst Op Afstand:</strong> de overeenkomst die tussen Apex Online Coaching en de Cliënt wordt gesloten in het kader van een georganiseerd systeem voor verkoop op afstand, waarbij tot en met het sluiten van deze overeenkomst uitsluitend of mede gebruik gemaakt wordt van één of meer technieken voor communicatie op afstand, waaronder begrepen doch niet beperkt de overeenkomst die wordt gesloten via de webwinkel op onder andere de website www.apexonlinecoaching.nl</li>
+                    <li><strong style="color:#1B3A6B;">Partijen:</strong> Cliënt en Apex Online Coaching tezamen.</li>
+                    <li><strong style="color:#1B3A6B;">Producten:</strong> alle goederen en zaken die het onderwerp zijn van de Overeenkomst en (al dan niet online) worden geleverd door (tussenkomst van) Apex Online Coaching, waaronder mede begrepen doch niet beperkt tot E-books en ander lesmateriaal.</li>
+                    <li><strong style="color:#1B3A6B;">Programma:</strong> de door Apex Online Coaching georganiseerde opleidingen, lesprogramma’s, training, lesdagen, cursussen en events.</li>
+                    <li><strong style="color:#1B3A6B;">Schriftelijk:</strong> iedere communicatie per post, per e-mail, per fax of enige andere wijze van communicatie die met het oog op de stand der techniek en de in het maatschappelijk verkeer geldende opvattingen hiermee gelijk kan worden gesteld.</li>
+                </ol>
+                <div class="mb-4"><p><span class="font-bold mr-1" style="color:#c08f5c;">1.2</span> Aanvullende gegevens Apex Online Coaching:</p>
+                    <p class="mt-2 pl-4" style="border-left:3px solid #D4A574;">Vestigings- en bezoekadres (alleen na afspraak): Papaverstraat 26B, 1131 HK Volendam<br>Telefoonnummer: +31 6 83232341<br>Bereikbaarheid: maandag t/m vrijdag van 9.00 tot 17.00 uur<br>E-mailadres: jeroen@apexonlinecoaching.nl<br>KvK-nummer: 60937025<br>Btw-nummer: NL002298171B38</p></div>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">1.3</span> Definities die in enkelvoud worden aangeven omvatten tevens het meervoud zonder verlies van inhoudelijke betekenis.</p>
+            </section>
+            <section id="artikel-2" class="scroll-mt-24">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl mb-4" style="color:#1B3A6B;"><span class="brand-gold-text">2.</span> Toepasselijkheid</h2>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">2.1</span> Deze Algemene Voorwaarden zijn, met uitsluiting van voorwaarden van derden, van toepassing op iedere Aanbieding en Opdracht alsmede maakt tevens een integraal onderdeel uit van alle Overeenkomsten en de te leveren Producten en te verlenen Diensten door Apex Online Coaching aan Cliënt. Tenzij Partijen (later) anders overeenkomen, stemt de Cliënt met wie eenmaal een Overeenkomst is gesloten, in met de toepasselijkheid van deze Algemene Voorwaarden op latere Aanbiedingen, Opdrachten en Overeenkomsten.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">2.2</span> De toepasselijkheid van andere voorwaarden wordt uitdrukkelijk van de hand gewezen. Afwijkende voorwaarden gelden uitsluitend voor zover deze uitdrukkelijk schriftelijk door Apex Online Coaching zijn aanvaard en gelden alleen voor de desbetreffende Overeenkomst.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">2.3</span> Door het verstrekken van een Opdracht aanvaardt de Cliënt de toepasselijkheid en de inhoud van de Algemene Voorwaarden.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">2.4</span> Wijzigingen van en aanvullingen op enige bepaling in de Overeenkomst zijn slechts geldig indien deze Schriftelijk zijn vastgelegd en door beide Partijen zijn ondertekend.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">2.5</span> Indien zich tussen Partijen een situatie voordoet die niet in deze algemene voorwaarde geregeld is dan dient deze situatie te worden beoordeeld naar de geest van deze Algemene Voorwaarden.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">2.6</span> Indien onduidelijke bestaat omrent de uitleg van een of meerderen bepalingen van deze Algemene Voorwaarden, dan dient de uitleg plaats te vinden naar de geest van deze bepalingen.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">2.7</span> Apex Online Coaching behoudt zich, te allen tijde, het recht voor deze Algemene Voorwaarden te wijzigen of aan te vullen. De gewijzigde Algemene Voorwaarden zullen van toepassing zijn vanaf het moment dat Apex Online Coaching Cliënt van de wijziging in kennis heeft gesteld.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">2.8</span> Indien enige bepaling van deze Algemene Voorwaarden en/of de Overeenkomst door een bevoegde rechter nietig zal worden geacht, wordt vernietigd of anderszins niet bindend wordt verklaard, zullen de overige bepalingen van deze Algemene Voorwaarden en de Overeenkomst onverkort en aldus volledig van kracht blijven. Partijen zullen alsdan in overleg treden teneinde nieuwe bepalingen ter vervanging van nietige, vernietigde of anderszins niet bindende bepalingen overeen te komen, waarbij indien en voor zoveel mogelijk het doel en de strekking van de oorspronkelijke bepaling in acht zullen worden genomen.</p>
+            </section>
+            <section id="artikel-3" class="scroll-mt-24">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl mb-4" style="color:#1B3A6B;"><span class="brand-gold-text">3.</span> Aanbiedingen</h2>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">3.1</span> Alle Aanbiedingen zijn vrijblijvend, tenzij Apex Online Coaching dit uitdrukkelijk anders heeft vermeld. Indien een Aanbieding een beperkte geldigheidsduur heeft of onder voorwaarden geschiedt, wordt dit nadrukkelijk vermeld in de Aanbieding.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">3.2</span> Alle Aanbiedingen zijn gebaseerd op de door Cliënt bij de inschrijving aan Apex Online Coaching verstrekte gegevens. Cliënt staat in voor de volledigheid en juistheid van de door of namens hem aan Apex Online Coaching verstrekte gegevens waarop Apex Online Coaching haar Aanbieding baseert.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">3.3</span> Aanbiedingen van Apex Online Coaching zijn niet bindend totdat tussen Apex Online Coaching en Cliënt een Overeenkomst tot stand is gekomen.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">3.4</span> Apex Online Coaching kan niet worden gehouden aan een Aanbieding indien Cliënt redelijkerwijs kan begrijpen dat de Aanbieding, dan wel een onderdeel daarvan, een kennelijke vergissing of verschrijving bevat.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">3.5</span> Alhoewel Apex Online Coaching de nodige zorgvuldigheid zal betrachten bij het formuleren van haar Aanbiedingen, waaronder begrepen prijslijsten, brochures en andere gegevens die op enige (aanstaande) rechtsbetrekking tussen Apex Online Coaching en Cliënt kan (gaan) duiden, kan Cliënt hieraan nimmer enig gerechtvaardigd vertrouwen met betrekking tot de juistheid van hierin opgenomen gegevens ontlenen, tenzij uitdrukkelijk anders Schriftelijk is overeengekomen. Afbeeldingen, tekeningen, fotografieën, opgave van maten, specificaties, technische gegevens en verdere omschrijvingen door Apex Online Coaching in catalogi, circulaires of anderszins aangeboden Diensten en Producten zijn niet bindend en hebben slechts tot doel een algemene indruk te geven van de Diensten die Apex Online Coaching verleend, tenzij door Apex Online Coaching Schriftelijk uitdrukkelijk anders is vermeld. In geen geval is Apex Online Coaching tot enige (na)levering verplicht.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">3.6</span> Indien de Aanbieding een samengestelde prijsopgave bevat, is Apex Online Coaching niet verplicht tot het verrichten van een gedeelte van de Opdracht tegen een overeenkomstig deel van de opgegeven prijs. Een Aanbieding geldt niet automatisch voor toekomstige orders.</p>
+            </section>
+            <section id="artikel-4" class="scroll-mt-24">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl mb-4" style="color:#1B3A6B;"><span class="brand-gold-text">4.</span> Totstandkoming Overeenkomst</h2>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">4.1</span> Indien een Cliënt zich aanmeldt voor een Programma, zal Apex Online Coaching de potentiële Cliënt zo spoedig mogelijk per e-mailbericht aan het door de betreffende partij aangegeven e-mailadres, informeren of zijn of haar inschrijving/aanmelding door Apex Online Coaching is geaccepteerd. Cliënt is vervolgens verplicht zorg te dragen voor het juist en volledig verstrekken van door Apex Online Coaching gevraagde en/of voor de coaching/ het Programma benodigde essentiële informatie. De uiteindelijke inschrijving/aanmelding voor een Programma geschiedt door het inzenden van een door Apex Online Coaching verstrekt inschrijfformulier, welke Apex Online Coaching vervolgens Schriftelijk bevestigd.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">4.2</span> Indien een opmerking aan het intakeformulier van de Cliënt is toegevoegd en/of in de acceptatie voorbehouden of wijzigingen ten opzichte van de eerdere aanmelding zijn aangebracht, is Apex Online Coaching alsnog gerechtigd de Cliënt te berichten dat de inschrijving/aanmelding van de Cliënt niet is geaccepteerd.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">4.3</span> Indien een Cliënt zich aanmeldt voor een Programma via de website van Apex Online Coaching komt de overeenkomst tot stand op het moment van aanvaarding door de Cliënt van de Aanbieding en het voldoen aan de daarbij gestelde voorwaarden.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">4.4</span> De Overeenkomst komt tot stand en is slechts bindend indien Apex Online Coaching deze Schriftelijk heeft bevestigd dan wel indien Apex Online Coaching uitvoering aan de Overeenkomst geeft. Apex Online Coaching brengt Cliënt hiervan Schriftelijk, na inlevering van het inschrijfformulier als bedoeld in het vorige lid van dit artikel, op de hoogte.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">4.5</span> Mondelinge toezeggingen door en afspraken met ondergeschikten en/of samenwerkingspartners van Apex Online Coaching binden Apex Online Coaching pas nadat de toezeggingen/ afspraken door Apex Online Coaching Schriftelijk zijn bevestigd.</p>
+            </section>
+            <section id="artikel-5" class="scroll-mt-24">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl mb-4" style="color:#1B3A6B;"><span class="brand-gold-text">5.</span> Herroepingsrecht</h2>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">5.1</span> De Consument kan de Overeenkomst Op Afstand met betrekking tot de aankoop van Producten, Diensten en/of een Programma gedurende een bedenktijd van 14 dagen zonder opgave van redenen ontbinden.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">5.2</span> De in het vorige lid van dit artikel genoemde bedenktijd ten aanzien van Diensten en/of een Programma gaat in op de dag die volgt op het sluiten van de Overeenkomst Op Afstand.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">5.3</span> De in het eerste lid van dit artikel genoemde bedenktijd ten aanzien van Producten (slechts indien niet in combinatie met Diensten zijn afgenomen) gaat in:</p>
+                <ol class="list-[lower-alpha] pl-8 mb-4 space-y-1.5">
+                    <li>op de dag nadat de Consument, of een vooraf door de Consument aangewezen derde, die niet de vervoerder is, het Product heeft ontvangen; of:</li>
+                    <li>als de Consument in eenzelfde bestelling meerdere Producten heeft besteld: de dag waarop de Consument, of een door hem aangewezen derde, het laatste Product heeft ontvangen. Indien de tijd tussen de leveringen van verschillende Producten meer dan 14 dagen bedraagt, mag Apex Online Coaching de bestelling van meerdere Producten met een verschillende levertijd weigeren. Apex Online Coaching zal in dat kader onverwijld contact opnemen met de Consument.</li>
+                </ol>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">5.4</span> Als de Consument gebruik maakt van zijn herroepingsrecht, meldt hij dit binnen de bedenktermijn op ondubbelzinnige wijze aan Apex Online Coaching. Zo snel mogelijk, maar binnen 14 dagen vanaf de dag volgend op de in de vorige zin bedoelde melding, zendt de Consument de ontvangen fysieke producten (waaronder begrepen een eventueel werkboek) terug in originele staat, verpakking, met alle eventueel geleverde toebehoren en conform de door Apex Online Coaching verstrekte instructies, of overhandigt de Consument de ontvangen fysieke producten (waaronder begrepen een eventueel werkboek) aan Apex Online Coaching op het in de Algemene Voorwaarden opgenomen bezoekadres. De rechtstreekse kosten van het terugzenden van de ontvangen fysieke producten (waaronder begrepen een eventueel werkboek) komen voor rekening van de Consument.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">5.5</span> Als de Consument gebruik maakt van zijn herroepingsrecht, worden alle aanvullende overeenkomsten van rechtswege ontbonden.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">5.6</span> Apex Online Coaching heeft het navolgende uitgesloten van het herroepingsrecht:</p>
+                <ul class="list-disc pl-8 mb-4 space-y-1.5">
+                    <li>Diensten waarbij Apex Online Coaching reeds is begonnen met de uitvoering hiervan;</li>
+                    <li>De levering van digitale inhoud anders dan op een materiële drager.</li>
+                </ul>
+            </section>
+            <section id="artikel-6" class="scroll-mt-24">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl mb-4" style="color:#1B3A6B;"><span class="brand-gold-text">6.</span> Prijzen</h2>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">6.1</span> De door Apex Online Coaching opgegeven prijzen zijn in Euro’s en exclusief BTW en exclusief alle overige heffingen, rechten of lasten verschuldigd in verband met de uitvoering van de Overeenkomst.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">6.2</span> Apex Online Coaching is gerechtigd de overeengekomen prijs te verhogen indien Apex Online Coaching genoodzaakt is extra werkzaamheden te verrichten, dan wel genoodzaakt is extra kosten te maken zoals in geval van:</p>
+                <ul class="list-disc pl-8 mb-4 space-y-1.5">
+                    <li>relevante wijzigingen van (overheids)voorschriften of -beschikkingen;</li>
+                    <li>relevante wijzigingen in de Overeenkomst;</li>
+                    <li>extra werkzaamheden die tijdens de vervulling van de Opdracht noodzakelijk blijken;</li>
+                    <li>extra werkzaamheden door feiten en/of onbekendheden bij de totstandkoming van de Overeenkomst.</li>
+                </ul>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">6.3</span> Een door Cliënt aan Apex Online Coaching kenbaar gemaakt beschikbaar budget geldt nimmer als een tussen Partijen overeengekomen (vaste) prijs voor de door Apex Online Coaching te verrichten prestaties. Uitsluitend indien zulks tussen Partijen Schriftelijk is overeengekomen is Apex Online Coaching gehouden Cliënt te informeren bij dreigende overschrijding van een door Apex Online Coaching afgegeven voorcalculatie of begroting.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">6.4</span> Kortingen worden geacht eenmalig te zijn verleend en binden Apex Online Coaching niet ten aanzien van latere overeenkomsten.</p>
+            </section>
+            <section id="artikel-7" class="scroll-mt-24">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl mb-4" style="color:#1B3A6B;"><span class="brand-gold-text">7.</span> Betaling en facturering</h2>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">7.1</span> Cliënt dient verschuldigde bedragen inclusief BTW uiterlijk op de overeengekomen betaaldata respectievelijk binnen de overeengekomen betalingstermijnen te hebben voldaan. Cliënt is niet gerechtigd haar betalingsverplichting op te schorten, ook niet in geval van klachten.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">7.2</span> Indien voor de levering van Diensten/Producten vooruit moet worden betaald, kan Cliënt geen recht doen gelden op levering hiervan alvorens volledige betaling van het verschuldigde aan Apex Online Coaching heeft plaatsgevonden.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">7.3</span> Apex Online Coaching zendt Cliënt, na betaling, facturen voor door haar geleverde of (in geval van vooruitbetaling) nog te leveren Diensten en Producten.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">7.4</span> Apex Online Coaching is gerechtigd facturen elektronisch te zenden op het door Cliënt aangegeven e-mailadres.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">7.5</span> Indient geen betalingstermijn is overeengekomen, dienen betaling vooraf te geschieden, uiterlijk 2 weken na bevestiging van deelname door Apex Online Coaching, maar altijd voorafgaand aan de uitvoering van de Dienst. Bij betaling in termijnen dient voorafgaand aan uitvoering van de Dienst een aanbetalingsbedrag te zijn betaald, conform daarover gemaakte afspraken met Apex Online Coaching . De betalingstermijnen zijn te beschouwen als fatale termijnen.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">7.6</span> Indien er goede grond bestaat dat Cliënt zijn verplichtingen niet of niet-tijdig nakomt of zal nakomen, is Cliënt verplicht op eerste verzoek van Apex Online Coaching terstond genoegzame en in de door Cliënt gewenste vorm zekerheid te stellen en deze zo nodig aan te vullen voor de nakoming van al zijn verplichtingen. Zolang Cliënt daaraan niet heeft voldaan, is Apex Online Coaching gerechtigd de nakoming van haar verplichtingen op te schorten dan wel de Overeenkomst zonder verplichting van haar zijde te beëindigen.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">7.7</span> Alle betalingen dienen plaats te vinden op de door Apex Online Coaching aan te wijzen bankrekening tenzij anders schriftelijk overeengekomen. Betaling door de Cliënt aan Apex Online Coaching dient plaats te vinden zonder enige aftrek, korting, compensatie, inhouding of (schuld)verrekening.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">7.8</span> Een tussen Cliënt en Apex Online Coaching overeengekomen betalingsregeling/ prijsafspraak waarbij de Cliënt de prijs in termijnen/delen mag betalen, laat onverlet de op de Cliënt rustende verplichting dat Cliënt gehouden is tot betaling van het gehele bedrag. De Cliënt is niet gerechtigd halverwege de betalingsregeling/prijsafspraak zijn betalingen te staken en/of zijn betalingsverplichting op te schorten.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">7.9</span> Indien de Consument niet binnen de overeenkomstig de in dit artikel gestelde termijn betaalt, is hij/zij, nadat hij/zij door Apex Online Coaching is gewezen op de te late betaling en Apex Online Coaching de Consument een termijn van veertien (14) dagen heeft gegund om alsnog aan zijn betalingsverplichtingen te voldoen, na het uitblijven van betaling binnen deze 14-dagen-termijn, over het nog verschuldigde bedrag tot op de datum van algehele voldoening wettelijke rente verschuldigd. Voorts is Apex Online Coaching gerechtigd de door haar gemaakte buitengerechtelijke incassokosten in rekening te brengen bij de Consument. Deze incassokosten bedragen maximaal: 15% over openstaande bedragen tot € 2.500,= 10% over de daaropvolgende € 2.500,= en 5% over de volgende € 5.000,= met een minimum van € 40,= (zegge: veertig Euro). Apex Online Coaching kan ten voordele van de Consument afwijken van genoemde bedragen en percentages.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">7.10</span> Indien de Cliënt niet zijnde een Consument niet binnen de in het eerste lid van dit artikel gestelde termijn betaalt, dan wel niet binnen de nader overeengekomen termijn heeft betaald, is hij van rechtswege in verzuim en heeft Apex Online Coaching , zonder nadere sommatie dan wel ingebrekestelling, het recht vanaf de vervaldag Cliënt niet zijnde een Consument wettelijke (handels)rente over het openstaande bedrag in rekening te brengen tot op de datum van algehele voldoening, onverminderd de overige aan Apex Online Coaching toekomende rechten. Alle in redelijkheid door Apex Online Coaching gemaakte gerechtelijke- en buitengerechtelijke- (incasso-) kosten, als gevolg van de niet-nakoming door Cliënt (niet zijnde een Consument) van diens betalingsverplichtingen, komen ten laste van de Cliënt (niet zijnde een Consument). De buitengerechtelijke kosten worden bepaald op 15% (vijftien procent) van het te vorderen bedrag, zulks met een minimum van € 500,00 (zegge: vijf honderd Euro). Voor zover Apex Online Coaching aantoont dat de gemaakte buitengerechtelijke kosten hoger zijn dan 15% (vijftien procent) van het te vorderen bedrag, komen de gemaakte buitengerechtelijke kosten volledig ten laste van de Cliënt niet zijnde een Consument.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">7.11</span> De door Cliënt gedane betalingen strekken steeds ter afdoening van alle verschuldigde wettelijke rente en kosten en vervolgens van opeisbare facturen die het langst openstaan, zelfs al vermeldt Cliënt dat voldoening betrekking heeft op een latere factuur.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">7.12</span> Indien Apex Online Coaching een vordering heeft op Cliënt, is Apex Online Coaching gerechtigd alle werkzaamheden en verdere prestaties ten behoeve van Cliënt en/of eventuele overige werkzaamheden voor Cliënt op te schorten totdat volledige betaling van Cliënt wordt ontvangen. Tevens behoudt Apex Online Coaching zich het recht om Cliënt voor vervolgopdrachten uit te sluiten.</p>
+            </section>
+            <section id="artikel-8" class="scroll-mt-24">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl mb-4" style="color:#1B3A6B;"><span class="brand-gold-text">8.</span> Uitvoering Opdracht</h2>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">8.1</span> Bij de uitvoering van de Overeenkomst is Apex Online Coaching gehouden tot het betrachten van de zorg die onder de gegeven omstandigheden redelijkerwijs van haar kan worden verwacht. Apex Online Coaching zal zich inspannen de Overeenkomst naar beste inzicht en vermogen en overeenkomstig de eisen van goed vakmanschap uit te voeren. Apex Online Coaching zal de grootst mogelijke zorgvuldigheid in acht nemen bij het in ontvangst nemen, de beoordeling van aanvragen tot verlening van Diensten en bij de uitvoering van het verlenen van Diensten.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">8.2</span> Alle door Apex Online Coaching uit hoofde van de Overeenkomst te verlenen Diensten worden uitgevoerd op basis van een inspanningsverbintenis, tenzij en voor zover in de Schriftelijke overeenkomst Apex Online Coaching uitdrukkelijk een resultaat heeft toegezegd en het betreffende resultaat bovendien met voldoende bepaaldheid is omschreven.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">8.3</span> Om een behoorlijke uitvoering van de overeenkomst door Apex Online Coaching mogelijk te maken zal Cliënt Apex Online Coaching steeds tijdig alle door Apex Online Coaching nuttig, nodig en wenselijk geachte gegevens en inlichtingen verschaffen en alle medewerking verlenen. Cliënt draagt in dat kader er zorg voor dat alle gegevens, waarvan Apex Online Coaching aangeeft dat deze noodzakelijk zijn of waarvan de Cliënt redelijkerwijs behoort te begrijpen dat deze noodzakelijk zijn voor het uitvoeren van de Opdracht, tijdig aan Apex Online Coaching worden verstrekt. Indien de voor de uitvoering van de Opdracht benodigde gegevens niet tijdig of onvolledig zijn verstrekt aan Apex Online Coaching, heeft Apex Online Coaching het recht de uitvoering van de Overeenkomst op te schorten en / of de uit de vertraging voortvloeiende extra kosten volgens de alsdan gebruikelijke tarieven aan Cliënt in rekening te brengen. Apex Online Coaching is niet aansprakelijk voor schade, van welke aard ook, doordat Apex Online Coaching is uitgegaan van door de Cliënt verstrekte onjuiste en / of onvolledige gegevens. Cliënt staat steeds in voor de juistheid, volledigheid en consistentie van de aan Apex Online Coaching verstrekte gegevens, specificaties en ontwerpen, ook indien die gegevens, specificaties en ontwerpen van een derde afkomstig zijn. Onjuistheden, onvolledigheden en inconsistenties zijn steeds voor rekening en risico van Cliënt.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">8.4</span> Apex Online Coaching is gerechtigd om derden in te schakelen voor de uitvoering van de Overeenkomst. Bij de uitvoering van de Opdracht is Apex Online Coaching gerechtigd één of meer personen (mede) te betrekken die niet direct of indirect aan Apex Online Coaching zijn verbonden, indien zulks naar oordeel van Apex Online Coaching wenselijk is met het oog op een voor partijen optimale uitvoering van de Opdracht.8.5 8.6</p>
+                <p class="mb-3">Indien Apex Online Coaching niet kan nakomen, vanwege omstandigheden welke bij haar niet bekend waren voorafgaand aan bevestiging van de Overeenkomst, heeft zij het recht de Overeenkomst zodanig te wijzigen dat uitvoering daarvan mogelijk wordt. Apex Online Coaching heeft het recht de nakoming van haar verplichtingen op te schorten indien zij ten gevolge van veranderingen in de omstandigheden die ten tijde van het sluiten van de Overeenkomst redelijkerwijs niet te verwachten waren en buiten haar invloedsfeer lagen. De onderdelen van een Programma dienen te worden doorlopen binnen de periode als aangegeven in het informatiemateriaal over het Programma. Apex Online Coaching is gerechtigd om de inhoud van Diensten tussentijds te wijzigen om reden van kwalitatieve verbetering.</p>
+                <p class="mb-3">Apex Online Coaching is gerechtigd om de groepsgrootte te bepalen ten aanzien van aangeboden Diensten. Apex Online Coaching is gerechtigd de planning van onderdelen van een Programma ten aanzien van plaats of tijd tussentijds te wijzigen.</p>
+                <p class="mb-3">Apex Online Coaching zal de grootst mogelijke zorgvuldigheid in acht nemen bij het in ontvangst nemen en bij de uitvoering en levering van Producten. Als plaats van levering geldt het adres dat de Cliënt aan Apex Online Coaching kenbaar heeft gemaakt. Apex Online Coaching zal het door Cliënt opgegeven adres als juist blijven beschouwen, totdat de Cliënt aan Apex Online Coaching Schriftelijk een nieuw adres heeft meegedeeld. Apex Online Coaching bepaalt de wijze van (af)levering.</p>
+                <p class="mb-3">Apex Online Coaching is bevoegd de Producten in delen/ termijnen te leveren.</p>
+                <p class="mb-3">Het risico van verlies, diefstal, vermissing, beschadiging of waardevermindering met betrekking tot de te leveren Producten zal op de Cliënt overgaan op het moment van levering aan de Cliënt of een vooraf aangewezen en aan Apex Online Coaching bekendgemaakte vertegenwoordiger. Indien Apex Online Coaching dient te leveren bij de Cliënt, draagt de Cliënt, tenzij Schriftelijk anders overeengekomen, er zorg voor dat er te allen tijde één persoon namens de Cliënt beschikbaar is ten behoeve van de levering.</p>
+                <p class="mb-3">Apex Online Coaching zal Cliënt informeren over de daadwerkelijke leveringsdatum van de Producten. Indien Apex Online Coaching de Producten in termijnen levert, informeert Apex Online Coaching Cliënt over de leveringsdatum van elk van de termijnen. Apex Online Coaching zal zich inspannen de opgegeven leverdatum na te komen. Door Apex Online Coaching opgegeven leverdata zijn echter nimmer te beschouwen als fatale termijnen, tenzij Schriftelijk uitdrukkelijk anders is overeengekomen. Bij overschrijding van één of meerdere leverdata heeft Cliënt geen aanspraak en/of recht op enige schadevergoeding ter zake. Bij overschrijding van één of meerdere leverdata heeft Cliënt geen recht om over te gaan tot (gedeeltelijke) ontbinding van de Overeenkomst, tenzij de overschrijding zodanig is dat van Cliënt redelijkerwijs niet kan worden verlangd dat hij/zij (het betreffende gedeelte van) de Overeenkomst in stand laat.</p>
+                <p class="mb-3">Van het door derden en/of Apex Online Coaching verstrekte lesmateriaal bij de Programma’s blijven alle rechten aan haar (dan wel de door toeleverancier van Apex Online Coaching) voorbehouden. Niets uit de uitgave(n) mag worden verveelvoudigd, opgeslagen in een automatisch gegevensbestand of openbaar gemaakt in enigerlei vorm of op enigerlei wijze hetzij elektronisch, mechanisch door fotokopieën, opnamen of op een andere manier zonder voorafgaande Schriftelijke toestemming van Apex Online Coaching. Het is niet toegestaan het lesmateriaal aan derden ter beschikking te stellen 9. Annulering, wijziging en/of beëindiging</p>
+            </section>
+            <section id="artikel-9" class="scroll-mt-24">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl mb-4" style="color:#1B3A6B;"><span class="brand-gold-text">9.</span> Annulering, wijziging en/of beëindiging</h2>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">9.1</span> Apex Online Coaching heeft te allen tijde het recht om bij onvoldoende aanmeldingen voor een Programma of om andere haar moverende redeneren een Programma voor aanvang geheel af te gelasten. Cliënten en/of Deelnemers ontvangen hiervan zo spoedig mogelijk bericht, zonder dat de Apex Online Coaching gehouden is tot opgave van reden, waarna hun betalingsverplichtingen vervallen en/of reeds voldane betalingen worden gerestitueerd. Een dergelijke annulering leidt niet tot schadeplichtigheid van Apex Online Coaching.</p>
+                <p class="mb-3">Apex Online Coaching heeft te allen tijde het recht de plaats en/of tijden van de Programma’s te wijzigen. Apex Online Coaching heeft te allen tijde het recht tussentijds het programma van het Programma te wijzigen. Apex Online Coaching zal de Cliënt en/of Deelnemer hieromtrent Schriftelijk berichten.</p>
+                <p class="mb-3">Indien de Cliënt niet heeft voldaan aan de op hem/ haar rustende betalingsverplichting, is Apex Online Coaching gerechtigd om de Deelnemer de toegang tot (de lesdag van) het Programma te weigeren.</p>
+                <p class="mb-3">Slecht in het geval van een eenmalig evenement (zoals een Performance Sessie) heeft de Cliënt in geval van verhindering het recht een vervanger van de Deelnemer te sturen. Een eventueel vervangende Deelnemer is gebonden aan de in de Overeenkomst (inclusief deze algemene leveringsvoorwaarden) opgenomen bepalingen. Cliënt staat ervoor in dat zij en een door haar aangewezen vervangende Deelnemer zich houden aan de in de Overeenkomst (inclusief deze algemene leveringsvoorwaarden) opgenomen bepalingen. Vorenstaande geldt niet indien de Cliënt een Programma heeft gekocht.</p>
+                <p class="mb-3">Tussentijds onderbreken of opschorten van het Programma is niet mogelijk tenzij dringende (medische) redenen voor de afwezigheid van de Deelnemer hieraan ten grondslag liggen. Verzoeken daartoe dienen voor aanvang van het opschorten van het Programma Schriftelijk ter beoordeling aan Apex Online Coaching te worden voorgelegd. In alle andere gevallen is Cliënt het volledige voor het Programma verschuldigde geldbedrag aan Apex Online Coaching verschuldigd.</p>
+                <p class="mb-3">Apex Online Coaching is gerechtigd om (tussentijds) de deelname van een Cliënt/ Deelnemer te weigeren om haar moverende redenen. De betreffende Cliënt/ Deelnemer ontvangt hiervan bericht, zonder dat Apex Online Coaching gehouden is tot opgave van redenen, waarna hun betalingsverplichting vervallen en reeds voldane betalingen (na rato van nog niet ontvangen prestaties) worden gerestitueerd.</p>
+                <p class="mb-3">Cliënt is in beginsel niet gerechtigd een Overeenkomst te annuleren. Bij annulering tot 12 weken voor de overeengekomen datum van uitvoering van de Opdracht is de Cliënt 100% (zegge: “honderd procent”) van de overeengekomen totaalprijs aan Apex Online Coaching verschuldigd. Bij annulering tot 16 weken voor de overeengekomen datum van uitvoering van de Opdracht is de Cliënt 50% (zegge: “vijftig procent”) van de overeengekomen totaalprijs aan Apex Online Coaching verschuldigd. Bij annulering tot 32 weken voor de overeengekomen datum van uitvoering van de Opdracht is de Cliënt 0% (zegge: “nul procent”) van de overeengekomen totaalprijs aan Apex Online Coaching verschuldigd. Annulering van Overeenkomst dient te allen tijde Schriftelijk te geschieden.</p>
+                <p class="mb-3">Bij annulering als bedoeld in het vorige lid van dit artikel dient de Cliënt:</p>
+                <ol class="list-[lower-alpha] pl-8 mb-4 space-y-1.5">
+                    <li>Eventuele annuleringskosten in één keer te voldoen.</li>
+                    <li>Eventueel door de Cliënt (/Deelnemer) ontvangen opleidingsmateriaal in zijn geheel per omgaand te retourneren. De Cliënt is te allen tijde, aldus ongeacht de reden van annulering door Cliënt, aan Apex Online Coaching een redelijke vergoeding verschuldigd voor het door Apex Online Coaching door de annulering geleden verlies of gederfde winst.</li>
+                </ol>
+                <p class="mb-3">Apex Online Coaching kan, naast de overige uit de Overeenkomst (waaronder begrepen de Algemene Voorwaarden) en de wet toekomende rechten, de Overeenkomst in zijn geheel of voor het nog niet uitgevoerde deel te allen tijde zonder nadere ingebrekestelling en rechterlijke tussenkomst en schadeplichtigheid aan de zijde van Apex Online Coaching jegens Cliënt met onmiddellijke ingang ontbinden indien:</p>
+                <ol class="list-[lower-alpha] pl-8 mb-4 space-y-1.5">
+                    <li>Cliënt één of meer van zijn verplichtingen uit de Overeenkomst of andere overeenkomsten jegens Apex Online Coaching niet nakomt;</li>
+                    <li>Cliënt in staat van faillissement wordt verklaard;</li>
+                    <li>Cliënt surseance van betaling aanvraagt of een betalingsregeling aan zijn crediteuren aanbiedt;</li>
+                    <li>ten aanzien van Cliënt, zijnde een natuurlijk persoon, een schuldsanering krachtens WSNP wordt uitgesproken;</li>
+                    <li>Cliënt tot liquidatie van zijn zaken overgaat;</li>
+                    <li>Er beslag wordt gelegd op het vermogen van Cliënt ter zake substantiële schulden of indien Cliënt niet in staat is te voldoen aan zijn opeisbare schulden of zijn opeisbare schulden onbetaald laat.</li>
+                </ol>
+                <p class="mb-3">Voorafgaand aan de beëindiging van de Overeenkomst (op welke wijze dan ook) gefactureerde bedragen betrekking hebbend op reeds ter uitvoering van de Overeenkomst geleverde Diensten/Producten worden op het moment van ontbinding direct opeisbaar.</p>
+            </section>
+            <section id="artikel-10" class="scroll-mt-24">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl mb-4" style="color:#1B3A6B;"><span class="brand-gold-text">10.</span> Klachten</h2>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">10.1</span> Cliënt is verplicht de geleverde Producten onmiddellijk na aflevering, in de mate waarin dit in redelijkheid van hem kan worden verlangd, te (doen) inspecteren.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">10.2</span> Klachten over de door Apex Online Coaching verleende Diensten, omtrent (ontbrekende of niet bestelde) Producten die bij een inspectie worden geconstateerd, dan wel redelijkerwijze hadden kunnen worden geconstateerd, en/of naar aanleiding van de hoogte of de wijze van totstandkoming van de facturen van Apex Online Coaching, dienen door de Cliënt onmiddellijk, doch binnen 8 dagen na ontvangst van de factuur dan wel ontvangst van de Diensten respectievelijk Producten, schriftelijk ter kennis van Apex Online Coaching te worden gebracht, onder nauwkeurige opgave van de aard en de grond van de klachten.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">10.3</span> Klachten omtrent gebreken aan Producten die niet kunnen worden geconstateerd bij een inspectie, dienen door de Cliënt direct na constatering, in ieder geval binnen 8 dagen nadat Cliënt deze gebreken redelijkerwijs had kunnen constateren, onder nauwkeurige opgave van de aard en de grond van de klachten.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">10.4</span> Indien Cliënt nalaat klachten bij Apex Online Coaching in te dienen binnen de in artikel 10.2 en 10.3 gestelde termijnen, wordt Cliënt geacht de Producten/ Diensten te hebben goedgekeurd en kan Cliënt zich nimmer beroepen op het feit dat de Producten en/of Diensten niet beantwoorden aan de overeenkomst.</p>
+            </section>
+            <section id="artikel-11" class="scroll-mt-24">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl mb-4" style="color:#1B3A6B;"><span class="brand-gold-text">11.</span> Intellectueel eigendom</h2>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">11.1</span> Alle rechten van intellectueel eigendom op alle krachtens de Overeenkomst door Apex Online coaching vervaardigde en/of ter beschikking gestelde goederen en materialen, waaronder (doch niet beperkt tot) De door Apex Online Coaching ontwikkelde en/of ter beschikking gestelde trainingen, Programma’s, documenten, brochures, hand-outs, voordrachten, oefeningen, werkwijzen, Producten, Aanbiedingen, e-mailberichten, modellen, technieken, berusten uitsluitend bij Apex Online Coaching of haar toeleverancier. Tenzij anders overeengekomen, blijven de rechten hiervoor bij Apex Online Coaching.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">11.2</span> Het is Cliënt, zonder uitdrukkelijke Schriftelijke toestemming van Apex Online Coaching, verboden om de door Apex Online Coaching verstrekte informatie en/of materiaal zoals beschreven in het vorige lid van dit artikel, geheel of gedeeltelijk te bewerken, aan derden te verschaffen (door middel van druk, scan, fotokopie, film of op welke wijze dan ook), te verveelvoudigen, openbaar te maken en/of door te verkopen. Cliënt is slechts gerechtigd deze informatieve stukken voor eigen gebruik te hanteren.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">11.3</span> Alle door Apex Online Coaching in het kader van de Overeenkomst geleverde Diensten en digitale bestanden blijven eigendom van Apex Online Coaching totdat Cliënt alle verplichtingen uit de met Apex Online Coaching gesloten Overeenkomst(en) deugdelijk is nagekomen.11.4 Apex Online Coaching is bevoegd aan het geven van haar toestemming nader door haar te bepalen voorwaarden te verbinden, waaronder doch niet gelimiteerd tot het betalen van een vergoeding aan Apex Online Coaching . Cliënt vrijwaart Apex Online Coaching voor alle gevolgen van een eventuele inbreuk of enig recht van derden indien Cliënt inbreuk maakt op de rechten als bedoeld in dit artikel.</p>
+            </section>
+            <section id="artikel-12" class="scroll-mt-24">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl mb-4" style="color:#1B3A6B;"><span class="brand-gold-text">12.</span> Geheimhouding en verwerking persoonsgegevens</h2>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">12.1</span> Apex Online Coaching gaat vertrouwelijk om met zowel persoonlijke gegevens als bedrijfsinformatie als verkregen informatie ten behoeve van uitvoering van de Overeenkomst van Cliënt.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">12.2</span> Partijen zullen informatie die de andere Partij voor, tijdens of na de uitvoering van de Opdracht(en) verstrekt, vertrouwelijk behandelen wanneer deze informatie is aangeduid als vertrouwelijk of wanneer de ontvanger weet of redelijkerwijs moet vermoeden dat de informatie als vertrouwelijk bedoeld was.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">12.3</span> Cliënt is gehouden tot geheimhouding alle (vertrouwelijke) informatie, die zij in het kader van uitvoering van een Overeenkomst ter zake van training/coaching van Apex Online Coaching en/of andere Cliënten heeft verkregen.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">12.4</span> Gegevens van de Overeenkomst zullen door Apex Online Coaching zonder toestemming van Cliënt niet ter kennis van derden worden gebracht. Apex Online Coaching zal bij de uitvoering van de Opdracht(en) de gepaste maatregelen treffen ter bewaring van de vertrouwelijkheid van de relatie met de Cliënt.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">12.5</span> Indien Apex Online Coaching bij de uitvoering van de Opdracht(en) kennis moet nemen van persoonsgegevens, is de Cliënt er bij de verstrekking van deze gegevens aan Apex Online Coaching zelf voor verantwoordelijk om persoonsgegevens of andere vertrouwelijke gegevens die Apex Online Coaching niet nodig zal hebben, zoveel mogelijk weg te laten of onleesbaar te maken en de vertrouwelijke gegevens op een veilige wijze aan Apex Online Coaching over te dragen. Dit geldt onverminderd de verplichting voor Apex Online Coaching om aan haar verstrekte vertrouwelijke gegevens vertrouwelijk te behandelen en op passende wijze te beveiligen.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">12.6</span> Iedere verplichting tot vertrouwelijkheid vervalt op het moment dat de informatie beschikbaar is bij openbare bronnen. Voorts is een Partij gerechtigd vertrouwelijke informatie beschikbaar te stellen aan overheidsinstanties indien dit krachtens wettelijke regeling of bevoegd bevel verplicht wordt. De Partij zal in dat geval de andere Partij daarover zo snel mogelijk informeren. De verplichtingen uit dit artikel blijven ook bestaan na beëindiging van de Opdracht om welke reden dan ook, en wel voor zolang als de verstrekkende Partij redelijkerwijs aanspraak kan maken op het vertrouwelijke karakter van de informatie.</p>
+            </section>
+            <section id="artikel-13" class="scroll-mt-24">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl mb-4" style="color:#1B3A6B;"><span class="brand-gold-text">13.</span> Aansprakelijkheid en vrijwaring</h2>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">13.1</span> Iedere aansprakelijkheid van Apex Online Coaching, van Apex Online Coaching werkzame werknemers en/of door Apex Online Coaching ingeschakelde hulppersonen/ derden, is beperkt tot het bedrag dat op grond van de aansprakelijkheidsverzekering van Apex Online Coaching wordt uitbetaald onder aftrekking van het eigen risico van dergelijke verzekering.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">13.2</span> Indien om welke reden dan ook, geen uitkering plaatsvindt uit hoofde van voornoemde beroepsaansprakelijkheidsverzekering, is de aansprakelijkheid van Apex Online Coaching beperkt tot het door Apex Online Coaching in verband met de betreffende opdracht in rekening gebrachte honorarium, met een maximum van € 5.000,= (zegge: “vijf duizend Euro”.</p>
+                <p class="mb-3"><span class="font-bold mr-1" style="color:#c08f5c;">13.3</span> De aansprakelijkheid van Apex Online Coaching voor door Cliënt geleden of te lijden indirecte schade is uitgesloten. Onder indirecte schade wordt verstaan alle schade die geen directe schade is en daarmee in ieder geval, maar niet beperkt tot, gevolgschade, gederfde winst, gemiste 14. besparingen, verminderde goodwill, schade door bedrijfsstagnatie, schade door het niet bepalen van marketingdoeleinden, schade verband houdende met het gebruik, verlies, verminking of vernietiging van gegevens, verlies van orders en/of PR-schade.</p>
+                <p class="mb-3">De uitsluiting en beperking van aansprakelijkheid, zoals bedoeld in de voorgaande leden, geldt niet indien en voor zover de schade het gevolg is van opzet of bewuste roekeloosheid van Apex Online Coaching, van Apex Online Coaching werkzame werknemers en/of door Apex Online Coaching ingeschakelde hulppersonen / derden.</p>
+                <p class="mb-3">Het bepaalde in dit artikel geldt slechts voor zover de aansprakelijkheid van Apex Online Coaching ingevolge de wet of Overeenkomst, waaronder begrepen het bepaalde in de onderhavige Algemene Voorwaarden, niet reeds verder is beperkt dan uit de enkele toepassing van dit artikel zou volgen. Onverminderd het bepaalde in artikel 6:89 BW vervalt het recht op schadevergoeding in ieder geval één (1) jaar na de gebeurtenis waaruit de schade direct of indirect voortvloeit en waarvoor Apex Online Coaching aansprakelijk is.</p>
+            </section>
+            <section id="artikel-14" class="scroll-mt-24">
+                <h2 class="font-oswald font-bold uppercase text-xl sm:text-2xl mb-4" style="color:#1B3A6B;"><span class="brand-gold-text">14.</span> Toepasselijk recht en bevoegde rechten</h2>
+                <p class="mb-3">Op alle rechtsbetrekkingen waarbij Apex Online Coaching partij is, is uitsluitend Nederlands recht van toepassing. De rechter in de vestigingsplaats van Apex Online Coaching is bij uitsluiting bevoegd van geschillen kennis te nemen, tenzij de wet dwingend anders voorschrijft. Partijen zullen pas een beroep op de rechter doen nadat zij zich tot het uiterste hebben ingespannen een geschil in onderling overleg te beslechten.</p>
+            </section>
+            </div>
+        </div>
+    </section>
+        </main>
+
+        <div id="exit-intent-overlay" hidden class="fixed inset-0 z-[60] px-4" style="background:rgba(13,28,56,0.8);">
+  <div id="exit-intent-backdrop" class="flex items-center justify-center h-full">
+    <div class="relative bg-white rounded-2xl max-w-md w-full p-8 text-center" style="box-shadow: 0 30px 60px -30px rgba(0,0,0,0.55);">
+        <button type="button" id="exit-intent-close" aria-label="Sluiten"
+                class="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition" style="color:#1B3A6B;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+
+        <div id="exit-intent-form-state">
+            <p class="font-opensans font-bold uppercase tracking-wide text-2xl mb-3" style="color:#c08f5c;">Voor je gaat</p>
+            <h2 class="font-oswald font-bold uppercase text-2xl mb-3" style="color:#1B3A6B;">Schrijf je in voor de nieuwsbrief</h2>
+            <p class="text-gray-600 text-sm mb-6">
+                Blijf op de hoogte van nieuwe inzichten over focus, leiderschap en groei.
+            </p>
+            <form id="exit-intent-form" class="flex flex-col gap-3">
+                <input type="email" name="email" required placeholder="Jouw e-mailadres"
+                       class="brand-input w-full rounded-lg px-4 py-3 text-sm">
+                <button type="submit" class="brand-gold-btn w-full px-6 py-3 rounded-lg font-bold uppercase text-sm">
+                    Aanmelden
+                </button>
+            </form>
+            <p id="exit-intent-error" hidden class="text-xs mt-3" style="color:#dc2626;">Er ging iets mis. Probeer het opnieuw.</p>
+        </div>
+
+        <div id="exit-intent-thanks-state" hidden>
+            <p class="text-3xl mb-3">✅</p>
+            <h2 class="font-oswald font-bold uppercase text-xl mb-2" style="color:#1B3A6B;">Je zit erin!</h2>
+            <p class="text-gray-600 text-sm">Je ontvangt binnenkort de eerste inzichten van Apex.</p>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    (function () {
+        var STORAGE_KEY = 'apex_exit_intent_dismissed_until';
+        var overlay = document.getElementById('exit-intent-overlay');
+
+        function isMobile() { return !window.matchMedia('(hover: hover) and (pointer: fine)').matches; }
+
+        function dismissedUntil() {
+            var v = localStorage.getItem(STORAGE_KEY);
+            return v ? parseInt(v, 10) : 0;
+        }
+
+        function suppress(days) {
+            localStorage.setItem(STORAGE_KEY, String(Date.now() + days * 24 * 60 * 60 * 1000));
+        }
+
+        if (isMobile() || Date.now() < dismissedUntil()) {
+            return;
+        }
+
+        var shown = false;
+        var armed = false;
+        setTimeout(function () { armed = true; }, 4000);
+
+        function show() {
+            if (shown || !armed) return;
+            shown = true;
+            overlay.removeAttribute('hidden');
+        }
+
+        function hide() {
+            overlay.setAttribute('hidden', '');
+        }
+
+        document.addEventListener('mouseleave', function (e) {
+            if (e.clientY <= 0) show();
+        });
+
+        document.getElementById('exit-intent-close').addEventListener('click', function () {
+            suppress(14);
+            hide();
+        });
+
+        document.getElementById('exit-intent-backdrop').addEventListener('click', function (e) {
+            if (e.target === e.currentTarget) {
+                suppress(14);
+                hide();
+            }
+        });
+
+        document.getElementById('exit-intent-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var email = e.target.email.value;
+            var errorEl = document.getElementById('exit-intent-error');
+            errorEl.setAttribute('hidden', '');
+
+            fetch('/nieuwsbrief/inschrijven', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ email: email, source: 'popup' })
+            }).then(function (res) {
+                if (!res.ok) throw new Error('failed');
+                suppress(3650);
+                document.getElementById('exit-intent-form-state').setAttribute('hidden', '');
+                document.getElementById('exit-intent-thanks-state').removeAttribute('hidden');
+            }).catch(function () {
+                errorEl.removeAttribute('hidden');
+            });
+        });
+    })();
+</script>
+
+        <footer class="py-8 px-6 text-center border-t" style="background:#1B3A6B; border-color:rgba(212,165,116,0.2);">
+            <img src="/images/apex-logo.webp" alt="Apex Online Coaching" class="h-8 w-auto mx-auto mb-3 opacity-80" loading="lazy" width="100" height="32">
+            <p class="text-[#9fb3d1] text-xs mb-2">
+                <a href="tel:0683232341" class="hover:text-white transition">06-83232341</a>
+                &middot;
+                <a href="mailto:jeroen@apexonlinecoaching.nl" class="hover:text-white transition">jeroen@apexonlinecoaching.nl</a>
+                &middot;
+                <a href="https://www.linkedin.com/in/jeroen-schilder/" target="_blank" rel="noopener" class="hover:text-white transition">LinkedIn</a>
+            </p>
+            <p class="text-[#9fb3d1] text-xs">
+                &copy; 2026 Apex Online Coaching. Alle rechten voorbehouden.
+                &middot; <a href="/algemene-voorwaarden" class="hover:text-white transition">Algemene voorwaarden</a>
+                &middot; <a href="/privacyreglement" target="_blank" rel="noopener" class="hover:text-white transition">Privacyreglement</a>
+            </p>
+        </footer>
+
+        <script>
+            (function () {
+                var btn = document.getElementById('nav-toggle');
+                var menu = document.getElementById('nav-menu');
+                if (!btn || !menu) return;
+                btn.addEventListener('click', function () {
+                    var isHidden = menu.hasAttribute('hidden');
+                    if (isHidden) {
+                        menu.removeAttribute('hidden');
+                        btn.setAttribute('aria-expanded', 'true');
+                    } else {
+                        menu.setAttribute('hidden', '');
+                        btn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            })();
+        </script>
+
+                    <script src="https://trainin.app/widget.js" data-base-domain="trainin.app" defer></script>
+
+            <trainin-floating-widget
+                client="apexonlinecoaching"
+                widget-shadow="0px 0px 4px 2px rgba(0, 0, 0, 0.08)"
+                container-padding="0"
+                widget-size="small"
+                widget-radius="9999px"
+                button-border-color="#e8e8e8"
+                divider-color="#e8e8e8"
+                card-border-color="#e8e8e8"
+                widget-background="#D4A574"
+                widget-card="#ffffff"
+                widget-text-color="#1B3A6B"
+            >
+                <trainin-floating-widget-button
+                    button-url="https://apexonlinecoaching.trainin.app/activities/LQ2Y2P/de-doorbraak-sessie"
+                    button-label="Doorbraak Sessie"
+                    button-background="#D4A574"
+                    button-text-color="#1B3A6B"
+                    button-size="small"
+                    button-radius="9999px 0 0 9999px"
+                    loader-color="#c08f5c"
+                >
+                </trainin-floating-widget-button>
+
+                <span class="widget-divider"></span>
+
+                <trainin-floating-widget-button
+                    button-url="https://wa.me/31683232341"
+                    button-label="WhatsApp"
+                    button-background="#D4A574"
+                    button-text-color="#1B3A6B"
+                    button-size="small"
+                    button-radius="0 9999px 9999px 0"
+                >
+                </trainin-floating-widget-button>
+            </trainin-floating-widget>
+        
+        <script>
+            (function () {
+                var widget = document.querySelector('trainin-floating-widget');
+                if (!widget) return;
+
+                function hideLogo() {
+                    if (!widget.shadowRoot) return false;
+                    if (widget.shadowRoot.getElementById('hide-trainin-logo')) return true;
+                    var style = document.createElement('style');
+                    style.id = 'hide-trainin-logo';
+                    style.textContent = '.trainin-logo { display: none !important; }';
+                    widget.shadowRoot.appendChild(style);
+                    return true;
+                }
+
+                if (hideLogo()) return;
+
+                var attempts = 0;
+                function tick() {
+                    attempts++;
+                    if (hideLogo() || attempts > 600) return;
+                    requestAnimationFrame(tick);
+                }
+                requestAnimationFrame(tick);
+            })();
+        </script>
+    </body>
+</html>
