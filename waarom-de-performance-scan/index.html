@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="">
+        
+        <meta name="google-site-verification" content="DKFBX8FP7ZlreFXtKyNXPW_ER5zh-7SSc_d2K5WczZI">
+
+        <title>Gratis Performance Scan — Apex Online Coaching</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Oswald:wght@700&family=Open+Sans:wght@400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+        <link rel="preload" as="image" href="/images/home/hero-jeroen.webp" fetchpriority="high">
+
+        <link rel="preload" as="style" href="/build/assets/app-Cjd4Muz0.css" /><link rel="stylesheet" href="/build/assets/app-Cjd4Muz0.css" data-navigate-track="reload" />        <script>
+    window.apexLeadSource = (function () {
+        var KEY = 'apexBron';
+        var CODES = ["a1","a2","a3","a4","a5","a6","a7","a8"];
+        var REFERRERS = [
+            [/(^|\.)instagram\.com$/, 'a1'],
+            [/(^|\.)(facebook\.com|fb\.com|fb\.me)$/, 'a2'],
+            [/(^|\.)(linkedin\.com|lnkd\.in)$/, 'a3'],
+            [/(^|\.)google\.[a-z.]+$/, 'a4']
+        ];
+        try {
+            var match = location.search.match(/[?&]r=([a-z0-9]+)/i);
+            var code = match && CODES.indexOf(match[1].toLowerCase()) !== -1 ? match[1].toLowerCase() : null;
+            if (!code && document.referrer) {
+                var host = new URL(document.referrer).hostname;
+                REFERRERS.forEach(function (r) { if (!code && r[0].test(host)) code = r[1]; });
+            }
+            if (code) localStorage.setItem(KEY, JSON.stringify({ code: code, at: Date.now() }));
+        } catch (e) {}
+
+        return function () {
+            try {
+                var stored = JSON.parse(localStorage.getItem(KEY) || 'null');
+                if (stored && Date.now() - stored.at < 30 * 24 * 60 * 60 * 1000) return stored.code;
+            } catch (e) {}
+            return null;
+        };
+    })();
+</script>
+
+        <style>
+            .font-poppins { font-family: 'Poppins', sans-serif; }
+            .font-oswald { font-family: 'Oswald', sans-serif; }
+            .font-opensans { font-family: 'Open Sans', Arial, sans-serif; }
+            .font-abril { font-family: 'Abril Fatface', serif; }
+            summary::-webkit-details-marker { display: none; }
+        </style>
+    <script id="browser-logger-active">
+(function() {
+    const ENDPOINT = '/_boost/browser-logs';
+    const logQueue = [];
+    let flushTimeout = null;
+    const captureTypes = ["error","warning","info","log","debug","table"];
+
+    console.log('🔍 Browser logger active (MCP server detected). Posting to: ' + ENDPOINT);
+
+    // Store original console methods
+    const originalConsole = {
+        log: console.log,
+        debug: console.debug,
+        info: console.info,
+        error: console.error,
+        warn: console.warn,
+        table: console.table
+    };
+
+    // Walk own enumerable keys so JSON.stringify cannot auto-invoke a proxy fake toJSON (e.g. Livewire's `$wire`) and fire a real request.
+    function toSafeValue(value, seen) {
+        if (value === null || typeof value !== 'object') {
+            return value;
+        }
+        if (value instanceof Error) {
+            return { name: value.name, message: value.message, stack: value.stack };
+        }
+        // Date has no own enumerable keys, so the walk below would collapse it to {}.
+        if (value instanceof Date) {
+            return value.toISOString();
+        }
+        if (seen.has(value)) {
+            return '[Circular]';
+        }
+        seen.add(value);
+        if (Array.isArray(value)) {
+            return value.map((item) => toSafeValue(item, seen));
+        }
+        const plain = {};
+        for (const key of Object.keys(value)) {
+            if (key === 'toJSON') continue;
+            try {
+                plain[key] = toSafeValue(value[key], seen);
+            } catch (e) {
+                plain[key] = '[Unreadable]';
+            }
+        }
+        return plain;
+    }
+
+    // Helper to safely stringify values
+    function safeStringify(obj) {
+        return JSON.stringify(toSafeValue(obj, new WeakSet()));
+    }
+
+    // Normalize log type for consistency (e.g., 'warn' to 'warning')
+    function normalizeType(type) {
+        return type === 'warn' ? 'warning' : type;
+    }
+
+    // Determine if a log type should be captured based on configured levels
+    function shouldCapture(type) {
+        return captureTypes.includes(normalizeType(type));
+    }
+
+    // Batch and send logs
+    function flushLogs() {
+        if (logQueue.length === 0) return;
+
+        const batch = logQueue.splice(0, logQueue.length);
+
+        fetch(ENDPOINT, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: JSON.stringify({ logs: batch })
+        }).catch(err => {
+            // Silently fail to avoid infinite loops
+            originalConsole.error('Failed to send logs:', err);
+        });
+    }
+
+    // Debounced flush (100ms)
+    function scheduleFlush() {
+        if (flushTimeout) clearTimeout(flushTimeout);
+        flushTimeout = setTimeout(flushLogs, 100);
+    }
+
+    // Intercept console methods
+    ['log', 'debug', 'info', 'error', 'warn', 'table'].forEach(method => {
+        console[method] = function(...args) {
+            // Call original method
+            originalConsole[method].apply(console, args);
+
+            // Capture log data
+            try {
+                if (!shouldCapture(method)) {
+                    return;
+                }
+
+                logQueue.push({
+                    type: method,
+                    timestamp: new Date().toISOString(),
+                    data: args.map(arg => {
+                        try {
+                            return typeof arg === 'object' ? JSON.parse(safeStringify(arg)) : arg;
+                        } catch (e) {
+                            return String(arg);
+                        }
+                    }),
+                    url: window.location.href,
+                    userAgent: navigator.userAgent
+                });
+
+                scheduleFlush();
+            } catch (e) {
+                // Fail silently
+            }
+        };
+    });
+
+    // Global error handlers for uncaught errors
+    const originalOnError = window.onerror;
+    window.onerror = function boostErrorHandler(errorMsg, url, lineNumber, colNumber, error) {
+        try {
+            if (shouldCapture('error')) {
+                logQueue.push({
+                    type: 'uncaught_error',
+                    timestamp: new Date().toISOString(),
+                    data: [{
+                        message: errorMsg,
+                        filename: url,
+                        lineno: lineNumber,
+                        colno: colNumber,
+                        error: error ? {
+                            name: error.name,
+                            message: error.message,
+                            stack: error.stack
+                        } : null
+                    }],
+                    url: window.location.href,
+                    userAgent: navigator.userAgent
+                });
+
+                scheduleFlush();
+            }
+
+        } catch (e) {
+            // Fail silently
+        }
+
+        // Call original handler if it exists
+        if (originalOnError && typeof originalOnError === 'function') {
+            return originalOnError(errorMsg, url, lineNumber, colNumber, error);
+        }
+
+        // Let the error continue to propagate
+        return false;
+    }
+    window.addEventListener('error', (event) => {
+        try {
+            if (!shouldCapture('error')) {
+                return false;
+            }
+
+            logQueue.push({
+                type: 'window_error',
+                timestamp: new Date().toISOString(),
+                data: [{
+                    message: event.message,
+                    filename: event.filename,
+                    lineno: event.lineno,
+                    colno: event.colno,
+                    error: event.error ? {
+                        name: event.error.name,
+                        message: event.error.message,
+                        stack: event.error.stack
+                    } : null
+                }],
+                url: window.location.href,
+                userAgent: navigator.userAgent
+            });
+
+            scheduleFlush();
+        } catch (e) {
+            // Fail silently
+        }
+
+        // Let the error continue to propagate
+        return false;
+    });
+    window.addEventListener('unhandledrejection', (event) => {
+        try {
+            if (!shouldCapture('error')) {
+                return false;
+            }
+
+            logQueue.push({
+                type: 'error',
+                timestamp: new Date().toISOString(),
+                data: [{
+                    message: 'Unhandled Promise Rejection',
+                    reason: toSafeValue(event.reason, new WeakSet())
+                }],
+                url: window.location.href,
+                userAgent: navigator.userAgent
+            });
+
+            scheduleFlush();
+        } catch (e) {
+            // Fail silently
+        }
+
+        // Let the rejection continue to propagate
+        return false;
+    });
+
+    // Flush on page unload
+    window.addEventListener('beforeunload', () => {
+        if (logQueue.length > 0) {
+            navigator.sendBeacon(ENDPOINT, JSON.stringify({ logs: logQueue }));
+        }
+    });
+})();
+</script>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script><script defer src="/_vercel/insights/script.js"></script>
+</head>
+    <body class="font-opensans antialiased" style="background:#1B3A6B;">
+
+                    <header style="background:#1B3A6B;">
+                <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-center">
+                    <a href="/">
+                        <img src="/images/apex-logo.webp" alt="Apex Online Coaching" class="h-12 w-auto" width="150" height="48">
+                    </a>
+                </div>
+            </header>
+        
+        <main>
+            <section id="start" class="brand-navy py-12 sm:py-20 px-6">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <p class="brand-eyebrow font-opensans font-bold uppercase text-xs sm:text-sm mb-4">Gratis Performance Scan &middot; ongeveer 5 minuten</p>
+                <h1 class="font-oswald font-bold text-white uppercase leading-tight text-4xl sm:text-6xl mb-5"><span class="sr-only">Weet jij wat jou écht tegenhoudt?</span>
+            <span class="kinetic-word" style="--word: 0;" aria-hidden="true">Weet</span>
+                <span class="kinetic-word" style="--word: 1;" aria-hidden="true">jij</span>
+                <span class="kinetic-word" style="--word: 2;" aria-hidden="true">wat</span>
+                <span class="kinetic-word" style="--word: 3;" aria-hidden="true">jou</span>
+                <span class="kinetic-word brand-gold-text" style="--word: 4;" aria-hidden="true">écht</span>
+                <span class="kinetic-word" style="--word: 5;" aria-hidden="true">tegenhoudt?</span>
+    </h1>
+                <p class="text-base sm:text-lg mb-8 leading-relaxed" style="color:#dbe3f0;">
+                    In 5 minuten zie je hoe je ervoor staat op werk, privé en fysiek, en waar het bij jou lekt. Je ontdekt je Apex Predator-profiel en de ene actie die deze week het verschil maakt. Je uitslag zie je direct, en je krijgt hem ook in je mail.
+                </p>
+
+                <form id="scan-start-form" class="rounded-2xl p-6 sm:p-7 space-y-3 bg-white" style="box-shadow: 0 30px 60px -30px rgba(0,0,0,0.55);" novalidate>
+                    <p class="font-opensans font-bold text-lg mb-1" style="color:#1B3A6B;">Start je gratis scan</p>
+                    <label class="block">
+                        <span class="sr-only">Voornaam</span>
+                        <input type="text" name="voornaam" required autocomplete="given-name" placeholder="Voornaam" class="brand-input w-full px-4 py-3 rounded-lg">
+                    </label>
+                    <label class="block">
+                        <span class="sr-only">E-mailadres</span>
+                        <input type="email" name="email" required autocomplete="email" placeholder="E-mailadres" class="brand-input w-full px-4 py-3 rounded-lg">
+                    </label>
+                    <label class="block">
+                        <span class="sr-only">Telefoonnummer</span>
+                        <input type="tel" name="telefoon" required autocomplete="tel" placeholder="Telefoonnummer" class="brand-input w-full px-4 py-3 rounded-lg">
+                    </label>
+                    <p id="scan-start-error" class="text-sm" style="color:#EF4444;" hidden></p>
+                    <button type="submit" class="brand-gold-btn w-full px-6 py-4 rounded-lg font-bold text-base">
+                        Start mijn scan &rarr;
+                    </button>
+                    <p class="text-xs text-center" style="color:#6b7280;">Gratis &middot; geen account nodig &middot; je gegevens blijven bij mij &middot; <a href="/privacyreglement" target="_blank" rel="noopener" class="underline hover:no-underline">privacyreglement</a></p>
+                </form>
+
+                <div class="flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-2 mt-6 text-sm" style="color:#dbe3f0;">
+                    <span><strong class="brand-gold-text text-base">14 jaar</strong> ervaring</span>
+                    <span><strong class="brand-gold-text text-base">500+</strong> mensen geholpen</span>
+                    <span><strong class="brand-gold-text text-base">21&times; ★★★★★</strong> op Google</span>
+                </div>
+            </div>
+
+            <div>
+                <p class="text-xs text-center lg:text-right mb-3" style="color:#9fb3d1;">Zo ziet jouw uitslag eruit.</p>
+                <div class="rounded-2xl p-6 sm:p-7" style="background:rgba(13,28,56,0.75); border:1px solid rgba(212,165,116,0.35); box-shadow: 0 30px 60px -30px rgba(0,0,0,0.6);">
+    <div class="flex items-center justify-between mb-5">
+        <p class="brand-eyebrow font-bold text-xs uppercase" style="letter-spacing:.14em;">Je performance profiel</p>
+        <span class="text-xs px-2.5 py-0.5 rounded-full" style="background:rgba(212,165,116,0.15); color:#D4A574;">voorbeeld</span>
+    </div>
+    <div class="flex items-center gap-5 mb-6">
+        <div class="relative shrink-0" style="width:96px; height:96px;">
+            <svg viewBox="0 0 36 36" width="96" height="96" aria-hidden="true">
+                <defs><linearGradient id="lp-ring" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2b481"/><stop offset="1" stop-color="#c08f5c"/></linearGradient></defs>
+                <circle cx="18" cy="18" r="15.9" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="3"/>
+                <circle cx="18" cy="18" r="15.9" fill="none" stroke="url(#lp-ring)" stroke-width="3" stroke-dasharray="64 100" stroke-linecap="round" transform="rotate(-90 18 18)"/>
+            </svg>
+            <p class="absolute inset-0 flex items-center justify-center font-oswald font-bold text-3xl text-white">6,4</p>
+        </div>
+        <div>
+            <p class="text-white font-semibold">Jouw cijfer</p>
+            <p class="text-sm" style="color:#9fb3d1;">van de 10 &middot; missie van Apex: <span style="color:#D4A574;">8,5 of hoger</span></p>
+        </div>
+    </div>
+    
+                    <div class="mb-3">
+            <div class="flex justify-between text-sm mb-1.5"><span class="text-white">Werk</span><span style="color:#D4A574;">7,1</span></div>
+            <div class="h-2 rounded-full" style="background:rgba(255,255,255,0.1);"><div class="h-2 rounded-full" style="width:71%; background:linear-gradient(90deg,#c08f5c,#e2b481);"></div></div>
+        </div>
+                    <div class="mb-3">
+            <div class="flex justify-between text-sm mb-1.5"><span class="text-white">Privé</span><span style="color:#FB923C;">5,2</span></div>
+            <div class="h-2 rounded-full" style="background:rgba(255,255,255,0.1);"><div class="h-2 rounded-full" style="width:52%; background:#FB923C;"></div></div>
+        </div>
+                    <div class="mb-3">
+            <div class="flex justify-between text-sm mb-1.5"><span class="text-white">Fysiek</span><span style="color:#D4A574;">6,8</span></div>
+            <div class="h-2 rounded-full" style="background:rgba(255,255,255,0.1);"><div class="h-2 rounded-full" style="width:68%; background:linear-gradient(90deg,#c08f5c,#e2b481);"></div></div>
+        </div>
+        <div class="mt-5 pt-5 space-y-2 text-sm" style="border-top:1px solid rgba(255,255,255,0.1); color:#9fb3d1;">
+        <p>Grootste lek: <strong class="text-white">Structuur</strong>, vooral in Privé</p>
+        <p>🐺 <strong class="text-white">Wolf</strong> met 🐋 <strong class="text-white">Orka</strong>-trekken</p>
+        <p>Eén ding voor deze week: <strong style="color:#D4A574;">De Vaste Afspraak</strong></p>
+    </div>
+</div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="py-20 px-6" style="background:#F5F5F5;">
+        <div class="max-w-3xl mx-auto">
+            <p class="brand-eyebrow font-bold uppercase text-xs text-center mb-3">Klinkt dit bekend?</p>
+            <h2 class="font-oswald font-bold uppercase text-3xl sm:text-4xl text-center mb-12" style="color:#1B3A6B;">Herken je deze dag?</h2>
+            <ol class="relative ml-2 sm:ml-0" style="border-left:2px solid rgba(212,165,116,0.5);">
+                                    <li class="relative pl-8 sm:pl-10 pb-8 last:pb-0">
+                        <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full" style="background:#D4A574; box-shadow:0 0 0 4px #F5F5F5;"></span>
+                        <p class="font-oswald font-bold text-sm mb-1" style="color:#c08f5c; letter-spacing:.08em;">06:45</p>
+                        <p class="text-lg leading-relaxed" style="color:#2A2A2A;">Kwart voor zeven. Voordat je voeten de vloer raken, heb je je mail al gelezen.</p>
+                    </li>
+                                    <li class="relative pl-8 sm:pl-10 pb-8 last:pb-0">
+                        <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full" style="background:#D4A574; box-shadow:0 0 0 4px #F5F5F5;"></span>
+                        <p class="font-oswald font-bold text-sm mb-1" style="color:#c08f5c; letter-spacing:.08em;">07:30</p>
+                        <p class="text-lg leading-relaxed" style="color:#2A2A2A;">In de auto bel je twee klanten. De sportschool? Morgen.</p>
+                    </li>
+                                    <li class="relative pl-8 sm:pl-10 pb-8 last:pb-0">
+                        <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full" style="background:#D4A574; box-shadow:0 0 0 4px #F5F5F5;"></span>
+                        <p class="font-oswald font-bold text-sm mb-1" style="color:#c08f5c; letter-spacing:.08em;">09:30</p>
+                        <p class="text-lg leading-relaxed" style="color:#2A2A2A;">Om negen uur heb je een plan. Om half tien ligt het in duigen: een brandje hier, een medewerker met een vraag daar.</p>
+                    </li>
+                                    <li class="relative pl-8 sm:pl-10 pb-8 last:pb-0">
+                        <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full" style="background:#D4A574; box-shadow:0 0 0 4px #F5F5F5;"></span>
+                        <p class="font-oswald font-bold text-sm mb-1" style="color:#c08f5c; letter-spacing:.08em;">12:30</p>
+                        <p class="text-lg leading-relaxed" style="color:#2A2A2A;">Je luncht achter je scherm. Je bent de hele dag bezig, maar niet met het werk dat jouw bedrijf echt vooruit brengt.</p>
+                    </li>
+                                    <li class="relative pl-8 sm:pl-10 pb-8 last:pb-0">
+                        <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full" style="background:#D4A574; box-shadow:0 0 0 4px #F5F5F5;"></span>
+                        <p class="font-oswald font-bold text-sm mb-1" style="color:#c08f5c; letter-spacing:.08em;">18:00</p>
+                        <p class="text-lg leading-relaxed" style="color:#2A2A2A;">Om zes uur zit je aan tafel. Je kinderen vertellen over hun dag. Jij bent in gedachten nog bij die offerte, en je merkt dat je kortaf bent.</p>
+                    </li>
+                                    <li class="relative pl-8 sm:pl-10 pb-8 last:pb-0">
+                        <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full" style="background:#D4A574; box-shadow:0 0 0 4px #F5F5F5;"></span>
+                        <p class="font-oswald font-bold text-sm mb-1" style="color:#c08f5c; letter-spacing:.08em;">23:00</p>
+                        <p class="text-lg leading-relaxed" style="color:#2A2A2A;">Om elf uur lig je in bed. Je hoofd rekent nog door.</p>
+                    </li>
+                            </ol>
+
+            <div class="brand-navy rounded-2xl p-8 sm:p-10 mt-12 text-center">
+                <p class="text-lg sm:text-xl leading-relaxed text-white">Op papier gaat het goed. Maar geef eens eerlijk een cijfer aan je energie, je relatie en je rust. Is dat een <span class="brand-gold-text font-bold">8,5</span>?</p>
+                <p class="font-oswald font-bold uppercase text-2xl sm:text-3xl mt-6 brand-gold-text">Als je doet wat je deed, krijg je wat je kreeg.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="brand-navy py-20 px-6">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-[auto_1fr] gap-10 items-start">
+            <div class="brand-icon w-20 h-20 rounded-2xl flex items-center justify-center mx-auto md:mx-0" aria-hidden="true">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </div>
+            <div>
+                <h2 class="font-oswald font-bold text-white uppercase text-3xl sm:text-4xl mb-8">Je weet het allang. Toch verandert er weinig.</h2>
+                <div class="space-y-5 text-lg leading-relaxed" style="color:#dbe3f0;">
+                    <p>Je hebt de boeken gelezen en de podcasts geluisterd. Je hebt een planningsapp geprobeerd, een ochtendroutine, misschien zelfs een coach. Het werkte een paar weken, en daarna was je terug bij af.</p>
+                    <p>Dat is geen gebrek aan kennis. Ook niet aan wilskracht. Het zijn patronen. En een patroon zie je niet van binnenuit: <strong style="color:#D4A574;">je kunt niet oplossen wat je niet ziet.</strong></p>
+                </div>
+                <p class="mt-8 rounded-xl px-6 py-5 text-lg font-semibold text-white" style="border:1px solid rgba(212,165,116,0.55); background:rgba(212,165,116,0.08);">Daarom begint het bij een eerlijke spiegel. Dat is wat deze scan je geeft.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <p class="brand-eyebrow font-bold uppercase text-xs text-center mb-3">Wat je krijgt</p>
+            <h2 class="font-oswald font-bold uppercase text-3xl sm:text-4xl text-center mb-12" style="color:#1B3A6B;">Geen vaag advies. Een eerlijke spiegel.</h2>
+            <div class="grid sm:grid-cols-2 gap-6">
+                                    <div class="brand-card p-7 flex gap-5">
+                        <div class="brand-icon w-12 h-12 rounded-xl flex items-center justify-center shrink-0" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 1 0-8-8"/><path d="M12 12l4-4"/><circle cx="12" cy="12" r="1.5"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Je cijfers</h3>
+                            <p class="leading-relaxed" style="color:#4b5563;">Een cijfer voor werk, privé en fysiek, naast de 8,5 waar Apex naartoe werkt. En je score op vijf hefbomen, zodat je precies ziet waar het lekt.</p>
+                        </div>
+                    </div>
+                                    <div class="brand-card p-7 flex gap-5">
+                        <div class="brand-icon w-12 h-12 rounded-xl flex items-center justify-center shrink-0" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Je Apex Predator-profiel</h3>
+                            <p class="leading-relaxed" style="color:#4b5563;">Hoe jij jaagt op resultaat en hoe jij anderen meekrijgt, met de sterke kant én de valkuil van jouw stijl.</p>
+                        </div>
+                    </div>
+                                    <div class="brand-card p-7 flex gap-5">
+                        <div class="brand-icon w-12 h-12 rounded-xl flex items-center justify-center shrink-0" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Eén actie voor deze week</h3>
+                            <p class="leading-relaxed" style="color:#4b5563;">Geen lijstje van twintig dingen, maar één concrete stap voor jouw grootste lek.</p>
+                        </div>
+                    </div>
+                                    <div class="brand-card p-7 flex gap-5">
+                        <div class="brand-icon w-12 h-12 rounded-xl flex items-center justify-center shrink-0" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Je uitslag in je mail</h3>
+                            <p class="leading-relaxed" style="color:#4b5563;">Zodat je hem rustig kunt teruglezen.</p>
+                        </div>
+                    </div>
+                            </div>
+        </div>
+    </section>
+
+    
+    <section class="brand-navy py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <p class="brand-eyebrow font-bold uppercase text-xs text-center mb-3">Je Apex Predator-profiel</p>
+            <h2 class="font-oswald font-bold text-white uppercase text-3xl sm:text-4xl text-center mb-4">Welke Apex Predator ben jij?</h2>
+            <p class="max-w-2xl mx-auto text-center text-lg leading-relaxed mb-12" style="color:#dbe3f0;">Iedere ondernemer jaagt en leidt op zijn eigen manier. De scan laat zien welke van deze negen jij bent: hoe jij resultaat behaalt, hoe jij anderen meekrijgt, en waar de valkuil van jouw stijl zit.</p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div class="brand-card-dark p-6 text-center">
+            <p class="text-4xl mb-3">🦅</p>
+            <h4 class="font-opensans font-bold mb-2" style="color:#D4A574;">De Adelaar</h4>
+            <p class="text-xs leading-relaxed" style="color:#dbe3f0;">Visionair, strategisch, ziet kansen van grote hoogte en pakt ze resoluut.</p>
+        </div>
+            <div class="brand-card-dark p-6 text-center">
+            <p class="text-4xl mb-3">🐻</p>
+            <h4 class="font-opensans font-bold mb-2" style="color:#D4A574;">De Beer</h4>
+            <p class="text-xs leading-relaxed" style="color:#dbe3f0;">Krachtig, geduldig, bouwt langdurige stabiliteit en slaat hard toe op het juiste moment.</p>
+        </div>
+            <div class="brand-card-dark p-6 text-center">
+            <p class="text-4xl mb-3">🦈</p>
+            <h4 class="font-opensans font-bold mb-2" style="color:#D4A574;">De Haai</h4>
+            <p class="text-xs leading-relaxed" style="color:#dbe3f0;">Meedogenloos, altijd in beweging, ruikt kansen en gaat agressief voor de winst.</p>
+        </div>
+            <div class="brand-card-dark p-6 text-center">
+            <p class="text-4xl mb-3">🐊</p>
+            <h4 class="font-opensans font-bold mb-2" style="color:#D4A574;">De Krokodil</h4>
+            <p class="text-xs leading-relaxed" style="color:#dbe3f0;">Geduldig, berekenend, wacht op het perfecte moment om toe te slaan.</p>
+        </div>
+            <div class="brand-card-dark p-6 text-center">
+            <p class="text-4xl mb-3">🦁</p>
+            <h4 class="font-opensans font-bold mb-2" style="color:#D4A574;">De Leeuw</h4>
+            <p class="text-xs leading-relaxed" style="color:#dbe3f0;">Charismatisch leider, gedreven, inspireert anderen en domineert zijn markt.</p>
+        </div>
+            <div class="brand-card-dark p-6 text-center">
+            <p class="text-4xl mb-3">🐘</p>
+            <h4 class="font-opensans font-bold mb-2" style="color:#D4A574;">De Olifant</h4>
+            <p class="text-xs leading-relaxed" style="color:#dbe3f0;">Standvastig, intelligent, bouwt sterke netwerken en denkt in lange termijn.</p>
+        </div>
+            <div class="brand-card-dark p-6 text-center">
+            <p class="text-4xl mb-3">🐋</p>
+            <h4 class="font-opensans font-bold mb-2" style="color:#D4A574;">De Orka</h4>
+            <p class="text-xs leading-relaxed" style="color:#dbe3f0;">Teamspeler, extreem strategisch, combineert kracht en intelligentie voor maximale impact.</p>
+        </div>
+            <div class="brand-card-dark p-6 text-center">
+            <p class="text-4xl mb-3">🐯</p>
+            <h4 class="font-opensans font-bold mb-2" style="color:#D4A574;">De Tijger</h4>
+            <p class="text-xs leading-relaxed" style="color:#dbe3f0;">Ongeëvenaarde focus, kracht en geduld, maakt zelfstandig af waar hij aan begint.</p>
+        </div>
+            <div class="brand-card-dark p-6 text-center">
+            <p class="text-4xl mb-3">🐺</p>
+            <h4 class="font-opensans font-bold mb-2" style="color:#D4A574;">De Wolf</h4>
+            <p class="text-xs leading-relaxed" style="color:#dbe3f0;">Loyaal aan het team, adaptief, combineert samenwerking en individuele scherpte.</p>
+        </div>
+    </div>
+            <div class="text-center mt-12">
+                <a href="#start" data-scan-start class="brand-gold-btn inline-block px-10 py-4 rounded-lg font-bold text-lg">Ontdek welke jij bent &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6" style="background:#F5F5F5;">
+        <div class="max-w-5xl mx-auto">
+            <p class="brand-eyebrow font-bold uppercase text-xs text-center mb-3">Hoe het werkt</p>
+            <h2 class="font-oswald font-bold uppercase text-3xl sm:text-4xl text-center mb-14" style="color:#1B3A6B;">Drie stappen. Vijf minuten.</h2>
+            <div class="relative grid md:grid-cols-3 gap-8">
+                <div class="hidden md:block absolute left-[16%] right-[16%] top-7 border-t-2 border-dashed" style="border-color:rgba(212,165,116,0.6);" aria-hidden="true"></div>
+                                    <div class="relative text-center">
+                        <div class="brand-icon w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5 font-oswald font-bold text-2xl" style="box-shadow:0 0 0 6px #F5F5F5;">1</div>
+                        <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Vul je naam en e-mailadres in</h3>
+                        <p class="leading-relaxed" style="color:#4b5563;">Dat kost 30 seconden.</p>
+                    </div>
+                                    <div class="relative text-center">
+                        <div class="brand-icon w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5 font-oswald font-bold text-2xl" style="box-shadow:0 0 0 6px #F5F5F5;">2</div>
+                        <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Beantwoord de vragen eerlijk</h3>
+                        <p class="leading-relaxed" style="color:#4b5563;">De meeste beantwoord je met één tik. Hoe eerlijker je bent, hoe scherper de uitslag.</p>
+                    </div>
+                                    <div class="relative text-center">
+                        <div class="brand-icon w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5 font-oswald font-bold text-2xl" style="box-shadow:0 0 0 6px #F5F5F5;">3</div>
+                        <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Zie direct je uitslag</h3>
+                        <p class="leading-relaxed" style="color:#4b5563;">Je krijgt hem ook in je mail. Wil je weten wat je ermee moet? Plan dan een gratis Doorbraak Sessie.</p>
+                    </div>
+                            </div>
+        </div>
+    </section>
+
+    <section class="brand-navy py-20 px-6">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="relative">
+                <div class="absolute -right-3 -bottom-3 left-3 top-3 rounded-2xl" style="border:2px solid #D4A574;" aria-hidden="true"></div>
+                <img src="/images/over-ons-jeroen.webp" alt="Jeroen Schilder voor het Apex-logo" loading="lazy" width="1600" height="1066"
+                     class="relative w-full rounded-2xl object-cover" style="aspect-ratio: 4 / 3; object-position: right 15%;">
+            </div>
+            <div>
+                <p class="brand-eyebrow font-bold uppercase text-xs mb-3">Wie er meekijkt</p>
+                <h2 class="font-oswald font-bold text-white uppercase text-3xl sm:text-4xl mb-6">Wie ik ben</h2>
+                <div class="space-y-4 leading-relaxed" style="color:#dbe3f0;">
+                    <p>Ik ben Jeroen Schilder. Mijn reis begon in de sport: Nederlands kampioen turnen en Benelux kampioen bodybuilding. Na het CIOS heb ik jarenlang ondernemers fysiek sterker gemaakt. Daarbij zag ik steeds hetzelfde: de echte doorbraak zit niet in de gym, maar in hoe je denkt, kiest en handelt.</p>
+                    <p>Inmiddels coach ik al 14 jaar en heb ik meer dan 500 mensen geholpen. Al 9 jaar investeer ik in mijn persoonlijke en zakelijke ontwikkeling, inmiddels ruim €150.000. Deze scan is gebouwd op de patronen die ik in al die jaren steeds terugzie.</p>
+                </div>
+                <p class="mt-6 font-semibold text-lg" style="color:#D4A574;">Ik kijk persoonlijk naar jouw uitslag.</p>
+                <div class="grid grid-cols-3 gap-3 mt-8">
+                                            <div class="rounded-xl px-3 py-4 text-center" style="background:rgba(255,255,255,0.06); border:1px solid rgba(212,165,116,0.3);">
+                            <p class="font-oswald font-bold text-2xl brand-gold-text">14</p>
+                            <p class="text-xs mt-1" style="color:#9fb3d1;">jaar coach</p>
+                        </div>
+                                            <div class="rounded-xl px-3 py-4 text-center" style="background:rgba(255,255,255,0.06); border:1px solid rgba(212,165,116,0.3);">
+                            <p class="font-oswald font-bold text-2xl brand-gold-text">500+</p>
+                            <p class="text-xs mt-1" style="color:#9fb3d1;">mensen geholpen</p>
+                        </div>
+                                            <div class="rounded-xl px-3 py-4 text-center" style="background:rgba(255,255,255,0.06); border:1px solid rgba(212,165,116,0.3);">
+                            <p class="font-oswald font-bold text-2xl brand-gold-text">€150K</p>
+                            <p class="text-xs mt-1" style="color:#9fb3d1;">in ontwikkeling</p>
+                        </div>
+                                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <p class="brand-eyebrow font-bold uppercase text-xs text-center mb-3">21&times; 5 sterren op Google</p>
+            <h2 class="font-oswald font-bold uppercase text-3xl sm:text-4xl text-center mb-12" style="color:#1B3A6B;">Wat ondernemers zeggen</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                                    <figure class="brand-card p-8" style="border-top:4px solid #D4A574;">
+                        <p class="text-lg mb-3" style="color:#D4A574; letter-spacing:2px;" aria-label="5 sterren">★★★★★</p>
+                        <blockquote class="italic leading-relaxed mb-5" style="color:#2A2A2A;">&ldquo;Wat een geweldig traject! Hoe simpel het eigenlijk is om resultaat te creëren. Zoveel meer focus op kernacties die bijdragen aan mijn doelen. Ik ben écht op een diep level geshift naar een ‘owner’ i.p.v. een victim. Als je twijfelt, zeker doen! Een échte no-brainer.&rdquo;</blockquote>
+                        <figcaption>
+                            <p class="font-bold" style="color:#1B3A6B;">Dennis van der Sluijs</p>
+                            <p class="text-sm" style="color:#6b7280;">Nr. 1 Business Partner Eqology NL, Boost Your Health</p>
+                        </figcaption>
+                    </figure>
+                                    <figure class="brand-card p-8" style="border-top:4px solid #D4A574;">
+                        <p class="text-lg mb-3" style="color:#D4A574; letter-spacing:2px;" aria-label="5 sterren">★★★★★</p>
+                        <blockquote class="italic leading-relaxed mb-5" style="color:#2A2A2A;">&ldquo;Als eigenaar van een vastgoedonderhouds- en verduurzamingsbedrijf met 100 man personeel is focus essentieel. Dankzij de samenwerking met Apex Online Coaching ervaar ik meer rust, helderheid en scherpte op de acties die écht het verschil maken voor de groei van mijn bedrijf.&rdquo;</blockquote>
+                        <figcaption>
+                            <p class="font-bold" style="color:#1B3A6B;">Kees Plat</p>
+                            <p class="text-sm" style="color:#6b7280;">CEO, Plat&amp;Plat</p>
+                        </figcaption>
+                    </figure>
+                            </div>
+
+            
+            <div class="max-w-3xl mx-auto mt-12">
+                <p class="font-bold text-center mb-4" style="color:#1B3A6B;">Bas Nederlof over Apex</p>
+                <div class="relative w-full overflow-hidden rounded-2xl" style="aspect-ratio:16 / 9; background:#0d1c38; box-shadow:0 30px 60px -30px rgba(13,28,56,0.55);">
+    <iframe src="https://player.vimeo.com/video/1229190034?dnt=1&amp;title=0&amp;byline=0&amp;portrait=0" title="Review Bas Nederlof"
+            class="absolute inset-0 w-full h-full" allow="fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6" style="background:#F5F5F5;">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="font-oswald font-bold uppercase text-3xl sm:text-4xl text-center mb-12" style="color:#1B3A6B;">Deze scan is niet voor iedereen.</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="rounded-2xl overflow-hidden bg-white" style="border:1px solid #E5E7EB;">
+                    <p class="brand-icon px-6 py-4 font-bold text-lg">Wel voor jou als</p>
+                    <ul class="p-6 space-y-4">
+                                                    <li class="flex gap-3" style="color:#2A2A2A;"><span class="w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm font-bold" style="background:rgba(212,165,116,0.2); color:#c08f5c;">&#10003;</span><span>je ondernemer bent, leiding geeft of meer uit je werk wilt halen, en weet dat er meer in zit</span></li>
+                                                    <li class="flex gap-3" style="color:#2A2A2A;"><span class="w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm font-bold" style="background:rgba(212,165,116,0.2); color:#c08f5c;">&#10003;</span><span>je een eerlijke spiegel wilt, ook als die ongemakkelijk is</span></li>
+                                                    <li class="flex gap-3" style="color:#2A2A2A;"><span class="w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm font-bold" style="background:rgba(212,165,116,0.2); color:#c08f5c;">&#10003;</span><span>je gezondheid, je relaties en je rust net zo belangrijk vindt als je omzet</span></li>
+                                            </ul>
+                </div>
+                <div class="rounded-2xl overflow-hidden bg-white" style="border:1px solid #E5E7EB;">
+                    <p class="px-6 py-4 font-bold text-lg text-white" style="background:linear-gradient(155deg, #24488a 0%, #1B3A6B 100%);">Niet voor jou als</p>
+                    <ul class="p-6 space-y-4">
+                                                    <li class="flex gap-3" style="color:#2A2A2A;"><span class="w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm font-bold" style="background:rgba(239,68,68,0.12); color:#EF4444;">&#10005;</span><span>je bevestiging zoekt in plaats van de waarheid</span></li>
+                                                    <li class="flex gap-3" style="color:#2A2A2A;"><span class="w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm font-bold" style="background:rgba(239,68,68,0.12); color:#EF4444;">&#10005;</span><span>het volgens jou vooral aan je team, de markt of de timing ligt</span></li>
+                                                    <li class="flex gap-3" style="color:#2A2A2A;"><span class="w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm font-bold" style="background:rgba(239,68,68,0.12); color:#EF4444;">&#10005;</span><span>je wel wilt weten, maar niet wilt veranderen</span></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-3xl mx-auto">
+            <p class="brand-eyebrow font-bold uppercase text-xs text-center mb-3">Nog vragen?</p>
+            <h2 class="font-oswald font-bold uppercase text-3xl sm:text-4xl text-center mb-10" style="color:#1B3A6B;">Veelgestelde vragen</h2>
+            <div class="space-y-3">
+                                    <details class="brand-faq rounded-xl px-6 py-5 group" style="background:#F5F5F5; border:1px solid #E5E7EB;">
+                        <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-bold" style="color:#1B3A6B;">
+                            Wat kost de scan?
+                            <span class="brand-icon w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-lg leading-none transition group-open:rotate-45" aria-hidden="true">+</span>
+                        </summary>
+                        <p class="leading-relaxed mt-3" style="color:#4b5563;">
+                            Niets. De scan is gratis en je zit nergens aan vast.
+                                                    </p>
+                    </details>
+                                    <details class="brand-faq rounded-xl px-6 py-5 group" style="background:#F5F5F5; border:1px solid #E5E7EB;">
+                        <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-bold" style="color:#1B3A6B;">
+                            Hoe lang duurt het?
+                            <span class="brand-icon w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-lg leading-none transition group-open:rotate-45" aria-hidden="true">+</span>
+                        </summary>
+                        <p class="leading-relaxed mt-3" style="color:#4b5563;">
+                            Ongeveer 5 minuten. De meeste vragen beantwoord je met één tik.
+                                                    </p>
+                    </details>
+                                    <details class="brand-faq rounded-xl px-6 py-5 group" style="background:#F5F5F5; border:1px solid #E5E7EB;">
+                        <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-bold" style="color:#1B3A6B;">
+                            Waarom vraag je mijn gegevens vooraf?
+                            <span class="brand-icon w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-lg leading-none transition group-open:rotate-45" aria-hidden="true">+</span>
+                        </summary>
+                        <p class="leading-relaxed mt-3" style="color:#4b5563;">
+                            Zodat je je uitslag ook in je mail krijgt en hem later kunt teruglezen.
+                                                    </p>
+                    </details>
+                                    <details class="brand-faq rounded-xl px-6 py-5 group" style="background:#F5F5F5; border:1px solid #E5E7EB;">
+                        <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-bold" style="color:#1B3A6B;">
+                            Wat gebeurt er met mijn gegevens?
+                            <span class="brand-icon w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-lg leading-none transition group-open:rotate-45" aria-hidden="true">+</span>
+                        </summary>
+                        <p class="leading-relaxed mt-3" style="color:#4b5563;">
+                            Ik gebruik je antwoorden alleen voor je uitslag en om contact met je op te nemen als jij dat wilt. Ik deel of verkoop niets. Afmelden kan altijd, met één klik onderaan elke mail.
+                                                            <a href="/privacyreglement" target="_blank" rel="noopener" class="underline hover:no-underline font-semibold" style="color:#c08f5c;">Lees mijn privacyreglement</a>
+                                                    </p>
+                    </details>
+                                    <details class="brand-faq rounded-xl px-6 py-5 group" style="background:#F5F5F5; border:1px solid #E5E7EB;">
+                        <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-bold" style="color:#1B3A6B;">
+                            Wat gebeurt er na de scan?
+                            <span class="brand-icon w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-lg leading-none transition group-open:rotate-45" aria-hidden="true">+</span>
+                        </summary>
+                        <p class="leading-relaxed mt-3" style="color:#4b5563;">
+                            Je ziet je uitslag direct en krijgt hem in je mail. Wil je weten wat je ermee kunt? Plan dan een gratis Doorbraak Sessie van 60 minuten. Radicaal eerlijk, geen verkooppraatje.
+                                                    </p>
+                    </details>
+                                    <details class="brand-faq rounded-xl px-6 py-5 group" style="background:#F5F5F5; border:1px solid #E5E7EB;">
+                        <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-bold" style="color:#1B3A6B;">
+                            Ik werk in loondienst. Is de scan ook voor mij?
+                            <span class="brand-icon w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-lg leading-none transition group-open:rotate-45" aria-hidden="true">+</span>
+                        </summary>
+                        <p class="leading-relaxed mt-3" style="color:#4b5563;">
+                            Ja. De scan is gemaakt voor ondernemers, maar past zich aan: werk je in loondienst, met of zonder leidinggevende rol, dan sla je de vragen over sales, financiën en omzet over. Je krijgt net zo goed een cijfer voor werk, privé en fysiek, en je Apex Predator-profiel.
+                                                    </p>
+                    </details>
+                            </div>
+        </div>
+    </section>
+
+    <section class="brand-navy py-24 px-6 text-center">
+        <h2 class="font-oswald font-bold text-white uppercase text-3xl sm:text-5xl mb-4">Begin met weten <span class="brand-gold-text">waar je staat.</span></h2>
+        <p class="max-w-xl mx-auto mb-10 text-lg" style="color:#dbe3f0;">Vijf minuten, gratis, en je uitslag staat direct in beeld en in je mail.</p>
+        <a href="#start" data-scan-start class="brand-gold-btn inline-block px-10 py-4 rounded-lg font-bold text-lg">Start mijn scan &rarr;</a>
+    </section>
+
+    
+    <div id="scan-sticky-cta" class="fixed bottom-0 inset-x-0 z-40 px-4 py-3 transition-transform" style="background:rgba(13,28,56,0.96); border-top:1px solid rgba(212,165,116,0.4); transform: translateY(100%); backdrop-filter: blur(6px);">
+        <div class="max-w-6xl mx-auto flex items-center justify-between gap-4">
+            <p class="text-white text-sm hidden sm:block">Gratis Performance Scan &middot; <span style="color:#D4A574;">ongeveer 5 minuten</span></p>
+            <a href="#start" data-scan-start class="brand-gold-btn w-full sm:w-auto text-center px-6 py-3 rounded-lg font-bold">Start mijn scan &rarr;</a>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            var START_URL = "\/performance-scan\/start";
+            var SCAN_URL = "\/performance-scan";
+            var form = document.getElementById('scan-start-form');
+            var error = document.getElementById('scan-start-error');
+            var button = form.querySelector('button[type=submit]');
+
+            // ?test=1: try the scan without sending anything to Monday or ActiveCampaign (remembered for the visit).
+            var TEST_MODE = false;
+            try {
+                if (/[?&]test=1(&|$)/.test(location.search)) sessionStorage.setItem('apexScanTest', '1');
+                TEST_MODE = sessionStorage.getItem('apexScanTest') === '1';
+            } catch (e) {}
+            if (TEST_MODE) {
+                var badge = document.createElement('div');
+                badge.textContent = 'Testmodus: er wordt niets verstuurd';
+                badge.style.cssText = 'position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:50;background:#D4A574;color:#1B3A6B;font:700 12px/1 Arial,sans-serif;padding:7px 14px;border-radius:999px;white-space:nowrap;';
+                document.body.appendChild(badge);
+            }
+
+            document.querySelectorAll('[data-scan-start]').forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.getElementById('start').scrollIntoView({ behavior: 'smooth' });
+                    setTimeout(function () { form.voornaam.focus({ preventScroll: true }); }, 500);
+                });
+            });
+
+            var sticky = document.getElementById('scan-sticky-cta');
+            if ('IntersectionObserver' in window) {
+                new IntersectionObserver(function (entries) {
+                    sticky.style.transform = entries[0].isIntersecting ? 'translateY(100%)' : 'translateY(0)';
+                }).observe(form);
+            }
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var contact = {
+                    // "jelle" becomes "Jelle": the name is shown in the results and the e-mail.
+                    name: form.voornaam.value.trim().replace(/(^|[\s-])(\p{L})/gu, function (m, sep, ch) { return sep + ch.toUpperCase(); }),
+                    email: form.email.value.trim(),
+                    phone: form.telefoon.value.trim(),
+                    lead: null,
+                    at: Date.now()
+                };
+                if (!contact.name || !/^\S+@\S+\.\S+$/.test(contact.email) || contact.phone.replace(/\D/g, '').length < 8) {
+                    error.textContent = 'Vul je voornaam, een geldig e-mailadres en je telefoonnummer in.';
+                    error.hidden = false;
+                    return;
+                }
+                error.hidden = true;
+                if (TEST_MODE) {
+                    try { sessionStorage.setItem('apexScanContact', JSON.stringify(contact)); } catch (err) {}
+                    window.location.href = SCAN_URL;
+                    return;
+                }
+                button.disabled = true;
+                button.textContent = 'Even geduld...';
+
+                // The lead is saved right away; the scan itself never waits more than a few seconds for it.
+                var controller = 'AbortController' in window ? new AbortController() : null;
+                var timer = setTimeout(function () { if (controller) controller.abort(); }, 6000);
+                fetch(START_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json', 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content },
+                    credentials: 'same-origin',
+                    body: JSON.stringify({ name: contact.name, email: contact.email, phone: contact.phone, bron: window.apexLeadSource() }),
+                    signal: controller ? controller.signal : undefined
+                })
+                    .then(function (res) { return res.ok ? res.json() : {}; })
+                    .then(function (data) { contact.lead = data.lead || null; })
+                    .catch(function () {})
+                    .finally(function () {
+                        clearTimeout(timer);
+                        try { sessionStorage.setItem('apexScanContact', JSON.stringify(contact)); } catch (err) {}
+                        window.location.href = SCAN_URL;
+                    });
+            });
+        })();
+    </script>
+        </main>
+
+        <div id="exit-intent-overlay" hidden class="fixed inset-0 z-[60] px-4" style="background:rgba(13,28,56,0.8);">
+  <div id="exit-intent-backdrop" class="flex items-center justify-center h-full">
+    <div class="relative bg-white rounded-2xl max-w-md w-full p-8 text-center" style="box-shadow: 0 30px 60px -30px rgba(0,0,0,0.55);">
+        <button type="button" id="exit-intent-close" aria-label="Sluiten"
+                class="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition" style="color:#1B3A6B;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+
+        <div id="exit-intent-form-state">
+            <p class="font-opensans font-bold uppercase tracking-wide text-2xl mb-3" style="color:#c08f5c;">Voor je gaat</p>
+            <h2 class="font-oswald font-bold uppercase text-2xl mb-3" style="color:#1B3A6B;">Schrijf je in voor de nieuwsbrief</h2>
+            <p class="text-gray-600 text-sm mb-6">
+                Blijf op de hoogte van nieuwe inzichten over focus, leiderschap en groei.
+            </p>
+            <form id="exit-intent-form" class="flex flex-col gap-3">
+                <input type="email" name="email" required placeholder="Jouw e-mailadres"
+                       class="brand-input w-full rounded-lg px-4 py-3 text-sm">
+                <button type="submit" class="brand-gold-btn w-full px-6 py-3 rounded-lg font-bold uppercase text-sm">
+                    Aanmelden
+                </button>
+            </form>
+            <p id="exit-intent-error" hidden class="text-xs mt-3" style="color:#dc2626;">Er ging iets mis. Probeer het opnieuw.</p>
+        </div>
+
+        <div id="exit-intent-thanks-state" hidden>
+            <p class="text-3xl mb-3">✅</p>
+            <h2 class="font-oswald font-bold uppercase text-xl mb-2" style="color:#1B3A6B;">Je zit erin!</h2>
+            <p class="text-gray-600 text-sm">Je ontvangt binnenkort de eerste inzichten van Apex.</p>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    (function () {
+        var STORAGE_KEY = 'apex_exit_intent_dismissed_until';
+        var overlay = document.getElementById('exit-intent-overlay');
+
+        function isMobile() { return !window.matchMedia('(hover: hover) and (pointer: fine)').matches; }
+
+        function dismissedUntil() {
+            var v = localStorage.getItem(STORAGE_KEY);
+            return v ? parseInt(v, 10) : 0;
+        }
+
+        function suppress(days) {
+            localStorage.setItem(STORAGE_KEY, String(Date.now() + days * 24 * 60 * 60 * 1000));
+        }
+
+        if (isMobile() || Date.now() < dismissedUntil()) {
+            return;
+        }
+
+        var shown = false;
+        var armed = false;
+        setTimeout(function () { armed = true; }, 4000);
+
+        function show() {
+            if (shown || !armed) return;
+            shown = true;
+            overlay.removeAttribute('hidden');
+        }
+
+        function hide() {
+            overlay.setAttribute('hidden', '');
+        }
+
+        document.addEventListener('mouseleave', function (e) {
+            if (e.clientY <= 0) show();
+        });
+
+        document.getElementById('exit-intent-close').addEventListener('click', function () {
+            suppress(14);
+            hide();
+        });
+
+        document.getElementById('exit-intent-backdrop').addEventListener('click', function (e) {
+            if (e.target === e.currentTarget) {
+                suppress(14);
+                hide();
+            }
+        });
+
+        document.getElementById('exit-intent-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var email = e.target.email.value;
+            var errorEl = document.getElementById('exit-intent-error');
+            errorEl.setAttribute('hidden', '');
+
+            fetch('/nieuwsbrief/inschrijven', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ email: email, source: 'popup' })
+            }).then(function (res) {
+                if (!res.ok) throw new Error('failed');
+                suppress(3650);
+                document.getElementById('exit-intent-form-state').setAttribute('hidden', '');
+                document.getElementById('exit-intent-thanks-state').removeAttribute('hidden');
+            }).catch(function () {
+                errorEl.removeAttribute('hidden');
+            });
+        });
+    })();
+</script>
+
+        <footer class="py-8 px-6 text-center border-t" style="background:#1B3A6B; border-color:rgba(212,165,116,0.2);">
+            <img src="/images/apex-logo.webp" alt="Apex Online Coaching" class="h-8 w-auto mx-auto mb-3 opacity-80" loading="lazy" width="100" height="32">
+            <p class="text-[#9fb3d1] text-xs mb-2">
+                <a href="tel:0683232341" class="hover:text-white transition">06-83232341</a>
+                &middot;
+                <a href="mailto:jeroen@apexonlinecoaching.nl" class="hover:text-white transition">jeroen@apexonlinecoaching.nl</a>
+                &middot;
+                <a href="https://www.linkedin.com/in/jeroen-schilder/" target="_blank" rel="noopener" class="hover:text-white transition">LinkedIn</a>
+            </p>
+            <p class="text-[#9fb3d1] text-xs">
+                &copy; 2026 Apex Online Coaching. Alle rechten voorbehouden.
+                &middot; <a href="/algemene-voorwaarden" class="hover:text-white transition">Algemene voorwaarden</a>
+                &middot; <a href="/privacyreglement" target="_blank" rel="noopener" class="hover:text-white transition">Privacyreglement</a>
+            </p>
+        </footer>
+
+        <script>
+            (function () {
+                var btn = document.getElementById('nav-toggle');
+                var menu = document.getElementById('nav-menu');
+                if (!btn || !menu) return;
+                btn.addEventListener('click', function () {
+                    var isHidden = menu.hasAttribute('hidden');
+                    if (isHidden) {
+                        menu.removeAttribute('hidden');
+                        btn.setAttribute('aria-expanded', 'true');
+                    } else {
+                        menu.setAttribute('hidden', '');
+                        btn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            })();
+        </script>
+
+        
+        <script>
+            (function () {
+                var widget = document.querySelector('trainin-floating-widget');
+                if (!widget) return;
+
+                function hideLogo() {
+                    if (!widget.shadowRoot) return false;
+                    if (widget.shadowRoot.getElementById('hide-trainin-logo')) return true;
+                    var style = document.createElement('style');
+                    style.id = 'hide-trainin-logo';
+                    style.textContent = '.trainin-logo { display: none !important; }';
+                    widget.shadowRoot.appendChild(style);
+                    return true;
+                }
+
+                if (hideLogo()) return;
+
+                var attempts = 0;
+                function tick() {
+                    attempts++;
+                    if (hideLogo() || attempts > 600) return;
+                    requestAnimationFrame(tick);
+                }
+                requestAnimationFrame(tick);
+            })();
+        </script>
+    </body>
+</html>

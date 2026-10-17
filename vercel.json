@@ -1,0 +1,1340 @@
+{
+    "trailingSlash": false,
+    "redirects": [
+        {
+            "source": "/login",
+            "destination": "/",
+            "permanent": false
+        },
+        {
+            "source": "/register",
+            "destination": "/",
+            "permanent": false
+        },
+        {
+            "source": "/dashboard",
+            "destination": "/",
+            "permanent": false
+        },
+        {
+            "source": "/aanmelden",
+            "destination": "/",
+            "permanent": false
+        },
+        {
+            "source": "/aanmelden/:path*",
+            "destination": "/",
+            "permanent": false
+        },
+        {
+            "source": "/apex-faq/:path*",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/apexresultaat/:path*",
+            "destination": "/resultaten",
+            "permanent": true
+        },
+        {
+            "source": "/category/:path*",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/diana-schilder/:path*",
+            "destination": "/resultaten",
+            "permanent": true
+        },
+        {
+            "source": "/diensten/resultaten/:path*",
+            "destination": "/resultaten",
+            "permanent": true
+        },
+        {
+            "source": "/media/:path*",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/oefeningen/:path*",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/product-categorie/:path*",
+            "destination": "/aanbod",
+            "permanent": true
+        },
+        {
+            "source": "/product/:path*",
+            "destination": "/aanbod",
+            "permanent": true
+        },
+        {
+            "source": "/tag/:path*",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/testimonial/:path*",
+            "destination": "/reviews",
+            "permanent": true
+        },
+        {
+            "source": "/wp-content/uploads/2022/11/Clientvoorwaarde-apex-online-coaching.pdf",
+            "destination": "/algemene-voorwaarden",
+            "permanent": true
+        },
+        {
+            "source": "/wp-content/:path*",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/12850-2",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/14-daagse-try-out",
+            "destination": "/90-dagen-challenge",
+            "permanent": true
+        },
+        {
+            "source": "/14303-2",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/21-superfoods-richtlijn",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/8825-2",
+            "destination": "/resultaten",
+            "permanent": true
+        },
+        {
+            "source": "/account-page",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/achtelijke-plank-variaties-en-correcte-uitvoering",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/achterkant-schouder",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/ad-libitum",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/afrekenen",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/after-summer-challenge",
+            "destination": "/90-dagen-challenge",
+            "permanent": true
+        },
+        {
+            "source": "/aftrainen-en-alcohol",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/afwezig-nye-2024",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/algemene-voorwaarde",
+            "destination": "/algemene-voorwaarden",
+            "permanent": true
+        },
+        {
+            "source": "/angela",
+            "destination": "/resultaten",
+            "permanent": true
+        },
+        {
+            "source": "/apex-2",
+            "destination": "/aanbod",
+            "permanent": true
+        },
+        {
+            "source": "/apex-app",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/apex-budget",
+            "destination": "/aanbod",
+            "permanent": true
+        },
+        {
+            "source": "/apex-consult-platplat",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/apex-health-day-2",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/apex-plus",
+            "destination": "/aanbod",
+            "permanent": true
+        },
+        {
+            "source": "/apex-reunie",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/apex-reunie-2-0-op-26-mei",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/apex-straight-line-training",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/apex-trainers-knallen-dak-eraf-rug-biceps",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/apex_final",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/apexstateofmind",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/aspartaam-vriend-of-vijand",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/basispakket",
+            "destination": "/aanbod",
+            "permanent": true
+        },
+        {
+            "source": "/bedank-pagina-apex-kickstart",
+            "destination": "/apex-kickstart",
+            "permanent": true
+        },
+        {
+            "source": "/bedank-pagina-performance-coaching-intake",
+            "destination": "/1-op-1-coaching",
+            "permanent": true
+        },
+        {
+            "source": "/bedankt",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/bedankt-inschrijving-presentatie-26-12",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/bedankt-inschrijving-winactie",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/bedankt-ondernemer",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/bedankt-performance-sessie",
+            "destination": "/gratis-sessie",
+            "permanent": true
+        },
+        {
+            "source": "/bedankt-plato",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/bedankt-voor-aanschaffen-van-het-apex-basis-pakket",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/bedankt-voor-het-aanschaffen-van-het-apex-pakket",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/bedankt-voor-het-aanschaffen-van-het-app-only-pakket",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/bedankt-voor-het-invullen-van-de-intake-tryout",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/bedankt-voor-het-invullen-van-het-check-in-formulier",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/bedankt-voor-het-invullen-van-het-intakeformulier",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/bedankt-voor-je-aanmelding-apex-kickstart",
+            "destination": "/apex-kickstart",
+            "permanent": true
+        },
+        {
+            "source": "/bedankt-voor-je-aanmelding-voor-de-grand-opening-van-het-apex-performance-centre",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/bedankt-voor-je-deelname",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/bedankt-voor-uw-aanmelding",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/bedankt-vytal",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/belasting-vs-belastbaarheid",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/beste-bilspier-oefening",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/bilspier",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/bovenrug",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/buddy-challenge",
+            "destination": "/90-dagen-challenge",
+            "permanent": true
+        },
+        {
+            "source": "/buitenkant-schouder",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/cheat-meals",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/check-in-formulier",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/check-in-formulier-apex-basis",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/contact",
+            "destination": "/over-ons",
+            "permanent": true
+        },
+        {
+            "source": "/contact/vragen-over-coaching",
+            "destination": "/over-ons",
+            "permanent": true
+        },
+        {
+            "source": "/contact/wie-zijn-wij",
+            "destination": "/over-ons",
+            "permanent": true
+        },
+        {
+            "source": "/corona-oplossing-plato",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/courses",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/creatine-hoe-zit-nou-eigenlijk",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/dames-moeten-meer-eten",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/databank",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/de-echte-superfoods",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/diensten",
+            "destination": "/aanbod",
+            "permanent": true
+        },
+        {
+            "source": "/diensten/pakketten",
+            "destination": "/aanbod",
+            "permanent": true
+        },
+        {
+            "source": "/diensten/personal-training",
+            "destination": "/aanbod",
+            "permanent": true
+        },
+        {
+            "source": "/diensten/premium-coaching",
+            "destination": "/1-op-1-coaching",
+            "permanent": true
+        },
+        {
+            "source": "/diensten/the-apex-buddy-challenge",
+            "destination": "/90-dagen-challenge",
+            "permanent": true
+        },
+        {
+            "source": "/diensten/verzorging",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/diensten/voedingsschemas",
+            "destination": "/90-dagen-challenge",
+            "permanent": true
+        },
+        {
+            "source": "/eerste-5-hoofdstukken-sll",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/eten-uiteten-en-volvreten",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/evengoed-een-fijne-vakantie",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/fotoshoot",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/garantie-retourneren",
+            "destination": "/algemene-voorwaarden",
+            "permanent": true
+        },
+        {
+            "source": "/gefeliciteerd-corine",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/geranne-tol",
+            "destination": "/resultaten",
+            "permanent": true
+        },
+        {
+            "source": "/gerard-lek",
+            "destination": "/resultaten",
+            "permanent": true
+        },
+        {
+            "source": "/gratis-trainingsschema-bedankt",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/gratis-voedingstips-bedankt",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/hand-stand-push-ups-oefenen-zo",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/handige-tip-set-up-dumbbell-press",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/helaas-verhinderd",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/heren-afvallen",
+            "destination": "/90-dagen-challenge",
+            "permanent": true
+        },
+        {
+            "source": "/hoofdstuk-01-straight-line-leadership",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/https-www-apexonlinecoaching-nl-diensten-the-apex-buddy-challenge",
+            "destination": "/90-dagen-challenge",
+            "permanent": true
+        },
+        {
+            "source": "/hyrox-double",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/hyrox-solo",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/ijsbad",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/inbodyscan",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/inbodyscan-plato",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/inschrijven-personal-training-bedankt",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/inschrijving-presentatie",
+            "destination": "/gratis-sessie",
+            "permanent": true
+        },
+        {
+            "source": "/instructor",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/instructors",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/intake-jeroen",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/intakeformulier-apex-kickstart",
+            "destination": "/apex-kickstart",
+            "permanent": true
+        },
+        {
+            "source": "/intakeformulier-bedankt",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/intakeformulier-new-year-new-me",
+            "destination": "/90-dagen-challenge",
+            "permanent": true
+        },
+        {
+            "source": "/intakeformulier-performance-coaching",
+            "destination": "/1-op-1-coaching",
+            "permanent": true
+        },
+        {
+            "source": "/intakeformulier-tryout",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/interview-l-o-v-e-05-11-2017",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/inzage-formulier",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/jan-tol",
+            "destination": "/resultaten",
+            "permanent": true
+        },
+        {
+            "source": "/jan-tol-2",
+            "destination": "/resultaten",
+            "permanent": true
+        },
+        {
+            "source": "/jeroen-fly",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/jeroen-schilder",
+            "destination": "/over-ons",
+            "permanent": true
+        },
+        {
+            "source": "/jessica-schilder",
+            "destination": "/resultaten",
+            "permanent": true
+        },
+        {
+            "source": "/johan-vermeulen",
+            "destination": "/resultaten",
+            "permanent": true
+        },
+        {
+            "source": "/juiste-handpositie-tijdens-bankdrukken",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/juiste-manier-bankdrukken",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/kennismakingsgesprek",
+            "destination": "/gratis",
+            "permanent": true
+        },
+        {
+            "source": "/kennismakingsgesprek-apex-online-coaching",
+            "destination": "/gratis",
+            "permanent": true
+        },
+        {
+            "source": "/kermis",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/kom-nu-in-actie",
+            "destination": "/gratis",
+            "permanent": true
+        },
+        {
+            "source": "/korte-kuitspier",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/krav-maga-workout",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/kuiten",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/lange-kuitspier",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/layout_tag/header",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/leden",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/leg-raises-en-dode-mug",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/lidmaatschappen",
+            "destination": "/aanbod",
+            "permanent": true
+        },
+        {
+            "source": "/login-page",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/logout",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/lp-become-a-teacher",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/lp-checkout",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/lp-profile",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/lp-term-conditions",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/luchtig-vet",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/maakt-2000-eten-jou-ook-dik",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/maaltijdfrequentie-mythes",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/margreth-boxma",
+            "destination": "/resultaten",
+            "permanent": true
+        },
+        {
+            "source": "/methodes",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/micro-plates",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/mijn-account",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/mijn-account-2",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/mind-muscle-connection",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/nek",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/nek-rol",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/newyearnewme",
+            "destination": "/90-dagen-challenge",
+            "permanent": true
+        },
+        {
+            "source": "/nico-schilder",
+            "destination": "/resultaten",
+            "permanent": true
+        },
+        {
+            "source": "/niet-gevonden",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/nieuwe-klant",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/nieuwsbrief-bedankt",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/omtrek-meten-cm",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/onderarm-achterkant",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/onderarm-binnenkant",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/onderarm-buitenkant",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/ondernemers-vereniging-zeevang-punt-a-b",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/ondernemers-vereniging-zeevang-structuur-voor-prestaties",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/osteo-fit",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/osteofit",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/pagebuilder-test",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/pak-hem-zwaarder-dan-daar-wordt-je-gaal-groot-van",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/partners",
+            "destination": "/over-ons",
+            "permanent": true
+        },
+        {
+            "source": "/peesplaat-bovenbeen",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/performance-coaching-3",
+            "destination": "/1-op-1-coaching",
+            "permanent": true
+        },
+        {
+            "source": "/performance-coaching-intake",
+            "destination": "/1-op-1-coaching",
+            "permanent": true
+        },
+        {
+            "source": "/performance-meeting",
+            "destination": "/gratis-sessie",
+            "permanent": true
+        },
+        {
+            "source": "/performance-sessie",
+            "destination": "/gratis-sessie",
+            "permanent": true
+        },
+        {
+            "source": "/performance-sessie-intake",
+            "destination": "/gratis-sessie",
+            "permanent": true
+        },
+        {
+            "source": "/performance-sessie-voorbereiding",
+            "destination": "/gratis-sessie",
+            "permanent": true
+        },
+        {
+            "source": "/periodisering",
+            "destination": "/kennisbank/periodisering",
+            "permanent": true
+        },
+        {
+            "source": "/personal-training",
+            "destination": "/aanbod",
+            "permanent": true
+        },
+        {
+            "source": "/plato",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/plato-pakketen",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/podobrace",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/poll-nieuwe-small-group-uren",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/pop-up-bedankt",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/presentatie-ondernemersvereniging-zeevang",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/profiel",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/progressie-zonder-gewicht-verzwaren",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/promo-apex",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/registreer",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/retroflexie-heup",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/revisie-plato",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/rick-beers",
+            "destination": "/resultaten",
+            "permanent": true
+        },
+        {
+            "source": "/rm_login",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/rm_submissions",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/rust-roest",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/sarcoplasmatische-hypertrofie-maakt-mij-groot-of-niet",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/sedero",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/sit-down-performance-coaching",
+            "destination": "/1-op-1-coaching",
+            "permanent": true
+        },
+        {
+            "source": "/slimvitaalcoaching",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/spam-op-de-veilige-lijst-bij-gmail-hotmail-en-yahoo-outlook-windows-live-mail-msn-mail",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/spiermassa-opbouwen",
+            "destination": "/90-dagen-challenge",
+            "permanent": true
+        },
+        {
+            "source": "/straight-line-leadership-boek",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/structuur-voor-prestatie",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/supplementen-geldverspilling",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/supplementen-geldverspilling-ii",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/survival-run-2",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/suzan-klepper",
+            "destination": "/resultaten",
+            "permanent": true
+        },
+        {
+            "source": "/te-weinig-eten-is-niet-het-grootste-probleem",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/tempo",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/test-2",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/thoracale-extensie-1",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/thoracale-rotatie-b",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/thoracale-rotatiea",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/tools",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/uitnodiging-opening",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/varkensvlees-veilig-of-niet-veilig",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/veelgestelde-vragen",
+            "destination": "/aanbod",
+            "permanent": true
+        },
+        {
+            "source": "/vlog-002-poseren-wedstrijdvoorbereiding-sapcup",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/voedingsmythes",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/voedingsschema",
+            "destination": "/90-dagen-challenge",
+            "permanent": true
+        },
+        {
+            "source": "/voedingsschema-apex-online-coaching-bedankt",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/voor-trainers",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/voorbeeld-pagina",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/voorbereiding-1-op-1-coaching",
+            "destination": "/1-op-1-coaching",
+            "permanent": true
+        },
+        {
+            "source": "/voorbereiding-inbody-meting",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/voorkant-bovenbeen",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/voorkant-scheenbeen",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/voorkant-scheenbeenspier",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/voorkant-schouder",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/vragenlijst-inbody",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/vragenlijst-inbody1",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/vrije-keuze",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/vrouwen-afvallen",
+            "destination": "/90-dagen-challenge",
+            "permanent": true
+        },
+        {
+            "source": "/vrouwen-denken-dat-ze-bodybuilders-worden",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/vrouwen-en-krachttraining",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/vrouwen-en-krachttraining-2",
+            "destination": "/kennisbank",
+            "permanent": true
+        },
+        {
+            "source": "/vytal-intakeformulier",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/wachtwoord-vergeten",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/webshop",
+            "destination": "/aanbod",
+            "permanent": true
+        },
+        {
+            "source": "/welkom-apex-dreamteam",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/welkom-bij-apex-online-coaching",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/welkom-bij-apex-online-coaching-anke",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/welkom-bij-het-intakeformulier",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/winkel",
+            "destination": "/aanbod",
+            "permanent": true
+        },
+        {
+            "source": "/winkel-2",
+            "destination": "/aanbod",
+            "permanent": true
+        },
+        {
+            "source": "/winkelmand",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/winkelwagen",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/zo-pull-up",
+            "destination": "/kennisbank",
+            "permanent": true
+        }
+    ],
+    "rewrites": [
+        {
+            "source": "/performance-scan/start",
+            "destination": "/api/performance-scan-start"
+        },
+        {
+            "source": "/performance-scan/voortgang",
+            "destination": "/api/performance-scan-progress"
+        },
+        {
+            "source": "/performance-scan/versturen",
+            "destination": "/api/performance-scan"
+        },
+        {
+            "source": "/nieuwsbrief/inschrijven",
+            "destination": "/api/nieuwsbrief"
+        },
+        {
+            "source": "/gratis-sessie/:id/inschrijven",
+            "destination": "/api/gratis-sessie?id=:id"
+        }
+    ],
+    "functions": {
+        "api/*.js": {
+            "maxDuration": 60
+        }
+    },
+    "headers": [
+        {
+            "source": "/build/assets/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=31536000, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/images/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=2592000"
+                }
+            ]
+        },
+        {
+            "source": "/(.*)",
+            "headers": [
+                {
+                    "key": "X-Content-Type-Options",
+                    "value": "nosniff"
+                },
+                {
+                    "key": "Referrer-Policy",
+                    "value": "strict-origin-when-cross-origin"
+                }
+            ]
+        }
+    ]
+}

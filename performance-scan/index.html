@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="">
+    <title>Gratis Performance Scan — Apex Online Coaching</title>
+    <link rel="preload" as="style" href="/build/assets/app-Cjd4Muz0.css" /><link rel="stylesheet" href="/build/assets/app-Cjd4Muz0.css" data-navigate-track="reload" />    <script>
+    window.apexLeadSource = (function () {
+        var KEY = 'apexBron';
+        var CODES = ["a1","a2","a3","a4","a5","a6","a7","a8"];
+        var REFERRERS = [
+            [/(^|\.)instagram\.com$/, 'a1'],
+            [/(^|\.)(facebook\.com|fb\.com|fb\.me)$/, 'a2'],
+            [/(^|\.)(linkedin\.com|lnkd\.in)$/, 'a3'],
+            [/(^|\.)google\.[a-z.]+$/, 'a4']
+        ];
+        try {
+            var match = location.search.match(/[?&]r=([a-z0-9]+)/i);
+            var code = match && CODES.indexOf(match[1].toLowerCase()) !== -1 ? match[1].toLowerCase() : null;
+            if (!code && document.referrer) {
+                var host = new URL(document.referrer).hostname;
+                REFERRERS.forEach(function (r) { if (!code && r[0].test(host)) code = r[1]; });
+            }
+            if (code) localStorage.setItem(KEY, JSON.stringify({ code: code, at: Date.now() }));
+        } catch (e) {}
+
+        return function () {
+            try {
+                var stored = JSON.parse(localStorage.getItem(KEY) || 'null');
+                if (stored && Date.now() - stored.at < 30 * 24 * 60 * 60 * 1000) return stored.code;
+            } catch (e) {}
+            return null;
+        };
+    })();
+</script>
+    <style>
+        /* Apex brand palette, as on /waarom-de-performance-scan: navy #1B3A6B, gold #D4A574. */
+        :root {
+            --scan-bg: #14294f; --scan-card: rgba(13,28,56,0.75); --scan-border: rgba(255,255,255,0.14);
+            --scan-accent: #D4A574; --scan-accent-dim: rgba(212,165,116,0.45); --scan-text: #FFFFFF;
+            --scan-text-dim: #9fb3d1; --scan-blue: #5C84D6; --scan-warn: #FBBF24; --scan-danger: #F87171;
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; background-color: var(--scan-bg);
+            background-image: radial-gradient(circle at 85% -10%, rgba(212,165,116,0.20), transparent 45%), radial-gradient(circle at 0% 110%, rgba(212,165,116,0.12), transparent 40%), linear-gradient(155deg, #1B3A6B 0%, #14294f 55%, #0d1c38 100%);
+            background-attachment: fixed; color: var(--scan-text); font-family: Georgia, 'Times New Roman', serif; }
+        .scan-ui { font-family: 'Helvetica Neue', Arial, sans-serif; }
+        .scan-progress { width: 100%; height: 4px; background: var(--scan-border); }
+        .scan-progress-fill { height: 100%; background: linear-gradient(90deg, #c08f5c, #e2b481); transition: width .3s ease; }
+        .scan-shell { min-height: 100vh; display: flex; flex-direction: column; }
+        .scan-body { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 32px 24px; max-width: 520px; margin: 0 auto; width: 100%; }
+        .scan-qnum { font-size: 12px; letter-spacing: 1px; color: var(--scan-text-dim); margin-bottom: 24px; text-align: right; }
+        .scan-title { font-size: 28px; line-height: 1.3; margin: 0 0 32px; font-weight: 400; }
+        .scan-title-sm { font-size: 26px; line-height: 1.3; margin: 0 0 8px; font-weight: 400; }
+        .scan-sub { font-size: 13px; color: var(--scan-text-dim); margin-bottom: 24px; }
+        .scan-option, .scan-check-option {
+            display: block; width: 100%; text-align: left; padding: 20px 24px; margin-bottom: 14px;
+            background: rgba(255,255,255,0.04); border: 1px solid var(--scan-border); border-radius: 16px;
+            color: var(--scan-text); font-size: 17px; cursor: pointer; transition: all .15s ease; font-family: inherit;
+        }
+        .scan-option:hover, .scan-check-option:hover { border-color: var(--scan-accent-dim); }
+        .scan-option:focus-visible, .scan-check-option:focus-visible { outline: none; border-color: var(--scan-accent); box-shadow: 0 0 0 3px rgba(212,165,116,0.3); }
+        .scan-option::placeholder { color: var(--scan-text-dim); opacity: 1; }
+        .scan-option.selected { border-color: var(--scan-accent); box-shadow: 0 0 0 1px var(--scan-accent); background: rgba(212,165,116,0.10); }
+        .scan-check-option { display: flex; align-items: center; gap: 14px; padding: 18px 22px; font-size: 16px; }
+        .scan-check-box { width: 20px; height: 20px; border-radius: 5px; flex-shrink: 0; border: 2px solid var(--scan-text-dim); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--scan-bg); }
+        .scan-check-option.checked .scan-check-box { border-color: var(--scan-accent); background: var(--scan-accent); }
+        .scan-scale-text { font-size: 24px; line-height: 1.4; margin-bottom: 28px; }
+        .scan-scale-buttons { display: flex; gap: 10px; justify-content: space-between; }
+        .scan-scale-btn { flex: 1; aspect-ratio: 1; border-radius: 50%; border: 2px solid var(--scan-border); background: transparent; color: var(--scan-text-dim); font-size: 20px; font-weight: 700; cursor: pointer; font-family: inherit; }
+        .scan-scale-labels { display: flex; justify-content: space-between; margin-top: 10px; font-size: 12px; color: var(--scan-text-dim); }
+        .scan-primary-btn { display: block; width: 100%; padding: 18px 24px; margin-top: 12px; background: linear-gradient(155deg, #e2b481 0%, #D4A574 55%, #c08f5c 100%); box-shadow: 0 10px 24px -10px rgba(212,165,116,0.7); border: none; border-radius: 999px; color: #1B3A6B; font-size: 17px; font-weight: 700; cursor: pointer; font-family: inherit; }
+        .scan-primary-btn:disabled { background: var(--scan-accent-dim); box-shadow: none; color: var(--scan-text-dim); cursor: default; }
+        .scan-back-wrap { text-align: center; padding-bottom: 24px; }
+        .scan-back-btn { background: none; border: none; color: var(--scan-text-dim); font-size: 14px; cursor: pointer; padding: 8px; font-family: inherit; }
+        .scan-results { padding: 32px 24px 64px; }
+        .scan-results-inner { max-width: 560px; margin: 0 auto; }
+        .scan-eyebrow { font-size: 12px; letter-spacing: 1.5px; color: var(--scan-accent); font-weight: 700; margin-bottom: 12px; }
+        .scan-h1 { font-size: 32px; font-style: italic; font-weight: 400; margin: 0 0 32px; }
+        .scan-score { text-align: center; font-size: 84px; font-weight: 700; }
+        .scan-score-label { text-align: center; font-size: 13px; letter-spacing: 1px; color: var(--scan-text-dim); margin-bottom: 28px; }
+        .scan-lead { font-size: 18px; line-height: 1.6; color: var(--scan-text-dim); margin-bottom: 12px; text-align: center; }
+        .scan-lead strong { color: var(--scan-text); }
+        .scan-lead-sm { font-size: 16px; line-height: 1.6; color: var(--scan-text-dim); margin-bottom: 36px; text-align: center; }
+        .scan-card { background: var(--scan-card); border: 1px solid var(--scan-border); border-radius: 20px; padding: 24px; margin-bottom: 20px; }
+        .scan-card.accent { border-color: var(--scan-accent); }
+        .scan-card-title { font-size: 12px; letter-spacing: 1.5px; color: var(--scan-text-dim); font-weight: 700; margin-bottom: 18px; }
+        .scan-metric-row { margin-bottom: 16px; }
+        .scan-metric-top { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 15px; }
+        .scan-metric-bar-bg { height: 6px; background: var(--scan-border); border-radius: 3px; }
+        .scan-metric-bar-fill { height: 100%; border-radius: 3px; }
+        .scan-compare-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; font-size: 14px; }
+        .scan-anchor { text-align: center; margin: 44px 0 8px; }
+        .scan-anchor p { font-size: 12px; letter-spacing: 2px; color: var(--scan-accent); font-weight: 700; }
+        .scan-italic-sub { font-size: 14px; color: var(--scan-text-dim); line-height: 1.6; margin-bottom: 28px; font-style: italic; }
+        .scan-h3 { font-size: 18px; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; margin: 32px 0 4px; }
+        .scan-combo { font-size: 26px; margin-bottom: 14px; }
+        .scan-combo-text { font-size: 15px; line-height: 1.7; color: var(--scan-text-dim); margin-bottom: 20px; }
+        .scan-animal-card { background: rgba(255,255,255,0.03); border: 1px solid var(--scan-border); border-radius: 16px; padding: 20px; margin-bottom: 12px; }
+        .scan-animal-name { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+        .scan-animal-name span { font-weight: 400; font-size: 14px; color: var(--scan-text-dim); }
+        .scan-animal-line { font-size: 14px; line-height: 1.6; margin-bottom: 8px; color: var(--scan-text); font-family: 'Helvetica Neue', Arial, sans-serif; }
+        .scan-animal-line span { color: var(--scan-text-dim); }
+        .scan-bullet { font-size: 14px; line-height: 1.6; color: var(--scan-text-dim); margin-bottom: 12px; font-family: 'Helvetica Neue', Arial, sans-serif; }
+        .scan-bullet strong { color: var(--scan-text); }
+        .scan-bullet .arrow { color: var(--scan-accent); }
+        .scan-cta-h2 { font-size: 24px; line-height: 1.4; margin: 40px 0 16px; }
+        .scan-cta-p { font-size: 15px; line-height: 1.7; color: var(--scan-text-dim); margin-bottom: 28px; font-family: 'Helvetica Neue', Arial, sans-serif; }
+        .scan-offer-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+        .scan-offer-title span { font-weight: 400; color: var(--scan-text-dim); font-size: 15px; }
+        .scan-offer-p { font-size: 15px; line-height: 1.6; color: var(--scan-text-dim); margin-bottom: 18px; font-family: 'Helvetica Neue', Arial, sans-serif; }
+        .scan-primary-link { display: block; width: 100%; padding: 18px 24px; margin-top: 12px; background: linear-gradient(155deg, #e2b481 0%, #D4A574 55%, #c08f5c 100%); box-shadow: 0 10px 24px -10px rgba(212,165,116,0.7); border: none; border-radius: 999px; color: #1B3A6B; font-size: 17px; font-weight: 700; text-align: center; text-decoration: none; font-family: 'Helvetica Neue', Arial, sans-serif; }
+        .scan-scarcity { display: block; text-align: center; margin-top: 16px; padding: 10px 16px; border-radius: 999px; background: rgba(212,165,116,0.08); border: 1px solid rgba(212,165,116,0.3); color: var(--scan-accent); font-size: 13px; font-weight: 700; text-decoration: none; font-family: 'Helvetica Neue', Arial, sans-serif; }
+    </style>
+<script id="browser-logger-active">
+(function() {
+    const ENDPOINT = '/_boost/browser-logs';
+    const logQueue = [];
+    let flushTimeout = null;
+    const captureTypes = ["error","warning","info","log","debug","table"];
+
+    console.log('🔍 Browser logger active (MCP server detected). Posting to: ' + ENDPOINT);
+
+    // Store original console methods
+    const originalConsole = {
+        log: console.log,
+        debug: console.debug,
+        info: console.info,
+        error: console.error,
+        warn: console.warn,
+        table: console.table
+    };
+
+    // Walk own enumerable keys so JSON.stringify cannot auto-invoke a proxy fake toJSON (e.g. Livewire's `$wire`) and fire a real request.
+    function toSafeValue(value, seen) {
+        if (value === null || typeof value !== 'object') {
+            return value;
+        }
+        if (value instanceof Error) {
+            return { name: value.name, message: value.message, stack: value.stack };
+        }
+        // Date has no own enumerable keys, so the walk below would collapse it to {}.
+        if (value instanceof Date) {
+            return value.toISOString();
+        }
+        if (seen.has(value)) {
+            return '[Circular]';
+        }
+        seen.add(value);
+        if (Array.isArray(value)) {
+            return value.map((item) => toSafeValue(item, seen));
+        }
+        const plain = {};
+        for (const key of Object.keys(value)) {
+            if (key === 'toJSON') continue;
+            try {
+                plain[key] = toSafeValue(value[key], seen);
+            } catch (e) {
+                plain[key] = '[Unreadable]';
+            }
+        }
+        return plain;
+    }
+
+    // Helper to safely stringify values
+    function safeStringify(obj) {
+        return JSON.stringify(toSafeValue(obj, new WeakSet()));
+    }
+
+    // Normalize log type for consistency (e.g., 'warn' to 'warning')
+    function normalizeType(type) {
+        return type === 'warn' ? 'warning' : type;
+    }
+
+    // Determine if a log type should be captured based on configured levels
+    function shouldCapture(type) {
+        return captureTypes.includes(normalizeType(type));
+    }
+
+    // Batch and send logs
+    function flushLogs() {
+        if (logQueue.length === 0) return;
+
+        const batch = logQueue.splice(0, logQueue.length);
+
+        fetch(ENDPOINT, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: JSON.stringify({ logs: batch })
+        }).catch(err => {
+            // Silently fail to avoid infinite loops
+            originalConsole.error('Failed to send logs:', err);
+        });
+    }
+
+    // Debounced flush (100ms)
+    function scheduleFlush() {
+        if (flushTimeout) clearTimeout(flushTimeout);
+        flushTimeout = setTimeout(flushLogs, 100);
+    }
+
+    // Intercept console methods
+    ['log', 'debug', 'info', 'error', 'warn', 'table'].forEach(method => {
+        console[method] = function(...args) {
+            // Call original method
+            originalConsole[method].apply(console, args);
+
+            // Capture log data
+            try {
+                if (!shouldCapture(method)) {
+                    return;
+                }
+
+                logQueue.push({
+                    type: method,
+                    timestamp: new Date().toISOString(),
+                    data: args.map(arg => {
+                        try {
+                            return typeof arg === 'object' ? JSON.parse(safeStringify(arg)) : arg;
+                        } catch (e) {
+                            return String(arg);
+                        }
+                    }),
+                    url: window.location.href,
+                    userAgent: navigator.userAgent
+                });
+
+                scheduleFlush();
+            } catch (e) {
+                // Fail silently
+            }
+        };
+    });
+
+    // Global error handlers for uncaught errors
+    const originalOnError = window.onerror;
+    window.onerror = function boostErrorHandler(errorMsg, url, lineNumber, colNumber, error) {
+        try {
+            if (shouldCapture('error')) {
+                logQueue.push({
+                    type: 'uncaught_error',
+                    timestamp: new Date().toISOString(),
+                    data: [{
+                        message: errorMsg,
+                        filename: url,
+                        lineno: lineNumber,
+                        colno: colNumber,
+                        error: error ? {
+                            name: error.name,
+                            message: error.message,
+                            stack: error.stack
+                        } : null
+                    }],
+                    url: window.location.href,
+                    userAgent: navigator.userAgent
+                });
+
+                scheduleFlush();
+            }
+
+        } catch (e) {
+            // Fail silently
+        }
+
+        // Call original handler if it exists
+        if (originalOnError && typeof originalOnError === 'function') {
+            return originalOnError(errorMsg, url, lineNumber, colNumber, error);
+        }
+
+        // Let the error continue to propagate
+        return false;
+    }
+    window.addEventListener('error', (event) => {
+        try {
+            if (!shouldCapture('error')) {
+                return false;
+            }
+
+            logQueue.push({
+                type: 'window_error',
+                timestamp: new Date().toISOString(),
+                data: [{
+                    message: event.message,
+                    filename: event.filename,
+                    lineno: event.lineno,
+                    colno: event.colno,
+                    error: event.error ? {
+                        name: event.error.name,
+                        message: event.error.message,
+                        stack: event.error.stack
+                    } : null
+                }],
+                url: window.location.href,
+                userAgent: navigator.userAgent
+            });
+
+            scheduleFlush();
+        } catch (e) {
+            // Fail silently
+        }
+
+        // Let the error continue to propagate
+        return false;
+    });
+    window.addEventListener('unhandledrejection', (event) => {
+        try {
+            if (!shouldCapture('error')) {
+                return false;
+            }
+
+            logQueue.push({
+                type: 'error',
+                timestamp: new Date().toISOString(),
+                data: [{
+                    message: 'Unhandled Promise Rejection',
+                    reason: toSafeValue(event.reason, new WeakSet())
+                }],
+                url: window.location.href,
+                userAgent: navigator.userAgent
+            });
+
+            scheduleFlush();
+        } catch (e) {
+            // Fail silently
+        }
+
+        // Let the rejection continue to propagate
+        return false;
+    });
+
+    // Flush on page unload
+    window.addEventListener('beforeunload', () => {
+        if (logQueue.length > 0) {
+            navigator.sendBeacon(ENDPOINT, JSON.stringify({ logs: logQueue }));
+        }
+    });
+})();
+</script>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script><script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+    <div id="scan-app"></div>
+
+    
+    <style>
+    :root { --lvl-green: #10B981; --lvl-gold: #D4A574; --lvl-orange: #FB923C; }
+    .scan-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 20px; }
+    .scan-head .scan-qnum { margin-bottom: 0; white-space: nowrap; }
+    .scan-context { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--scan-accent); font-weight: 700; }
+    .scan-intro { font-size: 14px; line-height: 1.5; color: var(--scan-text-dim); margin: -6px 0 22px; }
+    .scan-title.long { font-size: 22px; line-height: 1.4; margin-bottom: 26px; }
+    .scan-option-label { display: block; font-weight: 700; }
+    .scan-option-sub { display: block; font-size: 14px; line-height: 1.5; color: var(--scan-text-dim); margin-top: 4px; }
+    .scan-scale-btn.selected, .scan-rating-btn.selected { border-color: var(--scan-accent); background: rgba(212,165,116,0.16); color: var(--scan-accent); }
+    .scan-scale-btn:hover, .scan-rating-btn:hover { border-color: var(--scan-accent-dim); }
+    .scan-scale-labels span { max-width: 46%; line-height: 1.4; }
+    .scan-scale-labels span:last-child { text-align: right; }
+    .scan-rating { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+    .scan-rating-btn { padding: 14px 0; border-radius: 14px; border: 2px solid var(--scan-border); background: transparent; color: var(--scan-text); font-size: 20px; font-weight: 700; cursor: pointer; font-family: inherit; }
+    .scan-test-badge { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); z-index: 50; background: var(--scan-accent); color: #1B3A6B; font: 700 12px/1 'Helvetica Neue', Arial, sans-serif; padding: 7px 14px; border-radius: 999px; box-shadow: 0 6px 18px -8px rgba(0,0,0,0.6); white-space: nowrap; }
+    .scan-hero { display: flex; align-items: center; gap: 24px; margin-bottom: 28px; }
+    .scan-ring { position: relative; width: 150px; height: 150px; flex-shrink: 0; }
+    .scan-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+    .scan-ring-value { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .scan-ring-value strong { font-size: 46px; line-height: 1; }
+    .scan-ring-value span { font-size: 12px; color: var(--scan-text-dim); margin-top: 6px; }
+    .scan-hero-goal { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--scan-text-dim); font-weight: 700; margin: 0 0 8px; }
+    .scan-hero-goal strong { color: var(--scan-accent); font-size: 15px; }
+    .scan-hero-text { font-size: 16px; line-height: 1.6; color: var(--scan-text-dim); margin: 0; }
+    .scan-hero-text strong { color: var(--scan-text); }
+    .scan-domains { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+    .scan-domain { background: var(--scan-card); border: 1px solid var(--scan-border); border-radius: 16px; padding: 16px 8px; text-align: center; }
+    .scan-domain-label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--scan-text-dim); font-weight: 700; }
+    .scan-domain-grade { font-size: 34px; font-weight: 700; line-height: 1.1; margin: 8px 0 4px; }
+    .scan-domain-level { font-size: 12px; color: var(--scan-text-dim); }
+    .scan-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12px; color: var(--scan-text-dim); margin-top: 4px; }
+    .scan-legend i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+    .scan-lek-name { font-size: 30px; font-weight: 700; margin: 0; }
+    .scan-lek-name span { font-size: 18px; font-weight: 400; color: var(--scan-text-dim); }
+    .scan-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 16px; }
+    .scan-chip { font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.08); color: var(--scan-text); }
+    .scan-text { font-size: 15px; line-height: 1.7; color: var(--scan-text-dim); margin: 0 0 12px; }
+    .scan-text strong { color: var(--scan-text); }
+    .scan-quote { border-left: 3px solid var(--scan-accent); padding: 2px 0 2px 16px; margin: 18px 0; font-size: 17px; line-height: 1.6; color: var(--scan-text); font-style: italic; }
+    .scan-quote span { display: block; font-style: normal; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--scan-accent); font-weight: 700; margin-bottom: 6px; }
+    .scan-note { font-size: 12px; line-height: 1.5; color: var(--scan-text-dim); margin: 12px 0 0; }
+    .scan-stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .scan-stat { background: rgba(255,255,255,0.04); border: 1px solid rgba(212,165,116,0.3); border-radius: 14px; padding: 18px 10px; text-align: center; }
+    .scan-stat strong { display: block; font-size: 32px; line-height: 1.1; color: var(--scan-accent); }
+    .scan-stat span { display: block; font-size: 13px; line-height: 1.4; color: var(--scan-text-dim); margin-top: 6px; }
+    .scan-future-row { display: grid; grid-template-columns: 190px 1fr; align-items: center; gap: 16px; margin-bottom: 18px; font-size: 15px; }
+    .scan-future-bar { position: relative; height: 10px; border-radius: 999px; background: var(--scan-border); }
+    .scan-future-now { height: 100%; border-radius: 999px; background: var(--lvl-gold); }
+    .scan-future-mark { position: absolute; top: -4px; width: 4px; height: 18px; margin-left: -2px; border-radius: 2px; background: var(--lvl-green); }
+    @media (max-width: 480px) {
+        .scan-future-row { grid-template-columns: 1fr; gap: 8px; }
+        .scan-hero { flex-direction: column; text-align: center; }
+        .scan-domain-grade { font-size: 28px; }
+    }
+</style>
+
+<script>
+(function () {
+    var CTA_URL = "https:\/\/apexonlinecoaching.trainin.app\/activities\/LQ2Y2P\/de-doorbraak-sessie";
+    var GRATIS_URL = "\/gratis-sessie";
+    var SCARCITY = {"remaining":8,"capacity":8,"deadline":"9 november"};
+    var START_URL = "\/performance-scan\/start";
+    var PROGRESS_URL = "\/performance-scan\/voortgang";
+    var SUBMIT_URL = "\/performance-scan\/versturen";
+    var PRIVACY_URL = "\/privacyreglement";
+
+    // Contact details left on the landing page; without them the scan asks first.
+    var CONTACT = null;
+    try {
+        var stored = JSON.parse(sessionStorage.getItem('apexScanContact') || 'null');
+        if (stored && stored.email && Date.now() - stored.at < 6 * 60 * 60 * 1000) CONTACT = stored;
+    } catch (e) {}
+
+    // Test mode: everything works as usual, but nothing is sent anywhere.
+    var TEST_MODE = false;
+    try {
+        if (/[?&]test=1(&|$)/.test(location.search)) sessionStorage.setItem('apexScanTest', '1');
+        TEST_MODE = sessionStorage.getItem('apexScanTest') === '1';
+    } catch (e) {}
+
+    // ============================================================
+    // MODEL: three domains, five levers, Dutch grades from 1 to 10
+    // ============================================================
+    var TARGET = 8.5;
+    var DOMAINS = { werk: 'Werk', prive: 'Privé', fysiek: 'Fysiek' };
+    var DOMAIN_ORDER = ['werk', 'prive', 'fysiek'];
+    var LEVERS = { focus: 'Focus', energie: 'Energie', structuur: 'Structuur', besluit: 'Besluitvaardigheid', leiderschap: 'Leiderschap & Integriteit' };
+    var LEVER_ORDER = ['focus', 'energie', 'structuur', 'besluit', 'leiderschap'];
+
+    var LEVELS = [
+        { min: 8.5, name: 'Apex', text: 'Dit is 8,5-niveau: het houdt stand, ook als het druk wordt.' },
+        { min: 7, name: 'Consistent', text: 'Het staat, maar als het druk wordt, zakt het nog weg.' },
+        { min: 5.5, name: 'Bewust', text: 'Je ziet waar het misgaat, maar je hebt er nog geen vast systeem voor.' },
+        { min: -Infinity, name: 'Reactief', text: 'Je reageert vooral op wat er op je afkomt. Hier lekt de meeste tijd en energie weg.' }
+    ];
+
+    var NEXT_STEPS = {
+        focus: 'Leer kiezen wat er écht toe doet, en de rest bewust laten liggen. Niet harder werken, maar minder dingen tegelijk.',
+        energie: 'Maak slaap, beweging en voeding je vaste basis, niet je beloning voor als het werk af is. Met een volle tank gaat al het andere makkelijker.',
+        structuur: 'Bouw een vast ritme in je week, waarin je belangrijkste afspraken vastliggen, ook die met jezelf, voordat de rest van de week ze opslokt.',
+        besluit: 'Neem beslissingen op tijd en op basis van feiten, en sta erachter. Uitstel kost je meestal meer dan een verkeerde keuze.',
+        leiderschap: 'Kom de afspraken met jezelf net zo trouw na als die met anderen, en geef uit handen wat een ander net zo goed kan.'
+    };
+
+    // One action for this week, picked by the biggest leak and the domain where it shows most.
+    var ACTIONS = {
+        'werk.focus': { name: 'Het Eerste Uur', text: 'Begin deze week elke werkdag met een uur aan je belangrijkste taak. Telefoon weg, mail dicht.' },
+        'werk.structuur': { name: 'Het Weekplan', text: 'Neem maandagochtend vijftien minuten voor je week: je drie belangrijkste resultaten, en wanneer je eraan werkt.' },
+        'werk.besluit': { name: 'De 48-uursregel', text: 'Kies één beslissing die al te lang ligt en neem hem binnen 48 uur, ook zonder alle informatie.' },
+        'werk.leiderschap': { name: 'De Eerste Delegatie', text: 'Geef deze week één taak helemaal uit handen, inclusief de verantwoordelijkheid voor het resultaat.' },
+        'prive.focus': { name: 'De Schermvrije Avond', text: 'Plan deze week één avond zonder telefoon met je partner, gezin of vrienden. Leg hem in een andere kamer.' },
+        'prive.energie': { name: 'Het Afsluitmoment', text: 'Sluit je werkdag deze week elke dag op een vast tijdstip af: schrijf op wat morgen moet, en klap dan je laptop dicht.' },
+        'prive.structuur': { name: 'De Vaste Afspraak', text: 'Zet deze week één moment met je partner, gezin of vrienden in je agenda, net zo vast als een klantafspraak.' },
+        'prive.besluit': { name: 'Het Eerlijke Gesprek', text: 'Kies één ding dat je thuis al te lang voor je uit schuift, en bespreek het deze week.' },
+        'prive.leiderschap': { name: 'Afspraak is afspraak', text: 'Kies deze week één toezegging thuis, zet hem in je agenda en kom hem na, wat er op je werk ook tussenkomt.' },
+        'fysiek.energie': { name: 'Het Slaapritme', text: 'Ga deze week vijf avonden op dezelfde tijd naar bed, zodat je zeven uur slaap haalt.' },
+        'fysiek.structuur': { name: 'De Trainingsafspraak', text: 'Zet deze week drie trainingen in je agenda, net zo vast als een klantafspraak.' }
+    };
+    var FALLBACK_ACTION = { focus: 'werk.focus', energie: 'fysiek.energie', structuur: 'werk.structuur', besluit: 'werk.besluit', leiderschap: 'werk.leiderschap' };
+
+    // ============================================================
+    // APEX PREDATOR: how you hunt for results and how you lead
+    // ============================================================
+    // Each animal has a sentence per lever: shown with the biggest and second
+    // leak, from the hunting animal (or the leading animal for Leiderschap).
+    var ANIMALS = {
+        adelaar: { name: 'Adelaar', emoji: '🦅', archetype: 'De Visionair', group: 1,
+            sterkte: 'Je ziet kansen en richting voordat anderen ze zien.',
+            blindeVlek: 'Je onderschat hoeveel uitvoering nodig is om een idee tot omzet te maken.',
+            risico: 'Je start een nieuw initiatief in plaats van het oude af te maken.',
+            groei: 'Houd een idee vast tot het één stap verder is uitgevoerd, voordat je een nieuw idee toestaat.',
+            lek: {
+                focus: 'Je ziet de kansen, maar je focus is te versnipperd om ze echt uit te voeren.',
+                energie: 'Je visie is er — maar je energietekort zorgt dat je ideeën blijven liggen.',
+                structuur: 'Je denkt groot, maar zonder vast ritme verdwijnen je beste plannen in de waan van de dag.',
+                besluit: 'Je ziet de richting, maar twijfel houdt je van de stap die nodig is.',
+                leiderschap: 'Je zet jezelf grote doelen, maar loopt het even niet, dan ruil je ze in voor een nieuw idee.'
+            } },
+        haai: { name: 'Haai', emoji: '🦈', archetype: 'De Closer', group: 1,
+            sterkte: 'Besluitvaardig, efficiënt, onverbiddelijk in het binnenhalen van resultaat.',
+            blindeVlek: 'Je ziet relaties als een middel, niet als een doel.',
+            risico: 'Je jaagt harder in plaats van slimmer.',
+            groei: "Laat elke grote commerciële beslissing minimaal 24 uur liggen voordat je 'm bevestigt.",
+            lek: {
+                focus: 'Je jaagt op resultaat, maar springt van kans naar kans zonder ze af te maken.',
+                energie: 'Je tempo is hoog — maar je tank raakt leeg voordat je over de finish bent.',
+                structuur: 'Je handelt snel, maar zonder structuur glippen er kansen tussendoor die je wél had kunnen pakken.',
+                besluit: 'Je beslist snel, maar vaak op gevoel: het rekenwerk komt pas achteraf.',
+                leiderschap: 'Wat je anderen belooft, maak je waar — wat je jezelf belooft, verliest het van de volgende kans.'
+            } },
+        krokodil: { name: 'Krokodil', emoji: '🐊', archetype: 'De Strategische Opportunist', group: 2,
+            sterkte: 'Ongeëvenaard geduld en timing. Als het moment er is, sla je toe met precisie.',
+            blindeVlek: 'Je gelooft dat wachten altijd loont.',
+            risico: 'Je wacht te lang. Het venster sluit voordat jij klaar bent om toe te happen.',
+            groei: 'Elke beslissing die langer dan 48 uur op je bureau ligt, neem je sowieso.',
+            lek: {
+                focus: 'Je geduld is je kracht — maar je wacht zo lang dat de focus verdwijnt.',
+                energie: 'Je bewaart je energie slim, maar als het moment daar is, zit er soms te weinig in de tank.',
+                structuur: 'Je hebt een plan in je hoofd, maar het staat nergens: niet in je agenda, en niemand om je heen kent het.',
+                besluit: 'Je analyseert grondig — maar het venster sluit terwijl jij nog berekent.',
+                leiderschap: 'Je wacht op het juiste moment om aan je eigen doelen te beginnen — en dat moment komt zelden vanzelf.'
+            } },
+        tijger: { name: 'Tijger', emoji: '🐯', archetype: 'De Uitvoerder', group: 2,
+            sterkte: 'Ongeëvenaarde focus, kracht en geduld. Je maakt af wat je begint, alleen.',
+            blindeVlek: 'Je gelooft dat dingen alleen goed gebeuren als jij ze zelf doet.',
+            risico: 'Je trekt je terug in isolatie en delegeert nog minder dan normaal.',
+            groei: 'Geef deze week één taak volledig weg, inclusief de verantwoordelijkheid voor de uitkomst.',
+            lek: {
+                focus: 'Je focus is scherp, maar alleen op jouw werk — het grotere plaatje mist aandacht.',
+                energie: 'Je werkt solo door — maar je reserve raakt sneller op dan je doorhebt.',
+                structuur: 'Jij weet wat je doet. Maar je systeem draait alleen als jij erin zit.',
+                besluit: 'Je weet wat je wil, maar beslissingen waar anderen bij betrokken zijn, stel je te lang uit.',
+                leiderschap: 'Als het druk wordt, doe je alles zelf — terwijl je juist dan werk uit handen moet geven.'
+            } },
+        beer: { name: 'Beer', emoji: '🐻', archetype: 'De Doorzetter', group: 2,
+            sterkte: 'Veerkracht en uithoudingsvermogen, ook in zware omstandigheden.',
+            blindeVlek: "Je verwart 'volhouden' met 'de juiste dingen blijven doen'.",
+            risico: 'Je wordt star en geïsoleerd. Je trekt je terug op je eigen kracht.',
+            groei: 'Kies één situatie waarin je normaal zou volhouden, en vraag expliciet om hulp.',
+            lek: {
+                focus: 'Je houdt vol, maar verliest soms de focus op wat écht het verschil maakt.',
+                energie: 'Je uithoudingsvermogen is groot — maar je herstelt langzamer dan je denkt.',
+                structuur: 'Je bouwt solide, maar je houdt vast aan hoe het altijd ging, ook als dat niet meer werkt.',
+                besluit: 'Je wacht tot je er zeker van bent — en mist daardoor momentum.',
+                leiderschap: 'Loopt je doel vast, dan werk je harder en bijt je door — terwijl hulp vragen je verder zou brengen.'
+            } },
+        olifant: { name: 'Olifant', emoji: '🐘', archetype: 'De Netwerkbouwer', group: 2,
+            sterkte: 'Je denkt in jaren, niet in weken, en bouwt een netwerk dat je blijft dragen.',
+            blindeVlek: 'Je gelooft dat alles wat goed is tijd nodig heeft, ook als iets nú moet gebeuren.',
+            risico: 'Je zet je schrap en houdt koers, terwijl bijsturen juist nodig is.',
+            groei: 'Koppel elk langetermijnplan aan één stap die je deze week zet.',
+            lek: {
+                focus: 'Je kijkt ver vooruit, maar verliest daardoor uit het oog wat vandaag af moet.',
+                energie: 'Je draagt verplichtingen van jaren met je mee — en dat weegt zwaarder op je energie dan je denkt.',
+                structuur: 'Je bouwt aan de lange termijn, maar je gewone week loopt zoals hij loopt.',
+                besluit: 'Je weegt elke keuze af tegen wat je eerder meemaakte — en kiest daardoor te vaak voor het vertrouwde.',
+                leiderschap: 'Je voelt je verantwoordelijk voor iedereen — en neemt daardoor werk op je dat een ander net zo goed kan doen.'
+            } },
+        leeuw: { name: 'Leeuw', emoji: '🦁', archetype: 'De Leider', group: 3,
+            sterkte: 'Mensen volgen jou vanzelf. Natuurlijke autoriteit.',
+            blindeVlek: 'Je onderschat hoe afhankelijk je bedrijf van jou persoonlijk is geworden.',
+            risico: 'Je ego neemt het over. Kritiek wordt moeilijker te verdragen.',
+            groei: 'Bouw bewust een sterke nummer 2 en geef je team ruimte om zelf te beslissen.',
+            lek: {
+                focus: 'Je charisma trekt mensen mee — maar je eigen focus is versnipperd over te veel fronten.',
+                energie: 'Je leidt met energie, maar als die wegvalt, voelt iedereen om je heen het direct.',
+                structuur: 'Jij bepaalt de richting, maar de structuur om dat waar te maken ontbreekt.',
+                besluit: 'Je durft te beslissen — maar twijfelt achteraf te veel aan je eigen keuzes.',
+                leiderschap: 'Onder druk word je dominanter: je zoekt eerst wie het heeft laten gebeuren, niet wat jouw aandeel is.'
+            } },
+        orka: { name: 'Orka', emoji: '🐋', archetype: 'De Schaalbare Leider', group: 3,
+            sterkte: 'Extreem intelligent, strategisch, sterk in het laten samenwerken van mensen op hoog niveau.',
+            blindeVlek: 'Je gelooft dat een gedragen beslissing altijd beter is dan een snelle.',
+            risico: 'Besluiten worden te collectief. Je overlegt langer dan nodig.',
+            groei: 'Wijs vooraf een eindverantwoordelijke aan per beslissing, met een harde deadline.',
+            lek: {
+                focus: 'Je stemt alles goed af met anderen, maar verliest daarbij je eigen focus.',
+                energie: 'Je hoofd draait altijd door om alles en iedereen op één lijn te krijgen — en dat kost meer energie dan je denkt.',
+                structuur: 'Samen kom je ver, maar wie wat doet en wanneer, ligt nergens vast.',
+                besluit: 'Je wacht op consensus — en verliest daardoor momentum op het juiste moment.',
+                leiderschap: 'Gaat er iets mis, dan los je het samen op — maar wie er eigenaar van is, blijft vaag.'
+            } },
+        wolf: { name: 'Wolf', emoji: '🐺', archetype: 'De Cultuurbouwer', group: 3,
+            sterkte: 'Loyaal, teamgericht, hoge werkethiek.',
+            blindeVlek: "Je verwart 'het team tevreden houden' met 'het team goed leiden'.",
+            risico: 'Je zoekt te lang consensus en vermijdt confrontatie.',
+            groei: 'Wees in elk overleg deze week degene die als eerste een duidelijk standpunt inneemt.',
+            lek: {
+                focus: 'Je bent loyaal aan de mensen om je heen, maar verliest daardoor soms je eigen doel uit het oog.',
+                energie: 'Je geeft veel aan anderen — en vergeet je eigen energie te bewaken.',
+                structuur: 'Je roedel is hecht, maar het systeem draait op loyaliteit, niet op structuur.',
+                besluit: 'Je vermijdt harde beslissingen om de vrede te bewaren — en dat kost je meer.',
+                leiderschap: 'Afspraken met anderen kom je trouw na; die met jezelf schuif je op om niemand teleur te stellen.'
+            } }
+    };
+
+    // Two screens per style: first a group (fast, patient, or through people),
+    // then an animal from that group. The animals are only named in the results.
+    var STYLE = {
+        jacht: {
+            sub: 'Hoe jij jaagt op resultaat',
+            question: 'Er ligt een grote kans voor je. Wat doe je meestal?',
+            groups: [
+                { group: 1, label: 'Ik pak hem direct, voordat een ander het doet.' },
+                { group: 2, label: 'Ik bereid me goed voor, kies mijn moment en houd vol tot het er is.' },
+                { group: 3, label: 'Ik zoek de juiste mensen en pak hem samen.' }
+            ],
+            animals: [
+                { animal: 'adelaar', label: 'Ik zie de kans van bovenaf, voordat de rest het doorheeft.' },
+                { animal: 'haai', label: 'Ik moet in beweging blijven om de kans te pakken, anders is-ie weg.' },
+                { animal: 'krokodil', label: 'Ik wacht uren of dagen op het perfecte moment, dan sla ik toe.' },
+                { animal: 'tijger', label: 'Ik werk het liefst alleen, met volledige focus tot het klaar is.' },
+                { animal: 'beer', label: 'Ik houd vol, ook als de omstandigheden zwaar zijn.' },
+                { animal: 'olifant', label: 'Ik denk in jaren en bouw stap voor stap aan iets dat blijft.' },
+                { animal: 'leeuw', label: 'Ik controleer mijn terrein en stuur van daaruit.' },
+                { animal: 'orka', label: 'Ik pas mijn aanpak steeds aan op de situatie, samen met mijn team.' },
+                { animal: 'wolf', label: 'Ik ben weinig bijzonder alleen, maar extreem effectief in een hecht team.' }
+            ]
+        },
+        leid: {
+            sub: 'Hoe jij anderen meekrijgt',
+            question: 'Er moet iets veranderen en de mensen om je heen twijfelen. Wat doe jij?',
+            groups: [
+                { group: 1, label: 'Ik laat met harde resultaten zien dat het kan.' },
+                { group: 2, label: 'Ik blijf liever op de achtergrond en bouw rustig vertrouwen op.' },
+                { group: 3, label: 'Ik geef duidelijk richting en neem iedereen mee.' }
+            ],
+            animals: [
+                { animal: 'adelaar', label: 'Ik overtuig door overzicht en een scherpe blik op kansen te tonen.' },
+                { animal: 'haai', label: 'Ik overtuig door resultaten neer te zetten waar niemand omheen kan.' },
+                { animal: 'krokodil', label: 'Ik overtuig door geduldig te blijven en op het juiste moment te spreken.' },
+                { animal: 'tijger', label: 'Ik overtuig door zelfstandig te laten zien dat het werkt.' },
+                { animal: 'beer', label: 'Ik overtuig door stabiliteit en betrouwbaarheid uit te stralen.' },
+                { animal: 'olifant', label: 'Ik overtuig omdat mensen weten dat ze jaren op me kunnen bouwen.' },
+                { animal: 'leeuw', label: 'Ik geef richting en mensen volgen vanzelf.' },
+                { animal: 'orka', label: 'Ik laat het team meedenken en kies dan de slimste strategie.' },
+                { animal: 'wolf', label: 'Ik bouw een hechte groep die voor elkaar door het vuur gaat.' }
+            ]
+        }
+    };
+
+    // ============================================================
+    // QUESTIONS
+    // ============================================================
+    var SITUATIONS = [
+        { label: "Zzp'er, ik werk alleen", ondernemer: true },
+        { label: 'Ondernemer met een team van 1–10 mensen', ondernemer: true },
+        { label: 'Ondernemer met 11–50 mensen', ondernemer: true },
+        { label: 'Ondernemer met meer dan 50 mensen', ondernemer: true },
+        { label: 'Leidinggevende in loondienst', ondernemer: false },
+        { label: 'In loondienst, zonder leidinggevende rol', ondernemer: false }
+    ];
+    var REVENUE_OPTIONS = [
+        { label: 'Minder dan €10K', mid: 7500, pct: 0.18 },
+        { label: '€10K – €25K', mid: 17500, pct: 0.18 },
+        { label: '€25K – €50K', mid: 37500, pct: 0.15 },
+        { label: '€50K – €100K', mid: 75000, pct: 0.12 },
+        { label: '€100K+', mid: 125000, pct: 0.10 }
+    ];
+
+    var BLOCKS = {
+        start: { label: 'Over jou' },
+        werk: { label: 'Werk', intro: 'Denk aan een gewone week, niet aan je beste.' },
+        prive: { label: 'Privé', intro: 'Geen partner? Denk aan de mensen die het dichtst bij je staan.' },
+        fysiek: { label: 'Fysiek', intro: 'Kijk naar de afgelopen maand.' },
+        leven: { label: 'Je hele leven', intro: 'Deze twee gaan over al je domeinen tegelijk.' },
+        apex: { label: 'Je Apex Predator-profiel', intro: 'Hier zijn geen goede of foute antwoorden. Kies wat het meest op jou lijkt.' },
+        slot: { label: 'Tot slot', intro: 'Nog een paar korte vragen.' }
+    };
+
+    // kind: choice (not scored) · statement (1–5) · ladder (options from weak to strong) · rating (1–10)
+    // domain 'leven' counts in every domain. ondernemer: only asked to entrepreneurs.
+    var QUESTIONS = [
+        { id: 'situatie', kind: 'choice', block: 'start', title: 'Wat past het best bij jou?',
+            options: SITUATIONS.map(function (s) { return s.label; }) },
+
+        { id: 'w_taken', kind: 'statement', block: 'werk', topic: 'Je werkdag', domain: 'werk', lever: 'focus', reverse: true,
+            text: 'Ik spring regelmatig van taak naar taak zonder iets echt af te maken.', flag: 'Springt van taak naar taak zonder iets af te maken' },
+        { id: 'w_belangrijk', kind: 'statement', block: 'werk', topic: 'Prioriteiten', domain: 'werk', lever: 'focus', reverse: true,
+            text: 'Aan het einde van de dag heb ik vaak het gevoel dat ik niet heb gedaan wat echt belangrijk was.', flag: 'Doet vaak niet wat echt belangrijk is' },
+        { id: 'w_systeem', kind: 'statement', block: 'werk', topic: 'Planning', domain: 'werk', lever: 'structuur',
+            text: 'Ik heb een vast systeem waarmee ik mijn week plan.', flag: 'Heeft geen vast systeem om de week te plannen' },
+        { id: 'w_twijfel', kind: 'statement', block: 'werk', topic: 'Beslissen', domain: 'werk', lever: 'besluit', reverse: true,
+            text: 'Als ik eenmaal een beslissing heb genomen, twijfel ik er achteraf nog vaak aan.', flag: 'Twijfelt achteraf vaak aan beslissingen' },
+        { id: 'w_sales', kind: 'ladder', block: 'werk', topic: 'Sales', domain: 'werk', lever: 'structuur', ondernemer: true, shuffle: true,
+            title: 'Het is druk met klantwerk. Wat gebeurt er met het binnenhalen van nieuwe klanten?',
+            options: ['Dat stopt, tot het werk opdroogt', 'Dat doe ik als er een gat valt', 'Dat loopt op een laag pitje door', 'Dat staat elke week vast, ook als het druk is'] },
+        { id: 'w_prijs', kind: 'ladder', block: 'werk', topic: 'Sales', domain: 'werk', lever: 'besluit', ondernemer: true, shuffle: true,
+            title: 'Een klant vindt je prijs te hoog. Wat doe je meestal?',
+            options: ['Ik geef vrij snel korting', 'Ik ga twijfelen en praat mijn prijs goed', 'Ik leg uit wat het oplevert en blijf bij mijn prijs', 'Ik blijf rustig bij mijn prijs en vraag wat er nodig is om te starten'] },
+        { id: 'w_cijfers', kind: 'ladder', block: 'werk', topic: 'Financiën', domain: 'werk', lever: 'structuur', ondernemer: true,
+            title: 'Hoe vaak kijk je bewust naar je cijfers: omzet, marge en wat er op de rekening staat?',
+            options: ['Als de boekhouder belt of de rekening leeg raakt', 'Eens per kwartaal', 'Elke maand', 'Elke week, op een vast moment'] },
+        { id: 'w_financieel', kind: 'ladder', block: 'werk', topic: 'Financiën', domain: 'werk', lever: 'besluit', ondernemer: true, shuffle: true,
+            title: 'Je staat voor een grote financiële beslissing, zoals iemand aannemen of flink investeren. Hoe gaat dat meestal?',
+            options: ['Ik stel hem uit tot het niet anders kan', 'Ik beslis op gevoel en reken het achteraf uit', 'Ik reken het door, maar blijf daarna lang twijfelen', 'Ik reken het door, zet een deadline en hak de knoop door'] },
+        { id: 'w_delegeren', kind: 'ladder', block: 'werk', topic: 'Delegeren', domain: 'werk', lever: 'leiderschap',
+            title: 'Hoeveel van je werkweek gaat op aan taken die een ander net zo goed kan doen?',
+            options: ['Meer dan de helft', 'Een kwart tot de helft', 'Minder dan een kwart', 'Bijna niets'] },
+        { id: 'w_tegenslag', kind: 'ladder', block: 'werk', topic: 'Tegenslag', domain: 'werk', lever: 'leiderschap', shuffle: true,
+            title: 'Er gaat iets mis in je bedrijf. Wat is je eerste gedachte?', titleLoondienst: 'Er gaat iets mis op je werk. Wat is je eerste gedachte?',
+            options: ['Wie heeft dit laten gebeuren?', 'Dit soort dingen overkomt mij steeds.', 'Hoe los ik dit zo snel mogelijk op?', 'Wat is mijn aandeel hierin, en wat verander ik zodat het niet terugkomt?'] },
+
+        { id: 'p_aanwezig', kind: 'statement', block: 'prive', topic: 'Aandacht', domain: 'prive', lever: 'focus', reverse: true,
+            text: 'Ik ben fysiek aanwezig bij mijn gezin (of vrienden), maar met mijn hoofd nog bij mijn werk.', flag: 'Thuis met het hoofd nog bij het werk' },
+        { id: 'p_hoofd', kind: 'statement', block: 'prive', topic: 'Ontspannen', domain: 'prive', lever: 'energie', reverse: true,
+            text: 'Mijn hoofd staat \'s avonds nog "aan", zelfs als ik wil ontspannen.', flag: "Hoofd staat 's avonds nog aan" },
+        { id: 'p_cijfer', kind: 'rating', block: 'prive', topic: 'Aandacht', domain: 'prive', lever: 'focus',
+            title: 'Welk cijfer zou je partner (of beste vriend) jouw aandacht deze maand geven?', low: 'heel slecht', high: 'uitstekend',
+            flag: 'Partner (of beste vriend) zou de aandacht een {n} geven' },
+        { id: 'p_tijd', kind: 'ladder', block: 'prive', topic: 'Tijd samen', domain: 'prive', lever: 'structuur',
+            title: 'Staat tijd voor je partner, gezin of vrienden net zo vast in je agenda als een werkafspraak?',
+            options: ['Nee, dat schiet er vaak bij in', 'Alleen als er ruimte over is', 'Meestal wel', 'Ja, er staan elke week vaste momenten'] },
+        { id: 'p_gesprek', kind: 'ladder', block: 'prive', topic: 'Lastige gesprekken', domain: 'prive', lever: 'besluit', shuffle: true,
+            title: 'Er zit je thuis iets dwars, zoals een zorg of een irritatie. Wat doe je meestal?',
+            options: ['Ik zeg niks, tot het een keer ontploft', 'Ik schuif het voor me uit', 'Ik breng het ter sprake, maar draai er een beetje omheen', 'Ik bespreek het snel en eerlijk, ook als het ongemakkelijk is'] },
+        { id: 'p_toezegging', kind: 'ladder', block: 'prive', topic: 'Afspraken thuis', domain: 'prive', lever: 'leiderschap', shuffle: true,
+            title: 'Je hebt thuis iets toegezegd, zoals op tijd thuis zijn of een vrije middag. Dan komt er op je werk iets tussen. Wat gebeurt er meestal?',
+            options: ['Werk gaat voor, en dat meld ik pas op het laatste moment', 'Werk gaat voor, maar ik meld het op tijd', 'Ik probeer het werk te verschuiven, en dat lukt meestal', 'Mijn afspraak thuis staat; het werk past zich aan'] },
+
+        { id: 'f_wakker', kind: 'statement', block: 'fysiek', topic: 'Slaapkwaliteit', domain: 'fysiek', lever: 'energie',
+            text: 'Hoe word je meestal wakker?', low: 'Ik word wakker en voel me al moe', high: 'Ik spring uit mijn bed en zit vol energie', flag: 'Wordt moe wakker' },
+        { id: 'f_middelen', kind: 'statement', block: 'fysiek', topic: 'Energie', domain: 'fysiek', lever: 'energie', reverse: true,
+            text: "Ik heb koffie, suiker of 's avonds een drankje nodig om de dag door te komen.", flag: 'Heeft koffie, suiker of een drankje nodig om de dag door te komen' },
+        { id: 'f_slaap', kind: 'ladder', block: 'fysiek', topic: 'Slaapduur', domain: 'fysiek', lever: 'energie',
+            title: 'Hoeveel nachten per week slaap je zeven uur of meer?', options: ['0–1', '2–3', '4–5', '6–7'], suffix: ' nachten' },
+        { id: 'f_training', kind: 'ladder', block: 'fysiek', topic: 'Training', domain: 'fysiek', lever: 'structuur',
+            title: 'Hoe vaak train je per week, echt ingepland?', options: ['Niet', 'Af en toe, als het uitkomt', '2 keer, vast ingepland', '3 keer of vaker, vast ingepland'] },
+        { id: 'f_voeding', kind: 'ladder', block: 'fysiek', topic: 'Voeding', domain: 'fysiek', lever: 'energie',
+            title: 'Hoe gezond is jouw voedingspatroon?',
+            options: [
+                { label: 'Ongezond', sub: 'Ik eet vaak ongezond en maak weinig bewuste keuzes.' },
+                { label: 'Wisselend', sub: 'Ik eet regelmatig gezond, maar verval ook vaak in minder goede keuzes.' },
+                { label: 'Redelijk gezond', sub: 'Mijn basis is prima, maar er is nog ruimte voor verbetering.' },
+                { label: 'Gezond', sub: 'Ik eet over het algemeen gezond en maak meestal bewuste keuzes.' },
+                { label: 'Optimaal', sub: 'Mijn voeding is bewust, gebalanceerd en afgestemd op mijn doelen.' }
+            ] },
+
+        { id: 'l_afspraak', kind: 'ladder', block: 'leven', topic: 'Afspraken met jezelf', domain: 'leven', lever: 'leiderschap', shuffle: true,
+            title: 'Een afspraak met een klant zeg je niet zomaar af. En een afspraak met jezelf, zoals trainen of een uur ongestoord werken?',
+            titleLoondienst: 'Een werkafspraak zeg je niet zomaar af. En een afspraak met jezelf, zoals trainen of een uur ongestoord werken?',
+            options: ['Die schuift als eerste op zodra het druk wordt.', 'Die kom ik na, tenzij er iets tussenkomt.', 'Die staat in mijn agenda en ik kom hem bijna altijd na.', 'Die staat vast. Moet hij toch schuiven, dan plan ik hem dezelfde week opnieuw.'] },
+        { id: 'l_doel', kind: 'ladder', block: 'leven', topic: 'Doelen', domain: 'leven', lever: 'leiderschap', shuffle: true,
+            title: 'Je doel loopt na drie weken niet zoals gepland. Wat doe je meestal?',
+            options: ['Ik laat het los en begin aan iets nieuws.', 'Ik werk harder en hoop dat het kantelt.', 'Ik kijk wat niet werkt en pas mijn aanpak aan.', 'Ik bespreek het met iemand die me scherp houdt, en stuur bij op cijfers.'] },
+
+        { id: 'jachtA', kind: 'styleGroup', style: 'jacht', block: 'apex', topic: 'Jachtstijl' },
+        { id: 'jachtB', kind: 'styleAnimal', style: 'jacht', block: 'apex', topic: 'Jachtstijl' },
+        { id: 'leidA', kind: 'styleGroup', style: 'leid', block: 'apex', topic: 'Leiderschapsstijl' },
+        { id: 'leidB', kind: 'styleAnimal', style: 'leid', block: 'apex', topic: 'Leiderschapsstijl' },
+
+        { id: 'omzet', kind: 'choice', block: 'slot', topic: 'Omzet', ondernemer: true,
+            title: 'Wat is de maandelijkse omzet van je bedrijf?', sub: 'We vragen dit alleen om je rapport relevant te maken. We delen of verkopen geen data.',
+            options: REVENUE_OPTIONS.map(function (o) { return o.label; }) },
+        { id: 'verandering', kind: 'choice', block: 'slot', title: 'Als je één ding zou mogen veranderen, wat zou dat zijn?',
+            options: ['Rust in mijn hoofd, ook na werktijd', 'Mijn bedrijf laten groeien zonder mezelf op te branden', 'Eindelijk uitvoeren wat ik al weet', 'Fitter en energieker worden', 'Meer aandacht voor de mensen thuis', 'Sneller en zekerder beslissingen nemen', 'Mijn team laten draaien zonder dat ik overal bovenop zit'] },
+        { id: 'hoe_lang', kind: 'choice', block: 'slot', title: 'Hoe lang herken je deze patronen al?',
+            options: ['Pas recent', '6–12 maanden', '1–2 jaar', 'Zo lang ik me kan herinneren'] },
+        { id: 'urgentie', kind: 'rating', block: 'slot', title: 'Hoe belangrijk is het voor je dat hier de komende drie maanden iets verandert?', low: 'niet belangrijk', high: 'heel belangrijk' }
+    ];
+    var Q = {};
+    QUESTIONS.forEach(function (q) { Q[q.id] = q; });
+
+    function buildSteps() {
+        var steps = [];
+        if (!CONTACT) steps.push({ kind: 'capture' });
+        var lastBlock = null;
+        QUESTIONS.forEach(function (q) {
+            if (lastBlock === 'werk' && q.block === 'prive') steps.push({ kind: 'interstitial', key: 'social' });
+            if (lastBlock === 'leven' && q.block === 'apex') steps.push({ kind: 'interstitial', key: 'wist' });
+            steps.push(q);
+            lastBlock = q.block;
+        });
+        steps.push({ kind: 'results' });
+        return steps;
+    }
+    var STEPS = buildSteps();
+
+    var state = { stepIndex: 0, answers: {}, order: {}, submitted: false };
+
+    // ============================================================
+    // FLOW
+    // ============================================================
+    function isOndernemer() { var i = state.answers.situatie; return i == null || SITUATIONS[i].ondernemer; }
+    function isShown(step) { return !step.ondernemer || isOndernemer(); }
+    function isQuestion(step) { return step.kind !== 'capture' && step.kind !== 'interstitial' && step.kind !== 'results'; }
+    function totalQuestions() {
+        var n = 0;
+        STEPS.forEach(function (s) { if (isQuestion(s) && isShown(s)) n++; });
+        return n;
+    }
+    // Questions up to and including the step at idx.
+    function questionNumber(idx) {
+        var n = 0;
+        for (var i = 0; i <= idx; i++) { if (isQuestion(STEPS[i]) && isShown(STEPS[i])) n++; }
+        return n;
+    }
+    function nextIndex(from) {
+        for (var i = from + 1; i < STEPS.length; i++) { if (isShown(STEPS[i])) return i; }
+        return STEPS.length - 1;
+    }
+    function prevIndex(from) {
+        for (var i = from - 1; i >= 0; i--) { if (isShown(STEPS[i])) return i; }
+        return -1;
+    }
+    function firstOfBlock(idx) {
+        for (var i = idx - 1; i >= 0; i--) {
+            if (isQuestion(STEPS[i]) && isShown(STEPS[i])) return STEPS[i].block !== STEPS[idx].block;
+        }
+        return true;
+    }
+    function goNext() { state.stepIndex = nextIndex(state.stepIndex); render(); }
+    // The contact step is never revisited: going back to it would create a second lead.
+    function canGoBack() { var p = prevIndex(state.stepIndex); return p >= 0 && STEPS[p].kind !== 'capture'; }
+    function goBack() { if (canGoBack()) { state.stepIndex = prevIndex(state.stepIndex); render(); } }
+
+    // Answer options keep the same (shuffled) order when someone comes back to a question.
+    function orderFor(key, n, shuffle) {
+        if (!state.order[key]) {
+            var idx = [];
+            for (var i = 0; i < n; i++) idx.push(i);
+            if (shuffle) {
+                for (var j = idx.length - 1; j > 0; j--) {
+                    var k = Math.floor(Math.random() * (j + 1));
+                    var t = idx[j]; idx[j] = idx[k]; idx[k] = t;
+                }
+            }
+            state.order[key] = idx;
+        }
+        return state.order[key];
+    }
+
+    function contextFor(step) {
+        var block = BLOCKS[step.block];
+        if (!block) return '';
+        return step.topic ? block.label + ' · ' + step.topic : block.label;
+    }
+    function titleFor(q) {
+        if (q.kind === 'styleGroup') return STYLE[q.style].question;
+        if (q.kind === 'styleAnimal') return 'Welke past het best bij jou?';
+        if (!isOndernemer() && q.titleLoondienst) return q.titleLoondienst;
+        return q.title || q.text;
+    }
+    function animalOptions(style) {
+        var group = state.answers[style === 'jacht' ? 'jachtA' : 'leidA'] || 1;
+        return STYLE[style].animals.filter(function (a) { return ANIMALS[a.animal].group === group; });
+    }
+
+    // ============================================================
+    // SCORING
+    // ============================================================
+    function gradeOf(q) {
+        var v = state.answers[q.id];
+        if (v == null || !q.lever) return null;
+        if (q.kind === 'statement') { var x = q.reverse ? 6 - v : v; return 1 + (x - 1) * 9 / 4; }
+        if (q.kind === 'ladder') return 1 + v * 9 / (q.options.length - 1);
+        if (q.kind === 'rating') return v;
+        return null;
+    }
+    function avg(list) {
+        var vals = list.filter(function (v) { return v != null; });
+        return vals.length ? vals.reduce(function (a, b) { return a + b; }, 0) / vals.length : null;
+    }
+    function scoredQuestions() {
+        return QUESTIONS.filter(function (q) { return q.lever && isShown(q) && state.answers[q.id] != null; });
+    }
+    // Levels and colours follow the grade as shown (one decimal), so a 5,5 is never orange.
+    function levelFor(grade) {
+        var g = round1(grade);
+        for (var i = 0; i < LEVELS.length; i++) { if (g >= LEVELS[i].min) return LEVELS[i]; }
+        return LEVELS[LEVELS.length - 1];
+    }
+    function colorFor(grade) { var g = round1(grade); return g >= 8.5 ? 'var(--lvl-green)' : g >= 5.5 ? 'var(--lvl-gold)' : 'var(--lvl-orange)'; }
+    function fmt(grade) { return grade == null ? '-' : (Math.round(grade * 10) / 10).toFixed(1).replace('.', ','); }
+    function round1(grade) { return grade == null ? null : Math.round(grade * 10) / 10; }
+    function computeCost(total, revenue) {
+        if (!revenue || total == null) return null;
+        var base = revenue.mid * revenue.pct;
+        // Same thresholds as the earlier scores of 40 and 65 out of 100.
+        if (total < 3.25) base *= 1.2;
+        else if (total > 6.05) base *= 0.85;
+        var monthly = Math.round(base / 50) * 50;
+        return { monthly: monthly, yearly: monthly * 12 };
+    }
+
+    function computeResults() {
+        var qs = scoredQuestions();
+        function gradesWhere(test) { return qs.filter(test).map(gradeOf); }
+        var levers = {}, domains = {};
+        LEVER_ORDER.forEach(function (L) { levers[L] = avg(gradesWhere(function (q) { return q.lever === L; })); });
+        // Questions about your whole life count in every domain.
+        DOMAIN_ORDER.forEach(function (D) { domains[D] = avg(gradesWhere(function (q) { return q.domain === D || q.domain === 'leven'; })); });
+        var total = avg(DOMAIN_ORDER.map(function (D) { return domains[D]; }));
+
+        function lowestAnswer(L) { return Math.min.apply(null, gradesWhere(function (q) { return q.lever === L; })); }
+        var ranked = LEVER_ORDER.filter(function (L) { return levers[L] != null; }).sort(function (a, b) {
+            return (levers[a] - levers[b]) || (lowestAnswer(a) - lowestAnswer(b)) || (LEVER_ORDER.indexOf(a) - LEVER_ORDER.indexOf(b));
+        });
+        var lek = ranked[0], tweede = ranked[1];
+
+        // Where the biggest leak shows most: the domain with the lowest grade on that lever.
+        var lekDomain = null, lekDomainGrade = null;
+        DOMAIN_ORDER.forEach(function (D) {
+            var g = avg(gradesWhere(function (q) { return q.lever === lek && q.domain === D; }));
+            if (g != null && (lekDomainGrade == null || g < lekDomainGrade)) { lekDomain = D; lekDomainGrade = g; }
+        });
+
+        var jacht = state.answers.jachtB || 'wolf';
+        var leid = state.answers.leidB || jacht;
+        function sentenceFor(L) {
+            var animal = ANIMALS[L === 'leiderschap' ? leid : jacht];
+            return { animal: animal, text: animal.lek[L] };
+        }
+        var revenue = isOndernemer() && state.answers.omzet != null ? REVENUE_OPTIONS[state.answers.omzet] : null;
+
+        return {
+            total: total, domains: domains, levers: levers,
+            lek: lek, lekLevel: levelFor(levers[lek]), lekDomain: lekDomain, lekSentence: sentenceFor(lek),
+            tweede: tweede, tweedeLevel: tweede ? levelFor(levers[tweede]) : null, tweedeSentence: tweede ? sentenceFor(tweede) : null,
+            jachtKey: jacht, leidKey: leid, jacht: ANIMALS[jacht], leid: ANIMALS[leid], pure: jacht === leid,
+            action: ACTIONS[lekDomain + '.' + lek] || ACTIONS[FALLBACK_ACTION[lek]],
+            revenue: revenue, cost: computeCost(total, revenue)
+        };
+    }
+
+    function profileLabel(r, withEmoji) {
+        var j = (withEmoji ? r.jacht.emoji + ' ' : '') + r.jacht.name;
+        var l = (withEmoji ? r.leid.emoji + ' ' : '') + r.leid.name;
+        return r.pure ? 'een pure ' + j : j + ' met ' + l + '-trekken';
+    }
+    function profileExplanation(r) {
+        if (r.pure) return 'Je jaagt én leidt als een ' + r.jacht.name + ': ' + lowerFirst(r.jacht.sterkte) + ' Je valkuil: ' + lowerFirst(r.jacht.blindeVlek);
+        return 'Je jaagt als een ' + r.jacht.name + ': ' + lowerFirst(r.jacht.sterkte) + ' Je leidt als een ' + r.leid.name + ': ' + lowerFirst(r.leid.sterkte);
+    }
+
+    // ============================================================
+    // TEXTS FOR MONDAY AND ACTIVECAMPAIGN
+    // ============================================================
+    function answerText(q) {
+        var v = state.answers[q.id];
+        if (v == null) return null;
+        if (q.kind === 'statement') return v + '/5';
+        if (q.kind === 'rating') return v + '/10';
+        if (q.kind === 'styleGroup') {
+            var groups = STYLE[q.style].groups;
+            for (var i = 0; i < groups.length; i++) { if (groups[i].group === v) return groups[i].label; }
+            return null;
+        }
+        if (q.kind === 'styleAnimal') {
+            var options = STYLE[q.style].animals;
+            for (var j = 0; j < options.length; j++) { if (options[j].animal === v) return options[j].label + ' (' + ANIMALS[v].name + ')'; }
+            return ANIMALS[v].name;
+        }
+        var opt = q.options[v];
+        return (typeof opt === 'string' ? opt : opt.label) + (q.suffix || '');
+    }
+
+    // Answers on the weakest level, so they stand out before a call.
+    function redFlags() {
+        var flags = [];
+        scoredQuestions().forEach(function (q) {
+            var g = gradeOf(q);
+            if (q.kind === 'rating' ? g > 5 : g > 1.001) return;
+            flags.push(q.flag ? q.flag.replace('{n}', state.answers[q.id]) : contextFor(q) + ': ' + answerText(q));
+        });
+        return flags;
+    }
+
+    function buildSummary(r) {
+        var lines = [
+            'Performance Score: ' + fmt(r.total) + ' (doel ' + fmt(TARGET) + ')',
+            DOMAIN_ORDER.map(function (D) { return DOMAINS[D] + ' ' + fmt(r.domains[D]); }).join(' · '),
+            LEVER_ORDER.map(function (L) { return LEVERS[L] + ' ' + fmt(r.levers[L]); }).join(' · '),
+            'Grootste lek: ' + LEVERS[r.lek] + ' (' + r.lekLevel.name + ')' + (r.lekDomain ? ', vooral in ' + DOMAINS[r.lekDomain] : '')
+        ];
+        if (r.tweede) lines.push('Tweede lek: ' + LEVERS[r.tweede] + ' (' + r.tweedeLevel.name + ')');
+        lines.push('Apex Predator: ' + profileLabel(r, false) + ' (jacht: ' + r.jacht.name + ', leiderschap: ' + r.leid.name + ')');
+        lines.push('Actie van de week: ' + r.action.name);
+        lines.push('');
+        lines.push('Situatie: ' + answerText(Q.situatie));
+        if (r.revenue) lines.push('Omzet: ' + r.revenue.label + (r.cost ? ' (inschatting kosten: ' + fmtEUR(r.cost.monthly) + ' per maand)' : ''));
+        if (state.answers.verandering != null) lines.push('Wil vooral veranderen: ' + answerText(Q.verandering));
+        if (state.answers.hoe_lang != null) lines.push('Herkent dit al: ' + answerText(Q.hoe_lang));
+        if (state.answers.urgentie != null) lines.push('Urgentie: ' + state.answers.urgentie + '/10');
+        var flags = redFlags();
+        if (flags.length) {
+            lines.push('', 'Rode vlaggen:');
+            flags.forEach(function (f) { lines.push('- ' + f); });
+        }
+        return lines.join('\n');
+    }
+
+    function buildAnswers() {
+        var lines = ['Alle antwoorden (stellingen: 1 = klopt helemaal niet, 5 = klopt helemaal)', ''];
+        var n = 0;
+        QUESTIONS.forEach(function (q) {
+            if (!isShown(q)) return;
+            n++;
+            var title = titleFor(q);
+            if (q.kind === 'statement' && q.low) title += ' (1 = ' + lowerFirst(q.low) + ', 5 = ' + lowerFirst(q.high) + ')';
+            if (q.kind === 'rating') title += ' (1 = ' + q.low + ', 10 = ' + q.high + ')';
+            lines.push(n + '. ' + contextFor(q) + ': ' + title);
+            lines.push('   → ' + (answerText(q) || '(niet beantwoord)'));
+        });
+        return lines.join('\n');
+    }
+
+    function csrfHeaders() {
+        return { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content, 'Accept': 'application/json' };
+    }
+
+    function submitResults() {
+        if (state.submitted || !CONTACT) return;
+        state.submitted = true;
+        if (TEST_MODE) return;
+        var r = computeResults();
+        function tenths(g) { return Math.round(g * 10); }
+        var payload = {
+            name: CONTACT.name, email: CONTACT.email, phone: CONTACT.phone || null, lead_id: CONTACT.lead || null,
+            score: round1(r.total),
+            domains: { werk: round1(r.domains.werk), prive: round1(r.domains.prive), fysiek: round1(r.domains.fysiek) },
+            metrics: { focus: round1(r.levers.focus), energie: round1(r.levers.energie), structuur: round1(r.levers.structuur), besluit: round1(r.levers.besluit), leiderschap: round1(r.levers.leiderschap) },
+            lek: LEVERS[r.lek] + ' · niveau ' + r.lekLevel.name + (r.lekDomain ? ' · vooral in ' + DOMAINS[r.lekDomain] : ''),
+            lek_zin: 'Als ' + r.lekSentence.animal.name + ': ' + r.lekSentence.text,
+            tweede_lek: r.tweede ? LEVERS[r.tweede] : null,
+            profiel: upperFirst(profileLabel(r, true)),
+            profiel_uitleg: profileExplanation(r),
+            jachtstijl: r.jacht.emoji + ' ' + r.jacht.name + ' · ' + r.jacht.archetype,
+            leiderschapsstijl: r.leid.emoji + ' ' + r.leid.name + ' · ' + r.leid.archetype,
+            action_name: r.action.name, action_text: r.action.text,
+            revenue_label: r.revenue ? r.revenue.label : null,
+            cost_monthly: r.cost ? r.cost.monthly : null, cost_yearly: r.cost ? r.cost.yearly : null,
+            verandering: answerText(Q.verandering), urgentie: state.answers.urgentie || null,
+            // Compact numbers for the score card picture in the results e-mail.
+            card: {
+                s: tenths(r.total),
+                d: DOMAIN_ORDER.map(function (D) { return tenths(r.domains[D]); }),
+                h: LEVER_ORDER.map(function (L) { return tenths(r.levers[L]); }),
+                lk: r.lek, ld: r.lekDomain, j: r.jachtKey, o: r.leidKey
+            },
+            summary: buildSummary(r),
+            answers_text: buildAnswers(),
+            bron: window.apexLeadSource()
+        };
+        fetch(SUBMIT_URL, {
+            method: 'POST', headers: csrfHeaders(), credentials: 'same-origin',
+            // keepalive: the request finishes even if the visitor leaves right after.
+            keepalive: true,
+            body: JSON.stringify(payload)
+        }).catch(function () {});
+        // A later scan in the same visit becomes a new lead.
+        CONTACT.lead = null;
+        try { sessionStorage.setItem('apexScanContact', JSON.stringify(CONTACT)); } catch (e) {}
+    }
+
+    // Where a visitor is in the scan, so Monday shows where they stopped.
+    var lastProgress = null;
+    function sendProgress() {
+        if (TEST_MODE || !CONTACT || !CONTACT.lead || state.submitted) return;
+        var step = STEPS[state.stepIndex];
+        if (step.kind === 'results' || step.kind === 'capture') return;
+        var question = Math.max(1, questionNumber(state.stepIndex));
+        var label = isQuestion(step) ? contextFor(step) : 'Tussenscherm';
+        if (lastProgress === question + label) return;
+        lastProgress = question + label;
+        try {
+            fetch(PROGRESS_URL, {
+                method: 'POST', headers: csrfHeaders(), credentials: 'same-origin', keepalive: true,
+                body: JSON.stringify({ lead: CONTACT.lead, email: CONTACT.email, question: question, total: totalQuestions(), label: label })
+            }).catch(function () {});
+        } catch (e) {}
+    }
+    document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'hidden') sendProgress(); });
+    window.addEventListener('pagehide', sendProgress);
+
+    // ============================================================
+    // RENDERING
+    // ============================================================
+    function el(tag, attrs, html) {
+        var e = document.createElement(tag);
+        if (attrs) for (var k in attrs) {
+            if (k === 'class') e.className = attrs[k];
+            else e.setAttribute(k, attrs[k]);
+        }
+        if (html != null) e.innerHTML = html;
+        return e;
+    }
+    function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+    function lowerFirst(s) { return s.charAt(0).toLowerCase() + s.slice(1); }
+    function upperFirst(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+    // "jelle" or "jan-willem" become "Jelle" and "Jan-Willem"; the rest stays as typed.
+    function capitalizeName(name) { return name.replace(/(^|[\s-])(\p{L})/gu, function (m, sep, ch) { return sep + ch.toUpperCase(); }); }
+    function fmtEUR(n) { return '€' + n.toLocaleString('nl-NL'); }
+
+    function screenShell(step, showBack, onBack) {
+        var root = el('div', { class: 'scan-shell' });
+        var total = totalQuestions();
+        var current = isQuestion(step) ? questionNumber(state.stepIndex) : null;
+        var done = current != null ? current : questionNumber(state.stepIndex);
+        var prog = el('div', { class: 'scan-progress' });
+        var fill = el('div', { class: 'scan-progress-fill' });
+        fill.style.width = Math.min(100, Math.round((done / total) * 100)) + '%';
+        prog.appendChild(fill);
+        root.appendChild(prog);
+
+        var body = el('div', { class: 'scan-body scan-ui' });
+        if (current) {
+            var head = el('div', { class: 'scan-head' });
+            head.appendChild(el('span', { class: 'scan-context' }, esc(contextFor(step))));
+            head.appendChild(el('span', { class: 'scan-qnum' }, 'VRAAG ' + current + '/' + total));
+            body.appendChild(head);
+            var intro = firstOfBlock(state.stepIndex) && BLOCKS[step.block] ? BLOCKS[step.block].intro : null;
+            if (intro) body.appendChild(el('p', { class: 'scan-intro' }, esc(intro)));
+        }
+        root.appendChild(body);
+
+        if (showBack) {
+            var backWrap = el('div', { class: 'scan-back-wrap' });
+            var backBtn = el('button', { type: 'button', class: 'scan-back-btn' }, '← Vorige vraag');
+            backBtn.addEventListener('click', onBack);
+            backWrap.appendChild(backBtn);
+            root.appendChild(backWrap);
+        }
+        return { root: root, body: body };
+    }
+
+    function titleEl(text, small) {
+        return el('h1', { class: small ? 'scan-title-sm' : 'scan-title' + (text.length > 70 ? ' long' : '') }, esc(text));
+    }
+
+    function optionButton(container, label, sub, selected, onClick) {
+        var btn = el('button', { type: 'button', class: 'scan-option' + (selected ? ' selected' : '') },
+            sub ? '<span class="scan-option-label">' + esc(label) + '</span><span class="scan-option-sub">' + esc(sub) + '</span>' : esc(label));
+        btn.addEventListener('click', onClick);
+        container.appendChild(btn);
+    }
+
+    function scaleQuestion(container, text, value, low, high, onChange) {
+        var wrap = el('div', {});
+        wrap.style.marginBottom = '36px';
+        wrap.appendChild(el('p', { class: 'scan-scale-text' }, esc(text)));
+        var row = el('div', { class: 'scan-scale-buttons' });
+        [1, 2, 3, 4, 5].forEach(function (n) {
+            var btn = el('button', { type: 'button', class: 'scan-scale-btn' + (value === n ? ' selected' : ''), 'aria-label': n + ' van 5' }, String(n));
+            btn.addEventListener('click', function () { onChange(n); });
+            row.appendChild(btn);
+        });
+        wrap.appendChild(row);
+        wrap.appendChild(el('div', { class: 'scan-scale-labels' }, '<span>' + esc(low) + '</span><span>' + esc(high) + '</span>'));
+        container.appendChild(wrap);
+    }
+
+    function ratingQuestion(container, value, low, high, onChange) {
+        var grid = el('div', { class: 'scan-rating' });
+        for (var n = 1; n <= 10; n++) {
+            (function (n) {
+                var btn = el('button', { type: 'button', class: 'scan-rating-btn' + (value === n ? ' selected' : ''), 'aria-label': n + ' van 10' }, String(n));
+                btn.addEventListener('click', function () { onChange(n); });
+                grid.appendChild(btn);
+            })(n);
+        }
+        container.appendChild(grid);
+        container.appendChild(el('div', { class: 'scan-scale-labels' }, '<span>1 = ' + esc(low) + '</span><span>10 = ' + esc(high) + '</span>'));
+    }
+
+    function render() {
+        var app = document.getElementById('scan-app');
+        app.innerHTML = '';
+        if (TEST_MODE) app.appendChild(el('div', { class: 'scan-test-badge' }, 'Testmodus: er wordt niets verstuurd'));
+        window.scrollTo(0, 0);
+        var step = STEPS[state.stepIndex];
+        var s;
+
+        if (step.kind === 'choice') {
+            s = screenShell(step, canGoBack(), goBack);
+            s.body.appendChild(titleEl(titleFor(step), !!step.sub));
+            if (step.sub) s.body.appendChild(el('p', { class: 'scan-sub' }, esc(step.sub)));
+            step.options.forEach(function (label, i) {
+                optionButton(s.body, label, null, state.answers[step.id] === i, function () { state.answers[step.id] = i; goNext(); });
+            });
+            app.appendChild(s.root);
+            return;
+        }
+
+        if (step.kind === 'ladder') {
+            s = screenShell(step, canGoBack(), goBack);
+            s.body.appendChild(titleEl(titleFor(step)));
+            orderFor(step.id, step.options.length, step.shuffle).forEach(function (i) {
+                var o = step.options[i];
+                optionButton(s.body, typeof o === 'string' ? o : o.label, typeof o === 'string' ? null : o.sub, state.answers[step.id] === i,
+                    function () { state.answers[step.id] = i; goNext(); });
+            });
+            app.appendChild(s.root);
+            return;
+        }
+
+        if (step.kind === 'statement') {
+            s = screenShell(step, canGoBack(), goBack);
+            scaleQuestion(s.body, step.text, state.answers[step.id], step.low || 'Klopt helemaal niet', step.high || 'Klopt helemaal',
+                function (v) { state.answers[step.id] = v; goNext(); });
+            app.appendChild(s.root);
+            return;
+        }
+
+        if (step.kind === 'rating') {
+            s = screenShell(step, canGoBack(), goBack);
+            s.body.appendChild(titleEl(titleFor(step)));
+            ratingQuestion(s.body, state.answers[step.id], step.low, step.high, function (v) { state.answers[step.id] = v; goNext(); });
+            app.appendChild(s.root);
+            return;
+        }
+
+        if (step.kind === 'styleGroup') {
+            var cfg = STYLE[step.style];
+            s = screenShell(step, canGoBack(), goBack);
+            s.body.appendChild(titleEl(cfg.question, true));
+            s.body.appendChild(el('p', { class: 'scan-sub' }, esc(cfg.sub)));
+            orderFor(step.id, cfg.groups.length, true).forEach(function (i) {
+                var g = cfg.groups[i];
+                optionButton(s.body, g.label, null, state.answers[step.id] === g.group, function () {
+                    // A different group means a different set of animals on the next screen.
+                    if (state.answers[step.id] !== g.group) delete state.answers[step.style === 'jacht' ? 'jachtB' : 'leidB'];
+                    state.answers[step.id] = g.group;
+                    goNext();
+                });
+            });
+            app.appendChild(s.root);
+            return;
+        }
+
+        if (step.kind === 'styleAnimal') {
+            var options = animalOptions(step.style);
+            s = screenShell(step, canGoBack(), goBack);
+            s.body.appendChild(titleEl(titleFor(step), true));
+            s.body.appendChild(el('p', { class: 'scan-sub' }, esc(STYLE[step.style].sub)));
+            orderFor(step.id + ':' + state.answers[step.style === 'jacht' ? 'jachtA' : 'leidA'], options.length, true).forEach(function (i) {
+                var o = options[i];
+                optionButton(s.body, o.label, null, state.answers[step.id] === o.animal, function () { state.answers[step.id] = o.animal; goNext(); });
+            });
+            app.appendChild(s.root);
+            return;
+        }
+
+        if (step.kind === 'interstitial') {
+            s = screenShell(step, false, null);
+            var wrap = el('div', {});
+            wrap.style.textAlign = 'center';
+            if (step.key === 'social') {
+                var left = totalQuestions() - questionNumber(state.stepIndex);
+                wrap.innerHTML =
+                    '<p style="font-size:13px;letter-spacing:1.5px;color:var(--scan-accent);margin-bottom:24px;font-weight:700;">14 JAAR ERVARING · 500+ MENSEN GEHOLPEN</p>' +
+                    '<p style="font-size:20px;color:var(--scan-text-dim);line-height:1.6;margin-bottom:32px;">Als coach zie ik al 14 jaar hetzelfde patroon: het is zelden een kennisprobleem. Het is een systeem dat niet past bij hoe jij van nature werkt.</p>' +
+                    '<p style="font-size:14px;color:var(--scan-text-dim);margin-bottom:28px;">Je bent goed op weg, nog ' + left + ' vragen.</p>';
+            } else {
+                wrap.innerHTML =
+                    '<h2 style="font-style:italic;font-size:30px;margin-bottom:24px;">Wist je dit?</h2>' +
+                    '<p style="font-size:17px;color:var(--scan-text-dim);line-height:1.7;margin-bottom:16px;">De meeste ondernemers die dit herkennen hebben geen kennisprobleem. Ze weten al wat ze moeten doen. Het probleem zit in het systeem eromheen. Zodra dat systeem past bij wie jij bent, wordt het ineens makkelijk om vol te houden.</p>' +
+                    '<p style="font-size:15px;color:var(--scan-text-dim);line-height:1.7;margin-bottom:32px;">Nu je Apex Predator-profiel: hoe jij van nature jaagt en leidt.</p>';
+            }
+            var next = el('button', { type: 'button', class: 'scan-primary-btn' }, 'Volgende');
+            next.addEventListener('click', goNext);
+            wrap.appendChild(next);
+            s.body.appendChild(wrap);
+            app.appendChild(s.root);
+            return;
+        }
+
+        if (step.kind === 'capture') {
+            renderCapture(app);
+            return;
+        }
+
+        if (step.kind === 'results') {
+            submitResults();
+            renderResults(app);
+        }
+    }
+
+    function renderCapture(app) {
+        var s = screenShell({ kind: 'capture' }, false, null);
+        s.body.appendChild(el('h1', { class: 'scan-title-sm' }, 'Waar mogen we je uitslag naartoe sturen?'));
+        s.body.appendChild(el('p', { class: 'scan-sub' }, 'Je uitslag zie je direct na de laatste vraag, en je krijgt hem ook in je mail.'));
+
+        var form = el('form', {});
+        function field(attrs) {
+            var input = el('input', Object.assign({ class: 'scan-option', style: 'cursor:text;' }, attrs));
+            input.style.marginBottom = '14px';
+            form.appendChild(input);
+            return input;
+        }
+        var nameInput = field({ type: 'text', placeholder: 'Voornaam', required: 'required', autocomplete: 'given-name' });
+        var emailInput = field({ type: 'email', placeholder: 'E-mailadres', required: 'required', autocomplete: 'email' });
+        var phoneInput = field({ type: 'tel', placeholder: 'Telefoonnummer', required: 'required', autocomplete: 'tel' });
+        var errorP = el('p', { style: 'color:var(--scan-danger);font-size:13px;margin:0 0 8px;' }, '');
+        form.appendChild(errorP);
+        var submitBtn = el('button', { type: 'submit', class: 'scan-primary-btn' }, 'Start de scan');
+        form.appendChild(submitBtn);
+        form.appendChild(el('p', { style: 'font-size:12px;color:var(--scan-text-dim);text-align:center;margin-top:14px;' },
+            'Gratis &middot; geen account nodig &middot; <a href="' + esc(PRIVACY_URL) + '" target="_blank" rel="noopener" style="color:inherit;">privacyreglement</a>'));
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var contact = { name: capitalizeName(nameInput.value.trim()), email: emailInput.value.trim(), phone: phoneInput.value.trim(), lead: null, at: Date.now() };
+            if (!contact.name || !/^\S+@\S+\.\S+$/.test(contact.email) || contact.phone.replace(/\D/g, '').length < 8) {
+                errorP.textContent = 'Vul je voornaam, een geldig e-mailadres en je telefoonnummer in.';
+                return;
+            }
+            function proceed() {
+                CONTACT = contact;
+                try { sessionStorage.setItem('apexScanContact', JSON.stringify(contact)); } catch (err) {}
+                goNext();
+            }
+            if (TEST_MODE) { proceed(); return; }
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Even geduld...';
+            var controller = 'AbortController' in window ? new AbortController() : null;
+            var timer = setTimeout(function () { if (controller) controller.abort(); }, 6000);
+            fetch(START_URL, {
+                method: 'POST', headers: csrfHeaders(), credentials: 'same-origin',
+                body: JSON.stringify({ name: contact.name, email: contact.email, phone: contact.phone, bron: window.apexLeadSource() }),
+                signal: controller ? controller.signal : undefined
+            })
+                .then(function (res) { return res.ok ? res.json() : {}; })
+                .then(function (data) { contact.lead = data.lead || null; })
+                .catch(function () {})
+                .finally(function () { clearTimeout(timer); proceed(); });
+        });
+
+        s.body.appendChild(form);
+        app.appendChild(s.root);
+    }
+
+    // ============================================================
+    // RESULTS
+    // ============================================================
+    function ring(grade) {
+        var wrap = el('div', { class: 'scan-ring' });
+        var r = 64, C = 2 * Math.PI * r;
+        var off = C * (1 - Math.max(0, Math.min(10, grade)) / 10);
+        // A small marker where the 8,5 is.
+        var a = TARGET / 10 * 2 * Math.PI;
+        wrap.innerHTML =
+            '<svg viewBox="0 0 150 150" aria-hidden="true">' +
+            '<circle cx="75" cy="75" r="' + r + '" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="12"/>' +
+            '<circle cx="75" cy="75" r="' + r + '" fill="none" style="stroke:' + colorFor(grade) + ';" stroke-width="12" stroke-linecap="round" stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + off.toFixed(1) + '"/>' +
+            '<circle cx="' + (75 + r * Math.cos(a)).toFixed(1) + '" cy="' + (75 + r * Math.sin(a)).toFixed(1) + '" r="4" fill="#ffffff"/>' +
+            '</svg>' +
+            '<div class="scan-ring-value"><strong style="color:' + colorFor(grade) + ';">' + fmt(grade) + '</strong><span>van de 10</span></div>';
+        return wrap;
+    }
+    function bandText(grade) {
+        var t = round1(grade);
+        if (t >= 8.5) return 'Je scoort een <strong>8,5 of hoger</strong>: daar draait de missie van Apex om. Nu gaat het erom dat het zo blijft, ook als het druk wordt.';
+        if (t >= 7) return 'Een sterke basis. Het laatste stuk naar een <strong>8,5 of hoger</strong> op elk domein is vaak het lastigste.';
+        if (t >= 5.5) return 'Je doet het niet slecht, maar er ligt duidelijk rendement op tafel.';
+        return 'Er zit veel ruimte tussen waar je nu staat en de missie van Apex om mensen te helpen om op ieder domein van hun leven een <strong>8,5 of hoger</strong> te scoren. Dat is geen kwestie van te weinig hard werken. Je werkt waarschijnlijk te hard, voor een systeem dat niet bij je past.';
+    }
+    function metricRow(container, label, value) {
+        var row = el('div', { class: 'scan-metric-row' });
+        row.innerHTML =
+            '<div class="scan-metric-top"><span>' + esc(label) + '</span><span style="font-weight:700;color:' + colorFor(value) + ';">' + fmt(value) + '</span></div>' +
+            '<div class="scan-metric-bar-bg"><div class="scan-metric-bar-fill" style="width:' + Math.round(value * 10) + '%;background:' + colorFor(value) + ';"></div></div>';
+        container.appendChild(row);
+    }
+    // Where we aim to be in 12 weeks: 60% of the remaining distance to a 10,
+    // so a low grade takes a bigger step than a high one.
+    function in12Weeks(now) { return Math.min(10, now + (10 - now) * 0.6); }
+    function futureRow(container, label, now) {
+        var row = el('div', { class: 'scan-future-row' });
+        row.innerHTML = '<span>' + esc(label) + '</span>' +
+            '<div class="scan-future-bar" role="img" aria-label="' + esc(label) + ': nu ' + fmt(now) + ', over 12 weken ' + fmt(in12Weeks(now)) + '">' +
+            '<div class="scan-future-now" style="width:' + Math.round(now * 10) + '%;"></div>' +
+            '<div class="scan-future-mark" style="left:' + Math.round(in12Weeks(now) * 10) + '%;"></div></div>';
+        container.appendChild(row);
+    }
+    function animalCard(container, animal, heading) {
+        var card = el('div', { class: 'scan-animal-card' });
+        function line(label, text) { return '<p class="scan-animal-line"><strong>' + label + ':</strong> <span>' + esc(text) + '</span></p>'; }
+        card.innerHTML =
+            '<p class="scan-card-title" style="margin-bottom:10px;">' + esc(heading) + '</p>' +
+            '<p class="scan-animal-name">' + animal.emoji + ' ' + esc(animal.name) + ' <span>— ' + esc(animal.archetype) + '</span></p>' +
+            line('Sterkte', animal.sterkte) + line('Blinde vlek', animal.blindeVlek) + line('Risico onder druk', animal.risico) + line('Groeiopdracht', animal.groei);
+        container.appendChild(card);
+    }
+    function quote(sentence) {
+        return '<blockquote class="scan-quote"><span>Als ' + esc(sentence.animal.name) + '</span>' + esc(sentence.text) + '</blockquote>';
+    }
+    function bulletLine(container, bold, text) {
+        var p = el('p', { class: 'scan-bullet' });
+        p.innerHTML = '<span class="arrow">→ </span><strong>' + esc(bold) + '</strong> ' + esc(text);
+        container.appendChild(p);
+    }
+
+    function renderResults(app) {
+        var r = computeResults();
+        var firstName = CONTACT && CONTACT.name ? capitalizeName(CONTACT.name.split(/\s+/)[0]) : '';
+        var root = el('div', { class: 'scan-results scan-ui' });
+        var inner = el('div', { class: 'scan-results-inner' });
+        root.appendChild(inner);
+
+        inner.appendChild(el('p', { class: 'scan-eyebrow' }, 'JE PERFORMANCE PROFIEL'));
+        inner.appendChild(el('h1', { class: 'scan-h1' }, 'Hier is wat we zien' + (firstName ? ', ' + esc(firstName) : '') + '.'));
+
+        var hero = el('div', { class: 'scan-hero' });
+        hero.appendChild(ring(r.total));
+        hero.appendChild(el('div', {}, '<p class="scan-hero-goal">De missie van Apex: <strong>8,5 of hoger</strong></p><p class="scan-hero-text">' + bandText(r.total) + '</p>'));
+        inner.appendChild(hero);
+
+        var domains = el('div', { class: 'scan-domains' });
+        DOMAIN_ORDER.forEach(function (D) {
+            var g = r.domains[D];
+            domains.appendChild(el('div', { class: 'scan-domain' },
+                '<div class="scan-domain-label">' + DOMAINS[D] + '</div>' +
+                '<div class="scan-domain-grade" style="color:' + colorFor(g) + ';">' + fmt(g) + '</div>' +
+                '<div class="scan-domain-level">' + levelFor(g).name + '</div>'));
+        });
+        inner.appendChild(domains);
+
+        var levers = el('div', { class: 'scan-card' });
+        levers.appendChild(el('p', { class: 'scan-card-title' }, 'JE VIJF HEFBOMEN'));
+        LEVER_ORDER.forEach(function (L) { metricRow(levers, LEVERS[L], r.levers[L]); });
+        levers.appendChild(el('div', { class: 'scan-legend' },
+            '<span><i style="background:var(--lvl-green);"></i>8,5 of hoger</span>' +
+            '<span><i style="background:var(--lvl-gold);"></i>5,5 tot 8,5</span>' +
+            '<span><i style="background:var(--lvl-orange);"></i>onder 5,5</span>'));
+        inner.appendChild(levers);
+
+        var lekGrade = r.levers[r.lek];
+        inner.appendChild(el('div', { class: 'scan-card accent' },
+            '<p class="scan-card-title">JE GROOTSTE LEK</p>' +
+            '<p class="scan-lek-name" style="color:' + colorFor(lekGrade) + ';">' + esc(LEVERS[r.lek]) + ' <span>' + fmt(lekGrade) + '</span></p>' +
+            '<div class="scan-chips"><span class="scan-chip">Niveau: ' + r.lekLevel.name + '</span>' +
+            (r.lekDomain ? '<span class="scan-chip">Vooral in ' + DOMAINS[r.lekDomain] + '</span>' : '') + '</div>' +
+            '<p class="scan-text">' + esc(r.lekLevel.text) + '</p>' +
+            (r.lekLevel.min >= 7 ? '<p class="scan-text">Je doet het al goed. Gaat het ergens schuren, dan hier:</p>' : '') +
+            quote(r.lekSentence) +
+            '<p class="scan-card-title" style="margin-top:24px;">DE VOLGENDE STAP</p>' +
+            '<p class="scan-text" style="margin:0;">' + esc(NEXT_STEPS[r.lek]) + '</p>'));
+
+        inner.appendChild(el('div', { class: 'scan-card' },
+            '<p class="scan-card-title">ÉÉN ACTIE VOOR DEZE WEEK</p>' +
+            '<p style="font-size:22px;font-weight:700;margin:0 0 10px;">' + esc(r.action.name) + '</p>' +
+            '<p class="scan-text" style="margin:0;">' + esc(r.action.text) + '</p>'));
+
+        if (r.cost) {
+            inner.appendChild(el('div', { class: 'scan-card' },
+                '<p class="scan-card-title">WAT DIT JE NAAR SCHATTING KOST</p>' +
+                '<p style="font-size:40px;font-weight:700;color:var(--lvl-orange);margin:0 0 12px;">' + fmtEUR(r.cost.monthly) + ' <span style="font-size:18px;font-weight:400;color:var(--scan-text-dim);">/maand</span></p>' +
+                '<p class="scan-text" style="margin:0;">Op dit tempo laat je dit jaar naar schatting <strong>' + fmtEUR(r.cost.yearly) + '</strong> liggen. Niet omdat je geen goede ondernemer bent, maar omdat je systeem niet meer meekan met wat je erdoorheen probeert te jagen.</p>' +
+                '<p class="scan-note">Inschatting op basis van je omzet en je cijfers, geen exacte berekening.</p>'));
+        }
+
+        var future = el('div', { class: 'scan-card' });
+        future.appendChild(el('p', { class: 'scan-card-title' }, 'WAAR WE IN 12 WEKEN NAARTOE WERKEN'));
+        LEVER_ORDER.forEach(function (L) { futureRow(future, LEVERS[L], r.levers[L]); });
+        future.appendChild(el('div', { class: 'scan-legend' },
+            '<span><i style="background:var(--lvl-gold);"></i>Nu</span>' +
+            '<span><i style="background:var(--lvl-green);"></i>Over 12 weken</span>'));
+        inner.appendChild(future);
+
+        inner.appendChild(el('div', { class: 'scan-anchor' }, '<p>— JE APEX PREDATOR-PROFIEL —</p>'));
+        inner.appendChild(el('p', { class: 'scan-italic-sub' }, 'Naast je cijfers laat de scan zien hoe jij van nature jaagt en leidt. Dit verandert niet door coaching — dit ben jij. De vraag is of je de schaduwkant van je talent al herkent.'));
+        inner.appendChild(el('p', { class: 'scan-combo' }, r.pure
+            ? 'Een pure ' + r.jacht.emoji + ' <strong>' + esc(r.jacht.name) + '</strong>'
+            : r.jacht.emoji + ' <strong>' + esc(r.jacht.name) + '</strong> met ' + r.leid.emoji + ' <strong>' + esc(r.leid.name) + '</strong>-trekken'));
+        inner.appendChild(el('p', { class: 'scan-combo-text' }, r.pure
+            ? 'Je jaagt én leidt als een ' + esc(r.jacht.name) + '.'
+            : 'Je jaagt als een ' + esc(r.jacht.name) + ' en je leidt als een ' + esc(r.leid.name) + '.'));
+        animalCard(inner, r.jacht, r.pure ? 'JACHTSTIJL ÉN LEIDERSCHAPSSTIJL' : 'JACHTSTIJL: HOE JIJ RESULTAAT BEHAALT');
+        if (!r.pure) animalCard(inner, r.leid, 'LEIDERSCHAPSSTIJL: HOE JIJ ANDEREN MEEKRIJGT');
+
+        if (r.tweede) {
+            inner.appendChild(el('div', { class: 'scan-card' },
+                '<p class="scan-card-title">JE TWEEDE LEK</p>' +
+                '<p style="font-size:22px;font-weight:700;margin:0;color:' + colorFor(r.levers[r.tweede]) + ';">' + esc(LEVERS[r.tweede]) + '</p>' +
+                quote(r.tweedeSentence) +
+                '<p class="scan-text" style="margin:0;">Daar kijken we in de Doorbraak Sessie samen naar.</p>'));
+        }
+
+        // Jeroen's own track record, as on the homepage: no client results from elsewhere.
+        function stat(number, label) { return '<div class="scan-stat"><strong>' + number + '</strong><span>' + label + '</span></div>'; }
+        inner.appendChild(el('div', { class: 'scan-card' },
+            '<p class="scan-card-title">APEX IN CIJFERS</p>' +
+            '<div class="scan-stats-grid">' +
+            stat('14 jaar', 'ervaring als coach') +
+            stat('500+', 'mensen geholpen') +
+            stat('21×', '5 sterren op Google') +
+            stat('€150K+', 'geïnvesteerd in eigen ontwikkeling') +
+            '</div>'));
+
+        var ctaWrap = el('div', {});
+        ctaWrap.style.marginTop = '40px';
+        ctaWrap.innerHTML =
+            '<h2 class="scan-cta-h2">Oké, je hebt je diagnose. Maar wat ga je ermee doen?</h2>' +
+            '<p class="scan-cta-p">Voor een ' + esc(r.jacht.name) + ' met ' + esc(LEVERS[r.lek].toLowerCase()) + ' als grootste lek is de oplossing bijna nooit "meer discipline". Het is een systeem dat past bij hoe jij van nature jaagt en leidt. Dat heb je waarschijnlijk nog niet gehad.</p>';
+        inner.appendChild(ctaWrap);
+
+        var offerCard = el('div', { class: 'scan-card' });
+        offerCard.innerHTML =
+            '<p class="scan-offer-title">Doorbraak Sessie <span>(60 min)</span></p>' +
+            '<p class="scan-offer-p">1-op-1 met mij. We kijken samen wat voor jouw profiel het verschil maakt, en je loopt weg met drie concrete acties. Ook als we daarna niks meer met elkaar doen.</p>';
+        bulletLine(offerCard, 'Je grootste lek op tafel.', 'Wat er achter je ' + LEVERS[r.lek].toLowerCase() + ' zit, en hoe je dat aanpakt op een manier die bij jouw profiel past.');
+        bulletLine(offerCard, 'Drie acties voor deze week.', 'Specifiek voor jouw profiel, jouw werk en jouw situatie.');
+        bulletLine(offerCard, 'Een eerlijke check.', 'Of een traject met Apex logisch is voor jou. Ik werk niet met iedereen.');
+        ctaWrap.appendChild(offerCard);
+
+        ctaWrap.appendChild(el('a', { class: 'scan-primary-link', href: CTA_URL }, 'Plan je gratis Doorbraak Sessie'));
+        if (SCARCITY) {
+            ctaWrap.appendChild(el('a', { class: 'scan-scarcity', href: GRATIS_URL },
+                'Of kom naar de gratis Performance Sessie — nog ' + SCARCITY.remaining + ' van de ' + SCARCITY.capacity + ' plekken, inschrijven t/m ' + SCARCITY.deadline));
+        }
+
+        app.appendChild(root);
+    }
+
+    render();
+})();
+</script>
+</body>
+</html>

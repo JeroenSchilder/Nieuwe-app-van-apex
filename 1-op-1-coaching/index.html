@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="">
+        
+        <meta name="google-site-verification" content="DKFBX8FP7ZlreFXtKyNXPW_ER5zh-7SSc_d2K5WczZI">
+
+        <title>1-op-1 Performance Coaching — Apex Online Coaching</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Oswald:wght@700&family=Open+Sans:wght@400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+        <link rel="preload" as="image" href="/images/home/hero-jeroen.webp" fetchpriority="high">
+
+        <link rel="preload" as="style" href="/build/assets/app-Cjd4Muz0.css" /><link rel="stylesheet" href="/build/assets/app-Cjd4Muz0.css" data-navigate-track="reload" />        <script>
+    window.apexLeadSource = (function () {
+        var KEY = 'apexBron';
+        var CODES = ["a1","a2","a3","a4","a5","a6","a7","a8"];
+        var REFERRERS = [
+            [/(^|\.)instagram\.com$/, 'a1'],
+            [/(^|\.)(facebook\.com|fb\.com|fb\.me)$/, 'a2'],
+            [/(^|\.)(linkedin\.com|lnkd\.in)$/, 'a3'],
+            [/(^|\.)google\.[a-z.]+$/, 'a4']
+        ];
+        try {
+            var match = location.search.match(/[?&]r=([a-z0-9]+)/i);
+            var code = match && CODES.indexOf(match[1].toLowerCase()) !== -1 ? match[1].toLowerCase() : null;
+            if (!code && document.referrer) {
+                var host = new URL(document.referrer).hostname;
+                REFERRERS.forEach(function (r) { if (!code && r[0].test(host)) code = r[1]; });
+            }
+            if (code) localStorage.setItem(KEY, JSON.stringify({ code: code, at: Date.now() }));
+        } catch (e) {}
+
+        return function () {
+            try {
+                var stored = JSON.parse(localStorage.getItem(KEY) || 'null');
+                if (stored && Date.now() - stored.at < 30 * 24 * 60 * 60 * 1000) return stored.code;
+            } catch (e) {}
+            return null;
+        };
+    })();
+</script>
+
+        <style>
+            .font-poppins { font-family: 'Poppins', sans-serif; }
+            .font-oswald { font-family: 'Oswald', sans-serif; }
+            .font-opensans { font-family: 'Open Sans', Arial, sans-serif; }
+            .font-abril { font-family: 'Abril Fatface', serif; }
+            summary::-webkit-details-marker { display: none; }
+        </style>
+    <script id="browser-logger-active">
+(function() {
+    const ENDPOINT = '/_boost/browser-logs';
+    const logQueue = [];
+    let flushTimeout = null;
+    const captureTypes = ["error","warning","info","log","debug","table"];
+
+    console.log('🔍 Browser logger active (MCP server detected). Posting to: ' + ENDPOINT);
+
+    // Store original console methods
+    const originalConsole = {
+        log: console.log,
+        debug: console.debug,
+        info: console.info,
+        error: console.error,
+        warn: console.warn,
+        table: console.table
+    };
+
+    // Walk own enumerable keys so JSON.stringify cannot auto-invoke a proxy fake toJSON (e.g. Livewire's `$wire`) and fire a real request.
+    function toSafeValue(value, seen) {
+        if (value === null || typeof value !== 'object') {
+            return value;
+        }
+        if (value instanceof Error) {
+            return { name: value.name, message: value.message, stack: value.stack };
+        }
+        // Date has no own enumerable keys, so the walk below would collapse it to {}.
+        if (value instanceof Date) {
+            return value.toISOString();
+        }
+        if (seen.has(value)) {
+            return '[Circular]';
+        }
+        seen.add(value);
+        if (Array.isArray(value)) {
+            return value.map((item) => toSafeValue(item, seen));
+        }
+        const plain = {};
+        for (const key of Object.keys(value)) {
+            if (key === 'toJSON') continue;
+            try {
+                plain[key] = toSafeValue(value[key], seen);
+            } catch (e) {
+                plain[key] = '[Unreadable]';
+            }
+        }
+        return plain;
+    }
+
+    // Helper to safely stringify values
+    function safeStringify(obj) {
+        return JSON.stringify(toSafeValue(obj, new WeakSet()));
+    }
+
+    // Normalize log type for consistency (e.g., 'warn' to 'warning')
+    function normalizeType(type) {
+        return type === 'warn' ? 'warning' : type;
+    }
+
+    // Determine if a log type should be captured based on configured levels
+    function shouldCapture(type) {
+        return captureTypes.includes(normalizeType(type));
+    }
+
+    // Batch and send logs
+    function flushLogs() {
+        if (logQueue.length === 0) return;
+
+        const batch = logQueue.splice(0, logQueue.length);
+
+        fetch(ENDPOINT, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: JSON.stringify({ logs: batch })
+        }).catch(err => {
+            // Silently fail to avoid infinite loops
+            originalConsole.error('Failed to send logs:', err);
+        });
+    }
+
+    // Debounced flush (100ms)
+    function scheduleFlush() {
+        if (flushTimeout) clearTimeout(flushTimeout);
+        flushTimeout = setTimeout(flushLogs, 100);
+    }
+
+    // Intercept console methods
+    ['log', 'debug', 'info', 'error', 'warn', 'table'].forEach(method => {
+        console[method] = function(...args) {
+            // Call original method
+            originalConsole[method].apply(console, args);
+
+            // Capture log data
+            try {
+                if (!shouldCapture(method)) {
+                    return;
+                }
+
+                logQueue.push({
+                    type: method,
+                    timestamp: new Date().toISOString(),
+                    data: args.map(arg => {
+                        try {
+                            return typeof arg === 'object' ? JSON.parse(safeStringify(arg)) : arg;
+                        } catch (e) {
+                            return String(arg);
+                        }
+                    }),
+                    url: window.location.href,
+                    userAgent: navigator.userAgent
+                });
+
+                scheduleFlush();
+            } catch (e) {
+                // Fail silently
+            }
+        };
+    });
+
+    // Global error handlers for uncaught errors
+    const originalOnError = window.onerror;
+    window.onerror = function boostErrorHandler(errorMsg, url, lineNumber, colNumber, error) {
+        try {
+            if (shouldCapture('error')) {
+                logQueue.push({
+                    type: 'uncaught_error',
+                    timestamp: new Date().toISOString(),
+                    data: [{
+                        message: errorMsg,
+                        filename: url,
+                        lineno: lineNumber,
+                        colno: colNumber,
+                        error: error ? {
+                            name: error.name,
+                            message: error.message,
+                            stack: error.stack
+                        } : null
+                    }],
+                    url: window.location.href,
+                    userAgent: navigator.userAgent
+                });
+
+                scheduleFlush();
+            }
+
+        } catch (e) {
+            // Fail silently
+        }
+
+        // Call original handler if it exists
+        if (originalOnError && typeof originalOnError === 'function') {
+            return originalOnError(errorMsg, url, lineNumber, colNumber, error);
+        }
+
+        // Let the error continue to propagate
+        return false;
+    }
+    window.addEventListener('error', (event) => {
+        try {
+            if (!shouldCapture('error')) {
+                return false;
+            }
+
+            logQueue.push({
+                type: 'window_error',
+                timestamp: new Date().toISOString(),
+                data: [{
+                    message: event.message,
+                    filename: event.filename,
+                    lineno: event.lineno,
+                    colno: event.colno,
+                    error: event.error ? {
+                        name: event.error.name,
+                        message: event.error.message,
+                        stack: event.error.stack
+                    } : null
+                }],
+                url: window.location.href,
+                userAgent: navigator.userAgent
+            });
+
+            scheduleFlush();
+        } catch (e) {
+            // Fail silently
+        }
+
+        // Let the error continue to propagate
+        return false;
+    });
+    window.addEventListener('unhandledrejection', (event) => {
+        try {
+            if (!shouldCapture('error')) {
+                return false;
+            }
+
+            logQueue.push({
+                type: 'error',
+                timestamp: new Date().toISOString(),
+                data: [{
+                    message: 'Unhandled Promise Rejection',
+                    reason: toSafeValue(event.reason, new WeakSet())
+                }],
+                url: window.location.href,
+                userAgent: navigator.userAgent
+            });
+
+            scheduleFlush();
+        } catch (e) {
+            // Fail silently
+        }
+
+        // Let the rejection continue to propagate
+        return false;
+    });
+
+    // Flush on page unload
+    window.addEventListener('beforeunload', () => {
+        if (logQueue.length > 0) {
+            navigator.sendBeacon(ENDPOINT, JSON.stringify({ logs: logQueue }));
+        }
+    });
+})();
+</script>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script><script defer src="/_vercel/insights/script.js"></script>
+</head>
+    <body class="font-opensans antialiased" style="background:#1B3A6B;">
+
+                    <header class="sticky top-0 z-40" style="background:#1B3A6B;">
+                <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+                    <a href="/">
+                        <img src="/images/apex-logo.webp" alt="Apex Online Coaching" class="h-12 w-auto" width="150" height="48">
+                    </a>
+
+                    <nav class="hidden lg:flex items-center gap-6">
+                        <a href="/gratis" class="text-sm font-semibold hover:opacity-80 transition" style="color:#D4A574;">Gratis</a>
+                        <a href="/aanbod" class="text-sm font-semibold text-white hover:opacity-80 transition">Aanbod</a>
+                        <a href="/resultaten" class="text-sm font-semibold text-white hover:opacity-80 transition">Resultaten</a>
+                        <a href="/kennisbank" class="text-sm font-semibold text-white hover:opacity-80 transition">Kennisbank</a>
+                        <a href="/over-ons" class="text-sm font-semibold text-white hover:opacity-80 transition">Over ons</a>
+                    </nav>
+
+                    <div class="hidden lg:flex items-center gap-3">
+                                                    
+                            <a href="/waarom-de-performance-scan" class="brand-ghost-btn inline-block px-5 py-2 rounded-lg text-sm font-semibold">Performance Scan</a>
+                                            </div>
+
+                    <button type="button" id="nav-toggle" class="lg:hidden text-white" aria-label="Menu" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
+                </div>
+
+                <div id="nav-menu" hidden class="lg:hidden px-6 pb-6 space-y-3" style="border-top:1px solid rgba(212,165,116,0.2);">
+                    <a href="/gratis" class="block text-sm font-semibold pt-3" style="color:#D4A574;">Gratis</a>
+                    <a href="/aanbod" class="block text-sm font-semibold text-white">Aanbod</a>
+                    <a href="/resultaten" class="block text-sm font-semibold text-white">Resultaten</a>
+                    <a href="/kennisbank" class="block text-sm font-semibold text-white">Kennisbank</a>
+                    <a href="/over-ons" class="block text-sm font-semibold text-white">Over ons</a>
+                                            
+                        <a href="/waarom-de-performance-scan" class="brand-ghost-btn inline-block px-5 py-2 rounded-lg text-sm font-semibold">Performance Scan</a>
+                                    </div>
+            </header>
+        
+        <main>
+            <section class="relative overflow-hidden" style="min-height:560px;">
+        <img src="/images/home/hero-jeroen.webp" alt="" class="absolute inset-0 w-full h-full object-cover" fetchpriority="high" width="1600" height="1067" style="object-position: center 25%;">
+        <div class="absolute inset-0" style="background:linear-gradient(90deg, rgba(13,28,56,0.94) 30%, rgba(27,58,107,0.72) 100%);"></div>
+
+        <div class="relative max-w-3xl mx-auto px-6 py-20 sm:py-28 text-center">
+            <p class="brand-eyebrow text-balance font-opensans font-bold uppercase text-xs sm:text-sm mb-4">1-op-1 &middot; wekelijks &middot; volledig op maat</p>
+            <h1 class="font-oswald font-bold text-white uppercase leading-tight text-3xl sm:text-5xl mb-5"><span class="sr-only">Performance Coaching 1-op-1</span>
+            <span class="kinetic-word" style="--word: 0;" aria-hidden="true">Performance</span>
+                <span class="kinetic-word" style="--word: 1;" aria-hidden="true">Coaching</span>
+                <span class="kinetic-word brand-gold-text" style="--word: 2;" aria-hidden="true">1-op-1</span>
+    </h1>
+            <p class="text-base sm:text-lg max-w-xl mx-auto mb-8" style="color:#dbe3f0;">
+                Het traject met de meeste impact. Voor ondernemers die liever alleen, intensief en in hoog tempo werken aan rust, focus en een bedrijf dat niet langer draait op hun constante aanwezigheid.
+            </p>
+            <a href="https://apexonlinecoaching.trainin.app/activities/LQ2Y2P/de-doorbraak-sessie" target="_blank" rel="noopener" class="brand-gold-btn inline-block px-8 py-3.5 rounded-lg font-bold">
+                Plan je Doorbraak Sessie
+            </a>
+            <p class="text-xs mt-4" style="color:#9fb3d1;">Gratis &middot; 60 minuten &middot; je spreekt met Jeroen &middot; je zit nergens aan vast</p>
+            <p class="text-sm mt-6"><a href="/waarom-de-performance-scan" class="underline hover:no-underline" style="color:#D4A574;">Eerst zien waar je staat? Doe de gratis Performance Scan &rarr;</a></p>
+        </div>
+    </section>
+
+    
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <p class="brand-eyebrow font-bold uppercase text-xs text-center mb-3">Herken je dit?</p>
+            <h2 class="font-oswald font-bold uppercase text-3xl sm:text-4xl text-center mb-12" style="color:#1B3A6B;">Wie jij bent als ondernemer, zie je terug in je resultaat</h2>
+            <div class="grid sm:grid-cols-2 gap-4">
+                                    <div class="brand-card p-5 flex gap-4 items-start">
+                        <span class="font-bold text-lg leading-none mt-0.5" style="color:#c08f5c;">&rarr;</span>
+                        <p class="leading-relaxed" style="color:#2A2A2A;">De doe-het-zelver. Als jij alles zelf doet, blijf je altijd gevangen in je eigen bedrijf.</p>
+                    </div>
+                                    <div class="brand-card p-5 flex gap-4 items-start">
+                        <span class="font-bold text-lg leading-none mt-0.5" style="color:#c08f5c;">&rarr;</span>
+                        <p class="leading-relaxed" style="color:#2A2A2A;">Altijd druk zijn, maar niet productief. Tijd is steeds weer het probleem.</p>
+                    </div>
+                                    <div class="brand-card p-5 flex gap-4 items-start">
+                        <span class="font-bold text-lg leading-none mt-0.5" style="color:#c08f5c;">&rarr;</span>
+                        <p class="leading-relaxed" style="color:#2A2A2A;">Je verschuilen achter comfortabele acties die weinig tot geen geld opleveren.</p>
+                    </div>
+                                    <div class="brand-card p-5 flex gap-4 items-start">
+                        <span class="font-bold text-lg leading-none mt-0.5" style="color:#c08f5c;">&rarr;</span>
+                        <p class="leading-relaxed" style="color:#2A2A2A;">Te veel ballen in de lucht, en daardoor het overzicht kwijt.</p>
+                    </div>
+                                    <div class="brand-card p-5 flex gap-4 items-start">
+                        <span class="font-bold text-lg leading-none mt-0.5" style="color:#c08f5c;">&rarr;</span>
+                        <p class="leading-relaxed" style="color:#2A2A2A;">Hard werken, maar zonder duidelijke strategie.</p>
+                    </div>
+                                    <div class="brand-card p-5 flex gap-4 items-start">
+                        <span class="font-bold text-lg leading-none mt-0.5" style="color:#c08f5c;">&rarr;</span>
+                        <p class="leading-relaxed" style="color:#2A2A2A;">Uitgecheckt zijn als je thuiskomt na een lange werkdag.</p>
+                    </div>
+                            </div>
+        </div>
+    </section>
+
+    
+    <section class="py-20 px-6" style="background:#F5F5F5;">
+        <div class="max-w-5xl mx-auto">
+            <p class="brand-eyebrow font-bold uppercase text-xs text-center mb-3">Wat je al geprobeerd hebt</p>
+            <h2 class="font-oswald font-bold uppercase text-3xl sm:text-4xl text-center mb-4" style="color:#1B3A6B;">Aan kennis ligt het niet</h2>
+            <p class="text-center max-w-2xl mx-auto mb-12 leading-relaxed" style="color:#4b5563;">De meeste ondernemers die bij mij komen, hebben al van alles geprobeerd. Het hielp even. Daarna won het oude patroon weer.</p>
+            <div class="grid sm:grid-cols-2 gap-5">
+                                    <div class="brand-card p-6">
+                        <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Boeken, podcasts en cursussen</h3>
+                        <p class="leading-relaxed" style="color:#4b5563;">Je weet meer dan ooit. Maar weten is nog geen doen, en niemand vraagt je de week erna of je het ook gedaan hebt.</p>
+                    </div>
+                                    <div class="brand-card p-6">
+                        <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Een planner of een app</h3>
+                        <p class="leading-relaxed" style="color:#4b5563;">Een systeem werkt alleen als jij het gebruikt. Zolang het patroon erachter blijft, schuift je lijst gewoon door naar volgende week.</p>
+                    </div>
+                                    <div class="brand-card p-6">
+                        <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Een personal trainer</h3>
+                        <p class="leading-relaxed" style="color:#4b5563;">Je lijf wordt sterker, maar je agenda en je hoofd blijven hetzelfde. Zodra het druk wordt, sneuvelt de training als eerste.</p>
+                    </div>
+                                    <div class="brand-card p-6">
+                        <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Een businesscoach</h3>
+                        <p class="leading-relaxed" style="color:#4b5563;">Je strategie wordt scherper, maar wie jij bent als ondernemer, en hoe je energie en je thuis meedoen, blijft buiten beeld.</p>
+                    </div>
+                            </div>
+            <p class="text-center font-semibold text-lg mt-10 max-w-3xl mx-auto leading-relaxed" style="color:#1B3A6B;">Het verschil: we werken aan wie je bent, niet alleen aan wat je doet. Zakelijk, privé en fysiek tegelijk, met elke week iemand die je eraan houdt.</p>
+        </div>
+    </section>
+
+    
+    <section class="brand-navy py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="max-w-3xl">
+                <p class="brand-eyebrow font-bold uppercase text-xs mb-3">Geen praatje, maar een spiegel</p>
+                <h2 class="font-oswald font-bold text-white uppercase text-3xl sm:text-4xl mb-6">Coaching is geen gezellig gesprek</h2>
+                <p class="text-lg leading-relaxed mb-10" style="color:#dbe3f0;">
+                    Eindeloos praten over wat je gaat doen, levert alleen frustratie en stress op. Daarom draait elke sessie van 60 minuten om gedrag en actie. Wat is er nodig om je doelen te halen? En vooral: wie is er nodig? Elke sessie heeft dezelfde vier stappen.
+                </p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
+                                    <div class="brand-card-dark p-6">
+                        <p class="font-oswald font-bold text-3xl brand-gold-text mb-3">1</p>
+                        <h3 class="font-opensans font-bold text-lg text-white mb-2">Terugblik</h3>
+                        <p class="text-sm leading-relaxed" style="color:#dbe3f0;">Wat had je beloofd, en wat heb je gedaan? Je komt niet weg met goedklinkende verhalen over waarom je kernacties niet gelukt zijn.</p>
+                    </div>
+                                    <div class="brand-card-dark p-6">
+                        <p class="font-oswald font-bold text-3xl brand-gold-text mb-3">2</p>
+                        <h3 class="font-opensans font-bold text-lg text-white mb-2">De bron</h3>
+                        <p class="text-sm leading-relaxed" style="color:#dbe3f0;">Waar het niet lukte, zoeken we de oorzaak. Welk patroon, welke aanname of overtuiging hield je tegen? We leggen de bron bloot van je acties, én van je niet-acties.</p>
+                    </div>
+                                    <div class="brand-card-dark p-6">
+                        <p class="font-oswald font-bold text-3xl brand-gold-text mb-3">3</p>
+                        <h3 class="font-opensans font-bold text-lg text-white mb-2">De beslissing</h3>
+                        <p class="text-sm leading-relaxed" style="color:#dbe3f0;">Je neemt de beslissing die je al te lang voor je uit schuift. In de sessie, niet volgende maand.</p>
+                    </div>
+                                    <div class="brand-card-dark p-6">
+                        <p class="font-oswald font-bold text-3xl brand-gold-text mb-3">4</p>
+                        <h3 class="font-opensans font-bold text-lg text-white mb-2">Je commitments</h3>
+                        <p class="text-sm leading-relaxed" style="color:#dbe3f0;">Je kiest je kernacties voor de komende week en maakt ze concreet: wat, wanneer, en wat je doet als het tegenzit. Daar houd ik je de week erna aan.</p>
+                    </div>
+                            </div>
+            <div class="grid md:grid-cols-2 gap-5">
+                <p class="rounded-xl px-6 py-5 text-lg leading-relaxed text-white" style="border:1px solid rgba(255,255,255,0.15);">Ik ben radicaal eerlijk: ik zeg wat je moet horen, niet wat je wilt horen.</p>
+                <p class="rounded-xl px-6 py-5 text-lg leading-relaxed font-semibold text-white" style="border:1px solid rgba(212,165,116,0.55); background:rgba(212,165,116,0.08);">Het resultaat: je komt tot je beste denken en maakt de beloftes aan jezelf waar.</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="py-20 px-6" style="background:#F5F5F5;">
+        <div class="max-w-5xl mx-auto">
+            <p class="brand-eyebrow font-bold uppercase text-xs text-center mb-3">Hier beginnen we</p>
+            <h2 class="font-oswald font-bold uppercase text-3xl sm:text-4xl text-center mb-12" style="color:#1B3A6B;">Drie vragen die alles zeggen</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                                    <div class="brand-card p-7">
+                        <div class="brand-icon w-12 h-12 rounded-full flex items-center justify-center mb-5 font-oswald font-bold text-xl">1</div>
+                        <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Wat is tot nu toe je grootste kostenpost?</h3>
+                        <p class="leading-relaxed" style="color:#4b5563;">Vaak is dat het geld dat je had kunnen verdienen, maar nu laat liggen.</p>
+                    </div>
+                                    <div class="brand-card p-7">
+                        <div class="brand-icon w-12 h-12 rounded-full flex items-center justify-center mb-5 font-oswald font-bold text-xl">2</div>
+                        <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Welke beslissing heb je nog niet genomen?</h3>
+                        <p class="leading-relaxed" style="color:#4b5563;">Over je groei als ondernemer en als persoon, en die je al te lang voor je uit schuift.</p>
+                    </div>
+                                    <div class="brand-card p-7">
+                        <div class="brand-icon w-12 h-12 rounded-full flex items-center justify-center mb-5 font-oswald font-bold text-xl">3</div>
+                        <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Wat is je nummer 1 actie?</h3>
+                        <p class="leading-relaxed" style="color:#4b5563;">De actie die je in een rechte lijn naar je doel brengt, maar die je nu nog niet doet.</p>
+                    </div>
+                            </div>
+            <p class="text-center mt-10 max-w-2xl mx-auto leading-relaxed" style="color:#4b5563;">Met onder andere deze vragen help ik ondernemers in een rechte lijn naar het resultaat dat zij zelf kiezen.</p>
+        </div>
+    </section>
+
+    
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <p class="brand-eyebrow font-bold uppercase text-xs text-center mb-3">Zo werkt het</p>
+            <h2 class="font-oswald font-bold uppercase text-3xl sm:text-4xl text-center mb-4" style="color:#1B3A6B;">Zo ziet een kwartaal eruit</h2>
+            <p class="text-center max-w-2xl mx-auto mb-10 leading-relaxed" style="color:#4b5563;">Je werkt in kwartalen van 13 weken. Elk kwartaal heeft hetzelfde ritme.</p>
+
+            
+            <div class="max-w-2xl mx-auto mb-16">
+                <div class="relative mx-2.5">
+                    <div class="h-1.5 rounded-full" style="background:linear-gradient(90deg,#c08f5c,#e2b481);"></div>
+                    <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 flex items-center justify-between -mx-2.5">
+                                                                                <span class="rounded-full w-5 h-5" style="background:#1B3A6B; box-shadow:0 0 0 3px #D4A574;"></span>
+                                                                                <span class="rounded-full w-2 h-2" style="background:#fff; box-shadow:0 0 0 2px #D4A574;"></span>
+                                                                                <span class="rounded-full w-2 h-2" style="background:#fff; box-shadow:0 0 0 2px #D4A574;"></span>
+                                                                                <span class="rounded-full w-2 h-2" style="background:#fff; box-shadow:0 0 0 2px #D4A574;"></span>
+                                                                                <span class="rounded-full w-2 h-2" style="background:#fff; box-shadow:0 0 0 2px #D4A574;"></span>
+                                                                                <span class="rounded-full w-2 h-2" style="background:#fff; box-shadow:0 0 0 2px #D4A574;"></span>
+                                                                                <span class="rounded-full w-2 h-2" style="background:#fff; box-shadow:0 0 0 2px #D4A574;"></span>
+                                                                                <span class="rounded-full w-2 h-2" style="background:#fff; box-shadow:0 0 0 2px #D4A574;"></span>
+                                                                                <span class="rounded-full w-2 h-2" style="background:#fff; box-shadow:0 0 0 2px #D4A574;"></span>
+                                                                                <span class="rounded-full w-2 h-2" style="background:#fff; box-shadow:0 0 0 2px #D4A574;"></span>
+                                                                                <span class="rounded-full w-2 h-2" style="background:#fff; box-shadow:0 0 0 2px #D4A574;"></span>
+                                                                                <span class="rounded-full w-2 h-2" style="background:#fff; box-shadow:0 0 0 2px #D4A574;"></span>
+                                                                                <span class="rounded-full w-2 h-2" style="background:#fff; box-shadow:0 0 0 2px #D4A574;"></span>
+                                                                                <span class="rounded-full w-5 h-5" style="background:#1B3A6B; box-shadow:0 0 0 3px #D4A574;"></span>
+                                            </div>
+                </div>
+                <div class="grid grid-cols-3 gap-3 mt-5 text-xs sm:text-sm">
+                    <p class="text-left"><span class="block font-bold" style="color:#1B3A6B;">Week 1</span><span style="color:#6b7280;">Strategische sessie, 3 uur</span></p>
+                    <p class="text-center"><span class="block font-bold" style="color:#1B3A6B;">Elke week</span><span style="color:#6b7280;">1-op-1, 60 minuten</span></p>
+                    <p class="text-right"><span class="block font-bold" style="color:#1B3A6B;">Na 13 weken</span><span style="color:#6b7280;">Nieuwe strategische sessie</span></p>
+                </div>
+            </div>
+
+            <ol class="relative max-w-4xl mx-auto ml-2 sm:mx-auto" style="border-left:2px solid rgba(212,165,116,0.5);">
+                                                        <li class="relative pl-8 sm:pl-12 pb-12 last:pb-0">
+                        <span class="absolute -left-[10px] top-1 w-[18px] h-[18px] rounded-full" style="background:#D4A574; box-shadow:0 0 0 4px #fff;"></span>
+                        <div class="grid md:grid-cols-[1fr_290px] gap-6 items-start">
+                            <div>
+                                <p class="font-oswald font-bold text-sm uppercase mb-1.5" style="color:#c08f5c; letter-spacing:.1em;">
+                                    Vooraf
+                                                                    </p>
+                                <h3 class="font-opensans font-bold text-xl mb-2" style="color:#1B3A6B;">Doorbraak Sessie</h3>
+                                <p class="leading-relaxed" style="color:#4b5563;">Gratis en 60 minuten. Zo weet je vooraf zeker dat dit traject bij je past: we kijken waar je staat, wat je tegenhoudt en of we bij elkaar passen.</p>
+                            </div>
+
+                                                    </div>
+                    </li>
+                                                        <li class="relative pl-8 sm:pl-12 pb-12 last:pb-0">
+                        <span class="absolute -left-[10px] top-1 w-[18px] h-[18px] rounded-full" style="background:#D4A574; box-shadow:0 0 0 4px #fff;"></span>
+                        <div class="grid md:grid-cols-[1fr_290px] gap-6 items-start">
+                            <div>
+                                <p class="font-oswald font-bold text-sm uppercase mb-1.5" style="color:#c08f5c; letter-spacing:.1em;">
+                                    Bij de start
+                                                                    </p>
+                                <h3 class="font-opensans font-bold text-xl mb-2" style="color:#1B3A6B;">Je intake</h3>
+                                <p class="leading-relaxed" style="color:#4b5563;">Je beschrijft je punt A en je punt B: waar je nu staat en waar je naartoe wilt, op werk, privé, relaties en fysiek, inclusief je financiële doelen.</p>
+                            </div>
+
+                                                    </div>
+                    </li>
+                                                        <li class="relative pl-8 sm:pl-12 pb-12 last:pb-0">
+                        <span class="absolute -left-[10px] top-1 w-[18px] h-[18px] rounded-full" style="background:#1B3A6B; box-shadow:0 0 0 4px #fff, 0 0 0 6px #D4A574;"></span>
+                        <div class="grid md:grid-cols-[1fr_290px] gap-6 items-start">
+                            <div>
+                                <p class="font-oswald font-bold text-sm uppercase mb-1.5" style="color:#c08f5c; letter-spacing:.1em;">
+                                    Week 1
+                                                                            <span class="ml-2 align-middle inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] normal-case font-opensans font-bold" style="background:#1B3A6B; color:#D4A574; letter-spacing:0;">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                            3 uur, op locatie
+                                        </span>
+                                                                    </p>
+                                <h3 class="font-opensans font-bold text-xl mb-2" style="color:#1B3A6B;">Strategische sessie</h3>
+                                <p class="leading-relaxed" style="color:#4b5563;">Drie uur aan tafel, op locatie of op kantoor. We beantwoorden de drie vragen en zetten je punt B om in je Kompas: je doelen voor dit kwartaal, teruggerekend naar maand en week. Je weet precies wat je kernacties zijn, en wat je laat liggen.</p>
+                            </div>
+
+                                                            <div class="rounded-2xl overflow-hidden max-w-xs" style="border:1px solid #E5E7EB; background:#F5F5F5; box-shadow:0 24px 48px -30px rgba(27,58,107,0.45);">
+                                    <div class="px-4 py-2.5 flex items-center justify-between" style="border-bottom:1px solid #E5E7EB;">
+                                        <span class="text-[11px] font-bold uppercase" style="color:#1B3A6B; letter-spacing:.12em;">Je Kompas</span>
+                                        <span class="text-[11px] px-2 py-0.5 rounded-full" style="background:rgba(212,165,116,0.18); color:#c08f5c;">voorbeeld</span>
+                                    </div>
+                                    <div class="p-4 text-sm" style="color:#2A2A2A;">
+                                        <div class="flex justify-between py-1.5" style="border-bottom:1px dashed rgba(27,58,107,0.15);"><span style="color:#6b7280;">Kwartaal</span><span class="font-semibold">Doel per pijler</span></div>
+                                        <div class="flex justify-between py-1.5" style="border-bottom:1px dashed rgba(27,58,107,0.15);"><span style="color:#6b7280;">Maand</span><span class="font-semibold">Maanddoelen</span></div>
+                                        <div class="flex justify-between py-1.5"><span style="color:#6b7280;">Deze week</span><span class="font-bold" style="color:#c08f5c;">3 kernacties</span></div>
+                                        <div class="mt-3 pt-3 space-y-2" style="border-top:1px solid #E5E7EB;">
+                                                                                            <div class="flex items-center gap-2">
+                                                                                                            <span class="w-4 h-4 rounded flex items-center justify-center text-[10px] text-white shrink-0" style="background:#D4A574;">&check;</span>
+                                                        <span class="line-through" style="color:#6b7280;">Voorstel versturen</span>
+                                                                                                    </div>
+                                                                                            <div class="flex items-center gap-2">
+                                                                                                            <span class="w-4 h-4 rounded flex items-center justify-center text-[10px] text-white shrink-0" style="background:#D4A574;">&check;</span>
+                                                        <span class="line-through" style="color:#6b7280;">Drie keer trainen</span>
+                                                                                                    </div>
+                                                                                            <div class="flex items-center gap-2">
+                                                                                                            <span class="w-4 h-4 rounded shrink-0" style="border:1.5px solid #D4A574;"></span>
+                                                        <span class="font-semibold">Eén taak overdragen</span>
+                                                                                                    </div>
+                                                                                    </div>
+                                    </div>
+                                </div>
+                                                    </div>
+                    </li>
+                                                        <li class="relative pl-8 sm:pl-12 pb-12 last:pb-0">
+                        <span class="absolute -left-[10px] top-1 w-[18px] h-[18px] rounded-full" style="background:#D4A574; box-shadow:0 0 0 4px #fff;"></span>
+                        <div class="grid md:grid-cols-[1fr_290px] gap-6 items-start">
+                            <div>
+                                <p class="font-oswald font-bold text-sm uppercase mb-1.5" style="color:#c08f5c; letter-spacing:.1em;">
+                                    Week 2 t/m 7
+                                                                    </p>
+                                <h3 class="font-opensans font-bold text-xl mb-2" style="color:#1B3A6B;">Patronen doorbreken</h3>
+                                <p class="leading-relaxed" style="color:#4b5563;">Elke week 60 minuten 1-op-1. We toetsen je kernacties en pakken aan wat je tegenhoudt: de uitsteller, de pleaser, de doe-het-zelver of de perfectionist in jou. Je neemt de beslissingen die al te lang liggen.</p>
+                            </div>
+
+                                                    </div>
+                    </li>
+                                                        <li class="relative pl-8 sm:pl-12 pb-12 last:pb-0">
+                        <span class="absolute -left-[10px] top-1 w-[18px] h-[18px] rounded-full" style="background:#D4A574; box-shadow:0 0 0 4px #fff;"></span>
+                        <div class="grid md:grid-cols-[1fr_290px] gap-6 items-start">
+                            <div>
+                                <p class="font-oswald font-bold text-sm uppercase mb-1.5" style="color:#c08f5c; letter-spacing:.1em;">
+                                    Week 8 t/m 13
+                                                                    </p>
+                                <h3 class="font-opensans font-bold text-xl mb-2" style="color:#1B3A6B;">Verankeren</h3>
+                                <p class="leading-relaxed" style="color:#4b5563;">Nieuw gedrag wordt een gewoonte. Je geeft uit handen wat een ander net zo goed kan, bouwt energie op in je lijf en bent weer echt aanwezig als je thuiskomt. Zo blijft het staan, ook als het druk wordt.</p>
+                            </div>
+
+                                                    </div>
+                    </li>
+                                                        <li class="relative pl-8 sm:pl-12 pb-12 last:pb-0">
+                        <span class="absolute -left-[10px] top-1 w-[18px] h-[18px] rounded-full" style="background:#1B3A6B; box-shadow:0 0 0 4px #fff, 0 0 0 6px #D4A574;"></span>
+                        <div class="grid md:grid-cols-[1fr_290px] gap-6 items-start">
+                            <div>
+                                <p class="font-oswald font-bold text-sm uppercase mb-1.5" style="color:#c08f5c; letter-spacing:.1em;">
+                                    Na 13 weken
+                                                                            <span class="ml-2 align-middle inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] normal-case font-opensans font-bold" style="background:#1B3A6B; color:#D4A574; letter-spacing:0;">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                            3 uur, op locatie
+                                        </span>
+                                                                    </p>
+                                <h3 class="font-opensans font-bold text-xl mb-2" style="color:#1B3A6B;">Nieuwe strategische sessie</h3>
+                                <p class="leading-relaxed" style="color:#4b5563;">We evalueren je kwartaal: wat is bereikt, wat niet, en waarom. Daarna zetten we de koers voor de volgende 13 weken.</p>
+                            </div>
+
+                                                    </div>
+                    </li>
+                            </ol>
+        </div>
+    </section>
+
+    
+    <section class="brand-navy py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <p class="brand-eyebrow font-bold uppercase text-xs text-center mb-3">Wat het van je vraagt</p>
+            <h2 class="font-oswald font-bold text-white uppercase text-3xl sm:text-4xl text-center mb-4">Zo ziet je ritme eruit</h2>
+            <p class="text-center max-w-2xl mx-auto mb-14 leading-relaxed" style="color:#dbe3f0;">Eén sessie per week, behalve in de schoolvakanties. Je kernacties doe je in je eigen agenda, want het moet in je leven landen en er niet naast staan.</p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                                    <div class="brand-card-dark p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="brand-icon w-10 h-10 rounded-xl flex items-center justify-center shrink-0" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            </span>
+                            <p class="font-bold uppercase text-xs" style="color:#D4A574; letter-spacing:.12em;">Elke week</p>
+                        </div>
+                        <h3 class="font-opensans font-bold text-lg text-white mb-2">Je 1-op-1 sessie</h3>
+                        <p class="text-sm leading-relaxed" style="color:#dbe3f0;">60 minuten, met focus op gedrag en actie. Wat is er nodig om je doelen te halen? En vooral: wie is er nodig?</p>
+                    </div>
+                                    <div class="brand-card-dark p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="brand-icon w-10 h-10 rounded-xl flex items-center justify-center shrink-0" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                            </span>
+                            <p class="font-bold uppercase text-xs" style="color:#D4A574; letter-spacing:.12em;">Elke week en maand</p>
+                        </div>
+                        <h3 class="font-opensans font-bold text-lg text-white mb-2">Je reflectie</h3>
+                        <p class="text-sm leading-relaxed" style="color:#dbe3f0;">Je week- en maandreflectie op alle pijlers in je leven. Zo zie je zelf wat er verandert, en kom je scherp je sessie in.</p>
+                    </div>
+                                    <div class="brand-card-dark p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="brand-icon w-10 h-10 rounded-xl flex items-center justify-center shrink-0" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m14.8 9.2-1.8 4.6-4.6 1.8 1.8-4.6 4.6-1.8Z"/></svg>
+                            </span>
+                            <p class="font-bold uppercase text-xs" style="color:#D4A574; letter-spacing:.12em;">Elke 13 weken</p>
+                        </div>
+                        <h3 class="font-opensans font-bold text-lg text-white mb-2">Strategische sessie</h3>
+                        <p class="text-sm leading-relaxed" style="color:#dbe3f0;">Drie uur aan tafel, op locatie of op kantoor, om je koers en doelen voor het volgende kwartaal scherp te stellen.</p>
+                    </div>
+                                    <div class="brand-card-dark p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="brand-icon w-10 h-10 rounded-xl flex items-center justify-center shrink-0" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </span>
+                            <p class="font-bold uppercase text-xs" style="color:#D4A574; letter-spacing:.12em;">Altijd</p>
+                        </div>
+                        <h3 class="font-opensans font-bold text-lg text-white mb-2">Open lijn</h3>
+                        <p class="text-sm leading-relaxed" style="color:#dbe3f0;">Bij calamiteiten hoef je niet te wachten tot je volgende sessie.</p>
+                    </div>
+                            </div>
+        </div>
+    </section>
+
+    
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <p class="brand-eyebrow font-bold uppercase text-xs text-center mb-3">Wat het je oplevert</p>
+            <h2 class="font-oswald font-bold uppercase text-3xl sm:text-4xl text-center mb-12" style="color:#1B3A6B;">Meer resultaat, zonder harder te werken</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                    <div class="brand-card p-7">
+                        <div class="brand-icon w-12 h-12 rounded-xl flex items-center justify-center mb-5" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>
+                        </div>
+                        <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Focus op je kernacties</h3>
+                        <p class="leading-relaxed" style="color:#4b5563;">Van al je acties levert zo&#039;n 20% het meeste resultaat op. Wat als je die 20% ombuigt naar 40%?</p>
+                    </div>
+                                    <div class="brand-card p-7">
+                        <div class="brand-icon w-12 h-12 rounded-xl flex items-center justify-center mb-5" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M8 3H3v5"/><path d="M12 22v-8.3a4 4 0 0 0-1.17-2.83L3 3"/><path d="m15 9 6-6"/></svg>
+                        </div>
+                        <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Echte beslissingen</h3>
+                        <p class="leading-relaxed" style="color:#4b5563;">Je hakt de knopen door die je al maanden voor je uit schuift, en zet ze direct om in actie.</p>
+                    </div>
+                                    <div class="brand-card p-7">
+                        <div class="brand-icon w-12 h-12 rounded-xl flex items-center justify-center mb-5" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Een bedrijf dat minder om jou draait</h3>
+                        <p class="leading-relaxed" style="color:#4b5563;">Je stopt met alles zelf doen en geeft uit handen wat een ander net zo goed kan.</p>
+                    </div>
+                                    <div class="brand-card p-7">
+                        <div class="brand-icon w-12 h-12 rounded-xl flex items-center justify-center mb-5" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10Z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                        </div>
+                        <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Rust in je hoofd</h3>
+                        <p class="leading-relaxed" style="color:#4b5563;">Overzicht in plaats van te veel ballen in de lucht, en echt aanwezig als je thuiskomt.</p>
+                    </div>
+                                    <div class="brand-card p-7">
+                        <div class="brand-icon w-12 h-12 rounded-xl flex items-center justify-center mb-5" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
+                        <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Energie in je lijf</h3>
+                        <p class="leading-relaxed" style="color:#4b5563;">Een fit lichaam geeft je de focus en het uithoudingsvermogen om groot te denken en groots te doen.</p>
+                    </div>
+                                    <div class="brand-card p-7">
+                        <div class="brand-icon w-12 h-12 rounded-xl flex items-center justify-center mb-5" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m22 4-10 10.01-3-3"/></svg>
+                        </div>
+                        <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Beloftes aan jezelf waarmaken</h3>
+                        <p class="leading-relaxed" style="color:#4b5563;">Integriteit betekent dat je je eigen afspraken nakomt, vóór die met anderen.</p>
+                    </div>
+                            </div>
+        </div>
+    </section>
+
+    
+    <section class="py-20 px-6" style="background:#F5F5F5;">
+        <div class="max-w-5xl mx-auto">
+            <p class="brand-eyebrow font-bold uppercase text-xs text-center mb-3">De missie</p>
+            <h2 class="font-oswald font-bold uppercase text-3xl sm:text-4xl text-center mb-12" style="color:#1B3A6B;">Een 8,5 of hoger op elke pijler</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                                    <div class="brand-card p-6 text-center">
+                        <h3 class="font-oswald font-bold uppercase text-xl mb-2" style="color:#1B3A6B;">Fysiek</h3>
+                        <p class="text-sm leading-relaxed" style="color:#4b5563;">Een fit en gezond lichaam geeft je meer focus, energie en uithoudingsvermogen voor een effectieve werkhouding.</p>
+                    </div>
+                                    <div class="brand-card p-6 text-center">
+                        <h3 class="font-oswald font-bold uppercase text-xl mb-2" style="color:#1B3A6B;">Relaties</h3>
+                        <p class="text-sm leading-relaxed" style="color:#4b5563;">Een echte connectie en waardevolle relaties met de mensen om je heen.</p>
+                    </div>
+                                    <div class="brand-card p-6 text-center">
+                        <h3 class="font-oswald font-bold uppercase text-xl mb-2" style="color:#1B3A6B;">Werk</h3>
+                        <p class="text-sm leading-relaxed" style="color:#4b5563;">Doelgericht, efficiënt en gefocust op een winstgevende onderneming.</p>
+                    </div>
+                                    <div class="brand-card p-6 text-center">
+                        <h3 class="font-oswald font-bold uppercase text-xl mb-2" style="color:#1B3A6B;">Privé</h3>
+                        <p class="text-sm leading-relaxed" style="color:#4b5563;">In staat zijn om het leven te leiden dat jij wilt, met rust en overzicht.</p>
+                    </div>
+                            </div>
+        </div>
+    </section>
+
+    
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 lg:gap-14 items-center">
+            <img src="/images/over-ons-jeroen.webp" alt="Jeroen Schilder bij het logo van Apex Online Coaching" class="w-full rounded-2xl object-cover" style="aspect-ratio:3/2; box-shadow:0 30px 60px -30px rgba(13,28,56,0.45);" loading="lazy" width="1600" height="1067">
+            <div>
+                <p class="brand-eyebrow font-bold uppercase text-xs mb-3">Je coach</p>
+                <h2 class="font-oswald font-bold uppercase text-3xl sm:text-4xl mb-5" style="color:#1B3A6B;">Jeroen Schilder</h2>
+                <div class="space-y-4 leading-relaxed" style="color:#4b5563;">
+                    <p>Mijn reis begon in de sport. Ik werd Nederlands kampioen turnen en Benelux kampioen bodybuilding (Mens Fysiek), en werkte na het CIOS jarenlang als personal trainer voor ondernemers.</p>
+                    <p>Daar zag ik dat de echte doorbraken niet in de gym zitten, maar in hoe je denkt, kiest en handelt. Sinds 2020 investeer ik in mijn eigen ontwikkeling bij Straight Line Leadership. In de 1-op-1 coaching komt het samen: radicaal eerlijk, gericht op actie, en met oog voor je lijf, je relaties en je bedrijf.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-x-6 gap-y-5 mt-8">
+                                            <div>
+                            <p class="font-oswald font-bold text-2xl" style="color:#c08f5c;">14 jaar</p>
+                            <p class="text-sm" style="color:#6b7280;">ervaring als coach</p>
+                        </div>
+                                            <div>
+                            <p class="font-oswald font-bold text-2xl" style="color:#c08f5c;">500+</p>
+                            <p class="text-sm" style="color:#6b7280;">mensen geholpen</p>
+                        </div>
+                                            <div>
+                            <p class="font-oswald font-bold text-2xl" style="color:#c08f5c;">21× ★★★★★</p>
+                            <p class="text-sm" style="color:#6b7280;">op Google</p>
+                        </div>
+                                            <div>
+                            <p class="font-oswald font-bold text-2xl" style="color:#c08f5c;">€150K+</p>
+                            <p class="text-sm" style="color:#6b7280;">geïnvesteerd in eigen ontwikkeling</p>
+                        </div>
+                                    </div>
+                <p class="mt-8"><a href="/over-ons" class="font-bold underline hover:no-underline" style="color:#1B3A6B;">Meer over Jeroen &rarr;</a></p>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="py-20 px-6" style="background:#F5F5F5;">
+        <div class="max-w-5xl mx-auto">
+            <p class="brand-eyebrow font-bold uppercase text-xs text-center mb-3">21&times; 5 sterren op Google</p>
+            <h2 class="font-oswald font-bold uppercase text-3xl sm:text-4xl text-center mb-12" style="color:#1B3A6B;">Wat ondernemers zeggen</h2>
+            
+            <div class="md:flex gap-6 mb-10 space-y-6 md:space-y-0">
+                <div style="flex:1.778 1 0%;">
+                    <div class="apex-poster relative w-full overflow-hidden rounded-2xl" style="aspect-ratio:16 / 9; background:#0d1c38; box-shadow:0 30px 60px -30px rgba(13,28,56,0.55);">
+    <button type="button" class="group absolute inset-0 w-full h-full text-left cursor-pointer" data-player="https://player.vimeo.com/video/1165454652?h=5c3023046a&amp;autoplay=1&amp;dnt=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;color=D4A574" data-title="Video review Jelle Janssen" onclick="apexPlayVimeo(this)" aria-label="Speel de video af: Video review Jelle Janssen">
+        <img src="https://i.vimeocdn.com/video/2122751197-9e416a1d36a34c5d13e531723ce73bdd1931ec30d04d3b7cce9b157b6cde580c-d_1280?region=us" alt="" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-[1.03]" style="object-position:center;" loading="lazy">
+        <span class="absolute inset-0" style="background:linear-gradient(180deg, rgba(13,28,56,0) 0%, rgba(13,28,56,0) 52%, rgba(13,28,56,0.6) 58%, #0d1c38 64%, #0d1c38 100%);"></span>
+        <span class="absolute inset-2.5 rounded-xl pointer-events-none" style="border:1px solid rgba(212,165,116,0.45);"></span>
+
+        
+        <span class="absolute inset-x-0 bottom-0 p-6 sm:p-7 flex items-end justify-between gap-4">
+            <span>
+                                    <span class="apex-poster-eyebrow font-bold uppercase text-[11px] sm:text-xs mb-1.5" style="color:#D4A574; letter-spacing:.14em;">Video review · 4:18</span>
+                                                    <span class="block font-oswald font-bold uppercase text-white text-xl sm:text-2xl leading-tight">Jelle Janssen</span>
+                                                    
+                    <span class="apex-poster-subtext text-sm mt-1.5 leading-snug" style="color:#dbe3f0;">Van startende ondernemer naar een solide fundering voor de toekomst.</span>
+                            </span>
+            <span class="brand-icon w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center shrink-0 transition group-hover:scale-110" style="box-shadow:0 0 0 7px rgba(212,165,116,0.22), 0 18px 36px -12px rgba(0,0,0,0.6);" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="w-6 h-6 sm:w-7 sm:h-7 ml-1" fill="#1B3A6B"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5Z"/></svg>
+            </span>
+        </span>
+    </button>
+</div>
+    <script>
+        function apexPlayVimeo(button) {
+            var frame = document.createElement('iframe');
+            frame.src = button.dataset.player;
+            frame.title = button.dataset.title;
+            frame.className = 'absolute inset-0 w-full h-full';
+            frame.allow = 'autoplay; fullscreen; picture-in-picture';
+            frame.allowFullscreen = true;
+            button.replaceWith(frame);
+        }
+    </script>
+                </div>
+                <div class="max-w-[260px] mx-auto md:max-w-none md:mx-0" style="flex:0.5625 1 0%;">
+                    <div class="apex-poster relative w-full overflow-hidden rounded-2xl" style="aspect-ratio:9 / 16; background:#0d1c38; box-shadow:0 30px 60px -30px rgba(13,28,56,0.55);">
+    <button type="button" class="group absolute inset-0 w-full h-full text-left cursor-pointer" data-player="https://player.vimeo.com/video/1094694700?autoplay=1&amp;dnt=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;color=D4A574" data-title="Video review Franklin Waal" onclick="apexPlayVimeo(this)" aria-label="Speel de video af: Video review Franklin Waal">
+        <img src="https://i.vimeocdn.com/video/2028316141-0cd1fceae9a90c6615937d6a4e87b29a10eb12648feae6ba42abf69e6b96c2d4-d_640?region=us" alt="" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-[1.03]" style="object-position:center;" loading="lazy">
+        <span class="absolute inset-0" style="background:linear-gradient(180deg, rgba(13,28,56,0) 0%, rgba(13,28,56,0) 50%, #0d1c38 62%, #0d1c38 100%);"></span>
+        <span class="absolute inset-2.5 rounded-xl pointer-events-none" style="border:1px solid rgba(212,165,116,0.45);"></span>
+
+        
+        <span class="absolute inset-x-0 bottom-0 p-6 sm:p-7 flex flex-col-reverse items-start gap-4">
+            <span>
+                                    <span class="block font-bold uppercase text-[11px] sm:text-xs mb-1.5" style="color:#D4A574; letter-spacing:.14em;">Video review · 0:37</span>
+                                                    <span class="block font-oswald font-bold uppercase text-white text-xl sm:text-2xl leading-tight">Franklin Waal</span>
+                                            </span>
+            <span class="brand-icon w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center shrink-0 transition group-hover:scale-110" style="box-shadow:0 0 0 7px rgba(212,165,116,0.22), 0 18px 36px -12px rgba(0,0,0,0.6);" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="w-6 h-6 sm:w-7 sm:h-7 ml-1" fill="#1B3A6B"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5Z"/></svg>
+            </span>
+        </span>
+    </button>
+</div>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                                    <figure class="brand-card p-8" style="border-top:4px solid #D4A574;">
+                        <p class="text-lg mb-3" style="color:#D4A574; letter-spacing:2px;" aria-label="5 sterren">★★★★★</p>
+                        <blockquote class="italic leading-relaxed mb-5" style="color:#2A2A2A;">&ldquo;Wat een geweldig traject! Hoe simpel het eigenlijk is om resultaat te creëren. Zoveel meer focus op kernacties die bijdragen aan mijn doelen. Ik ben écht op een diep level geshift naar een ‘owner’ i.p.v. een victim. Als je twijfelt, zeker doen! Een échte no-brainer.&rdquo;</blockquote>
+                        <figcaption>
+                            <p class="font-bold" style="color:#1B3A6B;">Dennis van der Sluijs</p>
+                            <p class="text-sm" style="color:#6b7280;">Nr. 1 Business Partner Eqology NL, Boost Your Health</p>
+                        </figcaption>
+                    </figure>
+                                    <figure class="brand-card p-8" style="border-top:4px solid #D4A574;">
+                        <p class="text-lg mb-3" style="color:#D4A574; letter-spacing:2px;" aria-label="5 sterren">★★★★★</p>
+                        <blockquote class="italic leading-relaxed mb-5" style="color:#2A2A2A;">&ldquo;Als eigenaar van een vastgoedonderhouds- en verduurzamingsbedrijf met 100 man personeel is focus essentieel. Dankzij de samenwerking met Apex Online Coaching ervaar ik meer rust, helderheid en scherpte op de acties die écht het verschil maken voor de groei van mijn bedrijf.&rdquo;</blockquote>
+                        <figcaption>
+                            <p class="font-bold" style="color:#1B3A6B;">Kees Plat</p>
+                            <p class="text-sm" style="color:#6b7280;">CEO, Plat&amp;Plat</p>
+                        </figcaption>
+                    </figure>
+                            </div>
+            <p class="text-center mt-8"><a href="/reviews" class="font-bold underline hover:no-underline" style="color:#1B3A6B;">Bekijk alle reviews &rarr;</a></p>
+        </div>
+    </section>
+
+    
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="font-oswald font-bold uppercase text-3xl sm:text-4xl text-center mb-12" style="color:#1B3A6B;">Dit traject is niet voor iedereen</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="rounded-2xl overflow-hidden bg-white" style="border:1px solid #E5E7EB;">
+                    <p class="brand-icon px-6 py-4 font-bold text-lg">Wel voor jou als</p>
+                    <ul class="p-6 space-y-4">
+                                                    <li class="flex gap-3" style="color:#2A2A2A;"><span class="w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm font-bold" style="background:rgba(212,165,116,0.2); color:#c08f5c;">&#10003;</span><span>je ondernemer bent en weet dat er meer in jou en je bedrijf zit</span></li>
+                                                    <li class="flex gap-3" style="color:#2A2A2A;"><span class="w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm font-bold" style="background:rgba(212,165,116,0.2); color:#c08f5c;">&#10003;</span><span>je een eerlijke spiegel wilt, ook als die ongemakkelijk is</span></li>
+                                                    <li class="flex gap-3" style="color:#2A2A2A;"><span class="w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm font-bold" style="background:rgba(212,165,116,0.2); color:#c08f5c;">&#10003;</span><span>je gezondheid, je relaties en je rust net zo belangrijk vindt als je omzet</span></li>
+                                                    <li class="flex gap-3" style="color:#2A2A2A;"><span class="w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm font-bold" style="background:rgba(212,165,116,0.2); color:#c08f5c;">&#10003;</span><span>je bereid bent te doen wat nodig is, ook als het schuurt</span></li>
+                                            </ul>
+                </div>
+                <div class="rounded-2xl overflow-hidden bg-white" style="border:1px solid #E5E7EB;">
+                    <p class="px-6 py-4 font-bold text-lg text-white" style="background:linear-gradient(155deg, #24488a 0%, #1B3A6B 100%);">Niet voor jou als</p>
+                    <ul class="p-6 space-y-4">
+                                                    <li class="flex gap-3" style="color:#2A2A2A;"><span class="w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm font-bold" style="background:rgba(239,68,68,0.12); color:#EF4444;">&#10005;</span><span>je bevestiging zoekt in plaats van de waarheid</span></li>
+                                                    <li class="flex gap-3" style="color:#2A2A2A;"><span class="w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm font-bold" style="background:rgba(239,68,68,0.12); color:#EF4444;">&#10005;</span><span>het volgens jou vooral aan je team, de markt of de timing ligt</span></li>
+                                                    <li class="flex gap-3" style="color:#2A2A2A;"><span class="w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm font-bold" style="background:rgba(239,68,68,0.12); color:#EF4444;">&#10005;</span><span>je wel wilt weten, maar niet wilt veranderen</span></li>
+                                                    <li class="flex gap-3" style="color:#2A2A2A;"><span class="w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm font-bold" style="background:rgba(239,68,68,0.12); color:#EF4444;">&#10005;</span><span>je hoopt op een snelle oplossing zonder zelf te bewegen</span></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="brand-navy py-20 px-6">
+        <div class="max-w-3xl mx-auto">
+            <p class="brand-eyebrow font-bold uppercase text-xs text-center mb-3">Wat je krijgt</p>
+            <h2 class="font-oswald font-bold text-white uppercase text-3xl sm:text-4xl text-center mb-10">Alles in één traject</h2>
+            <div class="rounded-2xl overflow-hidden bg-white" style="box-shadow:0 30px 60px -30px rgba(0,0,0,0.6);">
+                <div class="brand-icon px-6 py-6 text-center">
+                    <p class="font-oswald font-bold uppercase text-2xl sm:text-3xl" style="letter-spacing:.04em;">1-op-1 Performance Coaching</p>
+                    <p class="text-sm font-semibold mt-1">Wekelijks 1-op-1 &middot; volledig op jouw agenda</p>
+                </div>
+                <div class="p-6 sm:p-8">
+                    <ul>
+                                                    <li class="flex gap-3 py-3 leading-relaxed" style="color:#2A2A2A; border-bottom:1px solid #EEF0F3;"><span class="font-bold shrink-0" style="color:#c08f5c;">&#10003;</span><span>Wekelijkse 1-op-1 Performance Coaching van 60 minuten, behalve in de schoolvakanties</span></li>
+                                                    <li class="flex gap-3 py-3 leading-relaxed" style="color:#2A2A2A; border-bottom:1px solid #EEF0F3;"><span class="font-bold shrink-0" style="color:#c08f5c;">&#10003;</span><span>Elke 13 weken een strategische sessie van 3 uur, op locatie of op kantoor</span></li>
+                                                    <li class="flex gap-3 py-3 leading-relaxed" style="color:#2A2A2A; border-bottom:1px solid #EEF0F3;"><span class="font-bold shrink-0" style="color:#c08f5c;">&#10003;</span><span>Open lijn bij calamiteiten</span></li>
+                                                    <li class="flex gap-3 py-3 leading-relaxed" style="color:#2A2A2A; border-bottom:1px solid #EEF0F3;"><span class="font-bold shrink-0" style="color:#c08f5c;">&#10003;</span><span>Week- en maandreflectie op alle pijlers in je leven</span></li>
+                                                    <li class="flex gap-3 py-3 leading-relaxed" style="color:#2A2A2A; border-bottom:1px solid #EEF0F3;"><span class="font-bold shrink-0" style="color:#c08f5c;">&#10003;</span><span>De Apex Online Coaching app: kompas, doelen, voortgang en videodatabase</span></li>
+                                                    <li class="flex gap-3 py-3 leading-relaxed" style="color:#2A2A2A; border-bottom:1px solid #EEF0F3;"><span class="font-bold shrink-0" style="color:#c08f5c;">&#10003;</span><span>Toegang tot tools, literatuur en opdrachten</span></li>
+                                                    <li class="flex gap-3 py-3 leading-relaxed" style="color:#2A2A2A; "><span class="font-bold shrink-0" style="color:#c08f5c;">&#10003;</span><span>Informatieve content via mail over persoonlijke en zakelijke thema’s</span></li>
+                                            </ul>
+                    <div class="mt-6 rounded-xl px-5 py-4" style="background:#FBF3E8; border-left:4px solid #D4A574;">
+                        <p class="font-bold uppercase text-xs mb-2" style="color:#c08f5c; letter-spacing:.14em;">Bonussen</p>
+                        <ul class="space-y-1.5">
+                                                            <li class="flex gap-3" style="color:#2A2A2A;"><span class="font-bold shrink-0" style="color:#c08f5c;">&#10003;</span><span>Apex Performance Journal</span></li>
+                                                            <li class="flex gap-3" style="color:#2A2A2A;"><span class="font-bold shrink-0" style="color:#c08f5c;">&#10003;</span><span>Boek Straight Line Leadership</span></li>
+                                                            <li class="flex gap-3" style="color:#2A2A2A;"><span class="font-bold shrink-0" style="color:#c08f5c;">&#10003;</span><span>Deep-dive-sessie van 90 minuten</span></li>
+                                                            <li class="flex gap-3" style="color:#2A2A2A;"><span class="font-bold shrink-0" style="color:#c08f5c;">&#10003;</span><span>Deelname aan alle live Apex-evenementen</span></li>
+                                                    </ul>
+                    </div>
+                    <p class="mt-4 rounded-xl px-5 py-4 leading-relaxed" style="background:#F1F3F8; border-left:4px solid #1B3A6B; color:#2A2A2A;"><strong style="color:#1B3A6B;">Vooraf zeker weten dat dit past?</strong> In de Doorbraak Sessie bepalen we samen of dit traject het juiste is voor jouw situatie.</p>
+                    <div class="text-center mt-8">
+                        <a href="https://apexonlinecoaching.trainin.app/activities/LQ2Y2P/de-doorbraak-sessie" target="_blank" rel="noopener" class="brand-gold-btn inline-block px-8 py-3.5 rounded-lg font-bold">Plan je Doorbraak Sessie</a>
+                        <p class="text-sm italic mt-4" style="color:#c08f5c;">Beperkt aantal 1-op-1 trajecten per kwartaal, vanwege de persoonlijke aandacht.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="py-20 px-6" style="background:#F5F5F5;">
+        <div class="max-w-3xl mx-auto">
+            <p class="brand-eyebrow font-bold uppercase text-xs text-center mb-3">Nog vragen?</p>
+            <h2 class="font-oswald font-bold uppercase text-3xl sm:text-4xl text-center mb-10" style="color:#1B3A6B;">Veelgestelde vragen</h2>
+            <div class="space-y-3">
+                                    <details class="brand-faq rounded-xl px-6 py-5 group bg-white" style="border:1px solid #E5E7EB;">
+                        <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-bold" style="color:#1B3A6B;">
+                            Wat is het verschil met Apex Leadership en de 90 Dagen Challenge?
+                            <span class="brand-icon w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-lg leading-none transition group-open:rotate-45" aria-hidden="true">+</span>
+                        </summary>
+                        <p class="leading-relaxed mt-3" style="color:#4b5563;">Apex Leadership laat je leiderschap groeien mét een vaste groep gelijkgestemde ondernemers. 1-op-1 Performance Coaching geeft je maximale individuele aandacht, een hoger tempo en past volledig op jouw agenda. De 90 Dagen Challenge is intensieve groepscoaching om in 90 dagen je gedrag te transformeren.</p>
+                                            </details>
+                                    <details class="brand-faq rounded-xl px-6 py-5 group bg-white" style="border:1px solid #E5E7EB;">
+                        <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-bold" style="color:#1B3A6B;">
+                            Hoeveel tijd kost het?
+                            <span class="brand-icon w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-lg leading-none transition group-open:rotate-45" aria-hidden="true">+</span>
+                        </summary>
+                        <p class="leading-relaxed mt-3" style="color:#4b5563;">Elke week een sessie van 60 minuten, plus je week- en maandreflectie. Elke 13 weken komt daar een strategische sessie van 3 uur bij. Je kernacties plan je in je eigen agenda. Ze komen niet bovenop je werk, ze vervangen het werk dat weinig oplevert.</p>
+                                            </details>
+                                    <details class="brand-faq rounded-xl px-6 py-5 group bg-white" style="border:1px solid #E5E7EB;">
+                        <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-bold" style="color:#1B3A6B;">
+                            Wat als er tussen twee sessies iets gebeurt?
+                            <span class="brand-icon w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-lg leading-none transition group-open:rotate-45" aria-hidden="true">+</span>
+                        </summary>
+                        <p class="leading-relaxed mt-3" style="color:#4b5563;">Bij calamiteiten heb je een open lijn met mij. Je hoeft dan niet te wachten tot je volgende sessie.</p>
+                                            </details>
+                                    <details class="brand-faq rounded-xl px-6 py-5 group bg-white" style="border:1px solid #E5E7EB;">
+                        <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-bold" style="color:#1B3A6B;">
+                            Ik weet eigenlijk al wat ik moet doen. Waarom een coach?
+                            <span class="brand-icon w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-lg leading-none transition group-open:rotate-45" aria-hidden="true">+</span>
+                        </summary>
+                        <p class="leading-relaxed mt-3" style="color:#4b5563;">Dan ben je hier op de goede plek. Deze coaching is juist voor ondernemers die het al weten, maar het nog niet doen. We werken niet aan nieuwe kennis, maar aan de patronen die je tegenhouden. En je hebt iemand die je elke week aan je afspraken houdt.</p>
+                                            </details>
+                                    <details class="brand-faq rounded-xl px-6 py-5 group bg-white" style="border:1px solid #E5E7EB;">
+                        <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-bold" style="color:#1B3A6B;">
+                            Ik heb al eens een coach gehad. Waarom zou dit anders zijn?
+                            <span class="brand-icon w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-lg leading-none transition group-open:rotate-45" aria-hidden="true">+</span>
+                        </summary>
+                        <p class="leading-relaxed mt-3" style="color:#4b5563;">Dan is de vraag waarom het niet werkte. Bleef het bij praten, of ging het alleen over je bedrijf? Bij mij heeft elke sessie dezelfde opbouw: terugblik, de bron, de beslissing en je commitments. We kijken naar werk, privé, relaties en fysiek. En met je week- en maandreflectie zie je zelf wat er verandert.</p>
+                                            </details>
+                                    <details class="brand-faq rounded-xl px-6 py-5 group bg-white" style="border:1px solid #E5E7EB;">
+                        <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-bold" style="color:#1B3A6B;">
+                            Ik heb het nu te druk. Kan ik beter later beginnen?
+                            <span class="brand-icon w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-lg leading-none transition group-open:rotate-45" aria-hidden="true">+</span>
+                        </summary>
+                        <p class="leading-relaxed mt-3" style="color:#4b5563;">Juist niet. Geen tijd hebben is meestal precies het patroon waar we aan gaan werken. Als je doet wat je deed, krijg je wat je kreeg.</p>
+                                            </details>
+                                    <details class="brand-faq rounded-xl px-6 py-5 group bg-white" style="border:1px solid #E5E7EB;">
+                        <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-bold" style="color:#1B3A6B;">
+                            Wat kost 1-op-1 coaching?
+                            <span class="brand-icon w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-lg leading-none transition group-open:rotate-45" aria-hidden="true">+</span>
+                        </summary>
+                        <p class="leading-relaxed mt-3" style="color:#4b5563;">Dat bespreken we in de Doorbraak Sessie, als we allebei zien dat het traject bij je past. Wil je weten wat stilstand je nu kost? Daar maakt de Performance Scan een inschatting van.</p>
+                                                    <p class="mt-3"><a href="/waarom-de-performance-scan" class="font-bold underline hover:no-underline" style="color:#1B3A6B;">Doe de gratis Performance Scan &rarr;</a></p>
+                                            </details>
+                                    <details class="brand-faq rounded-xl px-6 py-5 group bg-white" style="border:1px solid #E5E7EB;">
+                        <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-bold" style="color:#1B3A6B;">
+                            Wat als het niet klikt?
+                            <span class="brand-icon w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-lg leading-none transition group-open:rotate-45" aria-hidden="true">+</span>
+                        </summary>
+                        <p class="leading-relaxed mt-3" style="color:#4b5563;">Dan zeg ik dat in de Doorbraak Sessie gewoon. Ik werk alleen met mensen bij wie ik zie dat ik het verschil kan maken.</p>
+                                            </details>
+                            </div>
+        </div>
+    </section>
+
+    
+    <section class="brand-navy py-24 px-6 text-center">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="font-oswald font-bold text-white uppercase text-3xl sm:text-5xl mb-6">Twijfel je <span class="brand-gold-text">nog?</span></h2>
+            <p class="text-lg leading-relaxed mb-4" style="color:#dbe3f0;">Logisch. Maar geen keuzes maken is gelijk aan stilstaan, en stilstaan is achteruitgang.</p>
+            <p class="text-lg leading-relaxed mb-10" style="color:#dbe3f0;">In de Doorbraak Sessie kijken we samen of 1-op-1 coaching bij je past. Radicaal eerlijk, geen verkooppraatje. En als het niet klikt, zeg ik dat ook gewoon.</p>
+            <a href="https://apexonlinecoaching.trainin.app/activities/LQ2Y2P/de-doorbraak-sessie" target="_blank" rel="noopener" class="brand-gold-btn inline-block px-10 py-4 rounded-lg font-bold text-lg">Plan je Doorbraak Sessie</a>
+            <p class="text-xs mt-4" style="color:#9fb3d1;">Gratis &middot; 60 minuten &middot; je zit nergens aan vast</p>
+            <p class="text-sm mt-6"><a href="/waarom-de-performance-scan" class="underline hover:no-underline" style="color:#D4A574;">Eerst zien waar je staat? Doe de gratis Performance Scan &rarr;</a></p>
+        </div>
+    </section>
+        </main>
+
+        <div id="exit-intent-overlay" hidden class="fixed inset-0 z-[60] px-4" style="background:rgba(13,28,56,0.8);">
+  <div id="exit-intent-backdrop" class="flex items-center justify-center h-full">
+    <div class="relative bg-white rounded-2xl max-w-md w-full p-8 text-center" style="box-shadow: 0 30px 60px -30px rgba(0,0,0,0.55);">
+        <button type="button" id="exit-intent-close" aria-label="Sluiten"
+                class="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition" style="color:#1B3A6B;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+
+        <div id="exit-intent-form-state">
+            <p class="font-opensans font-bold uppercase tracking-wide text-2xl mb-3" style="color:#c08f5c;">Voor je gaat</p>
+            <h2 class="font-oswald font-bold uppercase text-2xl mb-3" style="color:#1B3A6B;">Schrijf je in voor de nieuwsbrief</h2>
+            <p class="text-gray-600 text-sm mb-6">
+                Blijf op de hoogte van nieuwe inzichten over focus, leiderschap en groei.
+            </p>
+            <form id="exit-intent-form" class="flex flex-col gap-3">
+                <input type="email" name="email" required placeholder="Jouw e-mailadres"
+                       class="brand-input w-full rounded-lg px-4 py-3 text-sm">
+                <button type="submit" class="brand-gold-btn w-full px-6 py-3 rounded-lg font-bold uppercase text-sm">
+                    Aanmelden
+                </button>
+            </form>
+            <p id="exit-intent-error" hidden class="text-xs mt-3" style="color:#dc2626;">Er ging iets mis. Probeer het opnieuw.</p>
+        </div>
+
+        <div id="exit-intent-thanks-state" hidden>
+            <p class="text-3xl mb-3">✅</p>
+            <h2 class="font-oswald font-bold uppercase text-xl mb-2" style="color:#1B3A6B;">Je zit erin!</h2>
+            <p class="text-gray-600 text-sm">Je ontvangt binnenkort de eerste inzichten van Apex.</p>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    (function () {
+        var STORAGE_KEY = 'apex_exit_intent_dismissed_until';
+        var overlay = document.getElementById('exit-intent-overlay');
+
+        function isMobile() { return !window.matchMedia('(hover: hover) and (pointer: fine)').matches; }
+
+        function dismissedUntil() {
+            var v = localStorage.getItem(STORAGE_KEY);
+            return v ? parseInt(v, 10) : 0;
+        }
+
+        function suppress(days) {
+            localStorage.setItem(STORAGE_KEY, String(Date.now() + days * 24 * 60 * 60 * 1000));
+        }
+
+        if (isMobile() || Date.now() < dismissedUntil()) {
+            return;
+        }
+
+        var shown = false;
+        var armed = false;
+        setTimeout(function () { armed = true; }, 4000);
+
+        function show() {
+            if (shown || !armed) return;
+            shown = true;
+            overlay.removeAttribute('hidden');
+        }
+
+        function hide() {
+            overlay.setAttribute('hidden', '');
+        }
+
+        document.addEventListener('mouseleave', function (e) {
+            if (e.clientY <= 0) show();
+        });
+
+        document.getElementById('exit-intent-close').addEventListener('click', function () {
+            suppress(14);
+            hide();
+        });
+
+        document.getElementById('exit-intent-backdrop').addEventListener('click', function (e) {
+            if (e.target === e.currentTarget) {
+                suppress(14);
+                hide();
+            }
+        });
+
+        document.getElementById('exit-intent-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var email = e.target.email.value;
+            var errorEl = document.getElementById('exit-intent-error');
+            errorEl.setAttribute('hidden', '');
+
+            fetch('/nieuwsbrief/inschrijven', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ email: email, source: 'popup' })
+            }).then(function (res) {
+                if (!res.ok) throw new Error('failed');
+                suppress(3650);
+                document.getElementById('exit-intent-form-state').setAttribute('hidden', '');
+                document.getElementById('exit-intent-thanks-state').removeAttribute('hidden');
+            }).catch(function () {
+                errorEl.removeAttribute('hidden');
+            });
+        });
+    })();
+</script>
+
+        <footer class="py-8 px-6 text-center border-t" style="background:#1B3A6B; border-color:rgba(212,165,116,0.2);">
+            <img src="/images/apex-logo.webp" alt="Apex Online Coaching" class="h-8 w-auto mx-auto mb-3 opacity-80" loading="lazy" width="100" height="32">
+            <p class="text-[#9fb3d1] text-xs mb-2">
+                <a href="tel:0683232341" class="hover:text-white transition">06-83232341</a>
+                &middot;
+                <a href="mailto:jeroen@apexonlinecoaching.nl" class="hover:text-white transition">jeroen@apexonlinecoaching.nl</a>
+                &middot;
+                <a href="https://www.linkedin.com/in/jeroen-schilder/" target="_blank" rel="noopener" class="hover:text-white transition">LinkedIn</a>
+            </p>
+            <p class="text-[#9fb3d1] text-xs">
+                &copy; 2026 Apex Online Coaching. Alle rechten voorbehouden.
+                &middot; <a href="/algemene-voorwaarden" class="hover:text-white transition">Algemene voorwaarden</a>
+                &middot; <a href="/privacyreglement" target="_blank" rel="noopener" class="hover:text-white transition">Privacyreglement</a>
+            </p>
+        </footer>
+
+        <script>
+            (function () {
+                var btn = document.getElementById('nav-toggle');
+                var menu = document.getElementById('nav-menu');
+                if (!btn || !menu) return;
+                btn.addEventListener('click', function () {
+                    var isHidden = menu.hasAttribute('hidden');
+                    if (isHidden) {
+                        menu.removeAttribute('hidden');
+                        btn.setAttribute('aria-expanded', 'true');
+                    } else {
+                        menu.setAttribute('hidden', '');
+                        btn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            })();
+        </script>
+
+                    <script src="https://trainin.app/widget.js" data-base-domain="trainin.app" defer></script>
+
+            <trainin-floating-widget
+                client="apexonlinecoaching"
+                widget-shadow="0px 0px 4px 2px rgba(0, 0, 0, 0.08)"
+                container-padding="0"
+                widget-size="small"
+                widget-radius="9999px"
+                button-border-color="#e8e8e8"
+                divider-color="#e8e8e8"
+                card-border-color="#e8e8e8"
+                widget-background="#D4A574"
+                widget-card="#ffffff"
+                widget-text-color="#1B3A6B"
+            >
+                <trainin-floating-widget-button
+                    button-url="https://apexonlinecoaching.trainin.app/activities/LQ2Y2P/de-doorbraak-sessie"
+                    button-label="Doorbraak Sessie"
+                    button-background="#D4A574"
+                    button-text-color="#1B3A6B"
+                    button-size="small"
+                    button-radius="9999px 0 0 9999px"
+                    loader-color="#c08f5c"
+                >
+                </trainin-floating-widget-button>
+
+                <span class="widget-divider"></span>
+
+                <trainin-floating-widget-button
+                    button-url="https://wa.me/31683232341"
+                    button-label="WhatsApp"
+                    button-background="#D4A574"
+                    button-text-color="#1B3A6B"
+                    button-size="small"
+                    button-radius="0 9999px 9999px 0"
+                >
+                </trainin-floating-widget-button>
+            </trainin-floating-widget>
+        
+        <script>
+            (function () {
+                var widget = document.querySelector('trainin-floating-widget');
+                if (!widget) return;
+
+                function hideLogo() {
+                    if (!widget.shadowRoot) return false;
+                    if (widget.shadowRoot.getElementById('hide-trainin-logo')) return true;
+                    var style = document.createElement('style');
+                    style.id = 'hide-trainin-logo';
+                    style.textContent = '.trainin-logo { display: none !important; }';
+                    widget.shadowRoot.appendChild(style);
+                    return true;
+                }
+
+                if (hideLogo()) return;
+
+                var attempts = 0;
+                function tick() {
+                    attempts++;
+                    if (hideLogo() || attempts > 600) return;
+                    requestAnimationFrame(tick);
+                }
+                requestAnimationFrame(tick);
+            })();
+        </script>
+    </body>
+</html>

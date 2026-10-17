@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="">
+        
+        <meta name="google-site-verification" content="DKFBX8FP7ZlreFXtKyNXPW_ER5zh-7SSc_d2K5WczZI">
+
+        <title>Gratis — Apex Online Coaching</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Oswald:wght@700&family=Open+Sans:wght@400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+        <link rel="preload" as="image" href="/images/home/hero-jeroen.webp" fetchpriority="high">
+
+        <link rel="preload" as="style" href="/build/assets/app-Cjd4Muz0.css" /><link rel="stylesheet" href="/build/assets/app-Cjd4Muz0.css" data-navigate-track="reload" />        <script>
+    window.apexLeadSource = (function () {
+        var KEY = 'apexBron';
+        var CODES = ["a1","a2","a3","a4","a5","a6","a7","a8"];
+        var REFERRERS = [
+            [/(^|\.)instagram\.com$/, 'a1'],
+            [/(^|\.)(facebook\.com|fb\.com|fb\.me)$/, 'a2'],
+            [/(^|\.)(linkedin\.com|lnkd\.in)$/, 'a3'],
+            [/(^|\.)google\.[a-z.]+$/, 'a4']
+        ];
+        try {
+            var match = location.search.match(/[?&]r=([a-z0-9]+)/i);
+            var code = match && CODES.indexOf(match[1].toLowerCase()) !== -1 ? match[1].toLowerCase() : null;
+            if (!code && document.referrer) {
+                var host = new URL(document.referrer).hostname;
+                REFERRERS.forEach(function (r) { if (!code && r[0].test(host)) code = r[1]; });
+            }
+            if (code) localStorage.setItem(KEY, JSON.stringify({ code: code, at: Date.now() }));
+        } catch (e) {}
+
+        return function () {
+            try {
+                var stored = JSON.parse(localStorage.getItem(KEY) || 'null');
+                if (stored && Date.now() - stored.at < 30 * 24 * 60 * 60 * 1000) return stored.code;
+            } catch (e) {}
+            return null;
+        };
+    })();
+</script>
+
+        <style>
+            .font-poppins { font-family: 'Poppins', sans-serif; }
+            .font-oswald { font-family: 'Oswald', sans-serif; }
+            .font-opensans { font-family: 'Open Sans', Arial, sans-serif; }
+            .font-abril { font-family: 'Abril Fatface', serif; }
+            summary::-webkit-details-marker { display: none; }
+        </style>
+    <script id="browser-logger-active">
+(function() {
+    const ENDPOINT = '/_boost/browser-logs';
+    const logQueue = [];
+    let flushTimeout = null;
+    const captureTypes = ["error","warning","info","log","debug","table"];
+
+    console.log('🔍 Browser logger active (MCP server detected). Posting to: ' + ENDPOINT);
+
+    // Store original console methods
+    const originalConsole = {
+        log: console.log,
+        debug: console.debug,
+        info: console.info,
+        error: console.error,
+        warn: console.warn,
+        table: console.table
+    };
+
+    // Walk own enumerable keys so JSON.stringify cannot auto-invoke a proxy fake toJSON (e.g. Livewire's `$wire`) and fire a real request.
+    function toSafeValue(value, seen) {
+        if (value === null || typeof value !== 'object') {
+            return value;
+        }
+        if (value instanceof Error) {
+            return { name: value.name, message: value.message, stack: value.stack };
+        }
+        // Date has no own enumerable keys, so the walk below would collapse it to {}.
+        if (value instanceof Date) {
+            return value.toISOString();
+        }
+        if (seen.has(value)) {
+            return '[Circular]';
+        }
+        seen.add(value);
+        if (Array.isArray(value)) {
+            return value.map((item) => toSafeValue(item, seen));
+        }
+        const plain = {};
+        for (const key of Object.keys(value)) {
+            if (key === 'toJSON') continue;
+            try {
+                plain[key] = toSafeValue(value[key], seen);
+            } catch (e) {
+                plain[key] = '[Unreadable]';
+            }
+        }
+        return plain;
+    }
+
+    // Helper to safely stringify values
+    function safeStringify(obj) {
+        return JSON.stringify(toSafeValue(obj, new WeakSet()));
+    }
+
+    // Normalize log type for consistency (e.g., 'warn' to 'warning')
+    function normalizeType(type) {
+        return type === 'warn' ? 'warning' : type;
+    }
+
+    // Determine if a log type should be captured based on configured levels
+    function shouldCapture(type) {
+        return captureTypes.includes(normalizeType(type));
+    }
+
+    // Batch and send logs
+    function flushLogs() {
+        if (logQueue.length === 0) return;
+
+        const batch = logQueue.splice(0, logQueue.length);
+
+        fetch(ENDPOINT, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: JSON.stringify({ logs: batch })
+        }).catch(err => {
+            // Silently fail to avoid infinite loops
+            originalConsole.error('Failed to send logs:', err);
+        });
+    }
+
+    // Debounced flush (100ms)
+    function scheduleFlush() {
+        if (flushTimeout) clearTimeout(flushTimeout);
+        flushTimeout = setTimeout(flushLogs, 100);
+    }
+
+    // Intercept console methods
+    ['log', 'debug', 'info', 'error', 'warn', 'table'].forEach(method => {
+        console[method] = function(...args) {
+            // Call original method
+            originalConsole[method].apply(console, args);
+
+            // Capture log data
+            try {
+                if (!shouldCapture(method)) {
+                    return;
+                }
+
+                logQueue.push({
+                    type: method,
+                    timestamp: new Date().toISOString(),
+                    data: args.map(arg => {
+                        try {
+                            return typeof arg === 'object' ? JSON.parse(safeStringify(arg)) : arg;
+                        } catch (e) {
+                            return String(arg);
+                        }
+                    }),
+                    url: window.location.href,
+                    userAgent: navigator.userAgent
+                });
+
+                scheduleFlush();
+            } catch (e) {
+                // Fail silently
+            }
+        };
+    });
+
+    // Global error handlers for uncaught errors
+    const originalOnError = window.onerror;
+    window.onerror = function boostErrorHandler(errorMsg, url, lineNumber, colNumber, error) {
+        try {
+            if (shouldCapture('error')) {
+                logQueue.push({
+                    type: 'uncaught_error',
+                    timestamp: new Date().toISOString(),
+                    data: [{
+                        message: errorMsg,
+                        filename: url,
+                        lineno: lineNumber,
+                        colno: colNumber,
+                        error: error ? {
+                            name: error.name,
+                            message: error.message,
+                            stack: error.stack
+                        } : null
+                    }],
+                    url: window.location.href,
+                    userAgent: navigator.userAgent
+                });
+
+                scheduleFlush();
+            }
+
+        } catch (e) {
+            // Fail silently
+        }
+
+        // Call original handler if it exists
+        if (originalOnError && typeof originalOnError === 'function') {
+            return originalOnError(errorMsg, url, lineNumber, colNumber, error);
+        }
+
+        // Let the error continue to propagate
+        return false;
+    }
+    window.addEventListener('error', (event) => {
+        try {
+            if (!shouldCapture('error')) {
+                return false;
+            }
+
+            logQueue.push({
+                type: 'window_error',
+                timestamp: new Date().toISOString(),
+                data: [{
+                    message: event.message,
+                    filename: event.filename,
+                    lineno: event.lineno,
+                    colno: event.colno,
+                    error: event.error ? {
+                        name: event.error.name,
+                        message: event.error.message,
+                        stack: event.error.stack
+                    } : null
+                }],
+                url: window.location.href,
+                userAgent: navigator.userAgent
+            });
+
+            scheduleFlush();
+        } catch (e) {
+            // Fail silently
+        }
+
+        // Let the error continue to propagate
+        return false;
+    });
+    window.addEventListener('unhandledrejection', (event) => {
+        try {
+            if (!shouldCapture('error')) {
+                return false;
+            }
+
+            logQueue.push({
+                type: 'error',
+                timestamp: new Date().toISOString(),
+                data: [{
+                    message: 'Unhandled Promise Rejection',
+                    reason: toSafeValue(event.reason, new WeakSet())
+                }],
+                url: window.location.href,
+                userAgent: navigator.userAgent
+            });
+
+            scheduleFlush();
+        } catch (e) {
+            // Fail silently
+        }
+
+        // Let the rejection continue to propagate
+        return false;
+    });
+
+    // Flush on page unload
+    window.addEventListener('beforeunload', () => {
+        if (logQueue.length > 0) {
+            navigator.sendBeacon(ENDPOINT, JSON.stringify({ logs: logQueue }));
+        }
+    });
+})();
+</script>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script><script defer src="/_vercel/insights/script.js"></script>
+</head>
+    <body class="font-opensans antialiased" style="background:#1B3A6B;">
+
+                    <header class="sticky top-0 z-40" style="background:#1B3A6B;">
+                <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+                    <a href="/">
+                        <img src="/images/apex-logo.webp" alt="Apex Online Coaching" class="h-12 w-auto" width="150" height="48">
+                    </a>
+
+                    <nav class="hidden lg:flex items-center gap-6">
+                        <a href="/gratis" class="text-sm font-semibold hover:opacity-80 transition" style="color:#D4A574;">Gratis</a>
+                        <a href="/aanbod" class="text-sm font-semibold text-white hover:opacity-80 transition">Aanbod</a>
+                        <a href="/resultaten" class="text-sm font-semibold text-white hover:opacity-80 transition">Resultaten</a>
+                        <a href="/kennisbank" class="text-sm font-semibold text-white hover:opacity-80 transition">Kennisbank</a>
+                        <a href="/over-ons" class="text-sm font-semibold text-white hover:opacity-80 transition">Over ons</a>
+                    </nav>
+
+                    <div class="hidden lg:flex items-center gap-3">
+                                                    
+                            <a href="/waarom-de-performance-scan" class="brand-ghost-btn inline-block px-5 py-2 rounded-lg text-sm font-semibold">Performance Scan</a>
+                                            </div>
+
+                    <button type="button" id="nav-toggle" class="lg:hidden text-white" aria-label="Menu" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
+                </div>
+
+                <div id="nav-menu" hidden class="lg:hidden px-6 pb-6 space-y-3" style="border-top:1px solid rgba(212,165,116,0.2);">
+                    <a href="/gratis" class="block text-sm font-semibold pt-3" style="color:#D4A574;">Gratis</a>
+                    <a href="/aanbod" class="block text-sm font-semibold text-white">Aanbod</a>
+                    <a href="/resultaten" class="block text-sm font-semibold text-white">Resultaten</a>
+                    <a href="/kennisbank" class="block text-sm font-semibold text-white">Kennisbank</a>
+                    <a href="/over-ons" class="block text-sm font-semibold text-white">Over ons</a>
+                                            
+                        <a href="/waarom-de-performance-scan" class="brand-ghost-btn inline-block px-5 py-2 rounded-lg text-sm font-semibold">Performance Scan</a>
+                                    </div>
+            </header>
+        
+        <main>
+            <section class="brand-navy py-16 sm:py-20 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <p class="brand-eyebrow text-balance font-opensans font-bold uppercase text-xs sm:text-sm mb-4">Nieuw bij Apex?</p>
+            <h1 class="font-oswald font-bold text-white uppercase text-3xl sm:text-5xl leading-tight mb-5"><span class="sr-only">Begin hier, gratis</span>
+            <span class="kinetic-word" style="--word: 0;" aria-hidden="true">Begin</span>
+                <span class="kinetic-word" style="--word: 1;" aria-hidden="true">hier,</span>
+                <span class="kinetic-word brand-gold-text" style="--word: 2;" aria-hidden="true">gratis</span>
+    </h1>
+            <p class="text-base sm:text-lg" style="color:#dbe3f0;">
+                Live in een kleine groep, online vanuit je eigen plek, of eerst even voor jezelf. Kies de stap die nu bij je past. Geen verplichtingen, geen verkooppraatje.
+            </p>
+        </div>
+    </section>
+
+    
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div class="relative">
+                <img src="/images/home/card-4.webp" alt="Performance Sessie" class="w-full rounded-2xl object-cover" style="aspect-ratio:4/3; box-shadow:0 30px 60px -30px rgba(13,28,56,0.5);" loading="lazy">
+                                    <div class="absolute -bottom-6 left-6 right-6 sm:right-auto brand-navy rounded-xl px-5 py-4" style="border:1px solid rgba(212,165,116,0.45);">
+                        <p class="font-bold uppercase text-[11px] mb-1" style="color:#D4A574; letter-spacing:.14em;">Eerstvolgende sessie</p>
+                        <p class="text-white font-semibold">Dinsdag 10 november &middot; 18:00 uur</p>
+                    </div>
+                            </div>
+            <div class="pt-6 lg:pt-0">
+                <p class="brand-eyebrow font-bold uppercase text-xs mb-3">Gratis &middot; 3 uur live &middot; Volendam</p>
+                <h2 class="font-oswald font-bold uppercase text-3xl sm:text-4xl mb-5" style="color:#1B3A6B;">Performance Sessie</h2>
+                <p class="text-lg leading-relaxed mb-6" style="color:#4b5563;">
+                    Je werkt hard, maar het voelt alsof je bedrijf en je agenda jou sturen in plaats van andersom? In drie uur live, met een kleine groep gedreven ondernemers, leggen we bloot wat jou tegenhoudt en welke doorbraak nu nodig is.
+                </p>
+                <ul class="space-y-3 mb-8">
+                                            <li class="flex gap-3" style="color:#2A2A2A;"><span class="w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm font-bold" style="background:rgba(212,165,116,0.2); color:#c08f5c;">&#10003;</span><span>Exact weten waar je nu staat, en waar je naartoe wilt</span></li>
+                                            <li class="flex gap-3" style="color:#2A2A2A;"><span class="w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm font-bold" style="background:rgba(212,165,116,0.2); color:#c08f5c;">&#10003;</span><span>Stoppen met wat je niet meer wilt, focussen op wat je wél wilt</span></li>
+                                            <li class="flex gap-3" style="color:#2A2A2A;"><span class="w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm font-bold" style="background:rgba(212,165,116,0.2); color:#c08f5c;">&#10003;</span><span>Scherpe spiegels, duidelijke taal en direct toepasbare inzichten</span></li>
+                                    </ul>
+                <a href="/gratis-sessie/inschrijven" class="brand-gold-btn inline-block px-8 py-4 rounded-lg font-bold">Kies je datum &amp; schrijf je in &rarr;</a>
+                <p class="text-sm mt-3"><a href="/gratis-sessie" class="underline hover:no-underline" style="color:#1B3A6B;">Meer over de Performance Sessie</a></p>
+                <p class="text-sm mt-3" style="color:#6b7280;">Beperkt aantal plekken per sessie.</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="brand-navy py-20 px-6">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <p class="brand-eyebrow font-bold uppercase text-xs mb-3">Nog niet klaar voor een live sessie?</p>
+                <h2 class="font-oswald font-bold text-white uppercase text-3xl sm:text-4xl mb-5">Doe de Performance Scan</h2>
+                <p class="text-lg leading-relaxed mb-6" style="color:#dbe3f0;">
+                    Het gevoel dat er meer in je zit dan er nu uitkomt? In ongeveer 5 minuten zie je zwart op wit waar je staat op werk, privé en fysiek, en wat je het meest tegenhoudt.
+                </p>
+                <ul class="space-y-3 mb-8">
+                                            <li class="flex gap-3 text-white"><span class="w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm font-bold" style="background:rgba(212,165,116,0.2); color:#D4A574;">&#10003;</span><span>Je cijfer van 1 tot 10, per domein</span></li>
+                                            <li class="flex gap-3 text-white"><span class="w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm font-bold" style="background:rgba(212,165,116,0.2); color:#D4A574;">&#10003;</span><span>Je Apex Predator-profiel: hoe jij jaagt en hoe jij leidt</span></li>
+                                            <li class="flex gap-3 text-white"><span class="w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-sm font-bold" style="background:rgba(212,165,116,0.2); color:#D4A574;">&#10003;</span><span>Je grootste lek, en één concrete actie voor deze week</span></li>
+                                    </ul>
+                <a href="/waarom-de-performance-scan" class="brand-gold-btn inline-block px-8 py-4 rounded-lg font-bold">Start de gratis scan &rarr;</a>
+                <p class="text-sm mt-3" style="color:#9fb3d1;">Ongeveer 5 minuten &middot; uitslag direct in beeld</p>
+            </div>
+            <div>
+                <p class="text-xs text-center lg:text-right mb-3" style="color:#9fb3d1;">Zo ziet een uitslag eruit.</p>
+                <div class="rounded-2xl p-6 sm:p-7" style="background:rgba(13,28,56,0.75); border:1px solid rgba(212,165,116,0.35); box-shadow: 0 30px 60px -30px rgba(0,0,0,0.6);">
+    <div class="flex items-center justify-between mb-5">
+        <p class="brand-eyebrow font-bold text-xs uppercase" style="letter-spacing:.14em;">Je performance profiel</p>
+        <span class="text-xs px-2.5 py-0.5 rounded-full" style="background:rgba(212,165,116,0.15); color:#D4A574;">voorbeeld</span>
+    </div>
+    <div class="flex items-center gap-5 mb-6">
+        <div class="relative shrink-0" style="width:96px; height:96px;">
+            <svg viewBox="0 0 36 36" width="96" height="96" aria-hidden="true">
+                <defs><linearGradient id="lp-ring" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2b481"/><stop offset="1" stop-color="#c08f5c"/></linearGradient></defs>
+                <circle cx="18" cy="18" r="15.9" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="3"/>
+                <circle cx="18" cy="18" r="15.9" fill="none" stroke="url(#lp-ring)" stroke-width="3" stroke-dasharray="64 100" stroke-linecap="round" transform="rotate(-90 18 18)"/>
+            </svg>
+            <p class="absolute inset-0 flex items-center justify-center font-oswald font-bold text-3xl text-white">6,4</p>
+        </div>
+        <div>
+            <p class="text-white font-semibold">Jouw cijfer</p>
+            <p class="text-sm" style="color:#9fb3d1;">van de 10 &middot; missie van Apex: <span style="color:#D4A574;">8,5 of hoger</span></p>
+        </div>
+    </div>
+    
+                    <div class="mb-3">
+            <div class="flex justify-between text-sm mb-1.5"><span class="text-white">Werk</span><span style="color:#D4A574;">7,1</span></div>
+            <div class="h-2 rounded-full" style="background:rgba(255,255,255,0.1);"><div class="h-2 rounded-full" style="width:71%; background:linear-gradient(90deg,#c08f5c,#e2b481);"></div></div>
+        </div>
+                    <div class="mb-3">
+            <div class="flex justify-between text-sm mb-1.5"><span class="text-white">Privé</span><span style="color:#FB923C;">5,2</span></div>
+            <div class="h-2 rounded-full" style="background:rgba(255,255,255,0.1);"><div class="h-2 rounded-full" style="width:52%; background:#FB923C;"></div></div>
+        </div>
+                    <div class="mb-3">
+            <div class="flex justify-between text-sm mb-1.5"><span class="text-white">Fysiek</span><span style="color:#D4A574;">6,8</span></div>
+            <div class="h-2 rounded-full" style="background:rgba(255,255,255,0.1);"><div class="h-2 rounded-full" style="width:68%; background:linear-gradient(90deg,#c08f5c,#e2b481);"></div></div>
+        </div>
+        <div class="mt-5 pt-5 space-y-2 text-sm" style="border-top:1px solid rgba(255,255,255,0.1); color:#9fb3d1;">
+        <p>Grootste lek: <strong class="text-white">Structuur</strong>, vooral in Privé</p>
+        <p>🐺 <strong class="text-white">Wolf</strong> met 🐋 <strong class="text-white">Orka</strong>-trekken</p>
+        <p>Eén ding voor deze week: <strong style="color:#D4A574;">De Vaste Afspraak</strong></p>
+    </div>
+</div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="py-20 px-6" style="background:#F5F5F5;">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div class="grid sm:grid-cols-2 gap-4 order-last lg:order-first">
+                                    <div class="brand-card p-5">
+                        <p class="font-oswald font-bold text-2xl brand-gold-text mb-1">1</p>
+                        <h3 class="font-opensans font-bold mb-1" style="color:#1B3A6B;">Communicatie</h3>
+                        <p class="text-sm leading-relaxed" style="color:#4b5563;">Krachtig communiceren naar je team, je omgeving en vooral naar jezelf.</p>
+                    </div>
+                                    <div class="brand-card p-5">
+                        <p class="font-oswald font-bold text-2xl brand-gold-text mb-1">2</p>
+                        <h3 class="font-opensans font-bold mb-1" style="color:#1B3A6B;">Laserfocus</h3>
+                        <p class="text-sm leading-relaxed" style="color:#4b5563;">Keuzes maken die ertoe doen, zonder afleiding, ruis en uitstelgedrag.</p>
+                    </div>
+                                    <div class="brand-card p-5">
+                        <p class="font-oswald font-bold text-2xl brand-gold-text mb-1">3</p>
+                        <h3 class="font-opensans font-bold mb-1" style="color:#1B3A6B;">Houding &amp; gedrag</h3>
+                        <p class="text-sm leading-relaxed" style="color:#4b5563;">Patronen herkennen en doorbreken, want je gedrag is je resultaat.</p>
+                    </div>
+                                    <div class="brand-card p-5">
+                        <p class="font-oswald font-bold text-2xl brand-gold-text mb-1">4</p>
+                        <h3 class="font-opensans font-bold mb-1" style="color:#1B3A6B;">Belemmerende overtuigingen</h3>
+                        <p class="text-sm leading-relaxed" style="color:#4b5563;">Van &quot;ik heb geen tijd&quot; naar een verhaal dat je groter maakt.</p>
+                    </div>
+                            </div>
+            <div>
+                <p class="brand-eyebrow font-bold uppercase text-xs mb-3">Liever online, vanuit je eigen plek?</p>
+                <h2 class="font-oswald font-bold uppercase text-3xl sm:text-4xl mb-5" style="color:#1B3A6B;">Apex Kickstart</h2>
+                <p class="text-lg leading-relaxed mb-6" style="color:#4b5563;">
+                    Elke twee weken een gratis online sessie, telkens met een nieuw thema. Een uur scherp nadenken over jezelf en je bedrijf, met praktische opdrachten die je direct toepast. Schrijf je in en je krijgt het thema en de datum van elke sessie in je mail.
+                </p>
+                <form data-newsletter-form class="flex flex-col sm:flex-row gap-3 max-w-md">
+                    <input type="email" name="email" required placeholder="Jouw e-mailadres" class="brand-input flex-1 rounded-lg px-4 py-3 text-sm">
+                    <button type="submit" class="brand-gold-btn px-6 py-3 rounded-lg font-bold text-sm">Zet me op de lijst</button>
+                </form>
+                <p data-newsletter-msg class="text-sm mt-3" style="color:#c08f5c;"></p>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-4xl mx-auto rounded-2xl p-8 sm:p-12 text-center" style="border:1px solid #E5E7EB; box-shadow:0 30px 60px -40px rgba(13,28,56,0.35);">
+            <p class="brand-eyebrow font-bold uppercase text-xs mb-3">Liever meteen 1-op-1?</p>
+            <h2 class="font-oswald font-bold uppercase text-3xl sm:text-4xl mb-5" style="color:#1B3A6B;">Doorbraak Sessie</h2>
+            <p class="text-lg leading-relaxed max-w-2xl mx-auto mb-8" style="color:#4b5563;">
+                Een uur met Jeroen, alleen jij. We leggen het patroon bloot dat je groei blokkeert en kijken samen of een traject met Apex bij je past. Radicaal eerlijk, en als het niet klikt, zeg ik dat ook gewoon.
+            </p>
+            <a href="https://apexonlinecoaching.trainin.app/activities/LQ2Y2P/de-doorbraak-sessie" target="_blank" rel="noopener" class="brand-gold-btn inline-block px-8 py-4 rounded-lg font-bold">Plan je Doorbraak Sessie</a>
+            <p class="text-sm mt-3" style="color:#6b7280;">Gratis &middot; 60 minuten &middot; je zit nergens aan vast</p>
+        </div>
+    </section>
+
+    
+            <section class="py-20 px-6" style="background:#F5F5F5;">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+                    <div>
+                        <p class="brand-eyebrow font-bold uppercase text-xs mb-3">Eerst rustig lezen?</p>
+                        <h2 class="font-oswald font-bold uppercase text-3xl sm:text-4xl" style="color:#1B3A6B;">Uit de kennisbank</h2>
+                    </div>
+                    <a href="/kennisbank" class="font-bold underline hover:no-underline" style="color:#1B3A6B;">Alle artikelen &rarr;</a>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                                            <a href="/kennisbank/de-5-niveaus-van-delegeren" class="brand-card block p-6">
+                            <p class="text-xs font-bold uppercase tracking-wide mb-2" style="color:#c08f5c;">Leiderschap</p>
+                            <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">De 5 niveaus van delegeren</h3>
+                                                            <p class="text-sm leading-relaxed" style="color:#4b5563;">Delegeren is niet &#039;doe het maar&#039;. Het is een schaal van controle tot verantwoordelijkheid.</p>
+                                                        <p class="text-xs text-gray-500 mt-3">2 min leestijd</p>
+                        </a>
+                                            <a href="/kennisbank/waarom-terugkijken-vooruitgang-versnelt" class="brand-card block p-6">
+                            <p class="text-xs font-bold uppercase tracking-wide mb-2" style="color:#c08f5c;">Mindset</p>
+                            <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Waarom terugkijken vooruitgang versnelt</h3>
+                                                            <p class="text-sm leading-relaxed" style="color:#4b5563;">Reflectie is geen luisteren naar je gevoel. Het is een systematische methode om patronen te herkennen.</p>
+                                                        <p class="text-xs text-gray-500 mt-3">1 min leestijd</p>
+                        </a>
+                                            <a href="/kennisbank/waarom-motivatie-niet-genoeg-is" class="brand-card block p-6">
+                            <p class="text-xs font-bold uppercase tracking-wide mb-2" style="color:#c08f5c;">Mindset</p>
+                            <h3 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Waarom motivatie niet genoeg is</h3>
+                                                            <p class="text-sm leading-relaxed" style="color:#4b5563;">Motivatie is een vonk, geen brandstof. Lees waarom systemen altijd winnen van wilskracht.</p>
+                                                        <p class="text-xs text-gray-500 mt-3">1 min leestijd</p>
+                        </a>
+                                    </div>
+            </div>
+        </section>
+    
+    
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <p class="brand-eyebrow font-bold uppercase text-xs text-center mb-3">Liever kijken?</p>
+            <h2 class="font-oswald font-bold uppercase text-3xl sm:text-4xl text-center mb-10" style="color:#1B3A6B;">Hoor het van ondernemers zelf</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="apex-poster relative w-full overflow-hidden rounded-2xl" style="aspect-ratio:16 / 9; background:#0d1c38; box-shadow:0 30px 60px -30px rgba(13,28,56,0.55);">
+    <button type="button" class="group absolute inset-0 w-full h-full text-left cursor-pointer" data-player="https://player.vimeo.com/video/1165454652?h=5c3023046a&amp;autoplay=1&amp;dnt=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;color=D4A574" data-title="Video review Jelle Janssen" onclick="apexPlayVimeo(this)" aria-label="Speel de video af: Video review Jelle Janssen">
+        <img src="https://i.vimeocdn.com/video/2122751197-9e416a1d36a34c5d13e531723ce73bdd1931ec30d04d3b7cce9b157b6cde580c-d_1280?region=us" alt="" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-[1.03]" style="object-position:center;" loading="lazy">
+        <span class="absolute inset-0" style="background:linear-gradient(180deg, rgba(13,28,56,0) 0%, rgba(13,28,56,0) 52%, rgba(13,28,56,0.6) 58%, #0d1c38 64%, #0d1c38 100%);"></span>
+        <span class="absolute inset-2.5 rounded-xl pointer-events-none" style="border:1px solid rgba(212,165,116,0.45);"></span>
+
+        
+        <span class="absolute inset-x-0 bottom-0 p-6 sm:p-7 flex items-end justify-between gap-4">
+            <span>
+                                    <span class="apex-poster-eyebrow font-bold uppercase text-[11px] sm:text-xs mb-1.5" style="color:#D4A574; letter-spacing:.14em;">Video review · 4:18</span>
+                                                    <span class="block font-oswald font-bold uppercase text-white text-xl sm:text-2xl leading-tight">Jelle Janssen</span>
+                                                    
+                    <span class="apex-poster-subtext text-sm mt-1.5 leading-snug" style="color:#dbe3f0;">Van startende ondernemer naar een solide fundering voor de toekomst.</span>
+                            </span>
+            <span class="brand-icon w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center shrink-0 transition group-hover:scale-110" style="box-shadow:0 0 0 7px rgba(212,165,116,0.22), 0 18px 36px -12px rgba(0,0,0,0.6);" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="w-6 h-6 sm:w-7 sm:h-7 ml-1" fill="#1B3A6B"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5Z"/></svg>
+            </span>
+        </span>
+    </button>
+</div>
+    <script>
+        function apexPlayVimeo(button) {
+            var frame = document.createElement('iframe');
+            frame.src = button.dataset.player;
+            frame.title = button.dataset.title;
+            frame.className = 'absolute inset-0 w-full h-full';
+            frame.allow = 'autoplay; fullscreen; picture-in-picture';
+            frame.allowFullscreen = true;
+            button.replaceWith(frame);
+        }
+    </script>
+                <div class="apex-poster relative w-full overflow-hidden rounded-2xl" style="aspect-ratio:16 / 9; background:#0d1c38; box-shadow:0 30px 60px -30px rgba(13,28,56,0.55);">
+    <button type="button" class="group absolute inset-0 w-full h-full text-left cursor-pointer" data-player="https://player.vimeo.com/video/1229190034?autoplay=1&amp;dnt=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;color=D4A574" data-title="Video review Bas Nederlof" onclick="apexPlayVimeo(this)" aria-label="Speel de video af: Video review Bas Nederlof">
+        <img src="https://i.vimeocdn.com/video/2203789427-b9214bc33a9de5267d00320341a67d59232739e415f6184c16aca7edb0811573-d_1280?region=us" alt="" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-[1.03]" style="object-position:center;" loading="lazy">
+        <span class="absolute inset-0" style="background:linear-gradient(180deg, #0d1c38 0%, #0d1c38 23%, rgba(13,28,56,0) 27%, rgba(13,28,56,0) 58%, #0d1c38 66%, #0d1c38 100%);"></span>
+        <span class="absolute inset-2.5 rounded-xl pointer-events-none" style="border:1px solid rgba(212,165,116,0.45);"></span>
+
+        
+        <span class="absolute inset-x-0 bottom-0 p-6 sm:p-7 flex items-end justify-between gap-4">
+            <span>
+                                    <span class="apex-poster-eyebrow font-bold uppercase text-[11px] sm:text-xs mb-1.5" style="color:#D4A574; letter-spacing:.14em;">Video review · 3:12</span>
+                                                    <span class="block font-oswald font-bold uppercase text-white text-xl sm:text-2xl leading-tight">Bas Nederlof</span>
+                                                    
+                    <span class="apex-poster-subtext text-sm mt-1.5 leading-snug" style="color:#dbe3f0;">Over de Performance Sessie.</span>
+                            </span>
+            <span class="brand-icon w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center shrink-0 transition group-hover:scale-110" style="box-shadow:0 0 0 7px rgba(212,165,116,0.22), 0 18px 36px -12px rgba(0,0,0,0.6);" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="w-6 h-6 sm:w-7 sm:h-7 ml-1" fill="#1B3A6B"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5Z"/></svg>
+            </span>
+        </span>
+    </button>
+</div>
+            </div>
+            <p class="text-center mt-8"><a href="/reviews" class="font-bold underline hover:no-underline" style="color:#1B3A6B;">Bekijk alle reviews &rarr;</a></p>
+        </div>
+    </section>
+
+    
+    <section class="brand-navy py-20 px-6 text-center">
+        <div class="max-w-2xl mx-auto">
+            <p class="brand-eyebrow font-bold uppercase text-xs mb-3">Alleen op de hoogte blijven?</p>
+            <h2 class="font-oswald font-bold text-white uppercase text-3xl sm:text-4xl mb-5">Elke week in je mail</h2>
+            <p class="text-lg leading-relaxed mb-8" style="color:#dbe3f0;">
+                Elke week een mail met praktische inzichten, persoonlijke verhalen en eerlijke lessen over ondernemen, leiderschap en een leven waarin je succesvol bent zonder jezelf onderweg kwijt te raken.
+            </p>
+            <form data-newsletter-form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+                <input type="email" name="email" required placeholder="Jouw e-mailadres" class="brand-input flex-1 rounded-lg px-4 py-3 text-sm">
+                <button type="submit" class="brand-gold-btn px-6 py-3 rounded-lg font-bold text-sm">Ja, stuur maar</button>
+            </form>
+            <p data-newsletter-msg class="text-sm mt-3" style="color:#D4A574;"></p>
+            <p class="text-xs mt-4" style="color:#9fb3d1;">Uitschrijven kan altijd, met één klik onderaan elke mail.</p>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('[data-newsletter-form]').forEach(function (form) {
+            var msg = form.parentElement.querySelector('[data-newsletter-msg]');
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                fetch('/nieuwsbrief/inschrijven', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({ email: form.email.value, source: 'gratis' })
+                }).then(function (res) {
+                    if (!res.ok) throw new Error('failed');
+                    msg.textContent = 'Bedankt! Je zit erin.';
+                    form.reset();
+                }).catch(function () {
+                    msg.textContent = 'Er ging iets mis. Probeer het opnieuw.';
+                });
+            });
+        });
+    </script>
+        </main>
+
+        <div id="exit-intent-overlay" hidden class="fixed inset-0 z-[60] px-4" style="background:rgba(13,28,56,0.8);">
+  <div id="exit-intent-backdrop" class="flex items-center justify-center h-full">
+    <div class="relative bg-white rounded-2xl max-w-md w-full p-8 text-center" style="box-shadow: 0 30px 60px -30px rgba(0,0,0,0.55);">
+        <button type="button" id="exit-intent-close" aria-label="Sluiten"
+                class="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition" style="color:#1B3A6B;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+
+        <div id="exit-intent-form-state">
+            <p class="font-opensans font-bold uppercase tracking-wide text-2xl mb-3" style="color:#c08f5c;">Voor je gaat</p>
+            <h2 class="font-oswald font-bold uppercase text-2xl mb-3" style="color:#1B3A6B;">Schrijf je in voor de nieuwsbrief</h2>
+            <p class="text-gray-600 text-sm mb-6">
+                Blijf op de hoogte van nieuwe inzichten over focus, leiderschap en groei.
+            </p>
+            <form id="exit-intent-form" class="flex flex-col gap-3">
+                <input type="email" name="email" required placeholder="Jouw e-mailadres"
+                       class="brand-input w-full rounded-lg px-4 py-3 text-sm">
+                <button type="submit" class="brand-gold-btn w-full px-6 py-3 rounded-lg font-bold uppercase text-sm">
+                    Aanmelden
+                </button>
+            </form>
+            <p id="exit-intent-error" hidden class="text-xs mt-3" style="color:#dc2626;">Er ging iets mis. Probeer het opnieuw.</p>
+        </div>
+
+        <div id="exit-intent-thanks-state" hidden>
+            <p class="text-3xl mb-3">✅</p>
+            <h2 class="font-oswald font-bold uppercase text-xl mb-2" style="color:#1B3A6B;">Je zit erin!</h2>
+            <p class="text-gray-600 text-sm">Je ontvangt binnenkort de eerste inzichten van Apex.</p>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    (function () {
+        var STORAGE_KEY = 'apex_exit_intent_dismissed_until';
+        var overlay = document.getElementById('exit-intent-overlay');
+
+        function isMobile() { return !window.matchMedia('(hover: hover) and (pointer: fine)').matches; }
+
+        function dismissedUntil() {
+            var v = localStorage.getItem(STORAGE_KEY);
+            return v ? parseInt(v, 10) : 0;
+        }
+
+        function suppress(days) {
+            localStorage.setItem(STORAGE_KEY, String(Date.now() + days * 24 * 60 * 60 * 1000));
+        }
+
+        if (isMobile() || Date.now() < dismissedUntil()) {
+            return;
+        }
+
+        var shown = false;
+        var armed = false;
+        setTimeout(function () { armed = true; }, 4000);
+
+        function show() {
+            if (shown || !armed) return;
+            shown = true;
+            overlay.removeAttribute('hidden');
+        }
+
+        function hide() {
+            overlay.setAttribute('hidden', '');
+        }
+
+        document.addEventListener('mouseleave', function (e) {
+            if (e.clientY <= 0) show();
+        });
+
+        document.getElementById('exit-intent-close').addEventListener('click', function () {
+            suppress(14);
+            hide();
+        });
+
+        document.getElementById('exit-intent-backdrop').addEventListener('click', function (e) {
+            if (e.target === e.currentTarget) {
+                suppress(14);
+                hide();
+            }
+        });
+
+        document.getElementById('exit-intent-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var email = e.target.email.value;
+            var errorEl = document.getElementById('exit-intent-error');
+            errorEl.setAttribute('hidden', '');
+
+            fetch('/nieuwsbrief/inschrijven', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ email: email, source: 'popup' })
+            }).then(function (res) {
+                if (!res.ok) throw new Error('failed');
+                suppress(3650);
+                document.getElementById('exit-intent-form-state').setAttribute('hidden', '');
+                document.getElementById('exit-intent-thanks-state').removeAttribute('hidden');
+            }).catch(function () {
+                errorEl.removeAttribute('hidden');
+            });
+        });
+    })();
+</script>
+
+        <footer class="py-8 px-6 text-center border-t" style="background:#1B3A6B; border-color:rgba(212,165,116,0.2);">
+            <img src="/images/apex-logo.webp" alt="Apex Online Coaching" class="h-8 w-auto mx-auto mb-3 opacity-80" loading="lazy" width="100" height="32">
+            <p class="text-[#9fb3d1] text-xs mb-2">
+                <a href="tel:0683232341" class="hover:text-white transition">06-83232341</a>
+                &middot;
+                <a href="mailto:jeroen@apexonlinecoaching.nl" class="hover:text-white transition">jeroen@apexonlinecoaching.nl</a>
+                &middot;
+                <a href="https://www.linkedin.com/in/jeroen-schilder/" target="_blank" rel="noopener" class="hover:text-white transition">LinkedIn</a>
+            </p>
+            <p class="text-[#9fb3d1] text-xs">
+                &copy; 2026 Apex Online Coaching. Alle rechten voorbehouden.
+                &middot; <a href="/algemene-voorwaarden" class="hover:text-white transition">Algemene voorwaarden</a>
+                &middot; <a href="/privacyreglement" target="_blank" rel="noopener" class="hover:text-white transition">Privacyreglement</a>
+            </p>
+        </footer>
+
+        <script>
+            (function () {
+                var btn = document.getElementById('nav-toggle');
+                var menu = document.getElementById('nav-menu');
+                if (!btn || !menu) return;
+                btn.addEventListener('click', function () {
+                    var isHidden = menu.hasAttribute('hidden');
+                    if (isHidden) {
+                        menu.removeAttribute('hidden');
+                        btn.setAttribute('aria-expanded', 'true');
+                    } else {
+                        menu.setAttribute('hidden', '');
+                        btn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            })();
+        </script>
+
+                    <script src="https://trainin.app/widget.js" data-base-domain="trainin.app" defer></script>
+
+            <trainin-floating-widget
+                client="apexonlinecoaching"
+                widget-shadow="0px 0px 4px 2px rgba(0, 0, 0, 0.08)"
+                container-padding="0"
+                widget-size="small"
+                widget-radius="9999px"
+                button-border-color="#e8e8e8"
+                divider-color="#e8e8e8"
+                card-border-color="#e8e8e8"
+                widget-background="#D4A574"
+                widget-card="#ffffff"
+                widget-text-color="#1B3A6B"
+            >
+                <trainin-floating-widget-button
+                    button-url="https://apexonlinecoaching.trainin.app/activities/LQ2Y2P/de-doorbraak-sessie"
+                    button-label="Doorbraak Sessie"
+                    button-background="#D4A574"
+                    button-text-color="#1B3A6B"
+                    button-size="small"
+                    button-radius="9999px 0 0 9999px"
+                    loader-color="#c08f5c"
+                >
+                </trainin-floating-widget-button>
+
+                <span class="widget-divider"></span>
+
+                <trainin-floating-widget-button
+                    button-url="https://wa.me/31683232341"
+                    button-label="WhatsApp"
+                    button-background="#D4A574"
+                    button-text-color="#1B3A6B"
+                    button-size="small"
+                    button-radius="0 9999px 9999px 0"
+                >
+                </trainin-floating-widget-button>
+            </trainin-floating-widget>
+        
+        <script>
+            (function () {
+                var widget = document.querySelector('trainin-floating-widget');
+                if (!widget) return;
+
+                function hideLogo() {
+                    if (!widget.shadowRoot) return false;
+                    if (widget.shadowRoot.getElementById('hide-trainin-logo')) return true;
+                    var style = document.createElement('style');
+                    style.id = 'hide-trainin-logo';
+                    style.textContent = '.trainin-logo { display: none !important; }';
+                    widget.shadowRoot.appendChild(style);
+                    return true;
+                }
+
+                if (hideLogo()) return;
+
+                var attempts = 0;
+                function tick() {
+                    attempts++;
+                    if (hideLogo() || attempts > 600) return;
+                    requestAnimationFrame(tick);
+                }
+                requestAnimationFrame(tick);
+            })();
+        </script>
+    </body>
+</html>

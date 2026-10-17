@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="">
+        
+        <meta name="google-site-verification" content="DKFBX8FP7ZlreFXtKyNXPW_ER5zh-7SSc_d2K5WczZI">
+
+        <title>Apex Online Coaching</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Oswald:wght@700&family=Open+Sans:wght@400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+        <link rel="preload" as="image" href="/images/home/hero-jeroen.webp" fetchpriority="high">
+
+        <link rel="preload" as="style" href="/build/assets/app-Cjd4Muz0.css" /><link rel="stylesheet" href="/build/assets/app-Cjd4Muz0.css" data-navigate-track="reload" />        <script>
+    window.apexLeadSource = (function () {
+        var KEY = 'apexBron';
+        var CODES = ["a1","a2","a3","a4","a5","a6","a7","a8"];
+        var REFERRERS = [
+            [/(^|\.)instagram\.com$/, 'a1'],
+            [/(^|\.)(facebook\.com|fb\.com|fb\.me)$/, 'a2'],
+            [/(^|\.)(linkedin\.com|lnkd\.in)$/, 'a3'],
+            [/(^|\.)google\.[a-z.]+$/, 'a4']
+        ];
+        try {
+            var match = location.search.match(/[?&]r=([a-z0-9]+)/i);
+            var code = match && CODES.indexOf(match[1].toLowerCase()) !== -1 ? match[1].toLowerCase() : null;
+            if (!code && document.referrer) {
+                var host = new URL(document.referrer).hostname;
+                REFERRERS.forEach(function (r) { if (!code && r[0].test(host)) code = r[1]; });
+            }
+            if (code) localStorage.setItem(KEY, JSON.stringify({ code: code, at: Date.now() }));
+        } catch (e) {}
+
+        return function () {
+            try {
+                var stored = JSON.parse(localStorage.getItem(KEY) || 'null');
+                if (stored && Date.now() - stored.at < 30 * 24 * 60 * 60 * 1000) return stored.code;
+            } catch (e) {}
+            return null;
+        };
+    })();
+</script>
+
+        <style>
+            .font-poppins { font-family: 'Poppins', sans-serif; }
+            .font-oswald { font-family: 'Oswald', sans-serif; }
+            .font-opensans { font-family: 'Open Sans', Arial, sans-serif; }
+            .font-abril { font-family: 'Abril Fatface', serif; }
+            summary::-webkit-details-marker { display: none; }
+        </style>
+    <script id="browser-logger-active">
+(function() {
+    const ENDPOINT = '/_boost/browser-logs';
+    const logQueue = [];
+    let flushTimeout = null;
+    const captureTypes = ["error","warning","info","log","debug","table"];
+
+    console.log('🔍 Browser logger active (MCP server detected). Posting to: ' + ENDPOINT);
+
+    // Store original console methods
+    const originalConsole = {
+        log: console.log,
+        debug: console.debug,
+        info: console.info,
+        error: console.error,
+        warn: console.warn,
+        table: console.table
+    };
+
+    // Walk own enumerable keys so JSON.stringify cannot auto-invoke a proxy fake toJSON (e.g. Livewire's `$wire`) and fire a real request.
+    function toSafeValue(value, seen) {
+        if (value === null || typeof value !== 'object') {
+            return value;
+        }
+        if (value instanceof Error) {
+            return { name: value.name, message: value.message, stack: value.stack };
+        }
+        // Date has no own enumerable keys, so the walk below would collapse it to {}.
+        if (value instanceof Date) {
+            return value.toISOString();
+        }
+        if (seen.has(value)) {
+            return '[Circular]';
+        }
+        seen.add(value);
+        if (Array.isArray(value)) {
+            return value.map((item) => toSafeValue(item, seen));
+        }
+        const plain = {};
+        for (const key of Object.keys(value)) {
+            if (key === 'toJSON') continue;
+            try {
+                plain[key] = toSafeValue(value[key], seen);
+            } catch (e) {
+                plain[key] = '[Unreadable]';
+            }
+        }
+        return plain;
+    }
+
+    // Helper to safely stringify values
+    function safeStringify(obj) {
+        return JSON.stringify(toSafeValue(obj, new WeakSet()));
+    }
+
+    // Normalize log type for consistency (e.g., 'warn' to 'warning')
+    function normalizeType(type) {
+        return type === 'warn' ? 'warning' : type;
+    }
+
+    // Determine if a log type should be captured based on configured levels
+    function shouldCapture(type) {
+        return captureTypes.includes(normalizeType(type));
+    }
+
+    // Batch and send logs
+    function flushLogs() {
+        if (logQueue.length === 0) return;
+
+        const batch = logQueue.splice(0, logQueue.length);
+
+        fetch(ENDPOINT, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: JSON.stringify({ logs: batch })
+        }).catch(err => {
+            // Silently fail to avoid infinite loops
+            originalConsole.error('Failed to send logs:', err);
+        });
+    }
+
+    // Debounced flush (100ms)
+    function scheduleFlush() {
+        if (flushTimeout) clearTimeout(flushTimeout);
+        flushTimeout = setTimeout(flushLogs, 100);
+    }
+
+    // Intercept console methods
+    ['log', 'debug', 'info', 'error', 'warn', 'table'].forEach(method => {
+        console[method] = function(...args) {
+            // Call original method
+            originalConsole[method].apply(console, args);
+
+            // Capture log data
+            try {
+                if (!shouldCapture(method)) {
+                    return;
+                }
+
+                logQueue.push({
+                    type: method,
+                    timestamp: new Date().toISOString(),
+                    data: args.map(arg => {
+                        try {
+                            return typeof arg === 'object' ? JSON.parse(safeStringify(arg)) : arg;
+                        } catch (e) {
+                            return String(arg);
+                        }
+                    }),
+                    url: window.location.href,
+                    userAgent: navigator.userAgent
+                });
+
+                scheduleFlush();
+            } catch (e) {
+                // Fail silently
+            }
+        };
+    });
+
+    // Global error handlers for uncaught errors
+    const originalOnError = window.onerror;
+    window.onerror = function boostErrorHandler(errorMsg, url, lineNumber, colNumber, error) {
+        try {
+            if (shouldCapture('error')) {
+                logQueue.push({
+                    type: 'uncaught_error',
+                    timestamp: new Date().toISOString(),
+                    data: [{
+                        message: errorMsg,
+                        filename: url,
+                        lineno: lineNumber,
+                        colno: colNumber,
+                        error: error ? {
+                            name: error.name,
+                            message: error.message,
+                            stack: error.stack
+                        } : null
+                    }],
+                    url: window.location.href,
+                    userAgent: navigator.userAgent
+                });
+
+                scheduleFlush();
+            }
+
+        } catch (e) {
+            // Fail silently
+        }
+
+        // Call original handler if it exists
+        if (originalOnError && typeof originalOnError === 'function') {
+            return originalOnError(errorMsg, url, lineNumber, colNumber, error);
+        }
+
+        // Let the error continue to propagate
+        return false;
+    }
+    window.addEventListener('error', (event) => {
+        try {
+            if (!shouldCapture('error')) {
+                return false;
+            }
+
+            logQueue.push({
+                type: 'window_error',
+                timestamp: new Date().toISOString(),
+                data: [{
+                    message: event.message,
+                    filename: event.filename,
+                    lineno: event.lineno,
+                    colno: event.colno,
+                    error: event.error ? {
+                        name: event.error.name,
+                        message: event.error.message,
+                        stack: event.error.stack
+                    } : null
+                }],
+                url: window.location.href,
+                userAgent: navigator.userAgent
+            });
+
+            scheduleFlush();
+        } catch (e) {
+            // Fail silently
+        }
+
+        // Let the error continue to propagate
+        return false;
+    });
+    window.addEventListener('unhandledrejection', (event) => {
+        try {
+            if (!shouldCapture('error')) {
+                return false;
+            }
+
+            logQueue.push({
+                type: 'error',
+                timestamp: new Date().toISOString(),
+                data: [{
+                    message: 'Unhandled Promise Rejection',
+                    reason: toSafeValue(event.reason, new WeakSet())
+                }],
+                url: window.location.href,
+                userAgent: navigator.userAgent
+            });
+
+            scheduleFlush();
+        } catch (e) {
+            // Fail silently
+        }
+
+        // Let the rejection continue to propagate
+        return false;
+    });
+
+    // Flush on page unload
+    window.addEventListener('beforeunload', () => {
+        if (logQueue.length > 0) {
+            navigator.sendBeacon(ENDPOINT, JSON.stringify({ logs: logQueue }));
+        }
+    });
+})();
+</script>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script><script defer src="/_vercel/insights/script.js"></script>
+</head>
+    <body class="font-opensans antialiased" style="background:#1B3A6B;">
+
+                    <header class="sticky top-0 z-40" style="background:#1B3A6B;">
+                <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+                    <a href="/">
+                        <img src="/images/apex-logo.webp" alt="Apex Online Coaching" class="h-12 w-auto" width="150" height="48">
+                    </a>
+
+                    <nav class="hidden lg:flex items-center gap-6">
+                        <a href="/gratis" class="text-sm font-semibold hover:opacity-80 transition" style="color:#D4A574;">Gratis</a>
+                        <a href="/aanbod" class="text-sm font-semibold text-white hover:opacity-80 transition">Aanbod</a>
+                        <a href="/resultaten" class="text-sm font-semibold text-white hover:opacity-80 transition">Resultaten</a>
+                        <a href="/kennisbank" class="text-sm font-semibold text-white hover:opacity-80 transition">Kennisbank</a>
+                        <a href="/over-ons" class="text-sm font-semibold text-white hover:opacity-80 transition">Over ons</a>
+                    </nav>
+
+                    <div class="hidden lg:flex items-center gap-3">
+                                                    
+                            <a href="/waarom-de-performance-scan" class="brand-ghost-btn inline-block px-5 py-2 rounded-lg text-sm font-semibold">Performance Scan</a>
+                                            </div>
+
+                    <button type="button" id="nav-toggle" class="lg:hidden text-white" aria-label="Menu" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
+                </div>
+
+                <div id="nav-menu" hidden class="lg:hidden px-6 pb-6 space-y-3" style="border-top:1px solid rgba(212,165,116,0.2);">
+                    <a href="/gratis" class="block text-sm font-semibold pt-3" style="color:#D4A574;">Gratis</a>
+                    <a href="/aanbod" class="block text-sm font-semibold text-white">Aanbod</a>
+                    <a href="/resultaten" class="block text-sm font-semibold text-white">Resultaten</a>
+                    <a href="/kennisbank" class="block text-sm font-semibold text-white">Kennisbank</a>
+                    <a href="/over-ons" class="block text-sm font-semibold text-white">Over ons</a>
+                                            
+                        <a href="/waarom-de-performance-scan" class="brand-ghost-btn inline-block px-5 py-2 rounded-lg text-sm font-semibold">Performance Scan</a>
+                                    </div>
+            </header>
+        
+        <main>
+            <section class="relative overflow-hidden" style="min-height:640px;">
+        <img src="/images/home/hero-jeroen.webp" alt="" class="absolute inset-0 w-full h-full object-cover" fetchpriority="high" width="1600" height="1067">
+        <div class="absolute inset-0" style="background:linear-gradient(90deg, rgba(13,28,56,0.94) 10%, rgba(20,41,79,0.62) 45%, rgba(27,58,107,0.3) 100%);"></div>
+
+        <div class="relative max-w-7xl mx-auto px-6 pt-8 pb-16 sm:py-40">
+            <div class="max-w-xl border rounded-2xl p-6 sm:p-10" style="border-color:rgba(212,165,116,0.45); background:rgba(13,28,56,0.35);">
+                <p class="brand-eyebrow text-balance font-opensans font-bold uppercase text-xs sm:text-sm mb-4">
+                    Voor gedreven ondernemers &amp; leiders
+                </p>
+                
+                <h1 class="font-oswald font-bold text-white uppercase leading-tight text-4xl sm:text-6xl mb-4"><span class="sr-only">Een 8,5 op elk domein van je leven</span>
+            <span class="kinetic-word" style="--word: 0;" aria-hidden="true">Een</span>
+                <span class="kinetic-word" style="--word: 1;" aria-hidden="true">8,5</span>
+                <span class="kinetic-word" style="--word: 2;" aria-hidden="true">op</span>
+                <span class="kinetic-word" style="--word: 3;" aria-hidden="true">elk</span>
+                <br aria-hidden="true">
+                <span class="kinetic-word brand-gold-text" style="--word: 4;" aria-hidden="true">domein</span>
+                <span class="kinetic-word brand-gold-text" style="--word: 5;" aria-hidden="true">van</span>
+                <span class="kinetic-word brand-gold-text" style="--word: 6;" aria-hidden="true">je</span>
+                <span class="kinetic-word brand-gold-text" style="--word: 7;" aria-hidden="true">leven</span>
+    </h1>
+                <p class="text-base sm:text-lg mb-6" style="color:#dbe3f0;">
+                    Radicale focus, meer winst en een bedrijf dat niet langer om jou draait.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <a href="https://apexonlinecoaching.trainin.app/activities/LQ2Y2P/de-doorbraak-sessie"
+                       class="brand-gold-btn block sm:inline-block w-full sm:w-auto text-center px-6 sm:px-8 py-3 rounded-lg font-bold">
+                        Plan een kennismakingssessie
+                    </a>
+                    <a href="/waarom-de-performance-scan"
+                       class="brand-ghost-btn block sm:inline-block w-full sm:w-auto text-center px-6 sm:px-8 py-3 rounded-lg font-semibold">
+                        Of doe eerst de gratis Performance Scan (5 min)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="brand-navy py-14 px-6" style="border-top:1px solid rgba(212,165,116,0.2); border-bottom:1px solid rgba(212,165,116,0.2);">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
+                    <div>
+                <p class="font-oswald font-bold text-3xl sm:text-4xl mb-1"><span class="brand-gold-text">€150K+</span></p>
+                                    
+                    <div class="h-3.5 mb-1" aria-hidden="true"></div>
+                                <p class="text-xs sm:text-sm leading-snug" style="color:#dbe3f0;">Geïnvesteerd in eigen ontwikkeling</p>
+            </div>
+                    <div>
+                <p class="font-oswald font-bold text-3xl sm:text-4xl mb-1"><span class="brand-gold-text">21</span></p>
+                                    <div class="flex justify-center gap-0.5 mb-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#D4A574" stroke="#D4A574" stroke-width="1.5" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="m12 3 2.9 6.1 6.6.9-4.9 4.6 1.2 6.6L12 18l-5.8 3.2 1.2-6.6-4.9-4.6 6.6-.9L12 3Z"/></svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#D4A574" stroke="#D4A574" stroke-width="1.5" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="m12 3 2.9 6.1 6.6.9-4.9 4.6 1.2 6.6L12 18l-5.8 3.2 1.2-6.6-4.9-4.6 6.6-.9L12 3Z"/></svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#D4A574" stroke="#D4A574" stroke-width="1.5" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="m12 3 2.9 6.1 6.6.9-4.9 4.6 1.2 6.6L12 18l-5.8 3.2 1.2-6.6-4.9-4.6 6.6-.9L12 3Z"/></svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#D4A574" stroke="#D4A574" stroke-width="1.5" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="m12 3 2.9 6.1 6.6.9-4.9 4.6 1.2 6.6L12 18l-5.8 3.2 1.2-6.6-4.9-4.6 6.6-.9L12 3Z"/></svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#D4A574" stroke="#D4A574" stroke-width="1.5" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="m12 3 2.9 6.1 6.6.9-4.9 4.6 1.2 6.6L12 18l-5.8 3.2 1.2-6.6-4.9-4.6 6.6-.9L12 3Z"/></svg>
+                                            </div>
+                                <p class="text-xs sm:text-sm leading-snug" style="color:#dbe3f0;">5-sterrenreviews op Google</p>
+            </div>
+                    <div>
+                <p class="font-oswald font-bold text-3xl sm:text-4xl mb-1"><span class="brand-gold-text">14 jaar</span></p>
+                                    
+                    <div class="h-3.5 mb-1" aria-hidden="true"></div>
+                                <p class="text-xs sm:text-sm leading-snug" style="color:#dbe3f0;">Ervaring als coach</p>
+            </div>
+                    <div>
+                <p class="font-oswald font-bold text-3xl sm:text-4xl mb-1"><span class="brand-gold-text">500+</span></p>
+                                    
+                    <div class="h-3.5 mb-1" aria-hidden="true"></div>
+                                <p class="text-xs sm:text-sm leading-snug" style="color:#dbe3f0;">Mensen geholpen</p>
+            </div>
+            </div>
+</section>
+
+    <section class="brand-navy py-20 px-6">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12">
+            <div>
+                <h2 class="font-poppins font-bold text-3xl sm:text-4xl mb-4">
+                    <span class="brand-gold-text">Sterke keuzes creëren krachtige resultaten</span>
+                </h2>
+                <p class="text-white text-lg italic">
+                    &ldquo;Als je doet wat je deed, krijg je wat je kreeg.&rdquo;
+                </p>
+            </div>
+
+            <div class="space-y-4 text-[15px] leading-relaxed" style="color:#dbe3f0;">
+                <p>➡️ Sta jij altijd aan, ten koste van je gezin, gezondheid en je plezier in je leven?</p>
+                <p>➡️ Ben je continue brandjes aan het blussen terwijl je weet dat je eigenlijk strategisch zou moeten sturen?</p>
+                <p>➡️ Merk je dat je thuis kortaf bent, minder energie hebt, en je bedrijf je agenda en je humeur bepaalt?</p>
+                <p>Bij Apex begeleiden we gedreven ondernemers naar radicale focus, meer winst en meer rust, zonder harder te werken.</p>
+                <p class="text-white font-semibold pt-2">Elke zakelijk leider heeft een coach nodig.</p>
+                <p>Niet omdat je zwak bent, maar omdat je niet kunt zien wat je niet ziet. Ik help je patronen te doorbreken, maak blinde vlekken zichtbaar en zorg dat je met kracht handelt, zodat je blijvende impact maakt op jouw bedrijf, gezondheid, privé en relaties.</p>
+                <p class="text-white font-semibold">Geen keuzes maken is gelijk aan stilstaan en stilstaan is achteruitgang.</p>
+
+                <p class="border-l-2 pl-4 text-sm" style="border-color:#D4A574; color:#dbe3f0;">
+                    Apex is niet voor iedereen. Het is voor ondernemers die verantwoordelijkheid nemen voor hun eigen resultaat, die eerlijke confrontatie boven een schouderklopje verkiezen, en die klaar zijn om te doen &mdash; niet alleen te weten.
+                </p>
+
+                <p class="text-sm font-semibold" style="color:#D4A574;">
+                    Ik werk met maximaal 10 nieuwe klanten per jaar. Alleen bij commitment.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative py-52 px-6 text-center overflow-hidden">
+        <img src="/images/home/quote-bg.webp" alt="" class="absolute inset-0 w-full h-full object-cover" style="object-position: center 25%;" loading="lazy">
+        <div class="absolute inset-0" style="background: radial-gradient(circle at 100% 100%, rgba(212,165,116,0.6) 0%, rgba(13,28,56,0.92) 68%);"></div>
+        <h2 class="font-oswald font-bold text-white uppercase text-3xl sm:text-5xl relative leading-tight">
+            Creëer een krachtig<br>en effectief leven
+        </h2>
+    </section>
+
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <p class="brand-eyebrow text-balance font-opensans font-bold text-center uppercase text-xs sm:text-sm mb-6">
+                Wat bieden wij
+            </p>
+
+            <div class="max-w-3xl mx-auto text-center text-gray-600 space-y-4 mb-16">
+                <p>Apex Online Coaching helpt gedreven individuen winnen op persoonlijk én zakelijk vlak. Wij gaan voor een 8,5 of hoger op ieder domein: van leiderschap tot winstgroei.</p>
+                <p>Je kunt niet oplossen wat je niet ziet. Daarom beginnen we niet bij strategie, maar bij de bron: <strong>hoe jij leidt</strong>. Focus op wie je bent, niet op wat je moet doen.</p>
+                <p>Je bedrijf gaat niet vooruit omdat je harder werkt, maar omdat jij anders leidt. Dat begint bij <strong>eigenaarschap over je eigen patronen</strong>, niet bij het resultaat.</p>
+                <p><strong>Integriteit</strong> betekent dat je je eigen afspraken nakomt vóór die met anderen. Wie op niveau presteert, doet dat instinctief.</p>
+                <p><strong>Een sterke mindset</strong> is de basis. Met helderheid en energie neem je verantwoordelijkheid en maak je de keuzes die je bedrijf en leven naar een hoger niveau tillen.</p>
+                <p>Samen bouwen we een heldere aanpak die past bij jouw ambities, met alle handvatten in één werkomgeving.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <a href="/apex-leadership" class="brand-card overflow-hidden">
+                    <img src="/images/home/card-1.webp" alt="Groepscoaching voor ondernemers" class="w-full h-56 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <h4 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Apex Leadership &mdash; groepscoaching</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">Omring jezelf met mede ondernemers met soortgelijke uitdaging. Bekrachtig jezelf door verantwoordelijkheid te nemen op je acties en niet-acties. In dit unieke programma blijf je doorontwikkelen in ondernemen, krachtig leiderschap en effectief communiceren met je team en je klanten.</p>
+                        <p class="text-sm font-bold mt-3" style="color:#c08f5c;">Meer info &rarr;</p>
+                    </div>
+                </a>
+
+                <a href="/90-dagen-challenge" class="brand-card overflow-hidden">
+                    <img src="/images/home/card-2.webp" alt="90 Dagen Challenge" class="w-full h-56 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <h4 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">90 Dagen Challenge</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">Is jouw doel een gezonde, energieke en krachtige leefstijl? Met de 90 dagen challenge begeleiden we je naar een fit, energiek, sterk lichaam én een heldere geest. Jij leert &lsquo;de knop&rsquo; omzetten: je gaat doen wat nodig is jouw doelen te behalen. Excuses en uitvluchten zijn verleden tijd!</p>
+                        <p class="text-sm font-bold mt-3" style="color:#c08f5c;">Meer info &rarr;</p>
+                    </div>
+                </a>
+
+                <a href="/1-op-1-coaching" class="brand-card overflow-hidden">
+                    <img src="/images/home/card-3.webp" alt="1-op-1 Performance Coaching voor ondernemers" class="w-full h-56 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <h4 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">1-op-1 Performance Coaching voor ondernemers</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">Wekelijkse coaching om jouw persoonlijke en zakelijke leven naar het volgende level te tillen. Zonder afleiding op jouw doel af. Wie jij moet zijn om te doen wat nodig is om in zowel je persoonlijke als zakelijke leven een 8,5 of hoger te scoren!</p>
+                        <p class="text-sm font-bold mt-3" style="color:#c08f5c;">Meer info &rarr;</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="text-center mt-14">
+                <a href="/aanbod"
+                   class="brand-gold-btn inline-block px-8 py-3 rounded-lg font-bold">
+                    Bekijk het volledige aanbod
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="brand-navy py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+        <p class="brand-eyebrow text-balance font-opensans font-bold text-center uppercase text-xs sm:text-sm mb-3">De Apex-methode</p>
+        <h2 class="font-oswald font-bold text-white uppercase text-2xl sm:text-3xl text-center mb-4">Eén systeem, drie stappen</h2>
+        <p class="text-center max-w-2xl mx-auto mb-16" style="color:#dbe3f0;">
+            14 jaar ervaring als coach en 500+ geholpen mensen samengebracht in één heldere aanpak.
+        </p>
+
+        <div class="grid sm:grid-cols-3 gap-6 sm:gap-4 relative">
+                            <div class="relative">
+                    <div class="brand-card-dark rounded-2xl p-7 h-full">
+                        <span class="brand-icon inline-flex items-center justify-center w-14 h-14 rounded-full mb-5">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7">
+                                <path d="M12 3 5.5 5.8v5.4c0 4.6 3 7.8 6.5 9.2 3.5-1.4 6.5-4.6 6.5-9.2V5.8L12 3Z"/><path d="M9.5 12c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5-2.5-1.1-2.5-2.5Z"/>
+                            </svg>
+                        </span>
+                        <p class="text-[11px] font-bold uppercase tracking-[0.14em] mb-2" style="color:#D4A574;">Stap 1</p>
+                        <h3 class="font-opensans font-semibold text-lg mb-2 text-white">Ontdek je Apex Predator-profiel</h3>
+                        <p class="text-sm leading-relaxed" style="color:#dbe3f0;">Welke leiderschapsstijl past van nature bij jou &mdash; en wat is de valkuil van precies dat talent?</p>
+                    </div>
+
+                                            <div class="hidden sm:flex items-center justify-center absolute top-1/2 -right-4 -translate-y-1/2 z-10 w-8 h-8">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#D4A574" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                        </div>
+                        <div class="sm:hidden flex justify-center py-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#D4A574" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+                        </div>
+                                    </div>
+                            <div class="relative">
+                    <div class="brand-card-dark rounded-2xl p-7 h-full">
+                        <span class="brand-icon inline-flex items-center justify-center w-14 h-14 rounded-full mb-5">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7">
+                                <circle cx="12" cy="12" r="9"/><path d="m14.8 9.2-1.8 4.6-4.6 1.8 1.8-4.6 4.6-1.8Z"/>
+                            </svg>
+                        </span>
+                        <p class="text-[11px] font-bold uppercase tracking-[0.14em] mb-2" style="color:#D4A574;">Stap 2</p>
+                        <h3 class="font-opensans font-semibold text-lg mb-2 text-white">Krijg helderheid met je Kompas</h3>
+                        <p class="text-sm leading-relaxed" style="color:#dbe3f0;">Van kwartaaldoel naar concrete acties, terugberekend naar maand en week &mdash; zodat je altijd weet wat vandaag telt.</p>
+                    </div>
+
+                                            <div class="hidden sm:flex items-center justify-center absolute top-1/2 -right-4 -translate-y-1/2 z-10 w-8 h-8">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#D4A574" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                        </div>
+                        <div class="sm:hidden flex justify-center py-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#D4A574" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+                        </div>
+                                    </div>
+                            <div class="relative">
+                    <div class="brand-card-dark rounded-2xl p-7 h-full">
+                        <span class="brand-icon inline-flex items-center justify-center w-14 h-14 rounded-full mb-5">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7">
+                                <rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h3"/>
+                            </svg>
+                        </span>
+                        <p class="text-[11px] font-bold uppercase tracking-[0.14em] mb-2" style="color:#D4A574;">Stap 3</p>
+                        <h3 class="font-opensans font-semibold text-lg mb-2 text-white">Blijf op koers met de Apex-app</h3>
+                        <p class="text-sm leading-relaxed" style="color:#dbe3f0;">Focus behouden en resultaat monitoren, elke dag &mdash; op fysiek, relaties, werk en privé.</p>
+                    </div>
+
+                                    </div>
+                    </div>
+    </div>
+</section>
+
+    
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <p class="brand-eyebrow text-balance font-opensans font-bold text-center uppercase text-xs sm:text-sm mb-3">
+                Wat klanten zeggen
+            </p>
+            <h2 class="font-poppins font-bold text-2xl sm:text-3xl text-center mb-14" style="color:#1B3A6B;">
+                Zij gingen je voor
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div class="brand-card p-8" style="border-top:4px solid #D4A574;">
+                    <div class="flex items-center gap-2 mb-3">
+    <div class="flex gap-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#D4A574" stroke="#D4A574" stroke-width="1.5" stroke-linejoin="round" class="w-4 h-4"><path d="m12 3 2.9 6.1 6.6.9-4.9 4.6 1.2 6.6L12 18l-5.8 3.2 1.2-6.6-4.9-4.6 6.6-.9L12 3Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#D4A574" stroke="#D4A574" stroke-width="1.5" stroke-linejoin="round" class="w-4 h-4"><path d="m12 3 2.9 6.1 6.6.9-4.9 4.6 1.2 6.6L12 18l-5.8 3.2 1.2-6.6-4.9-4.6 6.6-.9L12 3Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#D4A574" stroke="#D4A574" stroke-width="1.5" stroke-linejoin="round" class="w-4 h-4"><path d="m12 3 2.9 6.1 6.6.9-4.9 4.6 1.2 6.6L12 18l-5.8 3.2 1.2-6.6-4.9-4.6 6.6-.9L12 3Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#D4A574" stroke="#D4A574" stroke-width="1.5" stroke-linejoin="round" class="w-4 h-4"><path d="m12 3 2.9 6.1 6.6.9-4.9 4.6 1.2 6.6L12 18l-5.8 3.2 1.2-6.6-4.9-4.6 6.6-.9L12 3Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#D4A574" stroke="#D4A574" stroke-width="1.5" stroke-linejoin="round" class="w-4 h-4"><path d="m12 3 2.9 6.1 6.6.9-4.9 4.6 1.2 6.6L12 18l-5.8 3.2 1.2-6.6-4.9-4.6 6.6-.9L12 3Z"/></svg>
+            </div>
+    <span class="text-xs font-semibold" style="color:#c08f5c;">5 / 5</span>
+</div>
+                    <p class="italic leading-relaxed mb-4" style="color:#2A2A2A;">&ldquo;Wat een geweldig traject! Hoe simpel het eigenlijk is om resultaat te creëren. Zoveel meer focus op kernacties die bijdragen aan mijn doelen. Ik ben écht op een diep level geshift naar een &lsquo;owner&rsquo; i.p.v. een victim. Als je twijfelt, zeker doen! Een échte no-brainer.&rdquo;</p>
+                    <p class="font-bold" style="color:#1B3A6B;">Dennis van der Sluijs</p>
+                    <p class="text-sm text-gray-500">Nr. 1 Business Partner Eqology NL, Boost Your Health</p>
+                </div>
+                <div class="brand-card p-8" style="border-top:4px solid #D4A574;">
+                    <div class="flex items-center gap-2 mb-3">
+    <div class="flex gap-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#D4A574" stroke="#D4A574" stroke-width="1.5" stroke-linejoin="round" class="w-4 h-4"><path d="m12 3 2.9 6.1 6.6.9-4.9 4.6 1.2 6.6L12 18l-5.8 3.2 1.2-6.6-4.9-4.6 6.6-.9L12 3Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#D4A574" stroke="#D4A574" stroke-width="1.5" stroke-linejoin="round" class="w-4 h-4"><path d="m12 3 2.9 6.1 6.6.9-4.9 4.6 1.2 6.6L12 18l-5.8 3.2 1.2-6.6-4.9-4.6 6.6-.9L12 3Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#D4A574" stroke="#D4A574" stroke-width="1.5" stroke-linejoin="round" class="w-4 h-4"><path d="m12 3 2.9 6.1 6.6.9-4.9 4.6 1.2 6.6L12 18l-5.8 3.2 1.2-6.6-4.9-4.6 6.6-.9L12 3Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#D4A574" stroke="#D4A574" stroke-width="1.5" stroke-linejoin="round" class="w-4 h-4"><path d="m12 3 2.9 6.1 6.6.9-4.9 4.6 1.2 6.6L12 18l-5.8 3.2 1.2-6.6-4.9-4.6 6.6-.9L12 3Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#D4A574" stroke="#D4A574" stroke-width="1.5" stroke-linejoin="round" class="w-4 h-4"><path d="m12 3 2.9 6.1 6.6.9-4.9 4.6 1.2 6.6L12 18l-5.8 3.2 1.2-6.6-4.9-4.6 6.6-.9L12 3Z"/></svg>
+            </div>
+    <span class="text-xs font-semibold" style="color:#c08f5c;">5 / 5</span>
+</div>
+                    <p class="italic leading-relaxed mb-4" style="color:#2A2A2A;">&ldquo;Als eigenaar van een vastgoedonderhouds- en verduurzamingsbedrijf met 100 man personeel is focus essentieel. Dankzij de samenwerking met Apex Online Coaching ervaar ik meer rust, helderheid en scherpte op de acties die écht het verschil maken voor de groei van mijn bedrijf.&rdquo;</p>
+                    <p class="font-bold" style="color:#1B3A6B;">Kees Plat</p>
+                    <p class="text-sm text-gray-500">CEO, Plat&amp;Plat</p>
+                </div>
+            </div>
+
+            <p class="text-center mt-8">
+                <a href="/reviews" class="text-sm font-semibold underline hover:no-underline" style="color:#1B3A6B;">Bekijk alle reviews &rarr;</a>
+            </p>
+        </div>
+    </section>
+
+    <section class="brand-navy py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="font-opensans font-semibold text-white text-center uppercase text-2xl sm:text-3xl mb-14">
+                Waarom wij anders zijn
+            </h2>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                                    <div class="text-center">
+                        <span class="brand-icon inline-flex items-center justify-center w-14 h-14 rounded-full mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7">
+                                <path d="M12 20s-7-4.3-9.3-8.8A5 5 0 0 1 12 6a5 5 0 0 1 9.3 5.2C18.9 15.7 12 20 12 20Z"/>
+                            </svg>
+                        </span>
+                        <h4 class="font-opensans font-bold mb-2" style="color:#D4A574;">Betrokkenheid</h4>
+                        <p class="text-sm leading-relaxed" style="color:#dbe3f0;">Wij zijn 100% gecommitteerd op jouw resultaat. Wij leven voor het feit dat jij transformeert. Wij zien jou niks liever het resultaat realiseren dat jij voor ogen hebt.</p>
+                    </div>
+                                    <div class="text-center">
+                        <span class="brand-icon inline-flex items-center justify-center w-14 h-14 rounded-full mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7">
+                                <path d="M13 3 4.5 14h6l-1 7 9-11h-6l1-7Z"/>
+                            </svg>
+                        </span>
+                        <h4 class="font-opensans font-bold mb-2" style="color:#D4A574;">Brutale eerlijkheid</h4>
+                        <p class="text-sm leading-relaxed" style="color:#dbe3f0;">Wij nemen geen blad voor de mond en kunnen confronterend zijn. Dit doen we vanuit radicale compassie. We zullen vooral niet vertellen wat je wilt horen, maar confronteren jou om het verschil te maken in jouw leven.</p>
+                    </div>
+                                    <div class="text-center">
+                        <span class="brand-icon inline-flex items-center justify-center w-14 h-14 rounded-full mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7">
+                                <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/>
+                            </svg>
+                        </span>
+                        <h4 class="font-opensans font-bold mb-2" style="color:#D4A574;">Resultaat gericht</h4>
+                        <p class="text-sm leading-relaxed" style="color:#dbe3f0;">Kies jij voor resultaat? Dan moet je bij ons zijn. Wij laten jou niet aanmodderen. Wij observeren, analyseren en confronteren. Wij zullen jou keer op keer uitnodigen om het volgende level te spelen.</p>
+                    </div>
+                                    <div class="text-center">
+                        <span class="brand-icon inline-flex items-center justify-center w-14 h-14 rounded-full mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7">
+                                <path d="M12 3 5.5 5.8v5.4c0 4.6 3 7.8 6.5 9.2 3.5-1.4 6.5-4.6 6.5-9.2V5.8L12 3Z"/><path d="m9 12 2 2 4-4"/>
+                            </svg>
+                        </span>
+                        <h4 class="font-opensans font-bold mb-2" style="color:#D4A574;">Competent</h4>
+                        <p class="text-sm leading-relaxed" style="color:#dbe3f0;">Ook wij kiezen voortdurend voor groei. Wij worden intensief gecoacht en begeleid door de beste internationale coaches om ook onze blinde vlekken zichtbaar te maken en onszelf vooruit te bewegen.</p>
+                    </div>
+                            </div>
+
+            <p class="text-center text-white mt-16 max-w-2xl mx-auto leading-relaxed">
+                Kies jij voor resultaat? Dan nodig ik je graag uit voor kennismaking.
+                Wij laten jou niet aanmodderen. Wij observeren, analyseren en confronteren.
+                Wij zullen jou keer op keer uitnodigen om het volgende level te spelen.
+            </p>
+            <div class="text-center mt-8">
+                <a href="https://apexonlinecoaching.trainin.app/activities/LQ2Y2P/de-doorbraak-sessie"
+                   class="brand-gold-btn inline-block px-8 py-3 rounded-lg font-bold">
+                    Plan een kennismakingssessie
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6" style="background:linear-gradient(155deg, #e2b481 0%, #D4A574 55%, #c08f5c 100%);">
+        <div class="max-w-7xl mx-auto">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="font-opensans font-semibold text-2xl sm:text-3xl mb-4" style="color:#1B3A6B;">Performance coaching</h2>
+                <p class="leading-relaxed" style="color:#1B3A6B;">
+                    In al onze trajecten zit Performance Coaching verweven. Wij zullen jou keer op keer uitnodigen om die volgende stap te zetten. Vaak zit in de oncomfortabele acties de meeste groei. Dit met de missie om jou op ieder domein in je leven een 8,5 of hoger te scoren!
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-8">
+                <a href="/gratis-sessie" class="brand-card overflow-hidden">
+                    <img src="/images/home/card-4.webp" alt="Performance Sessie" class="w-full h-52 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <p class="font-abril text-sm mb-1" style="color:#c08f5c;">Gratis</p>
+                        <h4 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Performance Sessie</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">Doorbreek onwerkbare patronen die jouw bedrijf tegenhouden.</p>
+                    </div>
+                </a>
+
+                <a href="/apex-kickstart" class="brand-card overflow-hidden">
+                    <img src="/images/home/screenshot-app.webp" alt="Apex Kickstart" class="w-full h-52 object-cover object-top" loading="lazy">
+                    <div class="p-6">
+                        <p class="font-abril text-sm mb-1" style="color:#c08f5c;">4 weken</p>
+                        <h4 class="font-opensans font-bold text-lg mb-2" style="color:#1B3A6B;">Apex Kickstart</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">Ontdek waar jouw blinde vlekken zitten in 4 weken en creëer hierin de business die je voor ogen hebt.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+            <section class="py-20 px-6 bg-white">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex items-end justify-between flex-wrap gap-3 mb-10">
+                    <div>
+                        <p class="brand-eyebrow text-balance font-opensans font-bold uppercase text-xs sm:text-sm mb-3">Kennisbank</p>
+                        <h2 class="font-poppins font-bold text-2xl sm:text-3xl" style="color:#1B3A6B;">De laatste inzichten</h2>
+                    </div>
+                    <a href="/kennisbank" class="text-sm font-semibold underline hover:no-underline" style="color:#1B3A6B;">Alle artikelen &rarr;</a>
+                </div>
+
+                <div class="grid sm:grid-cols-3 gap-6">
+                                            <a href="/kennisbank/de-5-niveaus-van-delegeren" class="brand-card block p-6">
+                            <p class="text-xs font-bold uppercase tracking-wide mb-2" style="color:#c08f5c;">Leiderschap</p>
+                            <h3 class="font-opensans font-bold text-base mb-2" style="color:#1B3A6B;">De 5 niveaus van delegeren</h3>
+                            <p class="text-xs text-gray-500">2 min leestijd</p>
+                        </a>
+                                            <a href="/kennisbank/waarom-terugkijken-vooruitgang-versnelt" class="brand-card block p-6">
+                            <p class="text-xs font-bold uppercase tracking-wide mb-2" style="color:#c08f5c;">Mindset</p>
+                            <h3 class="font-opensans font-bold text-base mb-2" style="color:#1B3A6B;">Waarom terugkijken vooruitgang versnelt</h3>
+                            <p class="text-xs text-gray-500">1 min leestijd</p>
+                        </a>
+                                            <a href="/kennisbank/waarom-motivatie-niet-genoeg-is" class="brand-card block p-6">
+                            <p class="text-xs font-bold uppercase tracking-wide mb-2" style="color:#c08f5c;">Mindset</p>
+                            <h3 class="font-opensans font-bold text-base mb-2" style="color:#1B3A6B;">Waarom motivatie niet genoeg is</h3>
+                            <p class="text-xs text-gray-500">1 min leestijd</p>
+                        </a>
+                                    </div>
+            </div>
+        </section>
+    
+    <section class="brand-navy py-16 px-6 text-center">
+        <h2 class="font-opensans font-semibold text-white text-2xl mb-3">Nieuwsbrief</h2>
+        <p class="max-w-lg mx-auto mb-6" style="color:#dbe3f0;">
+            Geen lid maar toch besloten content in de mail? Schrijf je dan snel in op onze nieuwsbrief.
+        </p>
+        <form id="footer-newsletter-form" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+            <input type="email" name="email" required placeholder="Jouw e-mailadres"
+                   class="brand-input flex-1 rounded-lg px-4 py-3 text-sm">
+            <button type="submit" class="brand-gold-btn px-6 py-3 rounded-lg font-bold uppercase text-sm">
+                Aanmelden
+            </button>
+        </form>
+        <p id="footer-newsletter-msg" class="text-sm mt-3" style="color:#D4A574;"></p>
+    </section>
+
+    <script>
+        document.getElementById('footer-newsletter-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var email = e.target.email.value;
+            var msg = document.getElementById('footer-newsletter-msg');
+            fetch('/nieuwsbrief/inschrijven', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ email: email, source: 'footer' })
+            }).then(function (res) {
+                if (!res.ok) throw new Error('failed');
+                msg.textContent = 'Bedankt! Je zit erin.';
+                e.target.reset();
+            }).catch(function () {
+                msg.textContent = 'Er ging iets mis. Probeer het opnieuw.';
+            });
+        });
+    </script>
+        </main>
+
+        <div id="exit-intent-overlay" hidden class="fixed inset-0 z-[60] px-4" style="background:rgba(13,28,56,0.8);">
+  <div id="exit-intent-backdrop" class="flex items-center justify-center h-full">
+    <div class="relative bg-white rounded-2xl max-w-md w-full p-8 text-center" style="box-shadow: 0 30px 60px -30px rgba(0,0,0,0.55);">
+        <button type="button" id="exit-intent-close" aria-label="Sluiten"
+                class="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition" style="color:#1B3A6B;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+
+        <div id="exit-intent-form-state">
+            <p class="font-opensans font-bold uppercase tracking-wide text-2xl mb-3" style="color:#c08f5c;">Voor je gaat</p>
+            <h2 class="font-oswald font-bold uppercase text-2xl mb-3" style="color:#1B3A6B;">Schrijf je in voor de nieuwsbrief</h2>
+            <p class="text-gray-600 text-sm mb-6">
+                Blijf op de hoogte van nieuwe inzichten over focus, leiderschap en groei.
+            </p>
+            <form id="exit-intent-form" class="flex flex-col gap-3">
+                <input type="email" name="email" required placeholder="Jouw e-mailadres"
+                       class="brand-input w-full rounded-lg px-4 py-3 text-sm">
+                <button type="submit" class="brand-gold-btn w-full px-6 py-3 rounded-lg font-bold uppercase text-sm">
+                    Aanmelden
+                </button>
+            </form>
+            <p id="exit-intent-error" hidden class="text-xs mt-3" style="color:#dc2626;">Er ging iets mis. Probeer het opnieuw.</p>
+        </div>
+
+        <div id="exit-intent-thanks-state" hidden>
+            <p class="text-3xl mb-3">✅</p>
+            <h2 class="font-oswald font-bold uppercase text-xl mb-2" style="color:#1B3A6B;">Je zit erin!</h2>
+            <p class="text-gray-600 text-sm">Je ontvangt binnenkort de eerste inzichten van Apex.</p>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    (function () {
+        var STORAGE_KEY = 'apex_exit_intent_dismissed_until';
+        var overlay = document.getElementById('exit-intent-overlay');
+
+        function isMobile() { return !window.matchMedia('(hover: hover) and (pointer: fine)').matches; }
+
+        function dismissedUntil() {
+            var v = localStorage.getItem(STORAGE_KEY);
+            return v ? parseInt(v, 10) : 0;
+        }
+
+        function suppress(days) {
+            localStorage.setItem(STORAGE_KEY, String(Date.now() + days * 24 * 60 * 60 * 1000));
+        }
+
+        if (isMobile() || Date.now() < dismissedUntil()) {
+            return;
+        }
+
+        var shown = false;
+        var armed = false;
+        setTimeout(function () { armed = true; }, 4000);
+
+        function show() {
+            if (shown || !armed) return;
+            shown = true;
+            overlay.removeAttribute('hidden');
+        }
+
+        function hide() {
+            overlay.setAttribute('hidden', '');
+        }
+
+        document.addEventListener('mouseleave', function (e) {
+            if (e.clientY <= 0) show();
+        });
+
+        document.getElementById('exit-intent-close').addEventListener('click', function () {
+            suppress(14);
+            hide();
+        });
+
+        document.getElementById('exit-intent-backdrop').addEventListener('click', function (e) {
+            if (e.target === e.currentTarget) {
+                suppress(14);
+                hide();
+            }
+        });
+
+        document.getElementById('exit-intent-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var email = e.target.email.value;
+            var errorEl = document.getElementById('exit-intent-error');
+            errorEl.setAttribute('hidden', '');
+
+            fetch('/nieuwsbrief/inschrijven', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ email: email, source: 'popup' })
+            }).then(function (res) {
+                if (!res.ok) throw new Error('failed');
+                suppress(3650);
+                document.getElementById('exit-intent-form-state').setAttribute('hidden', '');
+                document.getElementById('exit-intent-thanks-state').removeAttribute('hidden');
+            }).catch(function () {
+                errorEl.removeAttribute('hidden');
+            });
+        });
+    })();
+</script>
+
+        <footer class="py-8 px-6 text-center border-t" style="background:#1B3A6B; border-color:rgba(212,165,116,0.2);">
+            <img src="/images/apex-logo.webp" alt="Apex Online Coaching" class="h-8 w-auto mx-auto mb-3 opacity-80" loading="lazy" width="100" height="32">
+            <p class="text-[#9fb3d1] text-xs mb-2">
+                <a href="tel:0683232341" class="hover:text-white transition">06-83232341</a>
+                &middot;
+                <a href="mailto:jeroen@apexonlinecoaching.nl" class="hover:text-white transition">jeroen@apexonlinecoaching.nl</a>
+                &middot;
+                <a href="https://www.linkedin.com/in/jeroen-schilder/" target="_blank" rel="noopener" class="hover:text-white transition">LinkedIn</a>
+            </p>
+            <p class="text-[#9fb3d1] text-xs">
+                &copy; 2026 Apex Online Coaching. Alle rechten voorbehouden.
+                &middot; <a href="/algemene-voorwaarden" class="hover:text-white transition">Algemene voorwaarden</a>
+                &middot; <a href="/privacyreglement" target="_blank" rel="noopener" class="hover:text-white transition">Privacyreglement</a>
+            </p>
+        </footer>
+
+        <script>
+            (function () {
+                var btn = document.getElementById('nav-toggle');
+                var menu = document.getElementById('nav-menu');
+                if (!btn || !menu) return;
+                btn.addEventListener('click', function () {
+                    var isHidden = menu.hasAttribute('hidden');
+                    if (isHidden) {
+                        menu.removeAttribute('hidden');
+                        btn.setAttribute('aria-expanded', 'true');
+                    } else {
+                        menu.setAttribute('hidden', '');
+                        btn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            })();
+        </script>
+
+                    <script src="https://trainin.app/widget.js" data-base-domain="trainin.app" defer></script>
+
+            <trainin-floating-widget
+                client="apexonlinecoaching"
+                widget-shadow="0px 0px 4px 2px rgba(0, 0, 0, 0.08)"
+                container-padding="0"
+                widget-size="small"
+                widget-radius="9999px"
+                button-border-color="#e8e8e8"
+                divider-color="#e8e8e8"
+                card-border-color="#e8e8e8"
+                widget-background="#D4A574"
+                widget-card="#ffffff"
+                widget-text-color="#1B3A6B"
+            >
+                <trainin-floating-widget-button
+                    button-url="https://apexonlinecoaching.trainin.app/activities/LQ2Y2P/de-doorbraak-sessie"
+                    button-label="Kennismakingssessie"
+                    button-background="#D4A574"
+                    button-text-color="#1B3A6B"
+                    button-size="small"
+                    button-radius="9999px 0 0 9999px"
+                    loader-color="#c08f5c"
+                >
+                </trainin-floating-widget-button>
+
+                <span class="widget-divider"></span>
+
+                <trainin-floating-widget-button
+                    button-url="https://wa.me/31683232341"
+                    button-label="WhatsApp"
+                    button-background="#D4A574"
+                    button-text-color="#1B3A6B"
+                    button-size="small"
+                    button-radius="0 9999px 9999px 0"
+                >
+                </trainin-floating-widget-button>
+            </trainin-floating-widget>
+        
+        <script>
+            (function () {
+                var widget = document.querySelector('trainin-floating-widget');
+                if (!widget) return;
+
+                function hideLogo() {
+                    if (!widget.shadowRoot) return false;
+                    if (widget.shadowRoot.getElementById('hide-trainin-logo')) return true;
+                    var style = document.createElement('style');
+                    style.id = 'hide-trainin-logo';
+                    style.textContent = '.trainin-logo { display: none !important; }';
+                    widget.shadowRoot.appendChild(style);
+                    return true;
+                }
+
+                if (hideLogo()) return;
+
+                var attempts = 0;
+                function tick() {
+                    attempts++;
+                    if (hideLogo() || attempts > 600) return;
+                    requestAnimationFrame(tick);
+                }
+                requestAnimationFrame(tick);
+            })();
+        </script>
+    </body>
+</html>
