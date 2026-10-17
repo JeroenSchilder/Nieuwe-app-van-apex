@@ -410,6 +410,19 @@
 </div>
     <script>
         function apexPlayVimeo(button) {
+            if (/\.mp4(\?|$)/.test(button.dataset.player)) {
+                var vid = document.createElement('video');
+                vid.src = button.dataset.player;
+                vid.title = button.dataset.title;
+                vid.className = 'absolute inset-0 w-full h-full';
+                vid.style.objectFit = 'contain';
+                vid.style.background = '#000';
+                var im = button.querySelector('img'); if (im) vid.poster = im.src;
+                vid.controls = true; vid.autoplay = true; vid.playsInline = true;
+                button.replaceWith(vid);
+                vid.play && vid.play().catch(function () {});
+                return;
+            }
             var frame = document.createElement('iframe');
             frame.src = button.dataset.player;
             frame.title = button.dataset.title;
@@ -422,15 +435,15 @@
         </div>
             <div class="shrink-0 w-[240px] snap-center sm:w-auto">
             <div class="apex-poster relative w-full overflow-hidden rounded-2xl" style="aspect-ratio:9 / 16; background:#0d1c38; box-shadow:0 30px 60px -30px rgba(13,28,56,0.55);">
-    <button type="button" class="group absolute inset-0 w-full h-full text-left cursor-pointer" data-player="https://player.vimeo.com/video/1094690445?autoplay=1&amp;dnt=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;color=D4A574" data-title="Video review Dennis van der Sluijs" onclick="apexPlayVimeo(this)" aria-label="Speel de video af: Video review Dennis van der Sluijs">
-        <img src="https://i.vimeocdn.com/video/2028312206-24c167bb6e740c9d28266159977876538de3446a8714f2badc00832594cf6ffd-d_640?region=us" alt="" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-[1.03]" style="object-position:center;" loading="lazy">
+    <button type="button" class="group absolute inset-0 w-full h-full text-left cursor-pointer" data-player="/videos/review-dennis-van-der-sluijs.mp4" data-title="Video review Dennis van der Sluijs" onclick="apexPlayVimeo(this)" aria-label="Speel de video af: Video review Dennis van der Sluijs">
+        <img src="/images/reviews/dennis-van-der-sluijs-poster.webp" alt="" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-[1.03]" style="object-position:center;" loading="lazy">
         <span class="absolute inset-0" style="background:linear-gradient(180deg, rgba(13,28,56,0) 0%, rgba(13,28,56,0) 50%, #0d1c38 62%, #0d1c38 100%);"></span>
         <span class="absolute inset-2.5 rounded-xl pointer-events-none" style="border:1px solid rgba(212,165,116,0.45);"></span>
 
         
         <span class="absolute inset-x-0 bottom-0 p-6 sm:p-7 flex flex-col-reverse items-start gap-4">
             <span>
-                                    <span class="block font-bold uppercase text-[11px] sm:text-xs mb-1.5" style="color:#D4A574; letter-spacing:.14em;">Video review · 4:21</span>
+                                    <span class="block font-bold uppercase text-[11px] sm:text-xs mb-1.5" style="color:#D4A574; letter-spacing:.14em;">Video review · 3:57</span>
                                                     <span class="block font-oswald font-bold uppercase text-white text-xl sm:text-2xl leading-tight">Dennis van der Sluijs</span>
                                             </span>
             <span class="brand-icon w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center shrink-0 transition group-hover:scale-110" style="box-shadow:0 0 0 7px rgba(212,165,116,0.22), 0 18px 36px -12px rgba(0,0,0,0.6);" aria-hidden="true">
