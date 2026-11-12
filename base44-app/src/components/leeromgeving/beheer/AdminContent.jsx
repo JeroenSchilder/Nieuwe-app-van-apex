@@ -4,6 +4,7 @@ import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import LessonEditor from "./LessonEditor";
+import { loadLesson } from "../lib/api";
 
 export default function AdminContent({ content, reload }) {
   const [trackKey, setTrackKey] = useState(content.tracks[0]?.key);
@@ -48,7 +49,8 @@ export default function AdminContent({ content, reload }) {
       </div>
       {modules.map((m) => {
         const lessons = content.lessons.filter((l) => l.module_id === m.id)
-          .filter((l) => (!onlyReview || l.needs_review) && (!term || l.title.toLowerCase().includes(term)));
+          .filter((l) => (!onlyReview || l.needs_review) && (!term || l.title.toLowerCase().includes(term)))
+          .sort((a, b) => (onlyReview ? String(a.review_note || "9").localeCompare(String(b.review_note || "9")) : 0) || (a.order ?? 0) - (b.order ?? 0));
         if ((onlyReview || term) && lessons.length === 0) return null;
         return (
           <div key={m.id} className="rounded-xl border bg-card p-3">
@@ -59,9 +61,12 @@ export default function AdminContent({ content, reload }) {
               </Button>
             </div>
             {lessons.map((l) => (
-              <button key={l.id} onClick={() => setEditing(l)} className="flex w-full items-center gap-2 rounded-md px-2 py-2 text-left text-sm hover:bg-muted">
+              <button key={l.id} onClick={async () => setEditing(await loadLesson(l.id))} className="flex w-full items-center gap-2 rounded-md px-2 py-2 text-left text-sm hover:bg-muted">
                 <span className="w-6 text-xs text-muted-foreground">{l.order}</span>
-                <span className="flex-1 truncate">{l.step_label ? `${l.step_label} · ` : ""}{l.title}</span>
+                <span className="min-w-0 flex-1">
+                  <span className="block truncate">{l.step_label ? `${l.step_label} · ` : ""}{l.title}</span>
+                  {l.needs_review && l.review_note && <span className="block truncate text-xs text-amber-700">{l.review_note}</span>}
+                </span>
                 {l.published === false && <EyeOff className="h-4 w-4 text-muted-foreground" title="Niet gepubliceerd" />}
                 {l.needs_review && <AlertCircle className="h-4 w-4 text-amber-600" title="Nog controleren" />}
                 {l.vimeo_id && <PlayCircle className="h-4 w-4 text-primary" />}

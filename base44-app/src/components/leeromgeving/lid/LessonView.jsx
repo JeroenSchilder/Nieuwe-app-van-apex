@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { ArrowLeft, ArrowRight, Check, Lock, MapPin, RotateCcw } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowLeft, ArrowRight, Check, Loader2, Lock, MapPin, RotateCcw } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import VimeoPlayer from "../VimeoPlayer";
@@ -7,13 +7,24 @@ import LessonContent from "./LessonContent";
 import TranscriptPanel from "./TranscriptPanel";
 import AssignmentPanel from "./AssignmentPanel";
 import QuizPanel from "./QuizPanel";
-import { markComplete, markIncomplete } from "../lib/api";
+import { loadLesson, markComplete, markIncomplete } from "../lib/api";
 import { CATEGORY_LABEL } from "../lib/config";
 
 export default function LessonView({ lessonId, derived, user, mine, refreshMine, onBack, onOpenLesson }) {
   const entry = derived.lessonIndex[lessonId];
   const [busy, setBusy] = useState(false);
   const [seek, setSeek] = useState(null);
+  const [full, setFull] = useState(null);
+  const canOpen = !!entry && !entry.locked;
+
+  // Het overzicht bevat alleen de korte velden; de tekst en het transcript komen hier bij het openen.
+  useEffect(() => {
+    let alive = true;
+    setFull(null);
+    setSeek(null);
+    if (canOpen) loadLesson(lessonId).then((l) => { if (alive) setFull(l || {}); }).catch(() => { if (alive) setFull({}); });
+    return () => { alive = false; };
+  }, [lessonId, canOpen]);
 
   if (!entry) {
     return (
@@ -24,7 +35,8 @@ export default function LessonView({ lessonId, derived, user, mine, refreshMine,
     );
   }
 
-  const { lesson, track, module, done, locked } = entry;
+  const { track, module, done, locked } = entry;
+  const lesson = full?.id === lessonId ? { ...entry.lesson, ...full } : entry.lesson;
   const idx = track.ordered.findIndex((l) => l.id === lesson.id);
   const prev = track.ordered[idx - 1];
   const next = track.ordered[idx + 1];
@@ -86,6 +98,7 @@ export default function LessonView({ lessonId, derived, user, mine, refreshMine,
       )}
 
       <LessonContent lesson={lesson} />
+      {!full && <Loader2 className="h-5 w-5 animate-spin text-primary" aria-label="Les wordt geladen" />}
 
       {assignment?.kind === "quiz" && (
         <QuizPanel key={assignment.id} assignment={assignment} lesson={lesson} derived={derived} user={user}

@@ -30,7 +30,8 @@ Een leeromgeving voor Apex-leden in de stijl van Huddle, gebouwd als module voor
 
 ## Beginnen
 
-1. Lees [docs/04-open-punten.md](docs/04-open-punten.md): wat ik nog van je nodig heb.
+1. Lees [docs/05-verbeterlijst.md](docs/05-verbeterlijst.md): wat er nog moet gebeuren, op volgorde van belang.
+   [docs/04-open-punten.md](docs/04-open-punten.md) bevat de keuzes en aannames; [docs/06-apex-avatar.md](docs/06-apex-avatar.md) het voorstel en de vragen voor de avatar.
 2. Bekijk [docs/02-videocatalogus.md](docs/02-videocatalogus.md): alle video's, per fase en thema.
 3. Installeer met [docs/03-installatie-base44.md](docs/03-installatie-base44.md).
 
@@ -40,4 +41,5 @@ Pas je de content liever in bulk aan dan in het beheerscherm? Bewerk dan `tools/
 
 ```bash
 python3 tools/build_seed.py && python3 tools/build_catalogus.py
+cd prototype && npm test   # controleert rechten, deadlines, quiz en de inhoud
 ```

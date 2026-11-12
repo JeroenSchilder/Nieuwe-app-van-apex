@@ -68,7 +68,7 @@ export default function AssignmentPanel({ assignment, lesson, module, track, der
           </div>
         )}
 
-        {closed && !existing && (
+        {closed && (!existing || status === "concept") && (
           <p className="flex items-center gap-2 rounded-lg bg-muted p-3 text-sm"><Lock className="h-4 w-4" /> De deadline is verstreken. Inleveren is niet meer mogelijk.</p>
         )}
 

@@ -1,5 +1,7 @@
 // LET OP: NIET als nieuw bestand plaatsen. Voeg deze 6 velden toe aan de 'properties'
 // van je BESTAANDE base44/entities/User.jsonc (bestaande velden laten staan).
+// Alle velden behalve apex_phone zijn vergrendeld: een lid kan ze niet zelf wijzigen.
+// Jij wijzigt ze via Beheer -> Leden & toegang (functie leer-toegang) of in het Base44-dashboard.
 {
   "name": "User",
   "type": "object",
@@ -36,16 +38,37 @@
     },
     "apex_coach_email": {
       "type": "string",
-      "description": "E-mail van de vaste coach van dit lid"
+      "description": "E-mail van de vaste coach van dit lid",
+      "rls": {
+        "update": {
+          "user_condition": {
+            "collaborator_role": "editor"
+          }
+        }
+      }
     },
     "apex_cohort": {
       "type": "string",
-      "description": "Key van de ronde (LeerCohort) voor de 90 dagen challenge"
+      "description": "Key van de ronde (LeerCohort) voor de 90 dagen challenge",
+      "rls": {
+        "update": {
+          "user_condition": {
+            "collaborator_role": "editor"
+          }
+        }
+      }
     },
     "apex_start_date": {
       "type": "string",
       "format": "date",
-      "description": "Startdatum traject"
+      "description": "Startdatum traject",
+      "rls": {
+        "update": {
+          "user_condition": {
+            "collaborator_role": "editor"
+          }
+        }
+      }
     },
     "apex_phone": {
       "type": "string",

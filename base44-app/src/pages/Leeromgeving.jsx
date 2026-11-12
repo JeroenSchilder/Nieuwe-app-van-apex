@@ -57,7 +57,7 @@ export default function Leeromgeving() {
     <div className="min-h-screen bg-background text-foreground">
       <LeerHeader user={user} tab={tab} onTab={(t) => go({ tab: t })} badge={unseen} />
       <main className="mx-auto max-w-5xl px-4 py-6 pb-24">{body}</main>
-      <CoachChat derived={derived} user={user} onOpenLesson={(id) => go({ tab, les: id })} />
+      <CoachChat derived={derived} onOpenLesson={(id) => go({ tab, les: id })} />
     </div>
   );
 }

@@ -7,6 +7,9 @@
 import { createClientFromRequest } from "npm:@base44/sdk";
 
 const DAY = 24 * 60 * 60 * 1000;
+const MAX = 5000;
+// Kalenderdatum in Nederlandse tijd (jjjj-mm-dd), ongeacht de tijdzone van de server.
+const nlDate = (d) => new Date(d).toLocaleDateString("sv-SE", { timeZone: "Europe/Amsterdam" });
 const DEFAULTS = {
   enabled: false, test_mode: true, days: [7, 30, 30], min_progress: 0, max_progress: 90,
   subject: "{voornaam}, je volgende stap staat klaar",
@@ -41,9 +44,11 @@ export default async function (req) {
 
   // ---------- 1. Inactieve leden ----------
   const [users, progress, subs, lessons, modules, tracks, log] = await Promise.all([
-    db.User.list(), db.LeerVoortgang.list("-created_date", 10000), db.LeerInzending.list("-updated_date", 10000),
-    db.LeerLes.list("order", 5000), db.LeerModule.list("order", 1000), db.LeerTraject.list("order", 100),
-    db.LeerHerinnering.filter({ kind: "inactief" }, "-sent_at", 10000),
+    // Base44 geeft maximaal 5.000 records per aanvraag; nieuwste eerst, zodat recente activiteit altijd meetelt.
+    db.User.list("-created_date", MAX), db.LeerVoortgang.list("-created_date", MAX), db.LeerInzending.list("-updated_date", MAX),
+    db.LeerLes.list("order", MAX, 0, ["id", "title", "order", "track_key", "module_id", "access_packages", "published"]),
+    db.LeerModule.list("order", 1000), db.LeerTraject.list("order", 100),
+    db.LeerHerinnering.filter({ kind: "inactief" }, "-sent_at", MAX),
   ]);
   const moduleOrder = Object.fromEntries(modules.map((m) => [m.id, m.order ?? 0]));
   const trackByKey = Object.fromEntries(tracks.map((t) => [t.key, t]));
@@ -90,7 +95,9 @@ export default async function (req) {
 
   // ---------- 2. Agenda: herinnering de dag van tevoren ----------
   if (cfg.event_reminders) {
-    const events = (await db.LeerEvent.list("start", 500)).filter((e) => time(e.start) > now + 12 * 3600000 && time(e.start) < now + 36 * 3600000);
+    // Alle agenda-items die morgen (Nederlandse tijd) plaatsvinden.
+    const tomorrow = nlDate(now + DAY);
+    const events = (await db.LeerEvent.list("-start", 1000)).filter((e) => nlDate(e.start) === tomorrow);
     for (const e of events) {
       const regs = await db.LeerAanmelding.filter({ event_id: e.id, status: "aangemeld" });
       for (const r of regs.filter((x) => !x.reminder_sent)) {

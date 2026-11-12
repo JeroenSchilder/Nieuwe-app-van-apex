@@ -27,6 +27,7 @@ export default function LessonEditor({ lesson, content, onBack, onSaved }) {
 
   const save = async () => {
     setBusy(true);
+    if (!l.needs_review) l.review_note = "";
     const data = { ...l, vimeo_id: parsed?.id || "", vimeo_hash: parsed?.hash || "", action_links: textToLinks(links),
       key_points: points.split("\n").map((s) => s.trim()).filter(Boolean) };
     if (!data.access_packages.includes("alles")) data.access_packages = [...data.access_packages, "alles"];
@@ -43,6 +44,7 @@ export default function LessonEditor({ lesson, content, onBack, onSaved }) {
   return (
     <div className="space-y-5">
       <button onClick={onBack} className="flex items-center gap-1 text-sm text-muted-foreground"><ArrowLeft className="h-4 w-4" /> Terug naar lijst</button>
+      {l.needs_review && l.review_note && <p className="rounded-lg border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">Nog controleren: {l.review_note.replace(/^\d · /, "")}</p>}
       <div className="grid gap-4 lg:grid-cols-2">
         <div className="space-y-4">
           <div className="space-y-2"><Label>Titel</Label><Input value={l.title || ""} onChange={(e) => set("title", e.target.value)} /></div>

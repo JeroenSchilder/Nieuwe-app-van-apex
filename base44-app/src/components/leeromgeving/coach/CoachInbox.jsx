@@ -12,10 +12,12 @@ const FILTERS = [
 
 export default function CoachInbox({ submissions, assignmentsById, memberFilter, onClearMember, onOpen }) {
   const [filter, setFilter] = useState("todo");
-  const test = FILTERS.find((f) => f.key === filter).test;
-  const list = submissions
-    .filter((s) => (!memberFilter || s.member_email === memberFilter) && test(s))
-    .filter((s) => filter !== "todo" || assignmentsById[s.opdracht_id]?.coach_review !== false);
+  // Quizzen worden automatisch nagekeken; opdrachten zonder coach-feedback hoeven niet beoordeeld te worden.
+  const isQuiz = (s) => s.score != null || assignmentsById[s.opdracht_id]?.kind === "quiz";
+  const matches = (f, s) => (!memberFilter || s.member_email === memberFilter) && f.test(s)
+    && (f.key === "all" || (!isQuiz(s) && assignmentsById[s.opdracht_id]?.coach_review !== false));
+  const active = FILTERS.find((f) => f.key === filter);
+  const list = submissions.filter((s) => matches(active, s));
 
   return (
     <div className="space-y-4">
@@ -23,7 +25,7 @@ export default function CoachInbox({ submissions, assignmentsById, memberFilter,
         {FILTERS.map((f) => (
           <button key={f.key} onClick={() => setFilter(f.key)}
             className={`rounded-full border px-3 py-1.5 text-sm ${filter === f.key ? "border-primary bg-primary text-primary-foreground" : "hover:border-primary"}`}>
-            {f.label} ({submissions.filter((s) => (!memberFilter || s.member_email === memberFilter) && f.test(s)).length})
+            {f.label} ({submissions.filter((s) => matches(f, s)).length})
           </button>
         ))}
         {memberFilter && <Badge variant="secondary" className="cursor-pointer" onClick={onClearMember}>{memberFilter} ✕</Badge>}

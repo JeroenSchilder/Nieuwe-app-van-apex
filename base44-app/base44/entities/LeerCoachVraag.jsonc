@@ -1,0 +1,68 @@
+{
+  "name": "LeerCoachVraag",
+  "type": "object",
+  "description": "Vraag van een lid aan de A.I.-coach, met het antwoord (logboek en daglimiet)",
+  "properties": {
+    "member_email": {
+      "type": "string",
+      "description": "E-mail lid"
+    },
+    "member_name": {
+      "type": "string",
+      "description": "Naam lid"
+    },
+    "question": {
+      "type": "string",
+      "description": "Vraag"
+    },
+    "answer": {
+      "type": "string",
+      "description": "Antwoord"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Titels van de gebruikte lessen"
+    },
+    "asked_at": {
+      "type": "string",
+      "description": "Gesteld op",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "member_email",
+    "question"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "$or": [
+        {
+          "data.member_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

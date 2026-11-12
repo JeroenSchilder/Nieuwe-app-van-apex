@@ -1,17 +1,29 @@
 import { base44 } from "@/api/base44Client";
 import { userField } from "./access";
+import { scoreQuiz } from "./quiz";
 
 const E = () => base44.entities;
 const MAX = 2000;
 
 const byOrder = (a, b) => (a.order ?? 0) - (b.order ?? 0);
 
+// Velden die de overzichten nodig hebben. De lange tekst (body) en het transcript worden pas
+// opgehaald als een les wordt geopend (loadLesson); dat scheelt het grootste deel van de laadtijd.
+const LESSON_LIST_FIELDS = ["id", "ref", "track_key", "module_id", "title", "order", "step_label", "summary", "key_points",
+  "vimeo_id", "vimeo_hash", "video_url", "duration_min", "thumbnail_url", "categories", "assignment_id", "access_packages",
+  "completion", "live_session", "published", "needs_review", "review_note", "source"];
+
+export async function loadLesson(id) {
+  return E().LeerLes.get(id);
+}
+
 // Alle content in één keer. LeerLes wordt door RLS al gefilterd op de pakketten van de gebruiker.
-export async function loadContent() {
+// full = true haalt ook body en transcript op (alleen nodig voor export).
+export async function loadContent({ full = false } = {}) {
   const [tracks, modules, lessons, assignments, packages, cohorts] = await Promise.all([
     E().LeerTraject.list("order", 100),
     E().LeerModule.list("order", 500),
-    E().LeerLes.list("order", MAX),
+    E().LeerLes.list("order", MAX, 0, full ? undefined : LESSON_LIST_FIELDS),
     E().LeerOpdracht.list("-created_date", 500),
     E().LeerPakket.list("order", 50),
     E().LeerCohort.list("-start_date", 100),
@@ -155,13 +167,6 @@ export async function loadAllRegistrations() {
 
 // ---- Quiz ------------------------------------------------------------------
 
-export function scoreQuiz(assignment, answers) {
-  const qs = assignment.fields.filter((f) => f.type === "quiz");
-  const good = qs.filter((f) => answers[f.key] !== undefined && answers[f.key] === f.correct).length;
-  const score = qs.length ? Math.round((good / qs.length) * 100) : 0;
-  return { score, good, total: qs.length, passed: score >= (assignment.pass_percentage ?? 70) };
-}
-
 export async function saveQuizAttempt({ user, assignment, lesson, answers }) {
   const r = scoreQuiz(assignment, answers);
   await E().LeerInzending.create({
@@ -239,5 +244,13 @@ export async function addCancellation(data) {
 
 export async function checkCancellation(id) {
   const res = await base44.functions.invoke("leer-afmelding-check", { afmelding_id: id, dry_run: true });
+  return res.data;
+}
+
+// ---- A.I.-coach ------------------------------------------------------------
+
+// De coach draait in de backend-functie leer-coach: die zoekt alleen in lessen waar het lid toegang toe heeft.
+export async function askCoach(question) {
+  const res = await base44.functions.invoke("leer-coach", { question });
   return res.data;
 }

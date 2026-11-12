@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { Search, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import LessonTile from "./LessonTile";
-import { CATEGORIES, NEEDS } from "../lib/config";
+import { CATEGORIES, CATEGORY_LABEL, NEEDS } from "../lib/config";
 
 // Alle lessen waar het lid toegang toe heeft, te filteren op thema, behoefte en zoekterm.
 export default function LibraryView({ derived, onOpenLesson }) {
@@ -16,12 +16,15 @@ export default function LibraryView({ derived, onOpenLesson }) {
       .filter((l) => (seen.has(l.id) ? false : seen.add(l.id)));
   }, [derived]);
 
+  // Zoektekst per les één keer opbouwen (titel, samenvatting, kernpunten en thema's).
+  const index = useMemo(() => new Map(all.map((l) => [l.id, `${l.title} ${l.summary || ""} ${(l.key_points || []).join(" ")} ${(l.categories || []).map((c) => CATEGORY_LABEL[c] || c).join(" ")}`.toLowerCase()])), [all]);
+
   const available = new Set(all.flatMap((l) => l.categories || []));
   const active = need ? NEEDS.find((n) => n.key === need).categories : cats;
   const term = q.trim().toLowerCase();
   const list = all.filter((l) =>
     (active.length === 0 || (l.categories || []).some((c) => active.includes(c))) &&
-    (!term || `${l.title} ${l.summary} ${l.body}`.toLowerCase().includes(term)));
+    (!term || index.get(l.id).includes(term)));
 
   const toggle = (k) => { setNeed(null); setCats((c) => (c.includes(k) ? c.filter((x) => x !== k) : [...c, k])); };
 

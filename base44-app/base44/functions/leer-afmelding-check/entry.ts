@@ -4,7 +4,7 @@
 import { createClientFromRequest } from "npm:@base44/sdk";
 
 const DAY = 24 * 60 * 60 * 1000;
-export const DEFAULTS = {
+const DEFAULTS = {
   enabled: false, test_mode: true, threshold: 3, period_days: 30, late_hours: 0,
   notify_member: true, notify_trainer: true, trainer_emails: "", trainer_phone: "", whatsapp_webhook_url: "",
   member_subject: "{voornaam}, we missen je bij de training",
@@ -34,6 +34,8 @@ export default async function (req) {
 
   const a = await db.LeerAfmelding.get(afmelding_id);
   if (!a) return Response.json({ error: "Afmelding niet gevonden" }, { status: 404 });
+  // Eén melding per afmelding: een tweede aanroep voor dezelfde afmelding verstuurt niets opnieuw.
+  if (a.notified && dry_run !== true) return Response.json({ skipped: "voor deze afmelding is al een melding verstuurd" });
 
   // Is deze afmelding "laat"? (alleen relevant als late_hours > 0)
   const lateHours = Number(cfg.late_hours) || 0;

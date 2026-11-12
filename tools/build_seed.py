@@ -278,9 +278,9 @@ opdracht("op-why", "Mijn why", "fase2", "f2-l1",
 
 opdracht("op-puntab", "Punt A & Punt B", "fase2", "f2-l2",
          intro="Geef per pijler een cijfer (1-10) en beschrijf waar je nu staat (A) en waar je over 90 dagen wilt staan (B).",
-         fields=sum([[f(k + "_cijfer", label + ": cijfer nu", "scale", min=1, max=10),
-                      f(k + "_a", label + ": Punt A (nu)"),
-                      f(k + "_b", label + ": Punt B (over 90 dagen)")] for k, label in PIJLERS], []))
+         fields=sum([[f(k + "_cijfer", label + ": cijfer nu", "scale", min=1, max=10, required=True),
+                      f(k + "_a", label + ": Punt A (nu)", required=True),
+                      f(k + "_b", label + ": Punt B (over 90 dagen)", required=True)] for k, label in PIJLERS], []))
 
 opdracht("op-doelachter", "Het doel achter het doel", "fase2", "f2-l3",
          intro="Vraag steeds opnieuw 'waarom is dát belangrijk?' tot je bij de kern komt.",
@@ -417,9 +417,9 @@ WEKEN = [
      ["Dark side: gedrevenheid, moed, volharding, kracht, confronterend",
       "Light side: verbindend, geduldig, vriendelijk, accepterend, ontspannen",
       "Een krachtig persoon schakelt bewust tussen dark en light side"],
-     [f("g_gebeurtenis", "5G · Gebeurtenis"), f("g_gedachte", "5G · Gedachten"), f("g_gevoel", "5G · Gevoel"),
-      f("g_gedrag", "5G · Gedrag"), f("g_gevolg", "5G · Gevolg"),
-      f("ratio", "Welke ratio dark/light side geef je jezelf, en waarom?"),
+     [f("g_gebeurtenis", "5G · Gebeurtenis", required=True), f("g_gedachte", "5G · Gedachten", required=True),
+      f("g_gevoel", "5G · Gevoel"), f("g_gedrag", "5G · Gedrag"), f("g_gevolg", "5G · Gevolg", required=True),
+      f("ratio", "Welke ratio dark/light side geef je jezelf, en waarom?", required=True),
       f("werkbaar", "Waar is dit werkbaar voor je en waar niet?"),
       f("gewenst", "Welke ratio zou je willen zien? Wat maakt dat mogelijk?"),
       f("pijlers", "Een commitment per pijler waarvoor je moet shiften"),
@@ -760,6 +760,28 @@ for l in LESSEN:
     if vid in VIMEO and not l.get("duration_min"):
         l["duration_min"] = round(VIMEO[vid]["dur"] / 60)
 
+# Waarom moet een les nog nagekeken worden? Zo kan de coach de lijst op prioriteit afwerken.
+VEROUDERD = re.compile(r"deze mail|in de mail|per mail|mailtje|reageer|volgende mail|vorige mail|kennisbank|mijn doelen|mijn account|"
+                       r"op de website|intakeformulier|Apex Basis|Apex Premium|Apex Deluxe|lidmaatschap", re.I)
+SAM_IDS = {s_["id"]: s_ for s_ in SAM.values()}
+for l in LESSEN:
+    note = ""
+    if l.get("needs_review"):
+        sam = SAM_IDS.get(l.get("vimeo_id"))
+        if l.get("body") and VEROUDERD.search(l["body"]):
+            note = "1 · Verwijst naar een mail, de oude app of een oud pakket: tekst aanpassen"
+        elif sam and sam.get("privacy_let_op"):
+            note = "1 · In de video wordt iemand bij naam genoemd: wil je deze tonen?"
+        elif l.get("vimeo_id") and not l.get("summary") and not l.get("body"):
+            note = "2 · Alleen video en titel: samenvatting ontbreekt (geen ondertitels in Vimeo)"
+        elif (l.get("summary") or "").startswith("(op basis van titel)"):
+            note = "2 · Samenvatting gemaakt op basis van de titel: controleren"
+        elif l.get("source") == "kennisreeks-mail":
+            note = "3 · Tekst uit de oude mailreeks: doorlezen"
+        else:
+            note = "3 · Nieuw gemaakt: doorlezen"
+    l["review_note"] = note
+
 # Certificaat bij het afronden van deze leerlijnen.
 for t in TRAJECTEN:
     t["certificate"] = t["key"] in ("fase2", "challenge90", "performance")
@@ -788,32 +810,42 @@ for o in OPDRACHTEN:
 # AGENDA — voorbeelden; aanpassen in Beheer → Agenda
 # ---------------------------------------------------------------------------
 import datetime as _dt
+from zoneinfo import ZoneInfo
+_NL = ZoneInfo("Europe/Amsterdam")
+
+
+def nl_iso(d):
+    """Nederlandse kloktijd -> UTC ISO-string (houdt rekening met zomer- en wintertijd)."""
+    return d.replace(tzinfo=_NL).astimezone(_dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
+
+
 EVENTS = []
 APEX_ADRES = "Apex Performance Centre, Papaverstraat 26b, Volendam (1e etage)"
 gc = _dt.datetime(2026, 12, 10, 20, 15)
 for i in range(6):  # groepscoaching: elke 4 weken op donderdag
     d = gc + _dt.timedelta(weeks=4 * i)
-    EVENTS.append(dict(ref=f"ev-gc-{i+1}", title="Groepscoaching", kind="groepscoaching", start=d.strftime("%Y-%m-%dT%H:%M:00+01:00"),
-                       end=(d + _dt.timedelta(hours=1, minutes=15)).strftime("%Y-%m-%dT%H:%M:00+01:00"), location=APEX_ADRES,
+    EVENTS.append(dict(ref=f"ev-gc-{i+1}", title="Groepscoaching", kind="groepscoaching", start=nl_iso(d),
+                       end=nl_iso(d + _dt.timedelta(hours=1, minutes=15)), location=APEX_ADRES,
                        description="Samen met een groep gelijkgestemden stel je doelen, creëer je focus en word je comfortabel met het oncomfortabele.",
                        registration=True, access_packages=["small_group", "small_group_plus", "performance", "alles"]))
 c0 = _dt.datetime(2026, 11, 16, 20, 15)
 EVENTS.append(dict(ref="ev-c90-kickoff", title="Kickoff 90 Dagen Challenge", kind="kickoff",
-                   start=(c0 - _dt.timedelta(days=2, hours=10, minutes=15)).strftime("%Y-%m-%dT%H:%M:00+01:00"),
-                   end=(c0 - _dt.timedelta(days=2, hours=6, minutes=15)).strftime("%Y-%m-%dT%H:%M:00+01:00"),
+                   start=nl_iso(c0 - _dt.timedelta(days=2, hours=10, minutes=15)),
+                   end=nl_iso(c0 - _dt.timedelta(days=2, hours=6, minutes=15)),
                    location=APEX_ADRES, registration=True, cohort_key="c90-voorbeeld",
                    description="Live op locatie: de fundamenten voor de komende 90 dagen.", access_packages=CHALLENGE))
 for w in range(1, 13):
     d = c0 + _dt.timedelta(weeks=w)
     EVENTS.append(dict(ref=f"ev-c90-s{w}", title=f"90 Dagen Challenge · coachingsessie {w}", kind="sessie",
-                       start=d.strftime("%Y-%m-%dT%H:%M:00+01:00"), end=(d + _dt.timedelta(hours=1, minutes=15)).strftime("%Y-%m-%dT%H:%M:00+01:00"),
+                       start=nl_iso(d), end=nl_iso(d + _dt.timedelta(hours=1, minutes=15)),
                        online_url="", registration=False, cohort_key="c90-voorbeeld",
                        description="Online via Zoom. De link vind je bovenaan je leerlijn.", access_packages=CHALLENGE))
 
 INSTELLINGEN = [dict(key="herinneringen", enabled=False, test_mode=True, days=[7, 30, 30], min_progress=0, max_progress=90,
                      subject="{voornaam}, je volgende stap staat klaar",
                      body="Hoi {voornaam},\n\nHet is alweer even geleden dat je in de Apex leeromgeving bent geweest. Je volgende stap staat voor je klaar: {les} ({leerlijn}).\n\nPak hem vandaag op, al is het maar tien minuten: {link}\n\nSportieve groet,\nJeroen",
-                     app_url="https://app.apexonlinecoaching.nl/leren", event_reminders=True, from_name="Apex Online Coaching"),
+                     app_url="https://app.apexonlinecoaching.nl/leren", event_reminders=True, from_name="Apex Online Coaching",
+                     coach_daily_limit=15),
                dict(key="afmeldingen", enabled=False, test_mode=True, threshold=3, period_days=30, late_hours=0,
                     notify_member=True, notify_trainer=True, trainer_emails="", trainer_phone="", whatsapp_webhook_url="",
                     member_subject="{voornaam}, we missen je bij de training",

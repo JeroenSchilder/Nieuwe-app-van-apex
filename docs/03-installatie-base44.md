@@ -6,9 +6,10 @@ De module is geschreven volgens de officiële Base44-conventies: Vite + React, s
 
 | Map in `base44-app/` | Inhoud |
 |---|---|
-| `base44/entities/` | 12 nieuwe entiteiten (`Leer*.jsonc`), met rechten (RLS): content, voortgang, inzendingen, agenda, aanmeldingen, instellingen, herinneringenlog |
+| `base44/entities/` | 14 nieuwe entiteiten (`Leer*.jsonc`), met rechten (RLS): content, voortgang, inzendingen, agenda, aan- en afmeldingen, instellingen, herinneringenlog en vragen aan de coach |
 | `base44/entities/User.velden-toevoegen.jsonc` | 5 velden die je **toevoegt** aan je bestaande `User.jsonc`. Dit is geen nieuw bestand |
 | `base44/functions/leer-toegang/entry.ts` | Backend-functie waarmee een admin pakketten toekent |
+| `base44/functions/leer-coach/` | De A.I.-coach (`entry.ts` + `zoeken.js`). Antwoordt alleen uit lessen van het eigen pakket, met daglimiet en logboek |
 | `base44/functions/leer-herinneringen/entry.ts` | Backend-functie voor de herinneringen: inactieve leden (7/30/30 dagen) en agenda (dag van tevoren) |
 | `base44/workflows/Leeromgeving herinneringen.jsonc` | Workflow die die functie elke ochtend om 08:47 draait (Builder-plan of hoger) |
 | `base44/functions/leer-afmelding-check/entry.ts` | Controleert na elke afmelding of iemand vaker dan de drempel heeft afgezegd, en stuurt dan een bericht aan het lid en de trainer |
@@ -58,15 +59,15 @@ Kopieer de bestanden via de code-editor van Base44. Laat de AI van Base44 alleen
 
 ## Stap 1: User-velden
 
-Open in je app `base44/entities/User.jsonc` en voeg de 5 velden uit `User.velden-toevoegen.jsonc` toe aan `properties`. Laat de bestaande velden staan.
+Open in je app `base44/entities/User.jsonc` en voeg de 6 velden uit `User.velden-toevoegen.jsonc` toe aan `properties`. Laat de bestaande velden staan.
 
-`apex_packages` en `apex_role` zijn vergrendeld: een lid kan zichzelf geen toegang geven. Jij past ze aan via **Beheer → Leden & toegang**, dat de functie `leer-toegang` gebruikt, of via het Base44-dashboard (Data → Users).
+Alle velden behalve het mobiele nummer zijn vergrendeld: een lid kan zichzelf geen toegang, coach, ronde of startdatum geven. Jij past ze aan via **Beheer → Leden & toegang**, dat de functie `leer-toegang` gebruikt, of via het Base44-dashboard (Data → Users).
 
 > Backend-functies vragen een betaald Base44-abonnement. Heb je dat niet, dan zet je pakketten via het dashboard.
 
 ## Stap 2: entiteiten, functies en workflow
 
-Zet de 12 `Leer*.jsonc`-bestanden in `base44/entities/`, de mappen `leer-toegang` en `leer-herinneringen` in `base44/functions/`, en het workflowbestand in `base44/workflows/`. In de sandbox staan ze live zodra ze zijn weggeschreven.
+Zet de 14 `Leer*.jsonc`-bestanden in `base44/entities/`, alle vijf de mappen uit `base44/functions/` en de twee workflowbestanden in `base44/workflows/`. In de sandbox staan ze live zodra ze zijn weggeschreven.
 
 ## Stap 2b: herinneringen aanzetten
 
@@ -144,4 +145,5 @@ De module gebruikt de thema-tokens van je app (`bg-primary`, `text-muted-foregro
 |---|---|---|
 | LeerLes | alleen als een pakket van het lid in `access_packages` staat (of admin) | admin |
 | LeerTraject / Module / Opdracht / Pakket / Cohort | ingelogde gebruikers | admin |
+| LeerInstelling / LeerHerinnering | alleen admin | admin |
 | LeerInzending / LeerVoortgang | het lid zelf, de coach (`coach_email`) en admin | het lid zelf, en de coach voor feedback |

@@ -12,7 +12,7 @@ const TABS = [
 
 export default function LeerHeader({ user, tab, onTab, badge = 0 }) {
   return (
-    <header className="sticky top-0 z-20 border-b bg-background/95 backdrop-blur">
+    <header className="sticky top-0 z-20 border-b bg-background/95 backdrop-blur print:hidden">
       <div className="mx-auto flex max-w-5xl items-center gap-2 px-4 py-3">
         <div className="mr-auto">
           <p className="text-xs font-semibold uppercase tracking-widest text-primary">Apex Leeromgeving</p>

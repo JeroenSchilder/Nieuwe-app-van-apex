@@ -29,7 +29,7 @@ export default function VimeoPlayer({ id, hash, title, onEnded, seek }) {
   useEffect(() => {
     if (!onEnded) return undefined;
     const handler = (e) => {
-      if (!String(e.origin).includes("vimeo.com")) return;
+      if (e.origin !== "https://player.vimeo.com" || e.source !== ref.current?.contentWindow) return;
       let msg = e.data;
       if (typeof msg === "string") {
         try { msg = JSON.parse(msg); } catch { return; }

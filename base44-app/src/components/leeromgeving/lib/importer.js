@@ -79,7 +79,7 @@ export async function importSeed(seed, { overwrite = false, log = () => {} } = {
 
 // Exporteert de huidige content in hetzelfde formaat (back-up of overzetten naar een andere app).
 export async function exportContent() {
-  const c = await loadContent();
+  const c = await loadContent({ full: true });
   const modRef = Object.fromEntries(c.modules.map((m) => [m.id, m.ref || m.id]));
   const opRef = Object.fromEntries(c.assignments.map((a) => [a.id, a.ref || a.id]));
   const lesRef = Object.fromEntries(c.lessons.map((l) => [l.id, l.ref || l.id]));
@@ -87,6 +87,8 @@ export async function exportContent() {
   return {
     version: 1,
     exported_at: new Date().toISOString(),
+    evenementen: (await E().LeerEvent.list("start", 5000)).map(clean),
+    instellingen: (await E().LeerInstelling.list(null, 50)).map(clean),
     pakketten: c.packages.map(clean),
     trajecten: c.tracks.map(clean),
     cohorten: c.cohorts.map(clean),

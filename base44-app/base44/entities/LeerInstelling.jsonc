@@ -102,13 +102,21 @@
     "whatsapp_webhook_url": {
       "type": "string",
       "description": "Afmeldingen: webhook voor WhatsApp (bijv. Zapier/Make/Twilio). Ontvangt JSON {to, message, name, type}"
+    },
+    "coach_daily_limit": {
+      "type": "number",
+      "description": "A.I.-coach: maximaal aantal vragen per lid per dag"
     }
   },
   "required": [
     "key"
   ],
   "rls": {
-    "read": {},
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
     "create": {
       "user_condition": {
         "role": "admin"

@@ -1,7 +1,9 @@
 // Nagebootste Base44-client voor de lokale preview. Data staat in localStorage van de browser.
 // Bootst ook de RLS-regels na (LeerLes per pakket; inzendingen/voortgang alleen eigen, coach of admin).
 
-const KEY = "apex-leeromgeving-demo-v5";
+import { findLessons } from "../../../base44-app/base44/functions/leer-coach/zoeken.js";
+
+const KEY = "apex-leeromgeving-demo-v6";
 const listeners = new Set();
 
 function load() {
@@ -47,7 +49,8 @@ function canRead(entity, rec, u) {
   if (u.role === "admin") return true;
   if (entity === "LeerLes" || entity === "LeerEvent") return (rec.access_packages || []).some((p) => (u.apex_packages || []).includes(p));
   if (entity === "LeerAanmelding" || entity === "LeerAfmelding") return rec.created_by_id === u.id || (rec.coach_email && rec.coach_email === u.email);
-  if (entity === "LeerHerinnering") return false;
+  if (entity === "LeerHerinnering" || entity === "LeerInstelling") return false;
+  if (entity === "LeerCoachVraag") return rec.member_email === u.email;
   if (entity === "LeerInzending" || entity === "LeerVoortgang") {
     return rec.created_by_id === u.id || (rec.coach_email && rec.coach_email === u.email);
   }
@@ -66,14 +69,17 @@ function sortRows(rows, sort) {
   });
 }
 
+// Net als in Base44: met een veldenlijst komen alleen die velden terug.
+const pick = (rows, fields) => (fields ? rows.map((r) => Object.fromEntries(fields.filter((f) => f in r).map((f) => [f, r[f]]))) : rows);
+
 const delay = (v) => new Promise((res) => setTimeout(() => res(structuredClone(v)), 40));
 
 function handler(name) {
   const rows = () => demo.table(name);
   const visible = () => rows().filter((r) => canRead(name, r, me()));
   return {
-    async list(sort, limit = 50) { return delay(sortRows(visible(), sort).slice(0, limit)); },
-    async filter(query, sort, limit = 50) { return delay(sortRows(visible().filter((r) => matches(r, query)), sort).slice(0, limit)); },
+    async list(sort, limit = 50, skip = 0, fields) { return delay(pick(sortRows(visible(), sort).slice(skip, skip + limit), fields)); },
+    async filter(query, sort, limit = 50, skip = 0, fields) { return delay(pick(sortRows(visible().filter((r) => matches(r, query)), sort).slice(skip, skip + limit), fields)); },
     async get(id) { return delay(visible().find((r) => r.id === id)); },
     async create(data) {
       const u = me();
@@ -94,6 +100,18 @@ function handler(name) {
 }
 
 const entities = new Proxy({}, { get: (_, name) => handler(name) });
+
+// Preview van base44/functions/leer-coach: dezelfde zoekfunctie, maar zonder taalmodel.
+function mockCoach(question) {
+  const u = me();
+  const lessons = demo.table("LeerLes").filter((l) => canRead("LeerLes", l, u) && l.published !== false);
+  const found = findLessons(question, lessons);
+  if (!found.length) return { answer: "Daar heb ik in jouw lessen niets over gevonden. Stel je vraag aan je coach, die helpt je verder.", sources: [] };
+  return {
+    answer: `(Preview zonder A.I.) In de les "${found[0].title}" vind je hier meer over. ${found[0].summary || ""}`.trim(),
+    sources: found.slice(0, 2).map((l) => ({ id: l.id, title: l.title })),
+  };
+}
 
 // Vereenvoudigde versie van base44/functions/leer-afmelding-check: logt alleen (proefmodus), verstuurt niets.
 function mockCancellationCheck(a) {
@@ -146,20 +164,9 @@ export const base44 = {
       persist();
     },
   },
-  integrations: {
-    Core: {
-      // Preview zonder taalmodel: geeft de samenvatting van de best passende les terug.
-      async InvokeLLM({ prompt }) {
-        const m = prompt.match(/\[1\] ([^\n]+)\n([^\n]*)/);
-        const title = m ? m[1] : "je lessen";
-        const sum = m && m[2] ? m[2] : "";
-        await new Promise((r) => setTimeout(r, 400));
-        return { antwoord: `(Preview zonder A.I.) In de les "${title}" vind je hier meer over. ${sum}`.trim(), bronnen: [1] };
-      },
-    },
-  },
   functions: {
     async invoke(fn, payload) {
+      if (fn === "leer-coach") return { data: mockCoach(payload.question) };
       if (me()?.role !== "admin") throw Object.assign(new Error("Geen toegang"), { response: { status: 403 } });
       if (fn === "leer-herinneringen") return { data: mockReminders() };
       if (fn !== "leer-toegang") throw Object.assign(new Error("Onbekende functie"), { response: { status: 404 } });

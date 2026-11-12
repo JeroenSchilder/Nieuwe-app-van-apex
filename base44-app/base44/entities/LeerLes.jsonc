@@ -141,6 +141,10 @@
     "transcript": {
       "type": "string",
       "description": "Transcript van de video: per regel 'seconden|tekst'"
+    },
+    "review_note": {
+      "type": "string",
+      "description": "Waarom deze les nog nagekeken moet worden (begint met prioriteit 1, 2 of 3)"
     }
   },
   "required": [
