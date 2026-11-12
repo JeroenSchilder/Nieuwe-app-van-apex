@@ -40,5 +40,21 @@
     --input: 192 30% 18%;
   }
 }
+/* expliciete keuze voor donker in de viewer */
+:root[data-theme="dark"] {
+    --background: 192 100% 5%;
+    --foreground: 40 30% 94%;
+    --card: 192 60% 8%;
+    --card-foreground: 40 30% 94%;
+    --secondary: 192 40% 14%;
+    --secondary-foreground: 40 30% 94%;
+    --muted: 192 40% 12%;
+    --muted-foreground: 40 10% 68%;
+    --accent: 192 40% 14%;
+    --accent-foreground: 40 30% 94%;
+    --border: 192 30% 18%;
+    --input: 192 30% 18%;
+    color-scheme: dark;
+}
 * { border-color: hsl(var(--border)); }
 body { background: hsl(var(--background)); color: hsl(var(--foreground)); font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }

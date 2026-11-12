@@ -24,6 +24,7 @@ export default function DemoBar() {
           {LABEL[u.id]}
         </button>
       ))}
+      <span className="opacity-70">Video's spelen alleen in je eigen app.</span>
       <button onClick={() => { demo.reset(); window.location.reload(); }} className="ml-auto underline opacity-80">Demo resetten</button>
     </div>
   );
