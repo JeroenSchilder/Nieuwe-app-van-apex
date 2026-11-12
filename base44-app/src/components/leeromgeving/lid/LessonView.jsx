@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import VimeoPlayer from "../VimeoPlayer";
 import LessonContent from "./LessonContent";
+import TranscriptPanel from "./TranscriptPanel";
 import AssignmentPanel from "./AssignmentPanel";
 import { markComplete, markIncomplete } from "../lib/api";
 import { CATEGORY_LABEL } from "../lib/config";
@@ -11,6 +12,7 @@ import { CATEGORY_LABEL } from "../lib/config";
 export default function LessonView({ lessonId, derived, user, mine, refreshMine, onBack, onOpenLesson }) {
   const entry = derived.lessonIndex[lessonId];
   const [busy, setBusy] = useState(false);
+  const [seek, setSeek] = useState(null);
 
   if (!entry) {
     return (
@@ -72,7 +74,11 @@ export default function LessonView({ lessonId, derived, user, mine, refreshMine,
 
       {lesson.vimeo_id && (
         <VimeoPlayer id={lesson.vimeo_id} hash={lesson.vimeo_hash} title={lesson.title}
-          onEnded={lesson.completion === "video_einde" ? complete : undefined} />
+          onEnded={lesson.completion === "video_einde" ? complete : undefined} seek={seek} />
+      )}
+      {lesson.vimeo_id && lesson.transcript && (
+        <TranscriptPanel transcript={lesson.transcript}
+          onSeek={(t) => { setSeek({ t, n: Date.now() }); window.scrollTo({ top: 0, behavior: "smooth" }); }} />
       )}
       {!lesson.vimeo_id && lesson.video_url && (
         <a href={lesson.video_url} target="_blank" rel="noreferrer" className="text-primary underline">Bekijk de video</a>

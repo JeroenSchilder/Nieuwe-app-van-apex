@@ -133,6 +133,14 @@
     "ref": {
       "type": "string",
       "description": "Bron-referentie (import)"
+    },
+    "thumbnail_url": {
+      "type": "string",
+      "description": "Afbeelding bij de les (Vimeo-thumbnail)"
+    },
+    "transcript": {
+      "type": "string",
+      "description": "Transcript van de video: per regel 'seconden|tekst'"
     }
   },
   "required": [

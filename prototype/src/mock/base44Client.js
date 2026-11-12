@@ -1,7 +1,7 @@
 // Nagebootste Base44-client voor de lokale preview. Data staat in localStorage van de browser.
 // Bootst ook de RLS-regels na (LeerLes per pakket; inzendingen/voortgang alleen eigen, coach of admin).
 
-const KEY = "apex-leeromgeving-demo-v2";
+const KEY = "apex-leeromgeving-demo-v3";
 const listeners = new Set();
 
 function load() {
@@ -105,6 +105,18 @@ export const base44 = {
     async inviteUser(email) {
       demo.table("User").push({ id: uid(), email, full_name: email.split("@")[0], role: "user", apex_packages: [], created_date: now() });
       persist();
+    },
+  },
+  integrations: {
+    Core: {
+      // Preview zonder taalmodel: geeft de samenvatting van de best passende les terug.
+      async InvokeLLM({ prompt }) {
+        const m = prompt.match(/\[1\] ([^\n]+)\n([^\n]*)/);
+        const title = m ? m[1] : "je lessen";
+        const sum = m && m[2] ? m[2] : "";
+        await new Promise((r) => setTimeout(r, 400));
+        return { antwoord: `(Preview zonder A.I.) In de les "${title}" vind je hier meer over. ${sum}`.trim(), bronnen: [1] };
+      },
     },
   },
   functions: {

@@ -724,6 +724,20 @@ for l in list(LESSEN):
             l["vimeo_id"], l["vimeo_hash"] = "", ""
         print("niet meer in Vimeo:", l["title"])
 
+# Thumbnails (Vimeo) en doorzoekbare transcripts (Vimeo-ondertitels) bij video-lessen.
+THUMBS = json.loads((BRON / "vimeo-thumbnails.json").read_text()) if (BRON / "vimeo-thumbnails.json").exists() else {}
+TRANSCRIPTS = json.loads((BRON / "vimeo-transcripts.json").read_text()) if (BRON / "vimeo-transcripts.json").exists() else {}
+for l in LESSEN:
+    vid = l.get("vimeo_id")
+    l["thumbnail_url"] = THUMBS.get(vid, "") if vid else ""
+    l["transcript"] = TRANSCRIPTS.get(vid, "") if vid else ""
+    if vid in VIMEO and not l.get("duration_min"):
+        l["duration_min"] = round(VIMEO[vid]["dur"] / 60)
+
+# Certificaat bij het afronden van deze leerlijnen.
+for t in TRAJECTEN:
+    t["certificate"] = t["key"] in ("fase2", "challenge90", "performance")
+
 # ---------------------------------------------------------------------------
 COHORTEN = [dict(key="c90-voorbeeld", name="90 Dagen Challenge · voorbeeldronde", track_key="challenge90",
                  start_date="2026-11-16", session_info="Maandag 20:15 via Zoom", zoom_url="", active=True)]

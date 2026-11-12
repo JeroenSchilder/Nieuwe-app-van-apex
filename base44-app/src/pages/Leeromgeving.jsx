@@ -7,6 +7,7 @@ import TrackView from "@/components/leeromgeving/lid/TrackView";
 import LessonView from "@/components/leeromgeving/lid/LessonView";
 import LibraryView from "@/components/leeromgeving/lid/LibraryView";
 import MyAssignments from "@/components/leeromgeving/lid/MyAssignments";
+import CoachChat from "@/components/leeromgeving/lid/CoachChat";
 
 // Ledenomgeving. Navigatie via de URL: ?tab=home|bibliotheek|opdrachten, ?traject=<key>, ?les=<id>
 export default function Leeromgeving() {
@@ -39,7 +40,7 @@ export default function Leeromgeving() {
     body = <LessonView lessonId={lessonId} derived={derived} user={user} mine={mine} refreshMine={refreshMine}
       onBack={backFromLesson} onOpenLesson={openLesson} />;
   } else if (track) {
-    body = <TrackView track={track} derived={derived} onBack={() => go({ tab })} onOpenLesson={openLesson} />;
+    body = <TrackView track={track} derived={derived} user={user} onBack={() => go({ tab })} onOpenLesson={openLesson} />;
   } else if (tab === "bibliotheek") {
     body = <LibraryView derived={derived} onOpenLesson={openLesson} />;
   } else if (tab === "opdrachten") {
@@ -52,7 +53,8 @@ export default function Leeromgeving() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <LeerHeader user={user} tab={tab} onTab={(t) => go({ tab: t })} badge={unseen} />
-      <main className="mx-auto max-w-5xl px-4 py-6">{body}</main>
+      <main className="mx-auto max-w-5xl px-4 py-6 pb-24">{body}</main>
+      <CoachChat derived={derived} user={user} onOpenLesson={(id) => go({ tab, les: id })} />
     </div>
   );
 }

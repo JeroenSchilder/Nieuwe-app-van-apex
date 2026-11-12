@@ -50,27 +50,41 @@ function parseDate(d) {
   return new Date(y, m - 1, day);
 }
 
-// Startmoment van een week: maandag van week 1 + (week - 1) * 7 dagen, 00:00.
-export function weekStart(cohort, weekNumber) {
-  const start = parseDate(cohort?.start_date);
+// Startmoment van een week: startdatum + (week - 1) * 7 dagen, 00:00.
+export function weekStart(schedule, weekNumber) {
+  const start = parseDate(schedule?.start_date);
   if (!start || !weekNumber) return null;
   return new Date(start.getTime() + (weekNumber - 1) * 7 * DAY);
 }
 
-// Is een module vrijgegeven? Alleen relevant bij drip "wekelijks_cohort".
-export function moduleUnlock(module, track, cohort, user, now = new Date()) {
-  if (track?.drip !== "wekelijks_cohort" || isCoach(user)) return { open: true, opensAt: null };
-  const week = module?.week_number || 1;
+const DRIPS = ["wekelijks_cohort", "wekelijks_vanaf_start"];
+
+// Het schema van een leerlijn: de startdatum van de ronde (cohort) of de persoonlijke startdatum van het lid.
+export function trackSchedule(track, cohort, user) {
+  if (track?.drip === "wekelijks_cohort") return cohort ? { start_date: cohort.start_date, source: "ronde" } : null;
+  if (track?.drip === "wekelijks_vanaf_start") {
+    const start = userField(user, "apex_start_date");
+    return start ? { start_date: start, source: "start" } : null;
+  }
+  return null;
+}
+
+const weekOf = (module) => module?.week_number || module?.order || 1;
+
+// Is een module vrijgegeven? Alleen relevant bij een wekelijkse vrijgave.
+export function moduleUnlock(module, track, schedule, user, now = new Date()) {
+  if (!DRIPS.includes(track?.drip) || isCoach(user)) return { open: true, opensAt: null };
+  const week = weekOf(module);
   if (week <= 1) return { open: true, opensAt: null };
-  if (!cohort) return { open: false, opensAt: null, noCohort: true };
-  const opensAt = weekStart(cohort, week);
+  if (!schedule) return { open: false, opensAt: null, noSchedule: true };
+  const opensAt = weekStart(schedule, week);
   return { open: !opensAt || now >= opensAt, opensAt };
 }
 
 // Deadline van een opdracht: start van de week + deadline_day_offset dagen, 23:59:59.
-export function assignmentDeadline(assignment, module, track, cohort) {
-  if (assignment?.deadline_day_offset == null || track?.drip !== "wekelijks_cohort") return null;
-  const start = weekStart(cohort, module?.week_number || 1);
+export function assignmentDeadline(assignment, module, track, schedule) {
+  if (assignment?.deadline_day_offset == null || !DRIPS.includes(track?.drip)) return null;
+  const start = weekStart(schedule, weekOf(module));
   if (!start) return null;
   const d = new Date(start.getTime() + assignment.deadline_day_offset * DAY);
   d.setHours(23, 59, 59, 0);

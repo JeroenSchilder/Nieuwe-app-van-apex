@@ -1,45 +1,57 @@
 # Analyse: Huddle (thehuddle.nl) en wat we overnemen
 
-> **Bronnen:** thehuddle.nl, YouTube en de app stores waren vanuit deze omgeving niet direct bereikbaar. Deze analyse is gebaseerd op zoekresultaten over de site, de help-artikelen (help.thehuddle.nl), de app-listings en reviews (laura.nl, solopreneur.nl, onlinevibes.be, moneyinstyle.nl). De YouTube-reviews heb ik gevonden, maar niet kunnen afspelen.
+**Bronnen (november 2026):**
+- 32 pagina's van thehuddle.nl, doorgeklikt met een browser: alle functiepagina's uit het menu, prijzen, app, koppelingen en MCP.
+- De YouTube-demo *"Online programma maken met Huddle A.I. (in 30 minuten!)"* van Martijn van Tongeren, volledig via de ondertitels.
 
 ## Wat Huddle is
 
-Huddle is een Nederlands alles-in-één platform voor online cursussen, communities en coachprogramma's. Leden krijgen een eigen app.
+Huddle is een Nederlands platform voor online cursussen, community en coaching, met een gratis app voor leden. Ongeveer 5.500 ondernemers gebruiken het. Je betaalt per maand (Lite, Premium of Ultimate) en krijgt 14 dagen gratis proef. Hun drie pijlers:
 
-| Abonnement | Prijs (excl. btw) | Wat erbij zit |
+| E-learning | Community | Beheer |
 |---|---|---|
-| Lite | €15/mnd | Basis |
-| Premium | €49–59/mnd | Toegangsniveaus, drip, certificaten |
-| Ultimate | €97–125/mnd | Quizzen, groepen |
+| Online programma's, A.I.-cursusgenerator, A.I.-coach, trajecten & dripping, voortgang, toetsen & certificaten | Kanalen & groepen, ledenoverzicht (lijst/kaart), evenementen, gamification (punten, levels, leaderboard, streaks), chats tussen leden, livestream (binnenkort) | Eigen huisstijl & domein, app/whitelabel app, toegangsniveaus (ook tijdelijk), koppelingen (Plug&Pay, ActiveCampaign/MailBlue, Vimeo, Zoom, Zapier, webhooks), betaalsysteem, MCP (Claude/ChatGPT) |
 
-Video wordt niet gehost: je embedt YouTube of Vimeo, net als bij ons.
+## Wat de demo laat zien
 
-## Wat Huddle goed doet, en wat wij daarvan overnemen
+1. **Cursus maken.** Titel invullen, toegangsniveau kiezen en "genereer met AI". Je krijgt modules en lessen met tekst. Daarna kun je modules en lessen laten voorstellen en met één klik toevoegen, en per les AI-feedback vragen.
+2. **Videoles.** De video staat bovenaan, met daaronder automatisch een **transcript dat je kunt doorzoeken**. Klik je op een tekstregel, dan springt de video naar dat moment. Er is ook een **AI-samenvatting** die je in de les plakt.
+3. **Overzicht voor leden.** Een cursusoverzicht met het aantal modules, videolessen en tekstlessen. Een vinkje per bekeken les en "ga verder waar je was".
+4. **Dripping.** Per module of per les, dagelijks of wekelijks op een vast tijdstip. De start is na aankoop, op een vaste datum of per groep (cohort). Je kunt per module een andere dag kiezen, bijvoorbeeld "dag 10".
+5. **Certificaat.** Automatisch na het bekijken van alle lessen of na het halen van alle quizzen, met logo en handtekening.
+6. **Community en evenementen.** Kanalen zoals "stel jezelf voor" en "victory lounge", moodboards, en online/offline events met aanmelden.
 
-| Huddle | In de Apex leeromgeving |
-|---|---|
-| Product → modules → lessen | Leerlijn → module/week → les. Precies dezelfde opbouw |
-| Voortgangsbalk en "ga verder waar je was" | Kaart **"Ga verder"** bovenaan, en een voortgangsbalk per leerlijn |
-| Lessen afvinken (handmatig of automatisch) | **"Markeer als afgerond"**, of automatisch zodra de Vimeo-video is uitgekeken (per les in te stellen) |
-| Drip: content per week vrijgeven | Weken van de 90 dagen challenge komen per **ronde** vrij, gerekend vanaf de maandag van week 1 |
-| Cohort-modus: groep start samen | **Rondes** (LeerCohort) met startdatum, sessie-info en Zoom-link |
-| Toegangsniveaus per product | **Pakketten** per leerlijn én per les, server-side afgedwongen (RLS) |
-| Vergrendelde content tonen als prikkel | Leerlijnen die niet in je pakket zitten, staan als slotje op het dashboard ("vraag je coach") |
-| Afvinken in vaste volgorde | Fase 1 is een **stappenplan**: stap 2 opent pas als stap 1 klaar is |
+## Vergelijking met de Apex leeromgeving
 
-## Waar wij Huddle verslaan (de gaten die reviews noemen)
+| Huddle | Apex leeromgeving | Status |
+|---|---|---|
+| Programma → modules → lessen, met video, tekst en bijlagen | Leerlijn → module/week → les (video, tekst, kernpunten, actieknoppen) | ✅ |
+| Toegangsniveaus (ook per les) | **Pakketten** per leerlijn én per les, server-side afgedwongen (RLS) | ✅ |
+| Slotje op content zonder toegang | Leerlijnen buiten je pakket staan met slotje op het dashboard | ✅ |
+| Dripping per groep (cohort) | **Rondes** voor de 90 dagen challenge, met deadlines | ✅ |
+| Dripping vanaf eigen startmoment | **Nieuw:** vrijgave per week vanaf de persoonlijke startdatum | ✅ toegevoegd |
+| Voortgang, vinkjes, "ga verder" | Voortgangsbalk, vinkjes, "Ga verder"-kaart | ✅ |
+| Cursusoverzicht met aantallen | **Nieuw:** per leerlijn modules · video's · teksten · minuten | ✅ toegevoegd |
+| Doorzoekbaar transcript, klik = spring naar moment | **Nieuw:** transcript onder de video bij 28 video's met ondertitels, met zoekveld; klik springt naar dat moment | ✅ toegevoegd |
+| AI-samenvatting bij video | Samenvattingen en kernpunten van 45 video's, al gemaakt uit de Vimeo-ondertitels | ✅ |
+| A.I.-coach die antwoordt uit je eigen lessen, met bronnen | **Nieuw:** "Vraag de coach". Zoekt de best passende lessen (alleen die van het lid zelf) en laat Base44-AI daaruit antwoorden, met links naar de lessen | ✅ toegevoegd |
+| Certificaat na afronden | **Nieuw:** certificaat bij Fase 2, de 90 dagen en Performance Coaching, af te drukken of op te slaan als PDF | ✅ toegevoegd |
+| Thumbnails en afbeeldingen | **Nieuw:** Vimeo-thumbnails met duur op alle videotegels | ✅ toegevoegd |
+| Quizzen met slagingspercentage | Invulbare opdrachten met 8 veldtypes, deadlines en coach-feedback. Een quiz met score zit er nog niet in | ➖ kan erbij |
+| Automatische herinnering bij inactiviteit (7 / 30 / 30 dagen) | Nog niet. Kan via ActiveCampaign (tags), dat je al gebruikt | ➖ voorstel |
+| Community, kanalen, chats, ledenoverzicht, gamification | Niet gebouwd; Apex gebruikt WhatsApp-groepen | ➖ bewuste keuze |
+| Evenementen-agenda | De Zoom-link en sessie-info van de ronde staan op het dashboard. Een volledige agenda zit er niet in | ➖ kan erbij |
+| AI-cursusgenerator | Niet nodig: de content komt uit jouw eigen mails en Vimeo | — |
 
-1. **Invulbare opdrachten met een coach-inbox.** Huddle heeft alleen downloads en DM's. Wij hebben formulieren per les met 8 veldtypes, concept opslaan, inleveren, deadlines (zaterdag 23:59) en sluiten na de deadline. De coach heeft een inbox met feedback, afronden en heropenen.
-2. **"Wat heb je nu nodig?"** Leden klikken een behoefte aan ("ik mis motivatie", "ik slaap slecht") en krijgen direct de juiste video's en artikelen uit alle leerlijnen waar ze toegang toe hebben.
-3. **Coach ziet alleen zijn eigen leden.** Rechten per coach via `coach_email`; de admin ziet alles.
-4. **Geen extra abonnement.** Alles draait in je eigen Base44-app, met dezelfde login als de rest van Apex.
+## Waar Apex sterker is dan Huddle
 
-## Bewust (nog) niet gebouwd
+- **Echte opdrachten met een coach-inbox.** Huddle heeft quizzen en downloads. Wij hebben invulbare opdrachten per les, deadlines (zaterdag 23:59), en per coach een inbox met feedback, afronden en heropenen.
+- **"Wat heb je nu nodig?"** Leden klikken een behoefte aan en krijgen video's en artikelen uit al hun leerlijnen.
+- **Alles in je eigen Base44-app.** Geen extra abonnement, dezelfde login als de rest van Apex, en jouw content blijft van jou.
 
-Deze onderdelen zijn bewust nog niet gebouwd. Kies welke je wilt; dan bouw ik ze.
+## Nog te kiezen (bouw ik als je wilt)
 
-- **Community-feed, chat en DM's.** Dat is een groot onderdeel; jullie gebruiken nu WhatsApp/Facebook.
-- **Punten, levels, streaks en een leaderboard.** Kan later bovenop de voortgangsdata.
-- **Certificaat na afronding** (bijvoorbeeld van de 90 dagen challenge).
-- **AI-coach die antwoordt vanuit je eigen lessen.** Base44 heeft daar InvokeLLM voor. De 112 kennisartikelen zijn daar een ideale bron voor.
-- **Push of e-mail naar de coach bij een nieuwe inzending.** Kan via Base44 SendEmail of via ActiveCampaign.
+1. **Herinneringen bij inactiviteit**, via ActiveCampaign. Bijvoorbeeld een tag "leeromgeving-inactief-7d" die een mail start.
+2. **Quiz met score**, bijvoorbeeld als kennischeck aan het eind van Fase 1.
+3. **Agenda** met groepscoachings, metingen en events, met aanmelden.
+4. **Community-light:** één "successen"-feed binnen de leeromgeving, als je WhatsApp wilt vervangen.

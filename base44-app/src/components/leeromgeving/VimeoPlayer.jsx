@@ -15,8 +15,16 @@ export function parseVimeoUrl(url) {
 }
 
 // Vimeo-iframe. onEnded wordt aangeroepen als de video is afgekeken (via de Vimeo postMessage API).
-export default function VimeoPlayer({ id, hash, title, onEnded }) {
+export default function VimeoPlayer({ id, hash, title, onEnded, seek }) {
   const ref = useRef(null);
+
+  // seek = { t: seconden, n: teller } — springt naar dat moment en speelt af.
+  useEffect(() => {
+    if (!seek) return;
+    const post = (method, value) => ref.current?.contentWindow?.postMessage(JSON.stringify({ method, value }), "*");
+    post("setCurrentTime", seek.t);
+    post("play");
+  }, [seek]);
 
   useEffect(() => {
     if (!onEnded) return undefined;

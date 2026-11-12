@@ -19,7 +19,7 @@ export default function AssignmentPanel({ assignment, lesson, module, track, der
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
 
-  const deadline = assignmentDeadline(assignment, module, track, derived.cohort);
+  const deadline = assignmentDeadline(assignment, module, track, track.schedule);
   const late = isPastDeadline(deadline);
   const closed = late && assignment.lock_after_deadline && existing?.status !== "heropend";
   const status = existing?.status;

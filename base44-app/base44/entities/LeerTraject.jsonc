@@ -40,10 +40,11 @@
     },
     "drip": {
       "type": "string",
-      "description": "Vrijgave van modules",
+      "description": "Vrijgave van modules: alles direct, per week vanaf de ronde (cohort), of per week vanaf de persoonlijke startdatum",
       "enum": [
         "geen",
-        "wekelijks_cohort"
+        "wekelijks_cohort",
+        "wekelijks_vanaf_start"
       ],
       "default": "geen"
     },
@@ -66,6 +67,11 @@
     "ref": {
       "type": "string",
       "description": "Bron-referentie (import)"
+    },
+    "certificate": {
+      "type": "boolean",
+      "default": false,
+      "description": "Certificaat tonen als alle lessen zijn afgerond"
     }
   },
   "required": [

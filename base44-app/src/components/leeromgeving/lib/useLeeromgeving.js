@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { base44 } from "@/api/base44Client";
 import { loadContent, loadMyState } from "./api";
-import { canSeeLesson, canSeeTrack, moduleUnlock, sequentialLocked, userField } from "./access";
+import { canSeeLesson, canSeeTrack, moduleUnlock, sequentialLocked, trackSchedule, userField } from "./access";
 
 // Laadt gebruiker + content + eigen voortgang, en bouwt daar een kant-en-klare structuur van.
 export default function useLeeromgeving() {
@@ -36,11 +36,12 @@ export default function useLeeromgeving() {
     }
 
     const tracks = content.tracks.filter((t) => canSeeTrack(t, user)).map((track) => {
+      const schedule = trackSchedule(track, cohort, user);
       const modules = content.modules
         .filter((m) => m.track_key === track.key)
         .map((m) => {
           const lessons = content.lessons.filter((l) => l.module_id === m.id && canSeeLesson(l, user));
-          return { ...m, lessons, unlock: moduleUnlock(m, track, cohort, user) };
+          return { ...m, lessons, unlock: moduleUnlock(m, track, schedule, user) };
         })
         .filter((m) => m.lessons.length > 0);
       const ordered = modules.flatMap((m) => m.lessons);
@@ -57,7 +58,9 @@ export default function useLeeromgeving() {
         }
       }
       const done = ordered.filter((l) => doneIds.has(l.id)).length;
-      return { ...track, modules, ordered, lessonState, done, total: ordered.length };
+      const videos = ordered.filter((l) => l.vimeo_id || l.video_url).length;
+      const minutes = ordered.reduce((n, l) => n + (l.duration_min || 0), 0);
+      return { ...track, schedule, modules, ordered, lessonState, done, total: ordered.length, videos, minutes };
     });
 
     const lockedTracks = content.tracks.filter((t) => t.published && !canSeeTrack(t, user));

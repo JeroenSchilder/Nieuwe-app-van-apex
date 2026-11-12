@@ -74,6 +74,8 @@ export default function LessonEditor({ lesson, content, onBack, onSaved }) {
             <label className="flex items-center gap-2"><input type="checkbox" className="accent-primary" checked={l.completion === "video_einde"} onChange={(e) => set("completion", e.target.checked ? "video_einde" : "handmatig")} /> Automatisch afgerond na video</label>
           </div>
           <div className="space-y-2"><Label>Tekst (markdown)</Label><Textarea rows={14} value={l.body || ""} onChange={(e) => set("body", e.target.value)} /></div>
+          <div className="space-y-2"><Label>Transcript (per regel: seconden|tekst)</Label><Textarea rows={5} className="font-mono text-xs" value={l.transcript || ""} onChange={(e) => set("transcript", e.target.value)} /></div>
+          <div className="space-y-2"><Label>Afbeelding (URL)</Label><Input value={l.thumbnail_url || ""} onChange={(e) => set("thumbnail_url", e.target.value)} /></div>
           <div className="space-y-2 rounded-lg border p-3">
             <Label>Opdracht</Label>
             <select className="h-10 w-full rounded-md border bg-background px-2 text-sm" value={l.assignment_id || ""} onChange={(e) => set("assignment_id", e.target.value)}>

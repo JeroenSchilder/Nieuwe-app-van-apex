@@ -11,10 +11,11 @@ export default function AdminSettings({ content, reload }) {
           { key: "title", label: "Titel" }, { key: "subtitle", label: "Ondertitel" }, { key: "key", label: "Key (uniek)" },
           { key: "description", label: "Omschrijving", wide: true },
           { key: "type", label: "Soort", type: "select", options: ["stappenplan", "leerlijn", "challenge", "bibliotheek"].map((k) => ({ key: k, label: k })) },
-          { key: "drip", label: "Vrijgave", type: "select", options: [{ key: "geen", label: "Alles direct" }, { key: "wekelijks_cohort", label: "Per week (ronde)" }] },
+          { key: "drip", label: "Vrijgave", type: "select", options: [{ key: "geen", label: "Alles direct" }, { key: "wekelijks_cohort", label: "Per week, vanaf start ronde" }, { key: "wekelijks_vanaf_start", label: "Per week, vanaf eigen startdatum" }] },
           { key: "order", label: "Volgorde", type: "number" },
           { key: "access_packages", label: "Pakketten", type: "chips", options: pkgOptions, wide: true },
           { key: "sequential", label: "Stappen op volgorde", type: "bool" }, { key: "published", label: "Gepubliceerd", type: "bool" },
+          { key: "certificate", label: "Certificaat bij afronden", type: "bool" },
         ]} />
       <RecordEditor title="Rondes (90 dagen challenge)" entity="LeerCohort" records={content.cohorts} onChanged={reload}
         newRecord={{ key: "", name: "", track_key: "challenge90", start_date: "", active: true }}

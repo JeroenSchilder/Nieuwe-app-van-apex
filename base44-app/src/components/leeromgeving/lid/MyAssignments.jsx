@@ -11,7 +11,7 @@ export default function MyAssignments({ derived, onOpenLesson }) {
       const a = derived.assignmentsById[l.assignment_id];
       const subs = derived.submissionsByAssignment[a.id] || [];
       const sub = a.repeatable ? null : subs[0];
-      const deadline = assignmentDeadline(a, t.lessonState[l.id].module, t, derived.cohort);
+      const deadline = assignmentDeadline(a, t.lessonState[l.id].module, t, t.schedule);
       const missed = !a.repeatable && a.lock_after_deadline && isPastDeadline(deadline)
         && (!sub || sub.status === "concept");
       return { t, l, a, sub, count: subs.length, deadline, missed };
