@@ -1,0 +1,137 @@
+{
+  "name": "LeerInzending",
+  "type": "object",
+  "description": "Ingevulde opdracht van een lid",
+  "properties": {
+    "opdracht_id": {
+      "type": "string",
+      "description": "LeerOpdracht ID"
+    },
+    "opdracht_title": {
+      "type": "string",
+      "description": "Titel opdracht"
+    },
+    "les_id": {
+      "type": "string",
+      "description": "LeerLes ID"
+    },
+    "track_key": {
+      "type": "string",
+      "description": "Leerlijn"
+    },
+    "week_number": {
+      "type": "number",
+      "description": "Week"
+    },
+    "member_email": {
+      "type": "string",
+      "description": "E-mail lid"
+    },
+    "member_name": {
+      "type": "string",
+      "description": "Naam lid"
+    },
+    "coach_email": {
+      "type": "string",
+      "description": "E-mail coach"
+    },
+    "answers": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Antwoorden per veld-key"
+    },
+    "status": {
+      "type": "string",
+      "description": "Status",
+      "enum": [
+        "concept",
+        "ingediend",
+        "feedback",
+        "goedgekeurd",
+        "heropend"
+      ],
+      "default": "concept",
+      "enumColors": [
+        "gray",
+        "blue",
+        "purple",
+        "green",
+        "yellow"
+      ]
+    },
+    "submitted_at": {
+      "type": "string",
+      "description": "Ingediend op",
+      "format": "date-time"
+    },
+    "feedback": {
+      "type": "string",
+      "description": "Feedback van de coach"
+    },
+    "feedback_by": {
+      "type": "string",
+      "description": "Feedback gegeven door"
+    },
+    "feedback_at": {
+      "type": "string",
+      "description": "Feedback op",
+      "format": "date-time"
+    },
+    "feedback_seen": {
+      "type": "boolean",
+      "default": false,
+      "description": "Lid heeft feedback gezien"
+    }
+  },
+  "required": [
+    "opdracht_id",
+    "member_email"
+  ],
+  "rls": {
+    "create": {
+      "data.member_email": "{{user.email}}"
+    },
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "data.coach_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "data.coach_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

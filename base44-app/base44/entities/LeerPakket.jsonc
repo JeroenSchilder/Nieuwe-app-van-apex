@@ -1,0 +1,45 @@
+{
+  "name": "LeerPakket",
+  "type": "object",
+  "description": "Toegangsniveau / pakket (Small group, 90 dagen, ...)",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "Unieke sleutel, bijv. small_group"
+    },
+    "name": {
+      "type": "string",
+      "description": "Naam"
+    },
+    "description": {
+      "type": "string",
+      "description": "Omschrijving"
+    },
+    "order": {
+      "type": "number",
+      "description": "Volgorde"
+    }
+  },
+  "required": [
+    "key",
+    "name"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

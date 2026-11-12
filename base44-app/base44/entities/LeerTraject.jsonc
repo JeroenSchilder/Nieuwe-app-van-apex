@@ -1,0 +1,93 @@
+{
+  "name": "LeerTraject",
+  "type": "object",
+  "description": "Leerlijn: Fase 1, Fase 2, 90 dagen challenge, bibliotheek",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "Unieke sleutel, bijv. fase1"
+    },
+    "title": {
+      "type": "string",
+      "description": "Titel"
+    },
+    "subtitle": {
+      "type": "string",
+      "description": "Ondertitel"
+    },
+    "description": {
+      "type": "string",
+      "description": "Omschrijving"
+    },
+    "order": {
+      "type": "number",
+      "description": "Volgorde"
+    },
+    "type": {
+      "type": "string",
+      "description": "Soort leerlijn",
+      "enum": [
+        "stappenplan",
+        "leerlijn",
+        "challenge",
+        "bibliotheek"
+      ]
+    },
+    "sequential": {
+      "type": "boolean",
+      "default": false,
+      "description": "Lessen moeten op volgorde worden afgerond"
+    },
+    "drip": {
+      "type": "string",
+      "description": "Vrijgave van modules",
+      "enum": [
+        "geen",
+        "wekelijks_cohort"
+      ],
+      "default": "geen"
+    },
+    "icon": {
+      "type": "string",
+      "description": "Lucide icoonnaam: Rocket, Target, Flame, Trophy, Library, BookOpen"
+    },
+    "access_packages": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Pakket-keys die deze inhoud mogen zien (bijv. small_group, challenge_90, alles)"
+    },
+    "published": {
+      "type": "boolean",
+      "default": true,
+      "description": "Zichtbaar voor leden"
+    },
+    "ref": {
+      "type": "string",
+      "description": "Bron-referentie (import)"
+    }
+  },
+  "required": [
+    "key",
+    "title"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

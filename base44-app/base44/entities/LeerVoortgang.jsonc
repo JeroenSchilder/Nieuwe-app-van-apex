@@ -1,0 +1,80 @@
+{
+  "name": "LeerVoortgang",
+  "type": "object",
+  "description": "Afgeronde les per lid",
+  "properties": {
+    "les_id": {
+      "type": "string",
+      "description": "LeerLes ID"
+    },
+    "track_key": {
+      "type": "string",
+      "description": "Leerlijn"
+    },
+    "member_email": {
+      "type": "string",
+      "description": "E-mail lid"
+    },
+    "member_name": {
+      "type": "string",
+      "description": "Naam lid"
+    },
+    "coach_email": {
+      "type": "string",
+      "description": "E-mail coach"
+    },
+    "completed_at": {
+      "type": "string",
+      "description": "Afgerond op",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "les_id",
+    "member_email"
+  ],
+  "rls": {
+    "create": {
+      "data.member_email": "{{user.email}}"
+    },
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "data.coach_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

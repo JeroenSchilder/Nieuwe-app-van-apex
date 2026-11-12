@@ -1,0 +1,60 @@
+{
+  "name": "LeerCohort",
+  "type": "object",
+  "description": "Ronde/groep met een vaste startdatum (bijv. 90 dagen Q1)",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "Unieke sleutel"
+    },
+    "name": {
+      "type": "string",
+      "description": "Naam"
+    },
+    "track_key": {
+      "type": "string",
+      "description": "Leerlijn"
+    },
+    "start_date": {
+      "type": "string",
+      "description": "Maandag van week 1",
+      "format": "date"
+    },
+    "session_info": {
+      "type": "string",
+      "description": "Bijv. 'Maandag 20:15 via Zoom'"
+    },
+    "zoom_url": {
+      "type": "string",
+      "description": "Zoom-link"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Actief"
+    }
+  },
+  "required": [
+    "key",
+    "name",
+    "start_date"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "name": "LeerModule",
+  "type": "object",
+  "description": "Hoofdstuk/week binnen een leerlijn",
+  "properties": {
+    "track_key": {
+      "type": "string",
+      "description": "Sleutel van de leerlijn"
+    },
+    "title": {
+      "type": "string",
+      "description": "Titel"
+    },
+    "description": {
+      "type": "string",
+      "description": "Omschrijving"
+    },
+    "order": {
+      "type": "number",
+      "description": "Volgorde"
+    },
+    "week_number": {
+      "type": "number",
+      "description": "Weeknummer (bij wekelijkse vrijgave)"
+    },
+    "live_session": {
+      "type": "boolean",
+      "default": false,
+      "description": "Live sessie op locatie (bijv. kickoff)"
+    },
+    "category": {
+      "type": "string",
+      "description": "Thema (bibliotheek)"
+    },
+    "ref": {
+      "type": "string",
+      "description": "Bron-referentie (import)"
+    }
+  },
+  "required": [
+    "track_key",
+    "title"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

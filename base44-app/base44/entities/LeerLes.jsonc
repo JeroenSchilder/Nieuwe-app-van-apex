@@ -1,0 +1,173 @@
+{
+  "name": "LeerLes",
+  "type": "object",
+  "description": "Les of video",
+  "properties": {
+    "track_key": {
+      "type": "string",
+      "description": "Sleutel van de leerlijn"
+    },
+    "module_id": {
+      "type": "string",
+      "description": "ID van de module"
+    },
+    "title": {
+      "type": "string",
+      "description": "Titel"
+    },
+    "order": {
+      "type": "number",
+      "description": "Volgorde binnen de module"
+    },
+    "step_label": {
+      "type": "string",
+      "description": "Label, bijv. 'Stap 3'"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Korte samenvatting"
+    },
+    "body": {
+      "type": "string",
+      "description": "Uitgebreide tekst (markdown)"
+    },
+    "key_points": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Kernpunten"
+    },
+    "vimeo_id": {
+      "type": "string",
+      "description": "Vimeo video-ID"
+    },
+    "vimeo_hash": {
+      "type": "string",
+      "description": "Vimeo privacy-hash (h=)"
+    },
+    "video_url": {
+      "type": "string",
+      "description": "Alternatieve video-URL (YouTube of andere)"
+    },
+    "duration_min": {
+      "type": "number",
+      "description": "Duur in minuten"
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "start",
+          "doelen",
+          "mindset",
+          "gewoontes",
+          "voeding",
+          "training",
+          "mobiliteit",
+          "herstel",
+          "lichaam",
+          "relaties",
+          "tijd"
+        ]
+      },
+      "description": "Thema's"
+    },
+    "action_links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "description": ""
+          },
+          "url": {
+            "type": "string",
+            "description": ""
+          }
+        }
+      },
+      "description": "Actieknoppen"
+    },
+    "assignment_id": {
+      "type": "string",
+      "description": "Gekoppelde opdracht (LeerOpdracht ID)"
+    },
+    "access_packages": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Pakket-keys die deze inhoud mogen zien (bijv. small_group, challenge_90, alles)"
+    },
+    "completion": {
+      "type": "string",
+      "description": "Hoe wordt de les afgerond",
+      "enum": [
+        "handmatig",
+        "video_einde"
+      ],
+      "default": "handmatig"
+    },
+    "live_session": {
+      "type": "boolean",
+      "default": false,
+      "description": "Live onderdeel"
+    },
+    "published": {
+      "type": "boolean",
+      "default": true,
+      "description": "Zichtbaar voor leden"
+    },
+    "needs_review": {
+      "type": "boolean",
+      "default": false,
+      "description": "Nog controleren door coach (video/tekst)"
+    },
+    "source": {
+      "type": "string",
+      "description": "Bron"
+    },
+    "ref": {
+      "type": "string",
+      "description": "Bron-referentie (import)"
+    }
+  },
+  "required": [
+    "track_key",
+    "title"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "data.access_packages": {
+            "$in": "{{user.data.apex_packages}}"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

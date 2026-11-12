@@ -1,0 +1,120 @@
+{
+  "name": "LeerOpdracht",
+  "type": "object",
+  "description": "Invulbare opdracht",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Titel"
+    },
+    "intro": {
+      "type": "string",
+      "description": "Uitleg"
+    },
+    "track_key": {
+      "type": "string",
+      "description": "Leerlijn"
+    },
+    "lesson_id": {
+      "type": "string",
+      "description": "Gekoppelde les"
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": ""
+          },
+          "label": {
+            "type": "string",
+            "description": ""
+          },
+          "type": {
+            "type": "string",
+            "description": "",
+            "enum": [
+              "text",
+              "textarea",
+              "number",
+              "scale",
+              "select",
+              "checkbox",
+              "date",
+              "info"
+            ]
+          },
+          "help": {
+            "type": "string",
+            "description": ""
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          },
+          "min": {
+            "type": "number",
+            "description": ""
+          },
+          "max": {
+            "type": "number",
+            "description": ""
+          }
+        }
+      },
+      "description": "Invulvelden"
+    },
+    "repeatable": {
+      "type": "boolean",
+      "default": false,
+      "description": "Meerdere keren in te vullen (bijv. observaties per hoofdstuk)"
+    },
+    "deadline_day_offset": {
+      "type": "number",
+      "description": "Deadline: aantal dagen na start van de week (5 = zaterdag)"
+    },
+    "lock_after_deadline": {
+      "type": "boolean",
+      "default": false,
+      "description": "Na de deadline niet meer inleveren"
+    },
+    "coach_review": {
+      "type": "boolean",
+      "default": true,
+      "description": "Coach geeft feedback"
+    },
+    "ref": {
+      "type": "string",
+      "description": "Bron-referentie (import)"
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

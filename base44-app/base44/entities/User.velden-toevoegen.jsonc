@@ -1,0 +1,51 @@
+// LET OP: NIET als nieuw bestand plaatsen. Voeg deze 5 velden toe aan de 'properties'
+// van je BESTAANDE base44/entities/User.jsonc (bestaande velden laten staan).
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "apex_packages": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Pakketten van dit lid (bepaalt wat het lid in de leeromgeving ziet)",
+      "rls": {
+        "update": {
+          "user_condition": {
+            "collaborator_role": "editor"
+          }
+        }
+      }
+    },
+    "apex_role": {
+      "type": "string",
+      "enum": [
+        "lid",
+        "coach"
+      ],
+      "default": "lid",
+      "description": "Rol in de leeromgeving",
+      "rls": {
+        "update": {
+          "user_condition": {
+            "collaborator_role": "editor"
+          }
+        }
+      }
+    },
+    "apex_coach_email": {
+      "type": "string",
+      "description": "E-mail van de vaste coach van dit lid"
+    },
+    "apex_cohort": {
+      "type": "string",
+      "description": "Key van de ronde (LeerCohort) voor de 90 dagen challenge"
+    },
+    "apex_start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Startdatum traject"
+    }
+  }
+}
