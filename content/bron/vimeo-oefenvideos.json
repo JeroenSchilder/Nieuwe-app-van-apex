@@ -1,0 +1,4608 @@
+[
+ {
+  "id": "254645550",
+  "hash": "06b4e5933d",
+  "name": "(Korte) Kuitspier",
+  "dur": 10,
+  "foamrol": true
+ },
+ {
+  "id": "254645573",
+  "hash": "558583c32b",
+  "name": "(lange) kuitspier",
+  "dur": 11,
+  "foamrol": true
+ },
+ {
+  "id": "235143798",
+  "hash": "2d5f7161de",
+  "name": "1 1/2  front barbell squat",
+  "dur": 54,
+  "foamrol": false
+ },
+ {
+  "id": "235143955",
+  "hash": "25faf26f2b",
+  "name": "1 1/2 barbell back squat",
+  "dur": 59,
+  "foamrol": false
+ },
+ {
+  "id": "848392358",
+  "hash": "",
+  "name": "1 1/4 barbell hip thrust",
+  "dur": 54,
+  "foamrol": false
+ },
+ {
+  "id": "415475711",
+  "hash": "",
+  "name": "1 1_2  front barbell squat",
+  "dur": 54,
+  "foamrol": false
+ },
+ {
+  "id": "426824538",
+  "hash": "",
+  "name": "1 1_2  front barbell squat",
+  "dur": 54,
+  "foamrol": false
+ },
+ {
+  "id": "230271230",
+  "hash": "f9ae4c5d42",
+  "name": "1/3 sit up",
+  "dur": 25,
+  "foamrol": false
+ },
+ {
+  "id": "415477313",
+  "hash": "",
+  "name": "1_3 sit up",
+  "dur": 25,
+  "foamrol": false
+ },
+ {
+  "id": "238582099",
+  "hash": "52808d20b2",
+  "name": "45ᴼ sit up",
+  "dur": 38,
+  "foamrol": false
+ },
+ {
+  "id": "415477482",
+  "hash": "",
+  "name": "45ᴼ sit up",
+  "dur": 38,
+  "foamrol": false
+ },
+ {
+  "id": "238256180",
+  "hash": "50e3459f2d",
+  "name": "ab cycle",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "415477628",
+  "hash": "",
+  "name": "ab cycle",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "230272159",
+  "hash": "e4d7e20fc6",
+  "name": "Abductie mini band",
+  "dur": 25,
+  "foamrol": false
+ },
+ {
+  "id": "415477798",
+  "hash": "",
+  "name": "Abductie mini band",
+  "dur": 25,
+  "foamrol": false
+ },
+ {
+  "id": "235151900",
+  "hash": "06f106fc2f",
+  "name": "Abductor",
+  "dur": 29,
+  "foamrol": false
+ },
+ {
+  "id": "415478028",
+  "hash": "",
+  "name": "Abductor",
+  "dur": 29,
+  "foamrol": false
+ },
+ {
+  "id": "230271656",
+  "hash": "43f80e8983",
+  "name": "Abductor machine",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "415477935",
+  "hash": "",
+  "name": "Abductor machine",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "230271692",
+  "hash": "12cbf8fd11",
+  "name": "Abductor machine leaning forward",
+  "dur": 32,
+  "foamrol": false
+ },
+ {
+  "id": "415477868",
+  "hash": "",
+  "name": "Abductor machine leaning forward",
+  "dur": 32,
+  "foamrol": false
+ },
+ {
+  "id": "254642486",
+  "hash": "",
+  "name": "Achterkant schouders",
+  "dur": 14,
+  "foamrol": true
+ },
+ {
+  "id": "234909500",
+  "hash": "fdf821805f",
+  "name": "Air squat (bovenbenen)",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "415478126",
+  "hash": "",
+  "name": "Air squat (bovenbenen)",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "230003494",
+  "hash": "7fbf48f51a",
+  "name": "Alternating bicep dumbbell curl",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "231460814",
+  "hash": "ce0c55da18",
+  "name": "Alternating front raise",
+  "dur": 38,
+  "foamrol": false
+ },
+ {
+  "id": "230274255",
+  "hash": "469efd7afe",
+  "name": "Alternating hammer curl",
+  "dur": 38,
+  "foamrol": false
+ },
+ {
+  "id": "230284269",
+  "hash": "6b48282bb7",
+  "name": "Alternating hammer curl + rotatie",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "238585808",
+  "hash": "c75b4b3d66",
+  "name": "Alternating shoulder press",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "230919757",
+  "hash": "6045354ff9",
+  "name": "Anti gravity press",
+  "dur": 44,
+  "foamrol": false
+ },
+ {
+  "id": "235146766",
+  "hash": "a67779667c",
+  "name": "Arnold press",
+  "dur": 47,
+  "foamrol": false
+ },
+ {
+  "id": "231633363",
+  "hash": "2cfe4c68e4",
+  "name": "Around the world",
+  "dur": 61,
+  "foamrol": false
+ },
+ {
+  "id": "636512300",
+  "hash": "",
+  "name": "Assault Bike",
+  "dur": 62,
+  "foamrol": false
+ },
+ {
+  "id": "232397159",
+  "hash": "05bc8da85f",
+  "name": "Assisted dumbbell row",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "232397017",
+  "hash": "067e7cfbb3",
+  "name": "Assisted dumbbell row pronated grip",
+  "dur": 32,
+  "foamrol": false
+ },
+ {
+  "id": "232396192",
+  "hash": "436bbbf789",
+  "name": "Assisted EZ-bar row pronated grip",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "232396647",
+  "hash": "0fba178438",
+  "name": "Assisted EZ-bar row supinated grip",
+  "dur": 32,
+  "foamrol": false
+ },
+ {
+  "id": "232395563",
+  "hash": "3d017a40ec",
+  "name": "Assisted pronated barbell row",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "232395716",
+  "hash": "200f022cf3",
+  "name": "Assisted supinated barbell row",
+  "dur": 35,
+  "foamrol": false
+ },
+ {
+  "id": "1187075354",
+  "hash": "",
+  "name": "ATG Split squat",
+  "dur": 45,
+  "foamrol": false
+ },
+ {
+  "id": "234910833",
+  "hash": "064e5a4e38",
+  "name": "Back extension front raise (beginner)",
+  "dur": 72,
+  "foamrol": false
+ },
+ {
+  "id": "234909891",
+  "hash": "1bdca07100",
+  "name": "Back extension front raise (onderrug & bovenrug)",
+  "dur": 45,
+  "foamrol": false
+ },
+ {
+  "id": "234910238",
+  "hash": "1fb68ca99e",
+  "name": "Back extension met schijf",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "391787825",
+  "hash": "",
+  "name": "Back extension met schijf in je nek",
+  "dur": 38,
+  "foamrol": false
+ },
+ {
+  "id": "232814519",
+  "hash": "67cbca3677",
+  "name": "Back squat",
+  "dur": 33,
+  "foamrol": false
+ },
+ {
+  "id": "687860718",
+  "hash": "",
+  "name": "Ball Bicep Cable Curl",
+  "dur": 62,
+  "foamrol": false
+ },
+ {
+  "id": "231627183",
+  "hash": "0561044aa0",
+  "name": "Ball push up's",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "230925340",
+  "hash": "802a397535",
+  "name": "Band pull apart pronated grip",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "636517144",
+  "hash": "",
+  "name": "Banded Bench press",
+  "dur": 77,
+  "foamrol": false
+ },
+ {
+  "id": "235143677",
+  "hash": "fe5cd411bc",
+  "name": "Barbell ab rollout",
+  "dur": 35,
+  "foamrol": false
+ },
+ {
+  "id": "232749011",
+  "hash": "58b8805500",
+  "name": "Barbell deadlift",
+  "dur": 49,
+  "foamrol": false
+ },
+ {
+  "id": "230272989",
+  "hash": "387ed84c5d",
+  "name": "Barbell glute bridge",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "230272538",
+  "hash": "c5a99aa909",
+  "name": "Barbell glute bridge knees in",
+  "dur": 26,
+  "foamrol": false
+ },
+ {
+  "id": "230272601",
+  "hash": "392d9c470a",
+  "name": "Barbell glute bridge knees out",
+  "dur": 27,
+  "foamrol": false
+ },
+ {
+  "id": "230272496",
+  "hash": "253433d92c",
+  "name": "Barbell hip thrust",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "230272439",
+  "hash": "f5f85cfd65",
+  "name": "Barbell hip thrust knees out",
+  "dur": 29,
+  "foamrol": false
+ },
+ {
+  "id": "230272395",
+  "hash": "370478db38",
+  "name": "Barbell hip thrust with mini band",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "230272216",
+  "hash": "cac850ab7f",
+  "name": "Barbell hip thrust with mini band knees out",
+  "dur": 33,
+  "foamrol": false
+ },
+ {
+  "id": "231458131",
+  "hash": "0bd7b0224d",
+  "name": "Barbell push press",
+  "dur": 38,
+  "foamrol": false
+ },
+ {
+  "id": "235141498",
+  "hash": "5a9baa21ec",
+  "name": "Barbell romanian deadlift",
+  "dur": 47,
+  "foamrol": false
+ },
+ {
+  "id": "235143551",
+  "hash": "9e3eb61049",
+  "name": "Barbell short step lunges",
+  "dur": 50,
+  "foamrol": false
+ },
+ {
+  "id": "230064067",
+  "hash": "2260d07c16",
+  "name": "Barbell shrug",
+  "dur": 27,
+  "foamrol": false
+ },
+ {
+  "id": "232814263",
+  "hash": "239c50d73a",
+  "name": "Barbell side split squat",
+  "dur": 55,
+  "foamrol": false
+ },
+ {
+  "id": "234148091",
+  "hash": "0044f40fca",
+  "name": "Barbell skull crusher",
+  "dur": 29,
+  "foamrol": false
+ },
+ {
+  "id": "234148151",
+  "hash": "ff651e8c4a",
+  "name": "Barbell skull crusher (FROM)",
+  "dur": 43,
+  "foamrol": false
+ },
+ {
+  "id": "234148056",
+  "hash": "87e97b4ac4",
+  "name": "Barbell skull crusher (to neck)",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "232814061",
+  "hash": "48a20a6c4a",
+  "name": "Barbell thruster",
+  "dur": 49,
+  "foamrol": false
+ },
+ {
+  "id": "235143608",
+  "hash": "37c9ff5ae4",
+  "name": "Barbell walking lunges",
+  "dur": 30,
+  "foamrol": false
+ },
+ {
+  "id": "848647302",
+  "hash": "",
+  "name": "Battle rope",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "234127286",
+  "hash": "25ed43cc19",
+  "name": "Behing the neck barbell shrugs",
+  "dur": 44,
+  "foamrol": false
+ },
+ {
+  "id": "231633504",
+  "hash": "",
+  "name": "Bench press",
+  "dur": 68,
+  "foamrol": false
+ },
+ {
+  "id": "231625693",
+  "hash": "2dfbf4ba7c",
+  "name": "Bench press on smith machine",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "231625321",
+  "hash": "af298117d8",
+  "name": "Bench press supinated grip",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "231625804",
+  "hash": "8c05b53743",
+  "name": "Bench press supinated grip on smith machine",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "234682998",
+  "hash": "89e4f0d5ee",
+  "name": "Bent over barbell row pronated grip",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "234677223",
+  "hash": "d7e2016957",
+  "name": "Bent over barbell row supinated grip",
+  "dur": 38,
+  "foamrol": false
+ },
+ {
+  "id": "238578401",
+  "hash": "767d360cca",
+  "name": "Bent over kettlebell row",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "235145071",
+  "hash": "c63b12c57f",
+  "name": "Bent over pronated side raise",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "234683231",
+  "hash": "8b05b97f2e",
+  "name": "Bent over reverse dumbbell fly",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "405043344",
+  "hash": "",
+  "name": "Bent over row met weerstand band",
+  "dur": 50,
+  "foamrol": false
+ },
+ {
+  "id": "235146671",
+  "hash": "c25706dbf2",
+  "name": "Bent over row pronated grip EZ-bar",
+  "dur": 28,
+  "foamrol": false
+ },
+ {
+  "id": "234673818",
+  "hash": "3eb478e559",
+  "name": "Bent over row pronated wide grip",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "235149739",
+  "hash": "6d9d69f9e3",
+  "name": "Bent over row supinated grip EZ-bar",
+  "dur": 28,
+  "foamrol": false
+ },
+ {
+  "id": "230283217",
+  "hash": "",
+  "name": "Bicep cable curl V-bar",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "230274752",
+  "hash": "e70d07dabe",
+  "name": "Bicep dumbbell curl + rotatie",
+  "dur": 35,
+  "foamrol": false
+ },
+ {
+  "id": "230911639",
+  "hash": "abae96585d",
+  "name": "Bicep hammer curl with plate",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "230283914",
+  "hash": "b6f3beb06d",
+  "name": "Bicep rope curl",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "230283731",
+  "hash": "0b47c9e88c",
+  "name": "Bicep straight bar cable curl",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "254645686",
+  "hash": "",
+  "name": "Bilspier",
+  "dur": 13,
+  "foamrol": true
+ },
+ {
+  "id": "230284486",
+  "hash": "506ab7907b",
+  "name": "Block EZ-bar curl wide grip",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "234143473",
+  "hash": "fed9b66c1a",
+  "name": "Body up",
+  "dur": 38,
+  "foamrol": false
+ },
+ {
+  "id": "712201240",
+  "hash": "",
+  "name": "Body weight sissi squat",
+  "dur": 30,
+  "foamrol": false
+ },
+ {
+  "id": "457400944",
+  "hash": "",
+  "name": "Bodyweight sissy squat",
+  "dur": 46,
+  "foamrol": false
+ },
+ {
+  "id": "238577905",
+  "hash": "4fe1ba192c",
+  "name": "Bottoms up",
+  "dur": 26,
+  "foamrol": false
+ },
+ {
+  "id": "254642397",
+  "hash": "61dbba53a5",
+  "name": "Bovenrug",
+  "dur": 17,
+  "foamrol": true
+ },
+ {
+  "id": "235144410",
+  "hash": "b1b723e110",
+  "name": "Box squat",
+  "dur": 48,
+  "foamrol": false
+ },
+ {
+  "id": "238583661",
+  "hash": "e22e556682",
+  "name": "Bradford press",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "254644939",
+  "hash": "521ef68eb7",
+  "name": "Buitenkant schouder",
+  "dur": 11,
+  "foamrol": true
+ },
+ {
+  "id": "232806440",
+  "hash": "8eab37e444",
+  "name": "Bulgarian split squat",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "848424472",
+  "hash": "",
+  "name": "Bulgarian split squat (EZ-bar)",
+  "dur": 46,
+  "foamrol": false
+ },
+ {
+  "id": "636516507",
+  "hash": "",
+  "name": "Bulgarian Split Squat (Leg extension)",
+  "dur": 52,
+  "foamrol": false
+ },
+ {
+  "id": "491642995",
+  "hash": "",
+  "name": "Bulgarian split squat leg extension",
+  "dur": 43,
+  "foamrol": false
+ },
+ {
+  "id": "331187249",
+  "hash": "68f5a8ee71",
+  "name": "Bulgarian Split squat op smith machine",
+  "dur": 28,
+  "foamrol": false
+ },
+ {
+  "id": "459319823",
+  "hash": "",
+  "name": "Bulgarian split squat smith machine",
+  "dur": 28,
+  "foamrol": false
+ },
+ {
+  "id": "398501151",
+  "hash": "",
+  "name": "Bulgarian Split Squat thuis",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "391788279",
+  "hash": "",
+  "name": "Cable bicep curl met indraai",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "848647980",
+  "hash": "",
+  "name": "Cable crunch (V-handle)",
+  "dur": 53,
+  "foamrol": false
+ },
+ {
+  "id": "230924737",
+  "hash": "67f7bad5a6",
+  "name": "Cable facepull",
+  "dur": 49,
+  "foamrol": false
+ },
+ {
+  "id": "230916421",
+  "hash": "b8ce70bc1c",
+  "name": "Cable facepull to forehead",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "230915628",
+  "hash": "04baa92bf0",
+  "name": "Cable facepull to neck",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "231611836",
+  "hash": "6ce1de79b8",
+  "name": "Cable lateral raises",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "234127218",
+  "hash": "496e526162",
+  "name": "Cable shrugs",
+  "dur": 43,
+  "foamrol": false
+ },
+ {
+  "id": "887972851",
+  "hash": "",
+  "name": "Cable Side Bend",
+  "dur": 71,
+  "foamrol": false
+ },
+ {
+  "id": "238583506",
+  "hash": "eb5f71d41d",
+  "name": "Cable side raise",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "636600514",
+  "hash": "",
+  "name": "Cable Skull crush",
+  "dur": 50,
+  "foamrol": false
+ },
+ {
+  "id": "235066770",
+  "hash": "7ab3bbdbd1",
+  "name": "Cable tricep kickback",
+  "dur": 30,
+  "foamrol": false
+ },
+ {
+  "id": "238253856",
+  "hash": "574a4864aa",
+  "name": "Calf raise leg press",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "232809280",
+  "hash": "16b3018371",
+  "name": "Chair squat",
+  "dur": 46,
+  "foamrol": false
+ },
+ {
+  "id": "231632792",
+  "hash": "57d7f7fcfb",
+  "name": "Chest press machine",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "232475989",
+  "hash": "17e9c9284f",
+  "name": "Chest press machine close grip",
+  "dur": 41,
+  "foamrol": false
+ },
+ {
+  "id": "234875882",
+  "hash": "10fcdaf5a2",
+  "name": "Chin up",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "234128186",
+  "hash": "5ef3bd7f08",
+  "name": "Clean barbell shrugs",
+  "dur": 53,
+  "foamrol": false
+ },
+ {
+  "id": "234143228",
+  "hash": "81274309f3",
+  "name": "Close grip bench press",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "234146683",
+  "hash": "8211512339",
+  "name": "Close grip dumbell press",
+  "dur": 45,
+  "foamrol": false
+ },
+ {
+  "id": "234875414",
+  "hash": "f0c179afc8",
+  "name": "Close grip pull up",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "230282249",
+  "hash": "1100bc109a",
+  "name": "Concentration curl",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "234147017",
+  "hash": "a9593af74c",
+  "name": "Cross body dumbbell tricep extension",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "230282573",
+  "hash": "b35b4463d6",
+  "name": "Cross body hammer curl",
+  "dur": 52,
+  "foamrol": false
+ },
+ {
+  "id": "234147406",
+  "hash": "9ec3b22cbd",
+  "name": "Cross tricep extension pronated grip",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "1187074365",
+  "hash": "",
+  "name": "Crossack Squat",
+  "dur": 106,
+  "foamrol": false
+ },
+ {
+  "id": "636515174",
+  "hash": "",
+  "name": "Crosstrainer",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "231458281",
+  "hash": "b4ed361fb8",
+  "name": "Cuban press",
+  "dur": 45,
+  "foamrol": false
+ },
+ {
+  "id": "230270793",
+  "hash": "dad9a7bd79",
+  "name": "Dead bug",
+  "dur": 35,
+  "foamrol": false
+ },
+ {
+  "id": "230271115",
+  "hash": "c59af5840b",
+  "name": "Dead bug (knees bent)",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "231625496",
+  "hash": "b2d5b9209f",
+  "name": "Decline bench press on smith machine",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "231632412",
+  "hash": "b8a9426ef9",
+  "name": "Decline dumbbell fly",
+  "dur": 54,
+  "foamrol": false
+ },
+ {
+  "id": "235142680",
+  "hash": "f53bfebb41",
+  "name": "Decline dumbbell fly + supinatie",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "231632259",
+  "hash": "02625d3e7c",
+  "name": "Decline dumbbell press",
+  "dur": 49,
+  "foamrol": false
+ },
+ {
+  "id": "594282259",
+  "hash": "",
+  "name": "Decline leg press",
+  "dur": 27,
+  "foamrol": false
+ },
+ {
+  "id": "235068083",
+  "hash": "95ca2b0f67",
+  "name": "Decline neck press",
+  "dur": 27,
+  "foamrol": false
+ },
+ {
+  "id": "235143390",
+  "hash": "c0254f02ae",
+  "name": "Decline push up",
+  "dur": 29,
+  "foamrol": false
+ },
+ {
+  "id": "235142932",
+  "hash": "74885d8df7",
+  "name": "Decline sit up",
+  "dur": 30,
+  "foamrol": false
+ },
+ {
+  "id": "234146794",
+  "hash": "77c1eee794",
+  "name": "Decline skull crusher (to neck)",
+  "dur": 30,
+  "foamrol": false
+ },
+ {
+  "id": "234137894",
+  "hash": "887fc3964e",
+  "name": "Decline skull crusher EZ-bar",
+  "dur": 46,
+  "foamrol": false
+ },
+ {
+  "id": "1187074875",
+  "hash": "",
+  "name": "Deep goblet squat hold",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "344622457",
+  "hash": "",
+  "name": "dingen die niet belangrijk zijn als je net bent begonnen met vet verlagen",
+  "dur": 0,
+  "foamrol": false
+ },
+ {
+  "id": "344638043",
+  "hash": "",
+  "name": "dingen die niet belangrijk zijn als je net bent begonnen met vet verlagen",
+  "dur": 61,
+  "foamrol": false
+ },
+ {
+  "id": "235064201",
+  "hash": "f74f4e9384",
+  "name": "Dippen",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "234148190",
+  "hash": "bb40bcbe23",
+  "name": "Dippen (bench)",
+  "dur": 27,
+  "foamrol": false
+ },
+ {
+  "id": "230196339",
+  "hash": "9e26c17d68",
+  "name": "Donkey calf raise with plate",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "230216636",
+  "hash": "07bbe17e38",
+  "name": "Double arm overhead kettlebell carry",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "230215650",
+  "hash": "52d8d55321",
+  "name": "Double kettlebell front squat",
+  "dur": 44,
+  "foamrol": false
+ },
+ {
+  "id": "230282901",
+  "hash": "a4091fe900",
+  "name": "Drag curl",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "225964830",
+  "hash": "",
+  "name": "Dropset bench press nico schilder",
+  "dur": 361,
+  "foamrol": false
+ },
+ {
+  "id": "230283573",
+  "hash": "6fb4b35f24",
+  "name": "Dropset wide grip EZ-bar curl + resistance band",
+  "dur": 103,
+  "foamrol": false
+ },
+ {
+  "id": "371331888",
+  "hash": "",
+  "name": "Dual overhead barbell press",
+  "dur": 53,
+  "foamrol": false
+ },
+ {
+  "id": "394370010",
+  "hash": "",
+  "name": "Dual tricep rope extension",
+  "dur": 23,
+  "foamrol": false
+ },
+ {
+  "id": "232475330",
+  "hash": "4591d6e6ed",
+  "name": "Dumbbell fly",
+  "dur": 47,
+  "foamrol": false
+ },
+ {
+  "id": "232749274",
+  "hash": "9466673d1f",
+  "name": "Dumbbell leg curl",
+  "dur": 55,
+  "foamrol": false
+ },
+ {
+  "id": "238580181",
+  "hash": "98859555cd",
+  "name": "Dumbbell leg curl",
+  "dur": 51,
+  "foamrol": false
+ },
+ {
+  "id": "480217259",
+  "hash": "",
+  "name": "Dumbbell leg curl op vloer",
+  "dur": 50,
+  "foamrol": false
+ },
+ {
+  "id": "231631747",
+  "hash": "4042e971bc",
+  "name": "Dumbbell press",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "231631054",
+  "hash": "762338804b",
+  "name": "Dumbbell pullover",
+  "dur": 52,
+  "foamrol": false
+ },
+ {
+  "id": "234128023",
+  "hash": "9a895f3622",
+  "name": "Dumbbell shrugs",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "234147213",
+  "hash": "63c574e540",
+  "name": "Dumbbell skull crusher",
+  "dur": 38,
+  "foamrol": false
+ },
+ {
+  "id": "1187076004",
+  "hash": "",
+  "name": "Dumbbell Windmill",
+  "dur": 54,
+  "foamrol": false
+ },
+ {
+  "id": "225965425",
+  "hash": "b0ac754d99",
+  "name": "Dumbell press",
+  "dur": 25,
+  "foamrol": false
+ },
+ {
+  "id": "949465936",
+  "hash": "",
+  "name": "Dynamische Hamstring Stretch",
+  "dur": 43,
+  "foamrol": false
+ },
+ {
+  "id": "800841961",
+  "hash": "",
+  "name": "Enkel mobiliteit",
+  "dur": 72,
+  "foamrol": false
+ },
+ {
+  "id": "752477304",
+  "hash": "",
+  "name": "Enkelstabiliteit oefening",
+  "dur": 206,
+  "foamrol": false
+ },
+ {
+  "id": "230064743",
+  "hash": "c4cc5dd440",
+  "name": "Explosive barbell shrug",
+  "dur": 24,
+  "foamrol": false
+ },
+ {
+  "id": "238253418",
+  "hash": "64a6412e3d",
+  "name": "Explosive calf raise smith machine",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "230203896",
+  "hash": "c343954d96",
+  "name": "Explosive calf raises leg press",
+  "dur": 26,
+  "foamrol": false
+ },
+ {
+  "id": "230923063",
+  "hash": "a442e6629d",
+  "name": "External cable rotation",
+  "dur": 35,
+  "foamrol": false
+ },
+ {
+  "id": "238583901",
+  "hash": "51d8e04991",
+  "name": "EZ-bar curl supinated small grip",
+  "dur": 45,
+  "foamrol": false
+ },
+ {
+  "id": "238584031",
+  "hash": "0f2bd57276",
+  "name": "EZ-bar curl supinated wide grip",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "238586147",
+  "hash": "7eea39e379",
+  "name": "EZ-bar skull crusher",
+  "dur": 38,
+  "foamrol": false
+ },
+ {
+  "id": "231460565",
+  "hash": "c987325a1e",
+  "name": "Facepull resistance band",
+  "dur": 35,
+  "foamrol": false
+ },
+ {
+  "id": "491610666",
+  "hash": "",
+  "name": "Feet elevated push up",
+  "dur": 113,
+  "foamrol": false
+ },
+ {
+  "id": "238576901",
+  "hash": "42e785864e",
+  "name": "Feet elevated sit up",
+  "dur": 33,
+  "foamrol": false
+ },
+ {
+  "id": "457391609",
+  "hash": "",
+  "name": "Fiets",
+  "dur": 38,
+  "foamrol": false
+ },
+ {
+  "id": "636513263",
+  "hash": "",
+  "name": "Fiets",
+  "dur": 47,
+  "foamrol": false
+ },
+ {
+  "id": "231626790",
+  "hash": "2191640791",
+  "name": "Floor press",
+  "dur": 60,
+  "foamrol": false
+ },
+ {
+  "id": "836900499",
+  "hash": "",
+  "name": "Flutter kicks",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "332374549",
+  "hash": "",
+  "name": "Foamrol achterkant schouder",
+  "dur": 22,
+  "foamrol": false
+ },
+ {
+  "id": "332373364",
+  "hash": "",
+  "name": "Foamrol biceps",
+  "dur": 28,
+  "foamrol": false
+ },
+ {
+  "id": "332374297",
+  "hash": "",
+  "name": "Foamrol bilspier (piriformis)",
+  "dur": 26,
+  "foamrol": false
+ },
+ {
+  "id": "332373455",
+  "hash": "",
+  "name": "Foamrol binnenkant biceps",
+  "dur": 18,
+  "foamrol": false
+ },
+ {
+  "id": "332374107",
+  "hash": "",
+  "name": "Foamrol binnenkant bovenbeen",
+  "dur": 23,
+  "foamrol": false
+ },
+ {
+  "id": "332373846",
+  "hash": "",
+  "name": "Foamrol borst",
+  "dur": 15,
+  "foamrol": false
+ },
+ {
+  "id": "332373774",
+  "hash": "",
+  "name": "Foamrol bovenrug 1 extensie",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "332373719",
+  "hash": "",
+  "name": "Foamrol bovenrug 2 rotatie",
+  "dur": 32,
+  "foamrol": false
+ },
+ {
+  "id": "332373678",
+  "hash": "",
+  "name": "Foamrol bovenrug 3 extensie",
+  "dur": 26,
+  "foamrol": false
+ },
+ {
+  "id": "332373593",
+  "hash": "",
+  "name": "Foamrol bovenrug 4 extensie",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "332373547",
+  "hash": "",
+  "name": "Foamrol bovenrug 5",
+  "dur": 21,
+  "foamrol": false
+ },
+ {
+  "id": "332373416",
+  "hash": "",
+  "name": "Foamrol bovenrug 6",
+  "dur": 32,
+  "foamrol": false
+ },
+ {
+  "id": "332373513",
+  "hash": "",
+  "name": "Foamrol brede rugspier",
+  "dur": 18,
+  "foamrol": false
+ },
+ {
+  "id": "332374436",
+  "hash": "",
+  "name": "Foamrol buitenzijde knie",
+  "dur": 22,
+  "foamrol": false
+ },
+ {
+  "id": "332374268",
+  "hash": "",
+  "name": "Foamrol buitenzijde kuit",
+  "dur": 18,
+  "foamrol": false
+ },
+ {
+  "id": "332373942",
+  "hash": "",
+  "name": "Foamrol hamstrings twee benen",
+  "dur": 23,
+  "foamrol": false
+ },
+ {
+  "id": "332373980",
+  "hash": "",
+  "name": "Foamrol hamstrings één been",
+  "dur": 21,
+  "foamrol": false
+ },
+ {
+  "id": "332373900",
+  "hash": "",
+  "name": "Foamrol kuit (3)",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "332374147",
+  "hash": "",
+  "name": "Foamrol kuit 1",
+  "dur": 18,
+  "foamrol": false
+ },
+ {
+  "id": "332374192",
+  "hash": "",
+  "name": "Foamrol kuit twee benen (2)",
+  "dur": 23,
+  "foamrol": false
+ },
+ {
+  "id": "332374230",
+  "hash": "",
+  "name": "Foamrol kuit één been (1)",
+  "dur": 22,
+  "foamrol": false
+ },
+ {
+  "id": "332373316",
+  "hash": "",
+  "name": "Foamrol onderarm 1",
+  "dur": 27,
+  "foamrol": false
+ },
+ {
+  "id": "332373278",
+  "hash": "",
+  "name": "Foamrol onderarm 2",
+  "dur": 25,
+  "foamrol": false
+ },
+ {
+  "id": "332373870",
+  "hash": "",
+  "name": "Foamrol onderrug",
+  "dur": 16,
+  "foamrol": false
+ },
+ {
+  "id": "332374027",
+  "hash": "",
+  "name": "Foamrol quadriceps twee benen",
+  "dur": 16,
+  "foamrol": false
+ },
+ {
+  "id": "332374061",
+  "hash": "",
+  "name": "Foamrol quadriceps één been",
+  "dur": 21,
+  "foamrol": false
+ },
+ {
+  "id": "332374343",
+  "hash": "",
+  "name": "Foamrol scheenbeen",
+  "dur": 28,
+  "foamrol": false
+ },
+ {
+  "id": "332374388",
+  "hash": "",
+  "name": "Foamrol scheenbeen",
+  "dur": 27,
+  "foamrol": false
+ },
+ {
+  "id": "332374578",
+  "hash": "",
+  "name": "Foamrol triceps",
+  "dur": 12,
+  "foamrol": false
+ },
+ {
+  "id": "332373220",
+  "hash": "",
+  "name": "Foamrol voorkant schouder",
+  "dur": 23,
+  "foamrol": false
+ },
+ {
+  "id": "332374605",
+  "hash": "",
+  "name": "Foamrol zijkant buikspieren 1",
+  "dur": 24,
+  "foamrol": false
+ },
+ {
+  "id": "332373817",
+  "hash": "",
+  "name": "Foamrol zijkant buikspieren 2",
+  "dur": 18,
+  "foamrol": false
+ },
+ {
+  "id": "332374507",
+  "hash": "",
+  "name": "Foamrol zijkant schouder",
+  "dur": 22,
+  "foamrol": false
+ },
+ {
+  "id": "230272123",
+  "hash": "8758e2d8b6",
+  "name": "Forward mini band walks",
+  "dur": 24,
+  "foamrol": false
+ },
+ {
+  "id": "232813172",
+  "hash": "fc2b6ca9b0",
+  "name": "Frankenstein squat",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "230270964",
+  "hash": "5d98070876",
+  "name": "FROM sit up",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "225965439",
+  "hash": "6ed68f2ef9",
+  "name": "Front dumbell squat",
+  "dur": 29,
+  "foamrol": false
+ },
+ {
+  "id": "1187076738",
+  "hash": "",
+  "name": "Front foot elevated split squat",
+  "dur": 47,
+  "foamrol": false
+ },
+ {
+  "id": "232807525",
+  "hash": "02cdf7d632",
+  "name": "Front squat",
+  "dur": 45,
+  "foamrol": false
+ },
+ {
+  "id": "234137026",
+  "hash": "40c35d82ae",
+  "name": "Gamma tricep extension",
+  "dur": 46,
+  "foamrol": false
+ },
+ {
+  "id": "491644955",
+  "hash": "",
+  "name": "Gandalf squat",
+  "dur": 63,
+  "foamrol": false
+ },
+ {
+  "id": "230270693",
+  "hash": "f8d9094493",
+  "name": "Garhammer raise",
+  "dur": 32,
+  "foamrol": false
+ },
+ {
+  "id": "230272916",
+  "hash": "50ce54d39a",
+  "name": "Glute bridge",
+  "dur": 26,
+  "foamrol": false
+ },
+ {
+  "id": "230272811",
+  "hash": "c07aed4ca2",
+  "name": "Glute bridge knees in",
+  "dur": 24,
+  "foamrol": false
+ },
+ {
+  "id": "230272865",
+  "hash": "7cdfdd46f8",
+  "name": "Glute bridge knees out",
+  "dur": 24,
+  "foamrol": false
+ },
+ {
+  "id": "230272716",
+  "hash": "47c17eb768",
+  "name": "Glute kickback",
+  "dur": 25,
+  "foamrol": false
+ },
+ {
+  "id": "230272765",
+  "hash": "be2d8f681f",
+  "name": "Glute kickback bended knees",
+  "dur": 25,
+  "foamrol": false
+ },
+ {
+  "id": "230272683",
+  "hash": "f6a51c4774",
+  "name": "Glute sidekick",
+  "dur": 25,
+  "foamrol": false
+ },
+ {
+  "id": "230220066",
+  "hash": "7a171759d4",
+  "name": "Goblet squat",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "232709659",
+  "hash": "0f42569c29",
+  "name": "Goodmorning",
+  "dur": 52,
+  "foamrol": false
+ },
+ {
+  "id": "238255765",
+  "hash": "215aa03c40",
+  "name": "Guillotine press",
+  "dur": 41,
+  "foamrol": false
+ },
+ {
+  "id": "232814387",
+  "hash": "02a9e2702c",
+  "name": "Hack squat",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "594282214",
+  "hash": "",
+  "name": "Hack squat machine",
+  "dur": 27,
+  "foamrol": false
+ },
+ {
+  "id": "458426151",
+  "hash": "",
+  "name": "Half kneeling thor press",
+  "dur": 51,
+  "foamrol": false
+ },
+ {
+  "id": "230282837",
+  "hash": "839839129e",
+  "name": "Hammer curl tricep bar",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "232806694",
+  "hash": "896a87abe2",
+  "name": "Hamstring slides",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "752477002",
+  "hash": "",
+  "name": "Handdoek Voetboog",
+  "dur": 85,
+  "foamrol": false
+ },
+ {
+  "id": "230916770",
+  "hash": "8c157027ce",
+  "name": "Handstand push up",
+  "dur": 32,
+  "foamrol": false
+ },
+ {
+  "id": "255246401",
+  "hash": "4e703e4a56",
+  "name": "handstand push up",
+  "dur": 59,
+  "foamrol": false
+ },
+ {
+  "id": "232711238",
+  "hash": "099bbaff99",
+  "name": "Hang snatch",
+  "dur": 93,
+  "foamrol": false
+ },
+ {
+  "id": "712201318",
+  "hash": "",
+  "name": "Hanging knee raise",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "230270654",
+  "hash": "b1215abbec",
+  "name": "Hanging knee raises",
+  "dur": 32,
+  "foamrol": false
+ },
+ {
+  "id": "230270746",
+  "hash": "2328e7596d",
+  "name": "Hanging leg raise",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "234127928",
+  "hash": "5a2b7d6ab2",
+  "name": "Hanging scapula pull ins",
+  "dur": 44,
+  "foamrol": false
+ },
+ {
+  "id": "235145848",
+  "hash": "0050c1adf3",
+  "name": "Heels elevated front dumbbell squat",
+  "dur": 51,
+  "foamrol": false
+ },
+ {
+  "id": "235146448",
+  "hash": "30ef3125d3",
+  "name": "Heels elevated front dumbbells squat",
+  "dur": 60,
+  "foamrol": false
+ },
+ {
+  "id": "230269978",
+  "hash": "77a94128fe",
+  "name": "Heels elevated sit up (swiss ball)",
+  "dur": 30,
+  "foamrol": false
+ },
+ {
+  "id": "485523148",
+  "hash": "",
+  "name": "Heup mobiliteit (bekken kantelen)",
+  "dur": 48,
+  "foamrol": false
+ },
+ {
+  "id": "491646059",
+  "hash": "",
+  "name": "Heup muur stretch",
+  "dur": 38,
+  "foamrol": false
+ },
+ {
+  "id": "485524742",
+  "hash": "",
+  "name": "Heup stretch split stand",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "230276554",
+  "hash": "63dacb577d",
+  "name": "Horizontal bicep cable curl",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "230282767",
+  "hash": "85f9bc17e4",
+  "name": "Horizontal cable rope curl",
+  "dur": 43,
+  "foamrol": false
+ },
+ {
+  "id": "234146546",
+  "hash": "9db66dcd63",
+  "name": "Horizontal cable tricep extension",
+  "dur": 49,
+  "foamrol": false
+ },
+ {
+  "id": "231630406",
+  "hash": "ffdd3638e5",
+  "name": "Incline bench press",
+  "dur": 43,
+  "foamrol": false
+ },
+ {
+  "id": "231615343",
+  "hash": "a34ea46fab",
+  "name": "Incline bench press on smith machine",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "687865204",
+  "hash": "",
+  "name": "Incline Cable Bicep Curl",
+  "dur": 30,
+  "foamrol": false
+ },
+ {
+  "id": "231630021",
+  "hash": "131df7f52a",
+  "name": "Incline cable fly",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "231632663",
+  "hash": "6f008ff4da",
+  "name": "Incline cable fly",
+  "dur": 55,
+  "foamrol": false
+ },
+ {
+  "id": "235153091",
+  "hash": "fade7ea0bf",
+  "name": "Incline cable fly",
+  "dur": 41,
+  "foamrol": false
+ },
+ {
+  "id": "231629673",
+  "hash": "b26c5c4b60",
+  "name": "Incline cable press",
+  "dur": 45,
+  "foamrol": false
+ },
+ {
+  "id": "231632514",
+  "hash": "400f46d497",
+  "name": "Incline cable press",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "235153205",
+  "hash": "09b9979f96",
+  "name": "Incline cable press",
+  "dur": 43,
+  "foamrol": false
+ },
+ {
+  "id": "234145996",
+  "hash": "df0319d8e6",
+  "name": "Incline cable tricep pushdown",
+  "dur": 47,
+  "foamrol": false
+ },
+ {
+  "id": "225965461",
+  "hash": "e2fb23fb37",
+  "name": "Incline Charles Poliquin fly",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "230192572",
+  "hash": "c4482284ee",
+  "name": "Incline dumbbell fly",
+  "dur": 29,
+  "foamrol": false
+ },
+ {
+  "id": "231629376",
+  "hash": "5659668885",
+  "name": "Incline dumbbell fly",
+  "dur": 45,
+  "foamrol": false
+ },
+ {
+  "id": "231624724",
+  "hash": "ec50b83e66",
+  "name": "Incline dumbbell fly with resistance band",
+  "dur": 52,
+  "foamrol": false
+ },
+ {
+  "id": "230194657",
+  "hash": "13ea37a0cf",
+  "name": "Incline dumbbell press",
+  "dur": 24,
+  "foamrol": false
+ },
+ {
+  "id": "231629122",
+  "hash": "827d1a1fcf",
+  "name": "Incline dumbbell press",
+  "dur": 45,
+  "foamrol": false
+ },
+ {
+  "id": "230194932",
+  "hash": "d266b83b7f",
+  "name": "Incline dumbbell press 15 º",
+  "dur": 24,
+  "foamrol": false
+ },
+ {
+  "id": "234145728",
+  "hash": "92293fcd35",
+  "name": "Incline dumbbell skull crusher",
+  "dur": 49,
+  "foamrol": false
+ },
+ {
+  "id": "225965485",
+  "hash": "d604ea756b",
+  "name": "Incline dumbell fly",
+  "dur": 23,
+  "foamrol": false
+ },
+ {
+  "id": "225965505",
+  "hash": "ba9a11e377",
+  "name": "Incline dumbell press (Bankje 15 graden)",
+  "dur": 24,
+  "foamrol": false
+ },
+ {
+  "id": "234146239",
+  "hash": "66590ed4b3",
+  "name": "Incline EZ-bar skull crusher",
+  "dur": 45,
+  "foamrol": false
+ },
+ {
+  "id": "225965520",
+  "hash": "9b16d62a8d",
+  "name": "Incline Hammer curl",
+  "dur": 25,
+  "foamrol": false
+ },
+ {
+  "id": "230275708",
+  "hash": "88be503278",
+  "name": "Incline hammer curl",
+  "dur": 41,
+  "foamrol": false
+ },
+ {
+  "id": "232476155",
+  "hash": "1dc1fe0440",
+  "name": "Incline plate press",
+  "dur": 48,
+  "foamrol": false
+ },
+ {
+  "id": "230193325",
+  "hash": "df2c8beed2",
+  "name": "Incline pronated dumbbell fly",
+  "dur": 29,
+  "foamrol": false
+ },
+ {
+  "id": "231628593",
+  "hash": "b1e6f473f3",
+  "name": "Incline pronated dumbbell fly",
+  "dur": 44,
+  "foamrol": false
+ },
+ {
+  "id": "225965536",
+  "hash": "909e054828",
+  "name": "Incline pronated dumbell fly",
+  "dur": 29,
+  "foamrol": false
+ },
+ {
+  "id": "231624883",
+  "hash": "42b736efed",
+  "name": "Incline pronated resistance band fly",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "330771822",
+  "hash": "f945f3b523",
+  "name": "incline prone cable row",
+  "dur": 114,
+  "foamrol": false
+ },
+ {
+  "id": "232396886",
+  "hash": "b873dccf50",
+  "name": "Incline prone dumbbell row pronated grip",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "225965553",
+  "hash": "161c9c918b",
+  "name": "Incline supinated bicep curl",
+  "dur": 28,
+  "foamrol": false
+ },
+ {
+  "id": "230276652",
+  "hash": "1925dfcec3",
+  "name": "Incline supinated bicep curl",
+  "dur": 51,
+  "foamrol": false
+ },
+ {
+  "id": "234682050",
+  "hash": "cf55fc67b0",
+  "name": "Inverted rows (beginner)",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "1186474334",
+  "hash": "",
+  "name": "Jefferson Curl",
+  "dur": 76,
+  "foamrol": false
+ },
+ {
+  "id": "232808576",
+  "hash": "bfb03f431a",
+  "name": "Jefferson squat",
+  "dur": 45,
+  "foamrol": false
+ },
+ {
+  "id": "255281170",
+  "hash": "5dda37a2cd",
+  "name": "Jeroen Fly",
+  "dur": 92,
+  "foamrol": false
+ },
+ {
+  "id": "234136767",
+  "hash": "c8aef23781",
+  "name": "JM press",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "258435572",
+  "hash": "d430e07bc8",
+  "name": "Juiste hand plaatsing bench press",
+  "dur": 115,
+  "foamrol": false
+ },
+ {
+  "id": "836900444",
+  "hash": "",
+  "name": "Jump lunge",
+  "dur": 17,
+  "foamrol": false
+ },
+ {
+  "id": "232808115",
+  "hash": "fde18d04eb",
+  "name": "Jump squats",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "836900374",
+  "hash": "",
+  "name": "Jumping jacks",
+  "dur": 11,
+  "foamrol": false
+ },
+ {
+  "id": "231453975",
+  "hash": "e72eb0a96c",
+  "name": "Kettlebel shoulder press",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "230204735",
+  "hash": "037a395517",
+  "name": "Kettlebell deadlift",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "230217396",
+  "hash": "dfb1b75071",
+  "name": "Kettlebell deadlift",
+  "dur": 44,
+  "foamrol": false
+ },
+ {
+  "id": "232475845",
+  "hash": "ba776f4c58",
+  "name": "Kettlebell floor press",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "230216762",
+  "hash": "1c08ff2834",
+  "name": "Kettlebell front rack lunges",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "230214807",
+  "hash": "2e1d724e1d",
+  "name": "Kettlebell Lunges",
+  "dur": 28,
+  "foamrol": false
+ },
+ {
+  "id": "238255677",
+  "hash": "b310177edd",
+  "name": "Kettlebell power press",
+  "dur": 41,
+  "foamrol": false
+ },
+ {
+  "id": "234145586",
+  "hash": "a41e349fa1",
+  "name": "Kettlebell skull crusher",
+  "dur": 46,
+  "foamrol": false
+ },
+ {
+  "id": "230204848",
+  "hash": "6a6749154b",
+  "name": "Kettlebell squat",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "234127596",
+  "hash": "c2d7125d5f",
+  "name": "Kettlebell squat shrugs",
+  "dur": 41,
+  "foamrol": false
+ },
+ {
+  "id": "230215118",
+  "hash": "936cb7b68c",
+  "name": "Kettlebell step out lunges",
+  "dur": 28,
+  "foamrol": false
+ },
+ {
+  "id": "230269579",
+  "hash": "098857c708",
+  "name": "Kettlebell swing",
+  "dur": 28,
+  "foamrol": false
+ },
+ {
+  "id": "230204627",
+  "hash": "ff05ab8679",
+  "name": "Kettlebell thrusters",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "230269623",
+  "hash": "57c911633b",
+  "name": "Kettlebell to overhead",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "230204248",
+  "hash": "dc09e56a33",
+  "name": "Kettlebell windmill",
+  "dur": 48,
+  "foamrol": false
+ },
+ {
+  "id": "234681704",
+  "hash": "57432fc352",
+  "name": "Kneeling cable rope pull apart",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "235066678",
+  "hash": "20d5316d59",
+  "name": "Kneeling overhead tricep extension",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "231632115",
+  "hash": "a6d28b43c4",
+  "name": "Kneeling resistance band fly pronated grip",
+  "dur": 46,
+  "foamrol": false
+ },
+ {
+  "id": "235065229",
+  "hash": "90d0b021a5",
+  "name": "Kneeling rope tricep extension (1)",
+  "dur": 35,
+  "foamrol": false
+ },
+ {
+  "id": "235065083",
+  "hash": "8df55469bb",
+  "name": "Kneeling rope tricep extension (2)",
+  "dur": 33,
+  "foamrol": false
+ },
+ {
+  "id": "235064814",
+  "hash": "8df76ed998",
+  "name": "Kneeling tricep extension (3)",
+  "dur": 32,
+  "foamrol": false
+ },
+ {
+  "id": "230271177",
+  "hash": "c18653b0c9",
+  "name": "Knipmessen",
+  "dur": 24,
+  "foamrol": false
+ },
+ {
+  "id": "231610123",
+  "hash": "fb955b9f83",
+  "name": "L-raises",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "235141027",
+  "hash": "9ab8e07d68",
+  "name": "Lat pull down",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "235140825",
+  "hash": "9cfc7b2a02",
+  "name": "Lat pull down behind the neck",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "234671907",
+  "hash": "8912077254",
+  "name": "Lat pull down neutral wide grip",
+  "dur": 47,
+  "foamrol": false
+ },
+ {
+  "id": "234676521",
+  "hash": "88a2832647",
+  "name": "Lat pull down supinated grip",
+  "dur": 44,
+  "foamrol": false
+ },
+ {
+  "id": "234680292",
+  "hash": "e060be69b4",
+  "name": "Lat pull down v-handle",
+  "dur": 44,
+  "foamrol": false
+ },
+ {
+  "id": "230271759",
+  "hash": "602eb06bbe",
+  "name": "Lateral mini band walk",
+  "dur": 24,
+  "foamrol": false
+ },
+ {
+  "id": "238259483",
+  "hash": "0d1bc586da",
+  "name": "Lateral mini band walk",
+  "dur": 24,
+  "foamrol": false
+ },
+ {
+  "id": "235064004",
+  "hash": "ff8dc1b63d",
+  "name": "Lean forward dippen",
+  "dur": 30,
+  "foamrol": false
+ },
+ {
+  "id": "231460230",
+  "hash": "bda13ec792",
+  "name": "Leaning-away dumbbell lateral raise",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "232706475",
+  "hash": "a638f4e6c2",
+  "name": "Leg curl swiss ball",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "232807326",
+  "hash": "fa648db984",
+  "name": "Leg extension",
+  "dur": 33,
+  "foamrol": false
+ },
+ {
+  "id": "232808445",
+  "hash": "20d62273d2",
+  "name": "Leg extension feet low",
+  "dur": 46,
+  "foamrol": false
+ },
+ {
+  "id": "238577753",
+  "hash": "4fe35e1e59",
+  "name": "Leg lowering progression (beginner)",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "238578269",
+  "hash": "747d1972e1",
+  "name": "Leg lowering progression (gevorderd)",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "238253572",
+  "hash": "655f8340fe",
+  "name": "Leg press",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "232807178",
+  "hash": "c277fde4e4",
+  "name": "Leg press feet high",
+  "dur": 47,
+  "foamrol": false
+ },
+ {
+  "id": "230270531",
+  "hash": "697a02ebff",
+  "name": "Leg raises on swiss ball",
+  "dur": 29,
+  "foamrol": false
+ },
+ {
+  "id": "394368348",
+  "hash": "",
+  "name": "Liggende Piriformis-stretch",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "636516098",
+  "hash": "",
+  "name": "Loopband",
+  "dur": 35,
+  "foamrol": false
+ },
+ {
+  "id": "234681355",
+  "hash": "cffb558bc8",
+  "name": "Lower back machine",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "836897314",
+  "hash": "",
+  "name": "Lunge + shoulder press",
+  "dur": 66,
+  "foamrol": false
+ },
+ {
+  "id": "836899211",
+  "hash": "",
+  "name": "Lunge 1 arm gewicht vast",
+  "dur": 56,
+  "foamrol": false
+ },
+ {
+  "id": "230912519",
+  "hash": "34dda7449d",
+  "name": "Lying cable curl supinated grip",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "594282122",
+  "hash": "",
+  "name": "Lying leg curl machine",
+  "dur": 32,
+  "foamrol": false
+ },
+ {
+  "id": "230271036",
+  "hash": "0225258389",
+  "name": "Lying leg raise",
+  "dur": 32,
+  "foamrol": false
+ },
+ {
+  "id": "234127516",
+  "hash": "2c70f4e1a7",
+  "name": "Machine neck curl",
+  "dur": 49,
+  "foamrol": false
+ },
+ {
+  "id": "238255602",
+  "hash": "",
+  "name": "maximum sprint",
+  "dur": 44,
+  "foamrol": false
+ },
+ {
+  "id": "457795423",
+  "hash": "",
+  "name": "Middenrug oefening",
+  "dur": 53,
+  "foamrol": false
+ },
+ {
+  "id": "230915717",
+  "hash": "3b941b1bd2",
+  "name": "Military press with smith machine",
+  "dur": 33,
+  "foamrol": false
+ },
+ {
+  "id": "238258862",
+  "hash": "23b7ba2615",
+  "name": "Mini band walk backward",
+  "dur": 25,
+  "foamrol": false
+ },
+ {
+  "id": "645941803",
+  "hash": "",
+  "name": "Mobiliteit bovenrug foamrol",
+  "dur": 66,
+  "foamrol": false
+ },
+ {
+  "id": "752474226",
+  "hash": "",
+  "name": "Mobiliteit drill",
+  "dur": 159,
+  "foamrol": false
+ },
+ {
+  "id": "479806922",
+  "hash": "",
+  "name": "Mobiliteit oefening bovenrug",
+  "dur": 33,
+  "foamrol": false
+ },
+ {
+  "id": "479805983",
+  "hash": "",
+  "name": "Mobiliteit oefening schouder",
+  "dur": 38,
+  "foamrol": false
+ },
+ {
+  "id": "457804007",
+  "hash": "",
+  "name": "Mobiliteit voor de bovenrug",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "491643871",
+  "hash": "",
+  "name": "Mobiliteitsoefening stok",
+  "dur": 50,
+  "foamrol": false
+ },
+ {
+  "id": "230270593",
+  "hash": "23f3a6bb0d",
+  "name": "Mountain climbers",
+  "dur": 21,
+  "foamrol": false
+ },
+ {
+  "id": "234126591",
+  "hash": "2627982a76",
+  "name": "Neck curl",
+  "dur": 49,
+  "foamrol": false
+ },
+ {
+  "id": "254642515",
+  "hash": "52e85195fe",
+  "name": "Nek",
+  "dur": 14,
+  "foamrol": true
+ },
+ {
+  "id": "232712315",
+  "hash": "3977a34fb6",
+  "name": "Nordic hamstring curl",
+  "dur": 28,
+  "foamrol": false
+ },
+ {
+  "id": "238253268",
+  "hash": "e1485b62d5",
+  "name": "Nordic hamstring curl (lat pull down)",
+  "dur": 49,
+  "foamrol": false
+ },
+ {
+  "id": "254645728",
+  "hash": "57fd5ffdfb",
+  "name": "Onderarm (achterkant)",
+  "dur": 13,
+  "foamrol": true
+ },
+ {
+  "id": "254645753",
+  "hash": "f993ee6733",
+  "name": "onderarm (binnenkant)",
+  "dur": 15,
+  "foamrol": true
+ },
+ {
+  "id": "254645620",
+  "hash": "17c0902cd7",
+  "name": "Onderarm (buitenkant)",
+  "dur": 12,
+  "foamrol": true
+ },
+ {
+  "id": "836898252",
+  "hash": "",
+  "name": "Onderarm oefening flexoren",
+  "dur": 35,
+  "foamrol": false
+ },
+ {
+  "id": "230275537",
+  "hash": "5e038b4997",
+  "name": "One arm cable curl",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "234679162",
+  "hash": "d5bf182a12",
+  "name": "One arm lat pull down",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "237142761",
+  "hash": "f282642bd2",
+  "name": "Overhead dumbbell extension",
+  "dur": 41,
+  "foamrol": false
+ },
+ {
+  "id": "230269858",
+  "hash": "709454b76b",
+  "name": "Overhead kettlebell walk",
+  "dur": 32,
+  "foamrol": false
+ },
+ {
+  "id": "1187077478",
+  "hash": "",
+  "name": "Overhead Squat",
+  "dur": 56,
+  "foamrol": false
+ },
+ {
+  "id": "232808910",
+  "hash": "66336fefbf",
+  "name": "Overhead squat",
+  "dur": 50,
+  "foamrol": false
+ },
+ {
+  "id": "238254160",
+  "hash": "e37f28286d",
+  "name": "Overhead tricep dumbbells extension",
+  "dur": 32,
+  "foamrol": false
+ },
+ {
+  "id": "234148012",
+  "hash": "542891ff6c",
+  "name": "Overhead tricep rope extension",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "391680042",
+  "hash": "",
+  "name": "Pallof hold resistance band",
+  "dur": 29,
+  "foamrol": false
+ },
+ {
+  "id": "230271613",
+  "hash": "0673e28659",
+  "name": "Pallof press",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "230271514",
+  "hash": "a839774112",
+  "name": "Pallof press hold",
+  "dur": 27,
+  "foamrol": false
+ },
+ {
+  "id": "391784776",
+  "hash": "",
+  "name": "Pallof press resistance band",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "230271570",
+  "hash": "ccd6dfbbd8",
+  "name": "Pallof press to overhead",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "230271483",
+  "hash": "12786c66cb",
+  "name": "Pallof press with rotation",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "391786531",
+  "hash": "",
+  "name": "Pallof rotation resistance band",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "235152216",
+  "hash": "1dd3033219",
+  "name": "Pallof to overhead",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "391785873",
+  "hash": "",
+  "name": "Pallof to overhead resistance band",
+  "dur": 47,
+  "foamrol": false
+ },
+ {
+  "id": "1187079664",
+  "hash": "",
+  "name": "Pancake goodmorning",
+  "dur": 63,
+  "foamrol": false
+ },
+ {
+  "id": "234678315",
+  "hash": "3ec0511258",
+  "name": "Parallel grip pull ups",
+  "dur": 38,
+  "foamrol": false
+ },
+ {
+  "id": "231628711",
+  "hash": "353e195a60",
+  "name": "Peck deck",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "836899811",
+  "hash": "",
+  "name": "Peck deck 5/1",
+  "dur": 63,
+  "foamrol": false
+ },
+ {
+  "id": "254645645",
+  "hash": "66a7e08609",
+  "name": "Peesplaat Bovenbeen",
+  "dur": 11,
+  "foamrol": true
+ },
+ {
+  "id": "405050657",
+  "hash": "",
+  "name": "Peterson step up",
+  "dur": 73,
+  "foamrol": false
+ },
+ {
+  "id": "457403162",
+  "hash": "",
+  "name": "Peterson step up",
+  "dur": 44,
+  "foamrol": false
+ },
+ {
+  "id": "225965576",
+  "hash": "ae7a8afa37",
+  "name": "Pick up squat",
+  "dur": 32,
+  "foamrol": false
+ },
+ {
+  "id": "230219971",
+  "hash": "a2c8fa0855",
+  "name": "Pick up squat (kettlebell)",
+  "dur": 56,
+  "foamrol": false
+ },
+ {
+  "id": "394367931",
+  "hash": "",
+  "name": "Pigeon Stetch",
+  "dur": 57,
+  "foamrol": false
+ },
+ {
+  "id": "1186472758",
+  "hash": "",
+  "name": "Pigeon Stretch (op verhoging)",
+  "dur": 74,
+  "foamrol": false
+ },
+ {
+  "id": "235152403",
+  "hash": "3a9369079e",
+  "name": "Pistol squat",
+  "dur": 30,
+  "foamrol": false
+ },
+ {
+  "id": "405037169",
+  "hash": "",
+  "name": "Pistol Squat",
+  "dur": 64,
+  "foamrol": false
+ },
+ {
+  "id": "230271263",
+  "hash": "9eca4c5c89",
+  "name": "Plank",
+  "dur": 24,
+  "foamrol": false
+ },
+ {
+  "id": "230270563",
+  "hash": "911bf957b5",
+  "name": "Plank on swiss ball",
+  "dur": 22,
+  "foamrol": false
+ },
+ {
+  "id": "230270440",
+  "hash": "48a24a999a",
+  "name": "Plank on swiss ball side to side",
+  "dur": 26,
+  "foamrol": false
+ },
+ {
+  "id": "230269778",
+  "hash": "9e26419405",
+  "name": "Plank with kettlebell drag",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "230925464",
+  "hash": "41aeb6e4fa",
+  "name": "Plank with shoulder taps",
+  "dur": 27,
+  "foamrol": false
+ },
+ {
+  "id": "238585966",
+  "hash": "c1740ce0ed",
+  "name": "Plate circles",
+  "dur": 35,
+  "foamrol": false
+ },
+ {
+  "id": "231460638",
+  "hash": "fede483b48",
+  "name": "Plate front raise to overhead",
+  "dur": 32,
+  "foamrol": false
+ },
+ {
+  "id": "231627919",
+  "hash": "843199b52b",
+  "name": "Plate press",
+  "dur": 46,
+  "foamrol": false
+ },
+ {
+  "id": "235141862",
+  "hash": "ad5b549f90",
+  "name": "Power rows",
+  "dur": 27,
+  "foamrol": false
+ },
+ {
+  "id": "230274207",
+  "hash": "ddf155ab11",
+  "name": "Preacher crul EZ-bar pronated grip",
+  "dur": 41,
+  "foamrol": false
+ },
+ {
+  "id": "594282066",
+  "hash": "",
+  "name": "Preacher curl  EZ-bar supinated grip",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "230282377",
+  "hash": "2696fba44a",
+  "name": "Preacher dumbbell curl supinated grip",
+  "dur": 46,
+  "foamrol": false
+ },
+ {
+  "id": "230275029",
+  "hash": "b80075d195",
+  "name": "Preacher hammer curl",
+  "dur": 45,
+  "foamrol": false
+ },
+ {
+  "id": "230909916",
+  "hash": "d073d79dcd",
+  "name": "Pronated barbell curl",
+  "dur": 43,
+  "foamrol": false
+ },
+ {
+  "id": "234874300",
+  "hash": "d082bdab1a",
+  "name": "Pronated cable row",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "225965598",
+  "hash": "f800fb3da0",
+  "name": "Pronated small grip EZ-bar curl",
+  "dur": 21,
+  "foamrol": false
+ },
+ {
+  "id": "225965610",
+  "hash": "2962794db9",
+  "name": "Pronated weight grip EZ-bar curl",
+  "dur": 19,
+  "foamrol": false
+ },
+ {
+  "id": "234673253",
+  "hash": "1e78cb7a78",
+  "name": "Pronated wide grip cable row",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "232397654",
+  "hash": "536132b70e",
+  "name": "Prone back extension",
+  "dur": 28,
+  "foamrol": false
+ },
+ {
+  "id": "230910338",
+  "hash": "388d31166e",
+  "name": "Prone incline barbell curl",
+  "dur": 44,
+  "foamrol": false
+ },
+ {
+  "id": "232397323",
+  "hash": "c23908239c",
+  "name": "Prone incline dumbbell row",
+  "dur": 30,
+  "foamrol": false
+ },
+ {
+  "id": "230910563",
+  "hash": "d4e3fe1b9e",
+  "name": "Prone incline EZ-bar curl small supinated grip",
+  "dur": 43,
+  "foamrol": false
+ },
+ {
+  "id": "230910833",
+  "hash": "95da785506",
+  "name": "Prone incline EZ-bar curl supinated wide grip",
+  "dur": 44,
+  "foamrol": false
+ },
+ {
+  "id": "230911015",
+  "hash": "34e22991b3",
+  "name": "Prone incline hammer curl",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "457790184",
+  "hash": "",
+  "name": "Prone incline reverse fly",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "230911182",
+  "hash": "c400c560a8",
+  "name": "Prone incline supinated dumbbell curl",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "457786041",
+  "hash": "",
+  "name": "Prone incline Y raise",
+  "dur": 32,
+  "foamrol": false
+ },
+ {
+  "id": "232395157",
+  "hash": "98f4d87d32",
+  "name": "Prone kettlebell row + retractie",
+  "dur": 45,
+  "foamrol": false
+ },
+ {
+  "id": "232394629",
+  "hash": "b77a134925",
+  "name": "Prone kettlebell row pronated grip",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "230927586",
+  "hash": "fbf949e1b4",
+  "name": "Prone overhead press",
+  "dur": 45,
+  "foamrol": false
+ },
+ {
+  "id": "235141414",
+  "hash": "c44f6cc39d",
+  "name": "Prone reverse dumbbell fly",
+  "dur": 35,
+  "foamrol": false
+ },
+ {
+  "id": "238253378",
+  "hash": "b47c9d1aae",
+  "name": "Prone reverse dumbbell fly pronated grip",
+  "dur": 33,
+  "foamrol": false
+ },
+ {
+  "id": "232397529",
+  "hash": "f0dd410ad0",
+  "name": "Prone reverse hypers",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "232397971",
+  "hash": "5703f1a3d2",
+  "name": "Prone thoracic extension",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "235140256",
+  "hash": "9beb809ed3",
+  "name": "Pré stretch straight arm pull down",
+  "dur": 51,
+  "foamrol": false
+ },
+ {
+  "id": "230272081",
+  "hash": "7608fe2eb9",
+  "name": "Pull through (rope)",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "234678034",
+  "hash": "6cb9062cf2",
+  "name": "Pull up",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "235139460",
+  "hash": "2ff57cefe0",
+  "name": "Pull up machine",
+  "dur": 43,
+  "foamrol": false
+ },
+ {
+  "id": "255248562",
+  "hash": "20fe275056",
+  "name": "Pull up schouder positie",
+  "dur": 88,
+  "foamrol": false
+ },
+ {
+  "id": "235147097",
+  "hash": "64b2973ad8",
+  "name": "Push up",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "398501477",
+  "hash": "",
+  "name": "Push up progression",
+  "dur": 53,
+  "foamrol": false
+ },
+ {
+  "id": "570857244",
+  "hash": "",
+  "name": "Push up progression",
+  "dur": 43,
+  "foamrol": false
+ },
+ {
+  "id": "712201413",
+  "hash": "",
+  "name": "Push up progression",
+  "dur": 43,
+  "foamrol": false
+ },
+ {
+  "id": "234143131",
+  "hash": "",
+  "name": "Push up small",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "238577342",
+  "hash": "a2df6aa55e",
+  "name": "Push up small",
+  "dur": 64,
+  "foamrol": false
+ },
+ {
+  "id": "239002917",
+  "hash": "d29ae443d3",
+  "name": "Rack deadlift",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "238253175",
+  "hash": "2288ee81fc",
+  "name": "Rack military press",
+  "dur": 33,
+  "foamrol": false
+ },
+ {
+  "id": "381673420",
+  "hash": "",
+  "name": "resistance band bicep curl",
+  "dur": 25,
+  "foamrol": false
+ },
+ {
+  "id": "390307566",
+  "hash": "",
+  "name": "Resistance band chest press",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "405047757",
+  "hash": "",
+  "name": "Resistance band deadlift",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "890578238",
+  "hash": "",
+  "name": "Resistance band neutral grip lat pulldown",
+  "dur": 80,
+  "foamrol": false
+ },
+ {
+  "id": "388812262",
+  "hash": "",
+  "name": "Resistance band overhead tricep extension",
+  "dur": 26,
+  "foamrol": false
+ },
+ {
+  "id": "381665404",
+  "hash": "",
+  "name": "Resistance band pronated row",
+  "dur": 32,
+  "foamrol": false
+ },
+ {
+  "id": "381665601",
+  "hash": "",
+  "name": "Resistance band row",
+  "dur": 47,
+  "foamrol": false
+ },
+ {
+  "id": "388818215",
+  "hash": "",
+  "name": "Resistance band single arm overhead tricep extension",
+  "dur": 29,
+  "foamrol": false
+ },
+ {
+  "id": "381665855",
+  "hash": "",
+  "name": "resistance band single arm row",
+  "dur": 38,
+  "foamrol": false
+ },
+ {
+  "id": "234144348",
+  "hash": "a281d9d799",
+  "name": "Resistance band tricep extension",
+  "dur": 46,
+  "foamrol": false
+ },
+ {
+  "id": "232711484",
+  "hash": "b9d41d49ae",
+  "name": "Resisted sprints",
+  "dur": 33,
+  "foamrol": false
+ },
+ {
+  "id": "232748724",
+  "hash": "a9dd76d588",
+  "name": "Reverse barbell lunges",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "234874767",
+  "hash": "dd0ee1f09f",
+  "name": "Reverse cable fly",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "239004272",
+  "hash": "f4487d8a4d",
+  "name": "Reverse flutter kicks",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "230272000",
+  "hash": "6de2de4412",
+  "name": "Reverse hyper on swiss ball",
+  "dur": 29,
+  "foamrol": false
+ },
+ {
+  "id": "230272035",
+  "hash": "c9e353831b",
+  "name": "Reverse mini band walks",
+  "dur": 25,
+  "foamrol": false
+ },
+ {
+  "id": "848646894",
+  "hash": "",
+  "name": "Reverse wrist curl",
+  "dur": 32,
+  "foamrol": false
+ },
+ {
+  "id": "234677598",
+  "hash": "65a6d710a9",
+  "name": "Ring rows",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "230912408",
+  "hash": "11bc419ecc",
+  "name": "Rings bicep curl supinated grip",
+  "dur": 38,
+  "foamrol": false
+ },
+ {
+  "id": "230270891",
+  "hash": "94f080b362",
+  "name": "RKC Plank",
+  "dur": 25,
+  "foamrol": false
+ },
+ {
+  "id": "636511571",
+  "hash": "",
+  "name": "Roeien",
+  "dur": 70,
+  "foamrol": false
+ },
+ {
+  "id": "231627118",
+  "hash": "25c811ab4c",
+  "name": "Rollout fly",
+  "dur": 54,
+  "foamrol": false
+ },
+ {
+  "id": "225965622",
+  "hash": "f1a5ca6728",
+  "name": "Romanian deadlift dumbell",
+  "dur": 22,
+  "foamrol": false
+ },
+ {
+  "id": "235144911",
+  "hash": "157296cd73",
+  "name": "Romanian dumbbell deadlift",
+  "dur": 44,
+  "foamrol": false
+ },
+ {
+  "id": "230204508",
+  "hash": "e4fd6df200",
+  "name": "Romanian kettlebell deadlift",
+  "dur": 44,
+  "foamrol": false
+ },
+ {
+  "id": "235139820",
+  "hash": "c20dac94a7",
+  "name": "Rope hammer curl",
+  "dur": 52,
+  "foamrol": false
+ },
+ {
+  "id": "234142955",
+  "hash": "df7ef393f2",
+  "name": "Rope tricep extension",
+  "dur": 28,
+  "foamrol": false
+ },
+ {
+  "id": "230271841",
+  "hash": "659137b56c",
+  "name": "Rounded back extension",
+  "dur": 35,
+  "foamrol": false
+ },
+ {
+  "id": "231457807",
+  "hash": "5178409b0e",
+  "name": "Seated barbell snatch",
+  "dur": 41,
+  "foamrol": false
+ },
+ {
+  "id": "235141722",
+  "hash": "eaca37cb56",
+  "name": "Seated bent over clean & press",
+  "dur": 55,
+  "foamrol": false
+ },
+ {
+  "id": "238256084",
+  "hash": "08acffa225",
+  "name": "Seated bent over side raise pronated grip",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "687856289",
+  "hash": "",
+  "name": "Seated Cable Facepull",
+  "dur": 50,
+  "foamrol": false
+ },
+ {
+  "id": "231624518",
+  "hash": "716269670a",
+  "name": "Seated cable fly",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "231619403",
+  "hash": "ed36d06c87",
+  "name": "Seated cable press",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "234682447",
+  "hash": "021035bf6e",
+  "name": "Seated cable row handles",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "234682242",
+  "hash": "e86db9a332",
+  "name": "Seated cable row v-handle",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "848423919",
+  "hash": "",
+  "name": "Seated calf raise Smith machine",
+  "dur": 28,
+  "foamrol": false
+ },
+ {
+  "id": "230203558",
+  "hash": "ca0e8350f1",
+  "name": "Seated calf raises",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "230196753",
+  "hash": "05b80c37c1",
+  "name": "Seated calf raises with barbell",
+  "dur": 33,
+  "foamrol": false
+ },
+ {
+  "id": "235145240",
+  "hash": "4b7e8f0213",
+  "name": "Seated dumbbell front raise",
+  "dur": 41,
+  "foamrol": false
+ },
+ {
+  "id": "230912150",
+  "hash": "56fa342982",
+  "name": "Seated inner bicep curl",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "232712172",
+  "hash": "ce9fa4c3fe",
+  "name": "Seated leg curl",
+  "dur": 35,
+  "foamrol": false
+ },
+ {
+  "id": "618670373",
+  "hash": "",
+  "name": "Seated leg curl",
+  "dur": 137,
+  "foamrol": false
+ },
+ {
+  "id": "231455037",
+  "hash": "77b6ab6d03",
+  "name": "Seated neutral grip wide shoulder press",
+  "dur": 35,
+  "foamrol": false
+ },
+ {
+  "id": "238256505",
+  "hash": "c633a3e625",
+  "name": "Seated rope row",
+  "dur": 29,
+  "foamrol": false
+ },
+ {
+  "id": "231608823",
+  "hash": "d61617a188",
+  "name": "Seated shoulder press",
+  "dur": 28,
+  "foamrol": false
+ },
+ {
+  "id": "230924851",
+  "hash": "0a3725900b",
+  "name": "Seated shoulder press neutral grip",
+  "dur": 33,
+  "foamrol": false
+ },
+ {
+  "id": "235145320",
+  "hash": "e22b0cba6c",
+  "name": "Seated side raise",
+  "dur": 41,
+  "foamrol": false
+ },
+ {
+  "id": "230196626",
+  "hash": "7f31badceb",
+  "name": "Seated single leg calf raise with dumbbell",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "253480437",
+  "hash": "f01c3e436c",
+  "name": "Set up Dumbbell press",
+  "dur": 89,
+  "foamrol": false
+ },
+ {
+  "id": "232813602",
+  "hash": "c9cb63e26a",
+  "name": "Short step lunge",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "238256284",
+  "hash": "bf35b1778b",
+  "name": "Shotgun row",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "230917601",
+  "hash": "13721b660e",
+  "name": "Shouder complex (moet bij video's, niet bij oefeningen)",
+  "dur": 90,
+  "foamrol": false
+ },
+ {
+  "id": "231611641",
+  "hash": "",
+  "name": "Shoulder complex",
+  "dur": 89,
+  "foamrol": false
+ },
+ {
+  "id": "887182030",
+  "hash": "",
+  "name": "Side Bend (Back Extension)",
+  "dur": 89,
+  "foamrol": false
+ },
+ {
+  "id": "230271299",
+  "hash": "60755f24bc",
+  "name": "Side plank",
+  "dur": 22,
+  "foamrol": false
+ },
+ {
+  "id": "1169495277",
+  "hash": "",
+  "name": "Side plank (3 variaties)",
+  "dur": 50,
+  "foamrol": false
+ },
+ {
+  "id": "230271365",
+  "hash": "25bfddbd11",
+  "name": "Side plank + cable row",
+  "dur": 29,
+  "foamrol": false
+ },
+ {
+  "id": "230271438",
+  "hash": "26dc3c7b2a",
+  "name": "Side plank + cable row to overhead",
+  "dur": 33,
+  "foamrol": false
+ },
+ {
+  "id": "1169500417",
+  "hash": "10dc9e9b66",
+  "name": "Side plank + leg raise",
+  "dur": 57,
+  "foamrol": false
+ },
+ {
+  "id": "1169507050",
+  "hash": "1697fb7e46",
+  "name": "Side plank + rotatie",
+  "dur": 54,
+  "foamrol": false
+ },
+ {
+  "id": "1169506786",
+  "hash": "8ad26c8153",
+  "name": "Side Plank op bankje",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "234909323",
+  "hash": "8f00e903e5",
+  "name": "Side raise",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "232400308",
+  "hash": "51fb636e83",
+  "name": "Single arm barbell row",
+  "dur": 26,
+  "foamrol": false
+ },
+ {
+  "id": "387152167",
+  "hash": "",
+  "name": "Single arm bicep curl met resistance band",
+  "dur": 41,
+  "foamrol": false
+ },
+ {
+  "id": "234681011",
+  "hash": "45fd0988ca",
+  "name": "Single arm cable row",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "230269674",
+  "hash": "79144cc4c6",
+  "name": "Single arm clean & press (kettlebell)",
+  "dur": 44,
+  "foamrol": false
+ },
+ {
+  "id": "234145379",
+  "hash": "cddbfd4bec",
+  "name": "Single arm cross body tricep dumbbell extension",
+  "dur": 48,
+  "foamrol": false
+ },
+ {
+  "id": "231618760",
+  "hash": "0af1f794ef",
+  "name": "Single arm decline cable fly",
+  "dur": 30,
+  "foamrol": false
+ },
+ {
+  "id": "479821796",
+  "hash": "",
+  "name": "Single arm decline cable fly",
+  "dur": 57,
+  "foamrol": false
+ },
+ {
+  "id": "231459266",
+  "hash": "bc0c0106f5",
+  "name": "Single arm diagonal down reverse cable fly",
+  "dur": 43,
+  "foamrol": false
+ },
+ {
+  "id": "238253113",
+  "hash": "5887aaedd3",
+  "name": "Single arm diagonal up reverse cable fly pronated grip",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "234680672",
+  "hash": "c964591b53",
+  "name": "Single arm dumbbell reverse fly",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "234679658",
+  "hash": "706f8befe8",
+  "name": "Single arm dumbbell row",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "235141802",
+  "hash": "d0e5d1082b",
+  "name": "Single arm dumbbell shrug",
+  "dur": 30,
+  "foamrol": false
+ },
+ {
+  "id": "230269720",
+  "hash": "f06007c871",
+  "name": "Single arm farmer walk",
+  "dur": 32,
+  "foamrol": false
+ },
+ {
+  "id": "231628845",
+  "hash": "3e2e22e7ad",
+  "name": "Single arm floor press with kettlebell",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "230219742",
+  "hash": "4b3a271159",
+  "name": "Single arm front rack kettlebell lunges",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "230282626",
+  "hash": "58faf2f3b7",
+  "name": "Single arm hammer rope curl",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "230922141",
+  "hash": "0cb708fd4d",
+  "name": "Single arm horizontal cable abduction",
+  "dur": 35,
+  "foamrol": false
+ },
+ {
+  "id": "231618391",
+  "hash": "b1bde86efd",
+  "name": "Single arm horizontal pronated cable fly",
+  "dur": 30,
+  "foamrol": false
+ },
+ {
+  "id": "231459438",
+  "hash": "f91ea244f8",
+  "name": "Single arm horizontal reverse cable fly pronated grip",
+  "dur": 45,
+  "foamrol": false
+ },
+ {
+  "id": "231618117",
+  "hash": "40f7da79d8",
+  "name": "Single arm incline cable fly",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "230204137",
+  "hash": "a3a796fdbc",
+  "name": "Single arm kettlebell press",
+  "dur": 28,
+  "foamrol": false
+ },
+ {
+  "id": "230269498",
+  "hash": "22a38ecf15",
+  "name": "Single arm kettlebell snatch",
+  "dur": 46,
+  "foamrol": false
+ },
+ {
+  "id": "230269554",
+  "hash": "7be835eb15",
+  "name": "Single arm kettlebell swing",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "230204975",
+  "hash": "a163347241",
+  "name": "Single arm kettlebell thruster",
+  "dur": 38,
+  "foamrol": false
+ },
+ {
+  "id": "230219863",
+  "hash": "0372818018",
+  "name": "Single arm overhead kettlebell lunges",
+  "dur": 35,
+  "foamrol": false
+ },
+ {
+  "id": "230269442",
+  "hash": "774a74058f",
+  "name": "Single arm overhead kettlebell squat",
+  "dur": 46,
+  "foamrol": false
+ },
+ {
+  "id": "230911906",
+  "hash": "a97294b29a",
+  "name": "Single arm preacher curl supinated grip",
+  "dur": 38,
+  "foamrol": false
+ },
+ {
+  "id": "230911409",
+  "hash": "32deb3f633",
+  "name": "Single arm preacher hammer curl",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "234145140",
+  "hash": "2415739ff0",
+  "name": "Single arm supinated tricep cable extension",
+  "dur": 43,
+  "foamrol": false
+ },
+ {
+  "id": "234144924",
+  "hash": "cb6dee1190",
+  "name": "Single arm tricep kickback",
+  "dur": 41,
+  "foamrol": false
+ },
+ {
+  "id": "230272949",
+  "hash": "5669689de3",
+  "name": "Single leg barbell glute bridge",
+  "dur": 28,
+  "foamrol": false
+ },
+ {
+  "id": "636518374",
+  "hash": "",
+  "name": "Single leg calf raise (Leg extension)",
+  "dur": 83,
+  "foamrol": false
+ },
+ {
+  "id": "230203808",
+  "hash": "52eaa358ba",
+  "name": "Single leg calf raises leg press",
+  "dur": 30,
+  "foamrol": false
+ },
+ {
+  "id": "232737035",
+  "hash": "f62184bac0",
+  "name": "Single leg glute bridge",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "238579148",
+  "hash": "38d76763dc",
+  "name": "Single leg heel elevated hip thrust",
+  "dur": 33,
+  "foamrol": false
+ },
+ {
+  "id": "235141229",
+  "hash": "aa03fcf593",
+  "name": "Single leg heels elevated glute bridge",
+  "dur": 46,
+  "foamrol": false
+ },
+ {
+  "id": "238253318",
+  "hash": "23edf10b78",
+  "name": "Single leg hip thrust",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "381908558",
+  "hash": "",
+  "name": "Single leg hip thrust",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "382890719",
+  "hash": "",
+  "name": "Single leg hip thrust met dumbbell",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "230204052",
+  "hash": "45e77ef464",
+  "name": "Single leg kettlebell deadlift",
+  "dur": 61,
+  "foamrol": false
+ },
+ {
+  "id": "235143335",
+  "hash": "5f78e4ea3e",
+  "name": "Single leg leg curl",
+  "dur": 48,
+  "foamrol": false
+ },
+ {
+  "id": "594282029",
+  "hash": "",
+  "name": "Single leg leg curl machine",
+  "dur": 27,
+  "foamrol": false
+ },
+ {
+  "id": "238581644",
+  "hash": "2cc5aa2be9",
+  "name": "Single leg leg curl swiss ball",
+  "dur": 51,
+  "foamrol": false
+ },
+ {
+  "id": "235143153",
+  "hash": "add866614a",
+  "name": "Single leg leg extension",
+  "dur": 35,
+  "foamrol": false
+ },
+ {
+  "id": "361597573",
+  "hash": "",
+  "name": "Single leg lying leg curl",
+  "dur": 32,
+  "foamrol": false
+ },
+ {
+  "id": "232809119",
+  "hash": "316d4c8894",
+  "name": "Sissi squat",
+  "dur": 65,
+  "foamrol": false
+ },
+ {
+  "id": "594281920",
+  "hash": "",
+  "name": "Sissi squat",
+  "dur": 28,
+  "foamrol": false
+ },
+ {
+  "id": "394369555",
+  "hash": "",
+  "name": "Sissi squat (Smith machine)",
+  "dur": 47,
+  "foamrol": false
+ },
+ {
+  "id": "234147806",
+  "hash": "05682e312c",
+  "name": "Sitting overhead single arm dumbbell tricep extension",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "232812264",
+  "hash": "254ccdcca3",
+  "name": "Skate squats",
+  "dur": 41,
+  "foamrol": false
+ },
+ {
+  "id": "394369851",
+  "hash": "",
+  "name": "Skull crusher EZ-bar",
+  "dur": 43,
+  "foamrol": false
+ },
+ {
+  "id": "235067553",
+  "hash": "9c1b61de65",
+  "name": "Smith machine body weight skull crusher",
+  "dur": 30,
+  "foamrol": false
+ },
+ {
+  "id": "238254484",
+  "hash": "ebcf4ca6e7",
+  "name": "Smith machine glute kickback",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "235068374",
+  "hash": "fb6689e1c7",
+  "name": "Smith machine skull crusher to forehead",
+  "dur": 28,
+  "foamrol": false
+ },
+ {
+  "id": "234127376",
+  "hash": "e6cd339910",
+  "name": "Snatch grip barbell shrugs",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "1187078157",
+  "hash": "",
+  "name": "Snatch grip deadlift",
+  "dur": 57,
+  "foamrol": false
+ },
+ {
+  "id": "457397822",
+  "hash": "",
+  "name": "Spanish squat",
+  "dur": 44,
+  "foamrol": false
+ },
+ {
+  "id": "235145125",
+  "hash": "f278763c04",
+  "name": "Speed presses",
+  "dur": 24,
+  "foamrol": false
+ },
+ {
+  "id": "230216343",
+  "hash": "385eb871d3",
+  "name": "Split squat",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "391677535",
+  "hash": "",
+  "name": "Split squat met row resistance band",
+  "dur": 47,
+  "foamrol": false
+ },
+ {
+  "id": "458441215",
+  "hash": "",
+  "name": "Split Squat smith machine",
+  "dur": 50,
+  "foamrol": false
+ },
+ {
+  "id": "836889672",
+  "hash": "",
+  "name": "Staggered Stance Deadlift",
+  "dur": 88,
+  "foamrol": false
+ },
+ {
+  "id": "848425763",
+  "hash": "",
+  "name": "Standin single arm dumbell curl",
+  "dur": 28,
+  "foamrol": false
+ },
+ {
+  "id": "238253742",
+  "hash": "9616873559",
+  "name": "Standing abductor machine",
+  "dur": 33,
+  "foamrol": false
+ },
+ {
+  "id": "230064785",
+  "hash": "47055a94b4",
+  "name": "Standing barbell curl",
+  "dur": 30,
+  "foamrol": false
+ },
+ {
+  "id": "234670698",
+  "hash": "e9ed1915eb",
+  "name": "Standing bent over cable row neutral wide grip",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "231633099",
+  "hash": "0e35e70065",
+  "name": "Standing cable fly",
+  "dur": 43,
+  "foamrol": false
+ },
+ {
+  "id": "231632962",
+  "hash": "57df55f079",
+  "name": "Standing cable press",
+  "dur": 48,
+  "foamrol": false
+ },
+ {
+  "id": "230195190",
+  "hash": "c23c623797",
+  "name": "Standing calf raise (smith machine)",
+  "dur": 30,
+  "foamrol": false
+ },
+ {
+  "id": "594281866",
+  "hash": "",
+  "name": "Standing calf raise machine (zonder V-o).m4v",
+  "dur": 27,
+  "foamrol": false
+ },
+ {
+  "id": "235145571",
+  "hash": "4ef0f62276",
+  "name": "Standing dumbbell front press",
+  "dur": 41,
+  "foamrol": false
+ },
+ {
+  "id": "235145502",
+  "hash": "9db6c64521",
+  "name": "Standing dumbbell front raise pronated grip",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "235146894",
+  "hash": "457f5f30c4",
+  "name": "Standing front raise",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "225965633",
+  "hash": "c0422b90dd",
+  "name": "standing hammer curl",
+  "dur": 21,
+  "foamrol": false
+ },
+ {
+  "id": "231604928",
+  "hash": "fec1ca2fa6",
+  "name": "Standing military press",
+  "dur": 38,
+  "foamrol": false
+ },
+ {
+  "id": "235404353",
+  "hash": "a4b514724a",
+  "name": "Standing overhead cable extension",
+  "dur": 30,
+  "foamrol": false
+ },
+ {
+  "id": "235145004",
+  "hash": "b8b692a968",
+  "name": "Standing side raise + rotatie",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "234669892",
+  "hash": "b5a4067511",
+  "name": "Standing single arm dumbbell row",
+  "dur": 27,
+  "foamrol": false
+ },
+ {
+  "id": "230197171",
+  "hash": "9001aba341",
+  "name": "Standing single leg calf raises with dumbbell",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "238256426",
+  "hash": "f7bb96a459",
+  "name": "Standing single leg leg curl",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "360091473",
+  "hash": "",
+  "name": "Standing single leg leg curl",
+  "dur": 29,
+  "foamrol": false
+ },
+ {
+  "id": "457800462",
+  "hash": "",
+  "name": "Standing wall raises",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "457394222",
+  "hash": "",
+  "name": "Step down",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "457393004",
+  "hash": "",
+  "name": "Step machine",
+  "dur": 30,
+  "foamrol": false
+ },
+ {
+  "id": "636513526",
+  "hash": "",
+  "name": "Step Machine",
+  "dur": 38,
+  "foamrol": false
+ },
+ {
+  "id": "235144803",
+  "hash": "385a081b00",
+  "name": "Step up box",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "230270482",
+  "hash": "185b1d2316",
+  "name": "Stir the pot",
+  "dur": 30,
+  "foamrol": false
+ },
+ {
+  "id": "234682712",
+  "hash": "e6d386c6a3",
+  "name": "Straight arm pull down",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "234674840",
+  "hash": "28c21374ba",
+  "name": "Straight arm pull down v-handle",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "232709153",
+  "hash": "3d07574581",
+  "name": "Straight leg deadlift",
+  "dur": 51,
+  "foamrol": false
+ },
+ {
+  "id": "230272640",
+  "hash": "f73ab37e22",
+  "name": "Straight leg fire hydrant",
+  "dur": 21,
+  "foamrol": false
+ },
+ {
+  "id": "230269927",
+  "hash": "24db5189fa",
+  "name": "Suitcase hold",
+  "dur": 27,
+  "foamrol": false
+ },
+ {
+  "id": "232708461",
+  "hash": "3867e43ea5",
+  "name": "Sumo deadlift",
+  "dur": 49,
+  "foamrol": false
+ },
+ {
+  "id": "712201691",
+  "hash": "",
+  "name": "Superman",
+  "dur": 66,
+  "foamrol": false
+ },
+ {
+  "id": "230909531",
+  "hash": "f4048a94c2",
+  "name": "Supinated barbell curl",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "238254119",
+  "hash": "272b83f48e",
+  "name": "Supinated bicep curl",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "234872650",
+  "hash": "fb4ab479f8",
+  "name": "Supinated cable row",
+  "dur": 43,
+  "foamrol": false
+ },
+ {
+  "id": "234144668",
+  "hash": "f053fb748f",
+  "name": "Supinated cable tricep extension",
+  "dur": 41,
+  "foamrol": false
+ },
+ {
+  "id": "234144437",
+  "hash": "995619dc9a",
+  "name": "Supinated grip EZ-bar skull crusher",
+  "dur": 52,
+  "foamrol": false
+ },
+ {
+  "id": "225965647",
+  "hash": "54c644b2fa",
+  "name": "Supinated small grip EZ-bar curl",
+  "dur": 19,
+  "foamrol": false
+ },
+ {
+  "id": "234143627",
+  "hash": "28bddb231a",
+  "name": "Supinated tricep kickback",
+  "dur": 38,
+  "foamrol": false
+ },
+ {
+  "id": "224329561",
+  "hash": "37d1e8ced1",
+  "name": "Supinated wide grip EZ-bar curl",
+  "dur": 18,
+  "foamrol": false
+ },
+ {
+  "id": "949462457",
+  "hash": "",
+  "name": "Supine Hamstring Stretch",
+  "dur": 65,
+  "foamrol": false
+ },
+ {
+  "id": "238578921",
+  "hash": "fef1f69f90",
+  "name": "Swiss ball crunch",
+  "dur": 43,
+  "foamrol": false
+ },
+ {
+  "id": "836900021",
+  "hash": "",
+  "name": "T-bar front squat + shoulder press",
+  "dur": 56,
+  "foamrol": false
+ },
+ {
+  "id": "836900202",
+  "hash": "",
+  "name": "T-bar rotation",
+  "dur": 60,
+  "foamrol": false
+ },
+ {
+  "id": "232399677",
+  "hash": "135a1018fa",
+  "name": "T-bar row neutral wide grip",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "232399853",
+  "hash": "e5cb54f554",
+  "name": "T-bar row v-handle",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "232400202",
+  "hash": "7e05e3070a",
+  "name": "T-bar two-arm row",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "481673122",
+  "hash": "",
+  "name": "T-Bell deadlift",
+  "dur": 67,
+  "foamrol": false
+ },
+ {
+  "id": "712201483",
+  "hash": "",
+  "name": "T-Bell romanian deadlift",
+  "dur": 38,
+  "foamrol": false
+ },
+ {
+  "id": "712201560",
+  "hash": "",
+  "name": "T-Bell row",
+  "dur": 52,
+  "foamrol": false
+ },
+ {
+  "id": "887973746",
+  "hash": "",
+  "name": "Tall kneeling straight arm pull down",
+  "dur": 58,
+  "foamrol": false
+ },
+ {
+  "id": "239003390",
+  "hash": "904ef144c6",
+  "name": "Toe touch",
+  "dur": 33,
+  "foamrol": false
+ },
+ {
+  "id": "641859014",
+  "hash": "",
+  "name": "Touwtje springen",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "232398651",
+  "hash": "ea802f774a",
+  "name": "Trap bar deadlift",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "459317973",
+  "hash": "",
+  "name": "Trap bar Overhead press",
+  "dur": 29,
+  "foamrol": false
+ },
+ {
+  "id": "234127793",
+  "hash": "22d89db44b",
+  "name": "Trap bar shrugs",
+  "dur": 41,
+  "foamrol": false
+ },
+ {
+  "id": "516263427",
+  "hash": "",
+  "name": "Tri-set",
+  "dur": 98,
+  "foamrol": false
+ },
+ {
+  "id": "234143891",
+  "hash": "42cf2c5c2e",
+  "name": "Tricep bar tricep extension",
+  "dur": 50,
+  "foamrol": false
+ },
+ {
+  "id": "234143714",
+  "hash": "ebe8b3c64e",
+  "name": "Tricep dumbbell pullover",
+  "dur": 46,
+  "foamrol": false
+ },
+ {
+  "id": "234902922",
+  "hash": "5fc4a1b7b5",
+  "name": "Tricep extension korte stang",
+  "dur": 41,
+  "foamrol": false
+ },
+ {
+  "id": "234147960",
+  "hash": "facf952e0a",
+  "name": "Tricep extension V-handle",
+  "dur": 32,
+  "foamrol": false
+ },
+ {
+  "id": "234142786",
+  "hash": "222fe470e3",
+  "name": "Tricep kickback",
+  "dur": 27,
+  "foamrol": false
+ },
+ {
+  "id": "234903017",
+  "hash": "dde7533fa8",
+  "name": "Tricep rope extension",
+  "dur": 26,
+  "foamrol": false
+ },
+ {
+  "id": "238582733",
+  "hash": "6452fd9b24",
+  "name": "TRX back fly",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "238256342",
+  "hash": "2ca8662b8b",
+  "name": "TRX glute bridge",
+  "dur": 40,
+  "foamrol": false
+ },
+ {
+  "id": "235143031",
+  "hash": "9e22e34268",
+  "name": "TRX row",
+  "dur": 31,
+  "foamrol": false
+ },
+ {
+  "id": "232711771",
+  "hash": "e413275f04",
+  "name": "TRX suspended hamstring curl",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "234675424",
+  "hash": "155288f88e",
+  "name": "Upper back machine",
+  "dur": 37,
+  "foamrol": false
+ },
+ {
+  "id": "231612155",
+  "hash": "64b9d6a4bb",
+  "name": "Upright row",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "233994420",
+  "hash": "45160f4332",
+  "name": "Upright row EZ-bar",
+  "dur": 45,
+  "foamrol": false
+ },
+ {
+  "id": "636514224",
+  "hash": "",
+  "name": "Vario",
+  "dur": 39,
+  "foamrol": false
+ },
+ {
+  "id": "254645665",
+  "hash": "66c7a4e1f0",
+  "name": "Vookant bovenbeen",
+  "dur": 12,
+  "foamrol": true
+ },
+ {
+  "id": "254648759",
+  "hash": "bdfdadfbb5",
+  "name": "Voorkant scheenbeenspier",
+  "dur": 9,
+  "foamrol": true
+ },
+ {
+  "id": "254642453",
+  "hash": "df8051b307",
+  "name": "Voorkant schouder",
+  "dur": 11,
+  "foamrol": true
+ },
+ {
+  "id": "235146607",
+  "hash": "1a9b079dd5",
+  "name": "Walking lunges",
+  "dur": 25,
+  "foamrol": false
+ },
+ {
+  "id": "457803598",
+  "hash": "",
+  "name": "Wall angel",
+  "dur": 33,
+  "foamrol": false
+ },
+ {
+  "id": "230285266",
+  "hash": "7e0e34ed05",
+  "name": "Wall EZ-bar curl wide grip",
+  "dur": 42,
+  "foamrol": false
+ },
+ {
+  "id": "238582831",
+  "hash": "531e729910",
+  "name": "Wall sprints",
+  "dur": 25,
+  "foamrol": false
+ },
+ {
+  "id": "364581831",
+  "hash": "",
+  "name": "Weighted Push-ups",
+  "dur": 41,
+  "foamrol": false
+ },
+ {
+  "id": "394369188",
+  "hash": "",
+  "name": "Wheel ab rollout",
+  "dur": 45,
+  "foamrol": false
+ },
+ {
+  "id": "234672648",
+  "hash": "0a393d8cd9",
+  "name": "Wide grip inverted rows",
+  "dur": 35,
+  "foamrol": false
+ },
+ {
+  "id": "230274622",
+  "hash": "055f003673",
+  "name": "Wide grip pronated EZ-bar curl",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "230283109",
+  "hash": "481a547eef",
+  "name": "Wide grip supinated EZ-bar curl",
+  "dur": 41,
+  "foamrol": false
+ },
+ {
+  "id": "230215035",
+  "hash": "29f2fac347",
+  "name": "Wide stand calf raises leg press",
+  "dur": 33,
+  "foamrol": false
+ },
+ {
+  "id": "848426810",
+  "hash": "",
+  "name": "Wrist curl",
+  "dur": 36,
+  "foamrol": false
+ },
+ {
+  "id": "231459108",
+  "hash": "4ddec84918",
+  "name": "Y-raise TRX",
+  "dur": 45,
+  "foamrol": false
+ },
+ {
+  "id": "232712019",
+  "hash": "ef1b8e8a34",
+  "name": "Zercher lunges",
+  "dur": 34,
+  "foamrol": false
+ },
+ {
+  "id": "232808272",
+  "hash": "9e0c02429a",
+  "name": "Zercher squat",
+  "dur": 33,
+  "foamrol": false
+ },
+ {
+  "id": "230271722",
+  "hash": "3e3908743d",
+  "name": "zig-zag mini band walk",
+  "dur": 22,
+  "foamrol": false
+ },
+ {
+  "id": "230274830",
+  "hash": "48c33722b7",
+  "name": "Zottman curl",
+  "dur": 46,
+  "foamrol": false
+ }
+]

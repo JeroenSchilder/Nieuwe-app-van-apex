@@ -572,6 +572,156 @@ for v in oud:
         access_packages=COACHING, vimeo_id=v["vimeo"][0], vimeo_hash=v["vimeo"][1], needs_review=True,
         source=f"oude website ({v['date'][:4]})", summary="")
 
+# ===========================================================================
+# VIMEO-ACCOUNT: correcties, performance-leerlijn en extra bibliotheek-video's
+# Bron: content/bron/vimeo-catalogus.json (alle niet-privé video's uit Vimeo, op titel ingedeeld)
+#       content/bron/vimeo-samenvattingen.json (samenvattingen op basis van de Vimeo-ondertitels)
+# ===========================================================================
+VIMEO = {v["id"]: v for v in json.loads((BRON / "vimeo-catalogus.json").read_text())}
+SAM_PATH = BRON / "vimeo-samenvattingen.json"
+SAM = {s["id"]: s for s in json.loads(SAM_PATH.read_text())} if SAM_PATH.exists() else {}
+
+
+def vh(vid):
+    return VIMEO[vid]["hash"] if vid in VIMEO else ""
+
+
+# 90 dagen: de mails liepen soms een week achter. Koppeling op basis van de Vimeo-titels (nieuwste versie).
+C90_VIDEO = {"c90-s2": "1081863327", "c90-s3": "1140468510", "c90-s4": "1142425742", "c90-s5": "1171714092",
+             "c90-s7": "917131451", "c90-s8": "919727077"}
+# Fase 2: video's die in Vimeo bij deze onderwerpen horen.
+F2_VIDEO = {"f2-l1": "345458538", "f2-l2": "1164317078", "f2-l5": "871822306"}
+for l in LESSEN:
+    vid = C90_VIDEO.get(l["ref"]) or F2_VIDEO.get(l["ref"])
+    if vid:
+        l["vimeo_id"], l["vimeo_hash"] = vid, vh(vid)
+    if l["ref"].startswith("c90-s"):
+        l["needs_review"] = False
+
+# ---- Performance Coaching: series Leadership, Commitment, Dreamteam, Self Leadership + Kickstart masterclasses
+PERF_MODULES = [
+    ("pc-stance", "Inner Stance & identiteit", "mindset",
+     ["1072452204", "1078484782"]),
+    ("pc-voordeel", "Verborgen voordeel & escape cards", "mindset",
+     ["1072456639", "1147304297", "1168114292"]),
+    ("pc-comfort", "War on comfort & discipline", "gewoontes",
+     ["1091737009", "1091739238", "1082434745", "933148368", "933150255", "941917158", "958156034",
+      "970462295", "925930052"]),
+    ("pc-tijd", "Tijd, focus & commitment", "tijd",
+     ["1076542422", "1098656092", "1102192986", "1102199917", "1104059305", "1150634831", "1157009928",
+      "1145625159", "920615434", "911540306", "913336350", "866876668", "931042510"]),
+    ("pc-communicatie", "Communicatie & verzoeken", "relaties",
+     ["1105949920", "1107999868", "1109659445", "1103700865", "1082457644", "1084765712", "1065065018",
+      "1111663301", "1113867538", "1140792175", "1171793797", "875998023", "878303044"]),
+    ("pc-strategie", "Zichtbaarheid, strategie & besluitvaardigheid", "doelen",
+     ["1078493509", "1081458099", "1143384508", "1148727614", "1117428222", "1117444684", "1069026191"]),
+    ("pc-geld", "Geld & well-being", "tijd",
+     ["1123850187", "1126173562", "1129776084", "1134272598", "1138916934"]),
+    ("pc-standaarden", "Standaarden & Strong Point B", "doelen",
+     ["1156053897", "1160181179", "1164317078", "871822306"]),
+    ("pc-kickstart", "Kickstart masterclasses", "mindset",
+     ["1096885555", "1098767701", "1100568596", "1102456526"]),
+]
+PREFIX = re.compile(r"^(apex\s+)?(online coaching|commitment|leadership|self leadership|dreamteam|dream ?week)"
+                    r"\s*[-:;]?\s*(week\s*(in\s*)?\d+\s*[-:;]?)?\s*|^(silver\s+)?week\s*\d+\s*[-:;]?\s*", re.I)
+
+
+def clean_title(name):
+    t = PREFIX.sub("", name).strip(" -:;")
+    t = re.sub(r"^(masterclass|masterlass)\s*(apex kickstart)?\s*[-:]?\s*", "", t, flags=re.I).strip(" -:;'")
+    t = re.sub(r"^apex kickstart\s*-\s*masterclass\s*", "", t, flags=re.I).strip(" -:;'")
+    t = t.replace("presataties", "prestaties").replace("Projecten & Shit", "Projecten")
+    return (t[:1].upper() + t[1:]) if t else name
+
+
+TITLE_FIX = {"1091737009": "War on comfort (1)", "1091739238": "War on comfort (2)", "933148368": "Uithoudingsvermogen (1)",
+             "933150255": "Uithoudingsvermogen (2)", "970462295": "Bar raising proces", "925930052": "Het leven is moeilijk",
+             "1102192986": "Open cycles of action (1): projecten", "1102199917": "Open cycles of action (2)",
+             "1104059305": "Open cycles of action (3): completion", "1145625159": "Must (not to) do's",
+             "920615434": "Betaal met je aandacht", "911540306": "Focus & completion (2)", "913336350": "Focus & completion (3)",
+             "931042510": "Take inventory", "875998023": "Taal", "1065065018": "Krachtige verzoeken",
+             "1082457644": "Verzoeken (1)", "1084765712": "Brutale verzoeken (2)", "1143384508": "Strategie",
+             "1117428222": "Besluitvaardigheid (1)", "1117444684": "Besluitvaardigheid (2)",
+             "1081458099": "Zichtbaarheid strategie (2)", "1078493509": "Zichtbaarheid strategie (1)",
+             "1096885555": "Masterclass: houding & gedrag", "1098767701": "Masterclass: laserfocus",
+             "1100568596": "Masterclass: belemmerende overtuigingen", "1102456526": "Masterclass: communicatie",
+             "1134272598": "Competency well-being", "1138916934": "Overtuigingen & societal well-being",
+             "1076542422": "Timemanagement", "1157009928": "HRA & LRA", "1078484782": "Jouw ongewenst geprogrammeerde toekomst"}
+
+module("pc-m1", "performance", "Introductie", 0)
+MODULES[:] = [m for m in MODULES if m["ref"] != "pc-m1"]
+for i, (ref, title, cat, ids) in enumerate(PERF_MODULES, 1):
+    module(ref, "performance", title, i)
+    for j, vid in enumerate(ids, 1):
+        v = VIMEO[vid]
+        s = SAM.get(vid, {})
+        les(f"pc-{vid}", "performance", ref, s.get("titel") or TITLE_FIX.get(vid) or clean_title(v["name"]), j,
+            vimeo_id=vid, vimeo_hash=v["hash"], categories=s.get("categorieen") or [cat],
+            access_packages=PERFORMANCE, summary=s.get("samenvatting", ""), key_points=s.get("kernpunten", []),
+            needs_review=not s, source=f"Vimeo: {v['name']}",
+            duration_min=round(v["dur"] / 60))
+
+# ---- Bibliotheek: weekvideo's (Apex Online Coaching week N) en presentaties
+module("bib-seizoen", "bibliotheek", "Feestdagen, kermis & vakantie", 11, category="gewoontes")
+SKIP_WEEK = {"1130851582", "1185893144", "1156067451", "1130851583", "396677358", "592728526"}  # dubbele versies
+SEIZOEN = re.compile(r"kermis|havenfeesten|feestdagen|vakantie|voornemens|het jaar in", re.I)
+counters2 = {}
+week_items = [v for v in VIMEO.values() if v["group"] in ("weekvideo", "presentatie", "seizoen") and v["id"] not in SKIP_WEEK
+              and v["id"] not in ("455042678",)]
+for v in sorted(week_items, key=lambda v: v["date"]):
+    s = SAM.get(v["id"], {})
+    if s.get("doelgroep") in ("promo", "overslaan"):
+        continue
+    cats = s.get("categorieen") or (["herstel"] if "slaap" in v["name"].lower() else ["mindset"])
+    mod = "seizoen" if (SEIZOEN.search(v["name"]) or s.get("doelgroep") == "seizoen") else cats[0]
+    if mod == "start":
+        mod = "mindset"
+    counters2[mod] = counters2.get(mod, 0) + 1
+    les(f"bibw-{v['id']}", "bibliotheek", f"bib-{mod}", s.get("titel") or clean_title(v["name"]),
+        100 + counters2[mod], vimeo_id=v["id"], vimeo_hash=v["hash"], categories=cats, access_packages=COACHING,
+        summary=s.get("samenvatting", ""), key_points=s.get("kernpunten", []), needs_review=not s,
+        source=f"Vimeo: {v['name']}", duration_min=round(v["dur"] / 60))
+
+# ---- Bibliotheek: korte kennisclips 2018-2021. Hoort een clip bij een bestaand artikel, dan krijgt dat de video.
+CLIP_TO_ARTICLE = {"255244274": "Alcohol", "255248120": "Mind muscle connection", "255244805": "Belasting en belastbaarheid",
+                   "344638447": "Wat is een gewoonte", "344562274": "Periodiseringsmodellen",
+                   "344635729": "Is het ontbijt de belangrijkste maaltijd van de dag?", "568901593": "Nieuwe dingen proeven",
+                   "344639030": "Menstruatie", "344635388": "Blauw licht", "255252355": "Progressive overload",
+                   "344638312": "Voedingssupplementen", "255245494": "Werk vs vrije dagen"}
+CLIP_SKIP = {"345458538", "388341401", "392728022", "486358830", "503097538", "504919462", "505202519",
+             "255249021", "317030124", "344602188", "344639157", "344639539", "352541702", "250170430", "255244684"}
+CLIP_CATS = [("voeding", r"goed eet|eten|alcohol|energiebalans|creatine|cheat|detox|ontbijt|eiwit|calorie|vet|voeding|toning|dames"),
+             ("training", r"bank|plank|buikspier|trainingvol|periodis|spierpijn|rocky|neurolog|neat"),
+             ("herstel", r"slaap|meditatie"), ("lichaam", r"menstruatie"),
+             ("gewoontes", r"gewoonte|naleving|nieuwe normaal|duurzaam"), ("doelen", r"doel|fluctu")]
+bib_by_title = {l["title"]: l for l in LESSEN if l["track_key"] == "bibliotheek"}
+for v in sorted([v for v in VIMEO.values() if v["group"] == "kennis_oud"], key=lambda v: v["date"]):
+    if v["id"] in CLIP_SKIP:
+        continue
+    art = bib_by_title.get(CLIP_TO_ARTICLE.get(v["id"], ""))
+    if art and not art["vimeo_id"]:
+        art["vimeo_id"], art["vimeo_hash"] = v["id"], v["hash"]
+        continue
+    if art:
+        continue
+    cat = next((c for c, rx in CLIP_CATS if re.search(rx, v["name"], re.I)), "mindset")
+    counters2[cat] = counters2.get(cat, 0) + 1
+    title = v["name"].replace("Vouwen", "Vrouwen").replace("geneat", "NEAT").replace("meet eten", "Meer eten")
+    title = title[:1].upper() + title[1:]
+    les(f"bibc-{v['id']}", "bibliotheek", f"bib-{cat}", f"Kennisclip · {title}", 200 + counters2[cat],
+        vimeo_id=v["id"], vimeo_hash=v["hash"], categories=[cat], access_packages=COACHING, needs_review=True,
+        source=f"Vimeo ({v['date'][:4]})", duration_min=round(v["dur"] / 60))
+
+# Video's die niet meer in Vimeo staan: weghalen (video-only lessen vervallen dan).
+BESTAAT = set(VIMEO) | {o["id"] for o in json.loads((BRON / "vimeo-oefenvideos.json").read_text())}
+for l in list(LESSEN):
+    if l.get("vimeo_id") and l["vimeo_id"] not in BESTAAT:
+        if not l.get("body") and not l.get("assignment_ref"):
+            LESSEN.remove(l)
+        else:
+            l["vimeo_id"], l["vimeo_hash"] = "", ""
+        print("niet meer in Vimeo:", l["title"])
+
 # ---------------------------------------------------------------------------
 COHORTEN = [dict(key="c90-voorbeeld", name="90 Dagen Challenge · voorbeeldronde", track_key="challenge90",
                  start_date="2026-11-16", session_info="Maandag 20:15 via Zoom", zoom_url="", active=True)]

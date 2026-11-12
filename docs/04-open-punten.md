@@ -2,13 +2,11 @@
 
 ## Wat ik van jou nodig heb
 
-1. **Vimeo-toegang (blokkerend voor de volledige catalogus).** Het token is opgeslagen, maar Vimeo meldt *"The app didn't receive the user's credentials"* (fout 8003). Waarschijnlijke oorzaken:
-   - het is een *Unauthenticated*-token, of de client secret in plaats van een access token;
-   - het token is geplakt mét het woord `Bearer` ervoor.
-
-   **Oplossing:** maak op developer.vimeo.com/apps → jouw app → *Generate access token* een token aan met **Authenticated (you)** en de scopes *Public, Private, Video Files*. Vervang daarna het opgeslagen token (Omgeving → Network secrets → `api.vimeo.com`), zonder "Bearer".
-
-   Daarna haal ik álle video's op (titels, mappen, beschrijvingen en automatische ondertitels), koppel ik de 50+ opdrachtvideo's en vul ik de bibliotheek aan.
+1. ~~Vimeo-toegang~~ **Gelukt.** Alle 1183 video's zijn ingelezen en ingedeeld (zie `content/bron/vimeo-catalogus.json`):
+   - **658 oefenvideo's** staan apart in `content/bron/vimeo-oefenvideos.json`, klaar voor de trainingsmodule die later uit de Apex app komt.
+   - **179 video's zijn bewust buiten de leeromgeving gehouden**: 1-op-1-opnames, persoonlijke welkomstvideo's, reviews en promo's (privacy).
+   - **Groepsopnames** (90 dagen-sessies, groepscoaching, kickoffs; 52 stuks) staan in de catalogus maar níet in de leeromgeving: deelnemers praten erin mee. Wil je ze per ronde laten terugkijken, dan kan ik dat per ronde afschermen.
+   - **57 oude app-uitlegvideo's (2019–2021)** zijn niet overgenomen; ze gaan over de oude app.
 2. **De 50+ opdrachtvideo's.** Ik vond tot nu toe 19 opdrachten: 13 uit de 90 dagen challenge, 5 voor Fase 2 en de SLL-observaties. Staan de overige opdrachten in de huidige Apex app (`app.apexonlinecoaching.nl` → Opdrachten)? Die site is vanuit hier niet bereikbaar. Je kunt de opdrachten exporteren, of de pagina toestaan in de netwerkinstellingen.
 3. **Base44-toegang voor de installatie in één keer.** Zie [installatie route A](03-installatie-base44.md).
 
@@ -22,19 +20,18 @@
 | Deadline opdracht | Zaterdag 23:59 van de week, daarna gesloten. De coach kan heropenen | Geen harde sluiting |
 | Vrijgave weken | Op maandag 00:00 van de week | Pas na de sessie (maandag 21:30) |
 | Rol "coach" | Eigen veld `apex_role` op de User (je bestaande admin/user-rollen blijven ongemoeid) | Base44-rol uitbreiden |
-| Fase 2-video's | Nog géén video gekoppeld (alleen tekst + opdracht) | Kies welke video's erbij horen zodra Vimeo werkt |
+| Fase 2-video's | Why: *Visualiseren van doel & why* · Punt A/B: *Strong Point B* · Beloftes: *Implementatie 4 beloftes*. Doel achter het doel en korte-termijndoel hebben (nog) geen video | Andere video's kiezen |
 
 ## Controleren (gemarkeerd met ⚠️ in Beheer)
 
-- **Week 5 (Verantwoordelijkheid & gewoontes):** in de mails stond twee keer dezelfde video als week 4 (910944120). Ik heb 1142425742 gekoppeld, de video die in een andere ronde bij week 5 stond. Graag even checken.
-- **Week 6:** er bestaan drie versies (1147260570, 951532814, 912849384). De nieuwste (1147260570) is gekoppeld.
+- **90 dagen-video's zijn nu gekoppeld op basis van de Vimeo-titels** (de mails liepen soms een week achter): week 3 Slaap = 1140468510, week 4 TDEE & waarden = 1142425742, week 5 Verantwoordelijkheid = 1171714092, week 7 Beloftes = 917131451, week 8 Time management = 919727077. Steeds de nieuwste versie.
+- **Performance Coaching** is gevuld met 60 video's uit Leadership, Commitment, Dreamteam en Self Leadership plus de 4 Kickstart-masterclasses, in 9 thema's. Staat nog op *niet gepubliceerd*; bij video's zonder ondertitels is alleen de titel bekend (⚠️).
 - **De 112 kennisartikelen uit de mailreeks "Apex Online Pakketten":** de teksten staan er volledig in. Sommige verwijzen nog naar oude dingen, zoals *"Apex Basis pakket"*, *"mijn doelen op de website"* of *"mail beantwoorden op ma/wo/vr"*. Loop ze door via **Beheer → Lessen & opdrachten → "Alleen nog controleren"** en vink *Nog controleren* uit als ze goed zijn.
 - **Techniek- en foam-roller-video's van de oude website (2018–2019):** nog relevant?
 
 ## Volgende stappen (voorstel)
 
-1. Vimeo-token goed zetten → volledige catalogus + transcripties → betere indeling en samenvattingen per video.
-2. Installeren in Base44 (route A) + content importeren.
-3. Jij loopt de ⚠️-lessen door (± 1 uur werk).
-4. Eerste ronde 90 dagen aanmaken en leden koppelen.
-5. Daarna: Performance Coaching-leerlijn vullen, en eventueel extra's als certificaat, AI-coach en een melding bij nieuwe inzending.
+1. Installeren in Base44 (route A) + content importeren.
+2. Jij loopt de ⚠️-lessen door (± 1 uur werk).
+3. Eerste ronde 90 dagen aanmaken en leden koppelen.
+4. Performance Coaching nalopen en publiceren. Daarna eventueel extra's als certificaat, AI-coach en een melding bij nieuwe inzending.

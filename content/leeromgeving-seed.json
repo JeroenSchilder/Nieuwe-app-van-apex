@@ -260,12 +260,6 @@
    "description": "Coachingsessie 12"
   },
   {
-   "ref": "pc-m1",
-   "track_key": "performance",
-   "title": "Introductie",
-   "order": 1
-  },
-  {
    "ref": "bib-doelen",
    "track_key": "bibliotheek",
    "title": "Doelen stellen",
@@ -334,6 +328,67 @@
    "title": "Tijd & leiderschap",
    "order": 10,
    "category": "tijd"
+  },
+  {
+   "ref": "pc-stance",
+   "track_key": "performance",
+   "title": "Inner Stance & identiteit",
+   "order": 1
+  },
+  {
+   "ref": "pc-voordeel",
+   "track_key": "performance",
+   "title": "Verborgen voordeel & escape cards",
+   "order": 2
+  },
+  {
+   "ref": "pc-comfort",
+   "track_key": "performance",
+   "title": "War on comfort & discipline",
+   "order": 3
+  },
+  {
+   "ref": "pc-tijd",
+   "track_key": "performance",
+   "title": "Tijd, focus & commitment",
+   "order": 4
+  },
+  {
+   "ref": "pc-communicatie",
+   "track_key": "performance",
+   "title": "Communicatie & verzoeken",
+   "order": 5
+  },
+  {
+   "ref": "pc-strategie",
+   "track_key": "performance",
+   "title": "Zichtbaarheid, strategie & besluitvaardigheid",
+   "order": 6
+  },
+  {
+   "ref": "pc-geld",
+   "track_key": "performance",
+   "title": "Geld & well-being",
+   "order": 7
+  },
+  {
+   "ref": "pc-standaarden",
+   "track_key": "performance",
+   "title": "Standaarden & Strong Point B",
+   "order": 8
+  },
+  {
+   "ref": "pc-kickstart",
+   "track_key": "performance",
+   "title": "Kickstart masterclasses",
+   "order": 9
+  },
+  {
+   "ref": "bib-seizoen",
+   "track_key": "bibliotheek",
+   "title": "Feestdagen, kermis & vakantie",
+   "order": 11,
+   "category": "gewoontes"
   }
  ],
  "lessen": [
@@ -671,8 +726,8 @@
    "body": "Hoe zou het zijn als je jouw ideale lichaam al had? Als je kon zeggen dat je je echt fit voelt? Welk ideaal je ook voor ogen hebt: probeer het eens te visualiseren.\n\nGa daarna nadenken **waarom** je dit zo graag wilt. Waarom wil ik afvallen? Waarom wil ik sterker worden? Dit noemen we je *why*. Is je why sterk genoeg, dan houdt niets je meer tegen. Dat geldt niet alleen fysiek, maar ook mentaal.\n\nNeem er de tijd voor. Als je iets echt wilt, dan lukt het!",
    "published": true,
    "completion": "handmatig",
-   "vimeo_id": "",
-   "vimeo_hash": "",
+   "vimeo_id": "345458538",
+   "vimeo_hash": "c586735e8b",
    "step_label": "",
    "key_points": [],
    "action_links": []
@@ -702,9 +757,9 @@
    ],
    "published": true,
    "completion": "handmatig",
+   "vimeo_id": "1164317078",
+   "vimeo_hash": "9603c1af26",
    "body": "",
-   "vimeo_id": "",
-   "vimeo_hash": "",
    "step_label": "",
    "action_links": []
   },
@@ -789,8 +844,8 @@
    "body": "Er zijn vier soorten beloftes:\n\n- **Krachtig:** je komt hem 100% na.\n- **Zwak:** 50%, afhankelijk van hoe je je voelt.\n- **Crimineel:** je weet al dat je hem breekt voordat je hem maakt.\n- **Geen belofte.**\n\nVertrouwen in jezelf bouw je niet met grote dingen, maar met kleine beloftes die je nakomt. Dag na dag. Keuze na keuze.",
    "published": true,
    "completion": "handmatig",
-   "vimeo_id": "",
-   "vimeo_hash": "",
+   "vimeo_id": "871822306",
+   "vimeo_hash": "4524360322",
    "step_label": "",
    "key_points": [],
    "action_links": []
@@ -889,8 +944,8 @@
    "module_ref": "c90-w3",
    "title": "Sessie 2 · Obstakels & jouw Inner Stance",
    "order": 1,
-   "vimeo_id": "905355413",
-   "vimeo_hash": "e6f2dc0ec2",
+   "vimeo_id": "1081863327",
+   "vimeo_hash": "8f7cc336e3",
    "categories": [
     "mindset"
    ],
@@ -920,8 +975,8 @@
    "module_ref": "c90-w4",
    "title": "Sessie 3 · Slaap",
    "order": 1,
-   "vimeo_id": "908561124",
-   "vimeo_hash": "80d2a93e59",
+   "vimeo_id": "1140468510",
+   "vimeo_hash": "9f8141e37a",
    "categories": [
     "herstel"
    ],
@@ -951,8 +1006,8 @@
    "module_ref": "c90-w5",
    "title": "Sessie 4 · BMR & tips om sneller je doel te halen",
    "order": 1,
-   "vimeo_id": "910944120",
-   "vimeo_hash": "cf90bd4666",
+   "vimeo_id": "1142425742",
+   "vimeo_hash": "d53a5e42fe",
    "categories": [
     "voeding"
    ],
@@ -982,8 +1037,8 @@
    "module_ref": "c90-w6",
    "title": "Sessie 5 · Verantwoordelijkheid & gewoontes",
    "order": 1,
-   "vimeo_id": "1142425742",
-   "vimeo_hash": "d53a5e42fe",
+   "vimeo_id": "1171714092",
+   "vimeo_hash": "af0f596abc",
    "categories": [
     "gewoontes"
    ],
@@ -1000,7 +1055,7 @@
     "Lezen: Straight Line Leadership, Hoofdstuk 29 t/m 35"
    ],
    "assignment_ref": "op-c90-s5",
-   "needs_review": true,
+   "needs_review": false,
    "published": true,
    "completion": "handmatig",
    "body": "",
@@ -1045,8 +1100,8 @@
    "module_ref": "c90-w8",
    "title": "Sessie 7 · Beloftes & het weekend",
    "order": 1,
-   "vimeo_id": "914819027",
-   "vimeo_hash": "e49b2482ab",
+   "vimeo_id": "917131451",
+   "vimeo_hash": "e2107a8241",
    "categories": [
     "gewoontes",
     "voeding"
@@ -1077,8 +1132,8 @@
    "module_ref": "c90-w9",
    "title": "Sessie 8 · Timemanagement: krachtige vs. zwakke acties",
    "order": 1,
-   "vimeo_id": "917131451",
-   "vimeo_hash": "e2107a8241",
+   "vimeo_id": "919727077",
+   "vimeo_hash": "839f82940a",
    "categories": [
     "tijd"
    ],
@@ -1673,8 +1728,8 @@
    "body": "In deze email wil ik iets vertellen over progressive overload. Wat is het? En waarom is het zo belangrijk wanneer je progressie wilt maken bij krachttraining en spiergroei? Progressive overload betekent letterlijk: progressieve overbelasting. Dit kan met twee woorden samengevat worden: meer doen. Een meer technische definitie: geleidelijke toename van stress op het lichaam tijdens inspanningstraining. In het kader van je dagelijkse trainingen kan ‘’meer doen’’ verschillende dingen betekenen en verschillende vormen aannemen, maar het eindresultaat is dat je spieren meer doen dan voorheen. Progressive overload is de basis van spier- en krachtopbouw. Wanneer progressive overload consistent toegepast blijft worden in trainingen zorgt het ervoor dat je continue door blijft gaan met het opbouwen van kracht en spieren. Je moet er natuurlijk wel voor zorgen dat de andere twee basis principes ook voldoen (voeding en slaap). Waarom is progressive overload zo belangrijk om de gewenste doelen te behalen? Het menselijk lichaam is gemaakt om oog in oog te komen te staan met, te reageren op en zich aan te passen aan zo ongeveer van alles en nog wat. Dit betekent dat wanneer het lichaam een stimulus tegenkomt (een oefening), het stress ervaart, een reactie ervaart en vervolgens zich aanpast door een set van tegenmaatregelen toe te passen zodat het lichaam beter voorbereid is op de volgende keer dat deze stimulus weer voorbij komt. Dus wanneer je je lichaam niet meer blootstelt aan nieuwe stimuli, dan stop het zich met aanpassen, omdat het al aangepast is aan de eisen die gesteld worden. Dus wanneer je wilt groeien, moet je de lat steeds hoger verplaatsen. Je spieren reageren op de vraag die gesteld wordt. Je moet ze dwingen om steeds grotere stress te ervaren. Maar hoe verhoog je deze stress tijdens je trainingen? Het eerste waar je aan denkt is het continue verhogen van het gewicht. En dit is ook zeker een goede manier om progressive overload toe te passen. Zeker als je een beginner bent, omdat beginners sneller groeien. Maar je kunt natuurlijk niet elke keer een hoger gewicht tegenaan blijven gooien, dan blijven er geen gewichten meer over. Gelukkig zijn er genoeg andere manieren om progressive overload te blijven toepassen in je trainingen:\n\n- Gewicht toevoegen.\n\n- Herhalingen verhogen.\n\n- Sets toevoegen.\n\n- De ROM (range of motion/bewegingsbereik) vergroten terwijl het gewicht hetzelfde blijft.\n\n- Time under tension (tijd onder spanning, dus langer vasthouden) verlengen door het tiltempo te manipuleren.\n\n- Meer herhalingen in dezelfde tijd voltooien.\n\n- Hetzelfde gewicht tillen voor hetzelfde aantal sets en herhalingen terwijl je minder rust tussen de sets neemt.\n\n- Hetzelfde gewicht tillen met grotere snelheid en versnelling.\n\n- Trainingsfrequentie verhogen (hoe vaak je elke week een bepaalde spiergroep traint).\n\n- Het tillen van hetzelfde gewicht terwijl je bezig bent met het verminderen van je vetpercentage (dus een negatieve energiebalans hanteren). Dit verhoogt de relatieve sterkte / gewichtsverhouding.\n\nBelangrijk om te onthouden is dat je progressive overload niet blijft toe passen om het maar toe te passen. Je denkt dat je misschien vooruit gaat omdat de getallen omhoog gaan, maar wanneer je de oefening niet met de juiste houding en controle kunt uitvoeren, doet progressive overload niks meer.",
    "summary": "In deze email wil ik iets vertellen over progressive overload. Wat is het?",
    "needs_review": true,
-   "vimeo_id": "",
-   "vimeo_hash": "",
+   "vimeo_id": "255252355",
+   "vimeo_hash": "c55ad0cbdc",
    "source": "kennisreeks-mail",
    "published": true,
    "completion": "handmatig",
@@ -1700,8 +1755,8 @@
    "body": "In deze email wil ik uitleggen wat alcohol precies met je lichaam doet en welke effecten dit heeft op jouw training en herstel. De cognitieve effecten van alcohol zijn bij iedereen goed bekend: verminderde coördinatie, besluitvorming en zintuiglijke waarneming. Naast de cognitieve effecten zijn er andere effecten die het metabolisme, de spierfunctie, thermoregulatie, cardiovasculaire functie en neurologische functie veranderen. Metabolisme Alcoholische dranken bevatten calorieën die je lichaam gebruikt voor energie maar ze veranderen ook je stofwisselingsprocessen. Het schaadt de glycogeensynthese en blokkeert de spieren van hun energiebron. De insulineproductie neemt toe, waardoor de glycogeensynthese en opslag verder worden geremd. Spierf unctie Met minder toegankelijk glycogeen hebben spieren minder beschikbare energie. Bovendien hebben alcohol en krampen een correlatie hoewel het exacte mechanisme onduidelijk is, hoewel uitdroging geassocieerd met alcohol een rol kan spelen. Thermoregulatie Alcohol is een diureticum (middel wat de urineproductie verhoogd) en dwingt het lichaam om overtollig vocht weg te urineren. Het is ook een vasodilatator (verwijden van vaten), wat leidt tot meer vochtverlies door verdamping. Een avondje drinken is meestal een zweterige avond. Minder vocht leidt tot verhoogde cardiovasculaire inspanning en verminderde verdampingskoeling. Dit leidt tot een verhoogde kerntemperatuur. Cardiovasculaire functie De uitdroging leidt tot een lager bloedvolume, een hogere viscositeit en meer inspanning voor het hart. Dit leidt tot een minder efficiënte levering van zuurstof aan het spierstelsel en leidt tot verminderde prestaties. Neurologische functie Alcohol is een depressivum (depressie), wat leidt tot een langzamer cognitief vermogen. Het schaadt de opname van B-vitamines, die essentieel zijn voor de neurologische functie, samen met zink, dat essentieel is voor immuun ondersteuning. Het schaadt ook de slaapkwaliteit, een kritieke tijd voor het lichaam om zichzelf te herstellen. Prestatie-effecten van alcohol Kleine hoeveelheden alcohol hebben een beperkt effect op de aerobe prestaties. Het overschrijden van de drempel resulteert in een meer dramatische afname van de aerobe prestaties. Bij een duursport als fietsen leidt elk klein verlies aan aerobe prestaties tot grote verliezen op de weg. Grotere prestatieverliezen treden op door het remmen van de reguliere thermoregulerende processen. Een hogere kerntemperatuur leidt tot meer vochtverlies door zweten. Minder beschikbaar bloedvolume door zweten leidt tot hogere hartstress en inspanning. Dit resulteert in een verminderde efficiëntie doordat er minder zuurstof naar de spieren gaat en een hogere energiebehoefte om het bloed te laten stromen. Een lager beschikbaar glycogeen betekent minder energie voor de spieren. Dit leidt tot minder tijd tot uitputting en als je meer koolhydraten binnenkrijgt, wordt de synthese tot bruikbaar adenosinetrifosfaat of ATP, de brandstof voor je spieren, geremd. Hersteleffecten van alcohol De grootste hersteleffecten van alcohol en training zijn door slaapstoornissen. Het beperken van de slaap beperkt de tijd dat het lichaam zichzelf kan herstellen en belangrijke hersenfuncties kan uitvoeren. Als je slaapt, produceert het lichaam menselijk groeihormoon (HGH), een krachtige chemische stof die celgroei en regeneratie bevordert. Zonder HGH zou je lichaam uit elkaar vallen omdat er geen herstelprocessen zouden plaatsvinden. Alle effecten van alcohol op de prestaties spelen ook een rol bij herstel. Je lichaam werkt niet optimaal, wat leidt tot verminderde prestaties in alle lichaamssystemen - uitdroging, verminderde afgifte van glycogeen, een overbelast cardiovasculair systeem leiden allemaal tot slecht herstel. Dit leidt tot in de training de volgende dag. Een kater vertoont nog steeds symptomen van een suboptimale werking van het lichaam. Je lichaam is nog steeds aan het herstellen van de gevolgen van een feitelijke vergiftiging. Eén nacht met vijf drankjes kan leiden tot drie dagen herstel van het lichaam van het drinken.",
    "summary": "In deze email wil ik uitleggen wat alcohol precies met je lichaam doet en welke effecten dit heeft op jouw training en herstel. De cognitieve effecten van alcohol zijn bij iedereen goed bekend: verminderde coördinatie, besluitvorming en zin…",
    "needs_review": true,
-   "vimeo_id": "",
-   "vimeo_hash": "",
+   "vimeo_id": "255244274",
+   "vimeo_hash": "31b4094dce",
    "source": "kennisreeks-mail",
    "published": true,
    "completion": "handmatig",
@@ -1727,7 +1782,7 @@
    "body": "Wat zijn gewoontes?\n\nWanneer je telkens van je werk thuiskomt en daarbij een aantal biertjes of glazen wijn drinkt en geniet van de roes achteraf, kunnen we spreken over een gewoonte. Na verloop van tijd en voldoende herhaling, wordt het thuiskomen (cue) geassocieerd met het drinken (actie) en de roes (beloning). Zo ontstaan gewoontes die men doorgaans onbewust – dus zonder erbij na te denken – uitvoert.\n\nWe kunnen er ons allemaal iets bij voorstellen. Iedereen kent de minder goede gewoontes zoals alcohol drinken en roken bij stress, of nagelbijten bij verveling en de goede gewoontes bijv. elke ochtend gaan lopen. Maar hoe komt het nu dat we deze gewoontes vaak onbewust uitvoeren en wat is het neurowetenschappelijk verhaal hierachter?\n\nOm beter te begrijpen hoe gewoontes tot stand komen en zich in de hersenen ontwikkelen, werpen we eerst een blik op breinexperimenten met ratten.\n\nDe basale ganglia en dopamine spelen een belangrijke rol in gewoontegedrag\n\nIn het lab van Ann Graybiel onderzochten ze de breinactiviteit van ratten in relatie tot gewoontes via microtechnologie geïmplanteerd in het rattenbrein. Vervolgens werd een rat in een T-doolhof (zie foto T-doolhof) geplaatst met een beloning (chocolade) op het eind. De afscheiding in het begin van het doolhof opende telkens na een luide klik.\n\nIn het begin snuffelden de ratten zonder ophouden en bewogen ze zich langzaam doorheen het doolhof tot ze de chocolade vonden. Tijdens deze fase werd een enorme hoeveelheid breinactiviteit geobserveerd: zowel in de basale ganglia (zie foto brein) als in de regio’s verbonden met geur, zicht en geluid aangezien de rat continu informatie aan het verwerken was tijdens de zoektocht. Het experiment werd herhaald met als gevolg dat de rat sneller en sneller zijn weg vond naar de chocolade zonder nog te snuffelen en de verkeerde kant te kiezen. In het brein gebeurde iets onverwacht: naarmate de te volgen weg in het doolhof meer automatisch/routineus werd, verminderde de breinactiviteit in de regio’s geassocieerd met geur/zicht/gevoel alsook in de regio’s geassocieerd met het maken van beslissingen (prefrontale cortex). Binnen een week was zelfs de breinactiviteit in de geheugengebieden ook miniem. De basale ganglia (een groep subcorticale kernen) daarentegen vertoonden nog steeds uitgesproken activiteit. Een recente studie toonden aan dat de activiteit in de basale ganglia verantwoordelijk is voor het faciliteren van gewoontegedrag.\n\nEen gewoonte wordt dus na herhaling gevormd door een cue (bijv. click), wat een trigger is voor het brein om in automatische modus te gaan en een bepaalde gewoonte uit te voeren. Dan is er de routine – wat fysiek, mentaal of emotioneel kan zijn (in dit geval het vinden van de locatie). Finaal is er de beloning (chocolade) wat het brein helpt bepalen of een bepaalde gewoonte de moeite is om te onthouden in de toekomst (ook wel de gewoonte lus genoemd)\n\nOok mensen hebben op dagelijkse basis heel wat handelingen die gewoontes zijn geworden zoals autorijden. Het brein is namelijk constant op zoek naar manieren om energie te sparen. Gewoontes zorgen ervoor dat een groot deel van ons brein vrij is om bijv. te kunnen nadenken of discussiëren tijdens het autorijden.\n\nBij het verwerken van de uiteindelijke beloningen speelt de neurotransmitter dopamine een belangrijke rol. Neuronen of hersencellen communiceren met elkaar en geven signalen door via neurotransmitters. Bij het krijgen van een beloning, bijv. een zoet koekje, worden de dopamine producerende neuronen actief. Wanneer na veel herhaling een bepaalde cue (bijv. verveling) geassocieerd wordt met de beloning (zoet koekje) en de gewoonte ontstaat om telkens te grijpen naar iets zoet, wordt al dopamine vrijgelaten bij blootstelling aan deze cue (verveling), ook al is de beloning er nog niet. Enkel de cue alleen zorgt al voor het smachten naar zoetigheid wat de gewoonte heel sterk maakt. Dit doet ons denken aan het gekende ‘conditionering’ experiment met de hond van Pavlov (link nr wikipedia) waarbij de honden na het horen van een signaal telkens voedsel krijgen. Oorspronkelijk kwijlden de honden enkel bij het voederen en niet bij het signaal, maar na herhaling begonnen de honden al te kwijlen bij het geven van het signaal.\n\nWijzigen van gewoontes – onmogelijk of moeilijk?\n\nTegenwoordig wordt er heel wat onderzoek verricht naar methodes om slechte gewoontes te wijzigen, vooral omdat deze nadelige gevolgen kunnen hebben voor de gezondheid.\n\nHet is heel moeilijk om gewoontegedrag of de zogenaamde ‘habit loop’ volledig uit te schakelen aangezien de cues vaak zaken zijn die dagelijks meermaals voorkomen thuis of op het werk. Bij mensen die verhuizen of veranderen van job (een drastisch andere context) is er een mogelijkheid om de cues te vermijden, maar meestal is dat niet het geval. Daarom heeft onderzoek aangetoond dat bij het wijzigen van een gewoonte, je de oude cue en beloning kan behouden, maar dat je een nieuwe routine moet inlassen. Een goed voorbeeld is de de AA (Alcoholics Anonymous), een organisatie die alcoholisten helpt hun drankprobleem weg te werken (zie onderstaande figuur craving for relief).\n\nHierbij is een essentiële eerste stap het bewust worden van de volledige habit loop nl. – de cue – de routine – de beloning, om vervolgens een nieuwe routine in te lassen en deze herhaaldelijk toe te passen. Zo creëert de organisatie AA nieuwe routines om het drinken te vervangen via dagelijkse spreeksessies (zie figuur).\n\nOnderzoekers bestudeerden uitgebreid de wisselende successen van de AA methode. Zo kwamen ze tot de conclusie dat het vervangen van slechte routines vrij goed werkte tot een bepaalde stressvolle situatie zich voordeed (bijv. het overlijden van iemand) en men opnieuw naar oude gewoonten greep. Ze namen heel wat interviews af om te weten te komen waarom sommige AA participanten er wel in slaagden nuchter te blijven, ook al ondergingen ze stressvolle momenten. Bij dergelijke participanten kwamen God en spiritualiteit vaak aan bod wat de onderzoekers verder onder de loep namen. In 2005 vond een groep van UC Berkeley dat AA participanten die religieus waren meer kans hadden nuchter te blijven onder stress in vergelijking met zij die niet religieus waren. God per se was hier niet de doorslaggevende factor, maar wel het feit dat ze geloofden. Als mensen geloven in iets, dan neemt dat geloof ook een belangrijke plaats in andere aspecten van hun leven – namelijk het geloof dat zij zelf kunnen omgaan met stress zonder alcohol.\n\nTips & tricks\n\nNu je meer zicht hebben op hoe slechte gewoontes kunnen omgevormd worden tot goede gewoontes, wil ik tot slot nog enkele tips & trick meegeven om dit proces een boost te geven.\n\n– Start met ‘Keystone habits’, dit zijn gewoonten die een eerste ‘small win’ veroorzaken, maar snel een positief effect hebben op veel andere dagelijkse routines. Zo zullen mensen die starten met sporten ook vaak gezonder eten, worden ze productiever op het werk, roken ze minder en kunnen ze beter om met stress\n\n– Herhaling is belangrijk. Bepaalde studies schuiven naar voor dat je 21 dagen nodig hebt om een gewoonte te creëren, andere studies spreken over een periode tussen de 15 en 254 dagen.\n\n– Zorg ervoor dat bepaalde cues altijd toegankelijk zijn. Het is immers gemakkelijker een routine te ontwikkelen als deze in een specifieke context wordt herhaald. Leg bijv. je loopkleren dicht bij je bed zodat je deze meteen ziet bij het opstaan en de habit loop(gewoonte lus) kan starten.",
    "summary": "Wat zijn gewoontes?  Wanneer je telkens van je werk thuiskomt en daarbij een aantal biertjes of glazen wijn drinkt en geniet van de roes achteraf, kunnen we spreken over een gewoonte.",
    "needs_review": true,
-   "vimeo_id": "",
+   "vimeo_id": "344638447",
    "vimeo_hash": "",
    "source": "kennisreeks-mail",
    "published": true,
@@ -1862,8 +1917,8 @@
    "body": "In deze mail wil ik wat duidelijk scheppen over belasting en belastbaarheid. Wat is het? Wat is het verschil? Wat hebben de twee woorden met elkaar te maken en waarom moet je deze informatie weten? Belasting is de hoeveelheid kracht die op het lichaam inwerkt. Belastbaarheid is de hoeveelheid belasting die het lichaam aankan. Een voorbeeld van belasting is bijvoorbeeld een marathon lopen. Belasting wordt beter omschreven als er ook een tijdsduur bij gegeven wordt: - Een marathon lopen van 2,5 uur. - 50 kilo tillen. - 5 keer 100 meter sprinten. - 2 uur fietsen met een snelheid van 25 km/u. Belastbaarheid heet ook wel draagkracht. Belastbaarheid hangt samen met de algehele conditie van het lichaam of delen ervan. Het lichaam kan op meerdere manieren belast zijn: - Fysiek (trainen) - Mentaal (drukke baan) - Psychisch (stress op het werk) - Immunologisch (ziektes) Een chronische aandoening aan een lichaamsdeel verlaagt de conditie van dit lichaamsdeel en dus de belastbaarheid. Door training kun je de belastbaarheid verbeteren en kan het lichaam steeds grotere belastingen aan. Er zijn natuurlijk altijd bepaalde zaken die belastbaarheid verlagen: - Ziekte - Vermoeidheid - Overtraining - Langdurig onderbreken van training Wanneer je je lichaam overtraind kun je de balans tussen belasting en belastbaarheid voor een lange tijd verstoren. Wanneer het lichaam voor een lange tijd belast is geweest, veroorzaakt dit niet altijd klachten. Er kan pas sprake zijn van overtraining, wanneer het lichaam voor een langere tijd is overbelast. Maar niet alleen overbelasting kan zorgen voor een afnemende belastbaarheid, ook onderbelasting kan dit veroorzaken. Dit ontstaat wanneer er over een langere tijd minder van het lichaam gevraagd wordt, bijvoorbeeld door ziekte. Hierdoor kun je kracht en conditie verliezen. Zowel over- als onderbelasting kunnen je een slecht gevoel geven, omdat het lichaam gewoonweg niet in balans is. Deze balans tussen belasting en belastbaarheid is ontzettend belangrijk voor het lichaam. De volgende factoren kunnen bijdragen aan een goede balans: - Afwisseling tussen inspanning en ontspanning. - Een gezond eetpatroon - Goede kwaliteit en hoeveelheid slaap. - Voldoende beweging. - Regelmatige afwisselen van houdingen en bewegingen. - Goed omgaan met stressperioden. Wanneer een weefsel over een langere periode meer belast wordt dan de belastbaarheid toelaat, is de kans groot dat er beschadigingen optreden. Sporten kan dan niet of moet een stuk minder vaak of minder intensief, afhankelijk van de ernst van de zaak. Dit noemen we een blessure. Wanneer een blessure optreedt, is het belangrijk dat je je lichaam voldoende rust en tijd geeft om te herstellen. Maar volledige rust meestal niet noodzakelijk. Wanneer je volledige rust neemt, wordt de belasting teruggebracht naar nul en zijn belasting en belastbaarheid weer gelijk. Wanneer je daarna weer het trainen oppakt, is de kans groot dat de blessure weer de hoek om komt kijken. De belastbaarheid is in de rustperiode afgenomen ten opzichte van de blessure. Het lichaam is simpelweg minder fit na de rust. Blijven bewegen is dus ontzettend belangrijk, maar natuurlijk wel op een lager niveau dan wat je deed voor de blessure. Daarnaast zijn er nog andere factoren waar rekening mee gehouden moet worden die invloed hebben op de belastbaarheid zoals, slaap, voeding, stress en rust. Verlagen van de belasting kan door: - Minder vaak trainen. - Andere oefeningen doen. - Minder gewicht per oefening gebruiken. - Minder sets per oefening doen. - Langer pauzes tussen sets nemen.",
    "summary": "In deze mail wil ik wat duidelijk scheppen over belasting en belastbaarheid. Wat is het?",
    "needs_review": true,
-   "vimeo_id": "",
-   "vimeo_hash": "",
+   "vimeo_id": "255244805",
+   "vimeo_hash": "583d2c1bdf",
    "source": "kennisreeks-mail",
    "published": true,
    "completion": "handmatig",
@@ -2646,7 +2701,7 @@
    "body": "Dit keer hebben we een video voor je over het leren proeven en eten van nieuwe dingen. Zolang je niets nieuws proeft, zal je ook nooit weten of je het lust!",
    "summary": "Dit keer hebben we een video voor je over het leren proeven en eten van nieuwe dingen. Zolang je niets nieuws proeft, zal je ook nooit weten of je het lust!",
    "needs_review": true,
-   "vimeo_id": "",
+   "vimeo_id": "568901593",
    "vimeo_hash": "",
    "source": "kennisreeks-mail",
    "published": true,
@@ -2781,7 +2836,7 @@
    "body": "In deze email wil ik uitleg geven over de verschillende periodiseringsmodellen die je kunt gebruiken in je trainingen. Naast de trainingen besteed je bij de periodisering in krachttraining ook minstens zoveel aandacht aan herstel en adaptie. Het lichaam moet de tijd hebben om te kunnen herstellen en te wennen aan de trainingsbelasting. Alleen op deze wijze kun je optimaal resultaat uit de trainingen halen. Periodiseren is de beste manier om een optimaal trainingsresultaat te behalen, overtraining te voorkomen en uitdaging/variatie tijdens trainingen te behouden. Onderzoek heeft aangetoond dat periodisering aanzienlijk betere resultaten oplevert dan continu dezelfde trainingsaanpak of trainingsaanpak gebaseerd op uitsluitend progressieve overbelasting. Een voortdurende variëteit aan trainingsprikkels is nodig voor het omzeilen van het trainingsplafond dat bij gelijkmatige training op een zeker moment bereikt wordt. Als we trainen past ons neuromusculaire systeem zich snel aan op een nieuwe training. Is dat eenmaal het geval dan stagneert de vooruitgang waardoor het noodzakelijk is om weer over te gaan op een ander schema. Een trainingsprogramma wordt doorgaans opgedeeld in lange- en kortetermijn delen, die ‘’cycles’’ genoemd worden. Deze cycles kunnen variëren in tijd. Macrocycles kunnen een tijdspanne overbruggen van een aantal maanden tot wel een jaar en kunnen het beste worden opgedeeld in zogenaamde mesocycles die meer aandacht geven aan bepaalde details op de weg naar het grote doel. Door mesocycles te gebruiken ben ik als trainer beter in staat jou te monitoren, doelen waar nodig bij te stellen, nieuwe trainingsroutines in het schema op te nemen en aanpassingen te doen wat betreft voeding, slaap en rust om de doelen van de macrocycles te behalen. Gangbaar is dat zo’n mesocycle ongeveer 4-8 weken duurt, maar afhankelijk van het niveau van de sporter en diens doel kan dit sterk variëren. Een mesocycle kan weer worden opgeknipt in microcycles (van ongeveer een week). Het zijn 7 modellen verdeelt onder 3 classificaties:\n\nLineaire periodisering 1. Lineaire progressie Bij lineaire progressie wordt het aantal sets en herhalingen per spiergroep op lange termijn afgebouwd terwijl de intensiteit (het gewicht) omhoog gaat. Het doel is om elke keer je eerste set (je topset) van je vorige training te verslaan. De sets daarna mogen iets inzakken qua herhalingen (drop-off) maar je probeert zo hoog mogelijk te blijven inzetten met 1 herhaling in reserve. Wanneer je net bent begonnen met een oefening kunnen bij sommige oefeningen grote stappen gemaakt worden van 2.5kg- 5kg maar bij oefeningen waarbij 1 spiergroep gebruikt wordt of wanneer je gevorderd bent, zullen de stapjes steeds kleiner worden en kunnen de stapjes van 0.5kg-1.25kg zelfs te veel zijn. Aan de hand van de kleinst mogelijke stap binnen jouw trainingsomgeving, bepaald jouw coach welke stap gepast is. Des de kleiner de stap, des de groter de kans dat je lang vooruit kan gaan met dit progressiemodel. Mocht je je een dag bijzonder sterk voelen en heb je het gevoel dat je de voorgeschreven hoeveelheid herhalingen makkelijk kan halen dan mag je het gewicht verzwaren binnen dezelfde sessie in de 2e, 3e of 4e set. Dit noemen we versnelde progressie. Ga ervoor! Haal je de voorgeschreven hoeveelheid herhalingen niet? Dan blijf je nog steeds doorgaan met laden (met de kleinst mogelijke stap omhoog). Mocht je te veel afwijken dan stelt je coach dit bij tijdens een revisie. Haal je minder dan de helft van je voorgeschreven herhalingen? Dan doe je een reactieve deload. Als je meerdere keren van de voorgeschreven hoeveelheid herhalingen afwijkt, dan kiezen we voor een intensificatie (het lager zetten van de voorgeschreven hoeveelheid herhalingen om meer op kracht te trainen) of voor een vorm van golf periodiseren. Golf periodisering (Non-lineaire progressie) 2. Dubbel golvende progressie (double undulating periodization) Bij dubbel golvende progressie maak je gebruik van dagen waarop een spiergroep met hoge herhalingen getraind wordt en dagen waarbij met lagere herhalingen getraind wordt. Een voorbeeld: Dag 1 hoge herhalingen minder sets voor spiergroei, dag 2 lagere herhalingen meer sets voor kracht. In je schema zie je welke dagen welk doel hebben en wat de voorgeschreven hoeveelheid herhalingen per training is aan de hand van een percentage van het gewicht van de vorige training. 3. Drievoudig golvende progressie (daily undulating periodization) Bij drievoudige golf periodisering maak je gebruik van 3 verschillende trainingen met ieder een andere mate van volume en intensiteit. Een voorbeeld: 1 dag voor kracht, 1 dag voor spiergroei, 1 dag voor explosiviteit. In je schema zie je welke dagen welk doel hebben en op welk % van je 1RM (het maximaal te verplaatsen gewicht voor 1 herhaling) je de herhalingen dient uit te voeren. Overige progressie technieken 4. Herhalingendoelen (reprange periodization): Bij het gebruiken van herhalingendoelen wordt er een hoeveelheid h erhalingen gegeven voor de eerste set (topset) van een oefening. Wanneer deze hoeveelheid herhalingen gehaald wordt in de topset wordt het gewicht de eerstvolgende training verhoogd. In de daaropvolgende sets mogen de hoeveelheid herhalingen dalen, (dit noemen we drop off) maar probeer deze zo hoog mogelijk te houden. Als je je reptarget niet haalt is er niets aan de hand en kan je net zo lang in herhalingen omhoog ladderen tot je je reptarget haalt en verzwaart. Als je 2x achter elkaar vastloopt mag je die keer erop zwaarder gaan. Die training erna ga je echter weer terug naar je vorige gewicht en die probeer je nu te halen. Mocht je nog steeds falen dan kiest je coach voor golfperiodisering of een intensificatie (het lager zetten van de voorgeschreven hoeveelheid herhalingen om meer op kracht te trainen). Aan de hand van de kleinst mogelijkste stap binnen jouw trainingsomgeving, bepaald jouw coach welke stap gepast is. Wanneer je bezig bent met een reactieve deload voor die specifieke spiergroep, omdat je minder dan de helft van de hoeveelheid voorgeschreven herhalingen doet, dan haal je dezelfde stap, waarmee je normaal verzwaard, van het gewicht af en probeer je je herhalingendoel te halen. De sessie erna ga je weer terug naar het gewicht waar op je faalde en probeer je deze te halen. 5. Set- en herhalingendoel (set-rep periodization) Bij het gebruiken van set- en herhalingendoelen wordt er een voorgeschreven hoeveelheid herhalingen gebruikt die iedere set gehaald moet worden voordat het gewicht verzwaard mag worden. Pas als alle sets volmaakt zijn mag er verhoogd worden. Dit kan prima gebruikt worden voor techniekwerk en zorgt ervoor dat je een oefening volledige beheerst voordat je deze verzwaart. Mocht je de hoeveelheid voorgeschreven herhalingen niet halen iedere set, dan kan je coach de hoeveelheid sets verlagen of verhogen met een intensificatie (het lager zetten van de voorgeschreven hoeveelheid herhalingen om meer op kracht te trainen). Aan de hand van de kleinst mogelijke stap binnen jouw trainingsomgeving, bepaald jouw coach welke stap gepast is. 6. Minimale hoeveelheid herhalingen (>xTotal reps periodization) Bij het gebruiken van minimale hoeveelheid herhalingen wordt er gebruik gemaakt van een overkoepelende hoeveelheid herhalingen voor alle sets. Bijvoorbeeld: minimale hoeveelheid herhalingen >40 x 4 sets. Dit houd in dat, verspreid over de 4 sets, er minimaal 40 volledige herhalingen uitgevoerd moeten worden voordat het gewicht verzwaard mag worden. Aan de hand van de kleinst mogelijke stap binnen jouw trainingsomgeving, bepaald jouw coach welke stap gepast is. 7. Reactief deloaden Bij reactief deloaden gaat het om een slimme manier van het verlagen van je trainingsstress voor een specifieke oefening waarmee je vastloopt. Deload betekent letterlijk ontladen en dit wordt gedaan door een vermindering van intensiteit of volume (gewicht verplaatst) als reactie op het niet halen van je doelen. Reactief deloaden doen we alleen specifiek voor 1 oefening. Dus als je squat niet goed gaat, dan betekent het niet dat er een deload toegepast wordt op je bankdrukken. Redenen om reactief te deloaden zijn: - Wanneer je bij lineaire progressie gelijkt blijft of minder goed gaat presteren bij je 1e set (topset) (dit gaat niet altijd op. Soms wordt met intensificatie of het langzaam verhogen van herhalingen al meer werk verricht). - Als je je set- en herhalingendoel niet blijft halen. - Als je je lichamelijk slecht voelt en gewoon niet klaar bent om te vlammen. Reactief deloaden kan je doen door: - 20-30% van je huidige gewicht af te halen (rond de 10-12 hh) en bij techniekwerk je te focussen op lagere herhalingen met explosieve bewegingen op een lichter gewicht (max 3-5 herhalingen). - Je gewicht gelijk te houden maar minder herhalingen te doen per set. - Omgekeerde piramide training te doen waarbij je 10-20% van je huidige gewicht afhaalt en vervolgens 1 herhaling meer probeert te doen dan je vorige set (nog steeds redelijk stressvol maar minder dan normale progressiemodellen). - Stoppen met een oefening na het falen van je set.",
    "summary": "In deze email wil ik uitleg geven over de verschillende periodiseringsmodellen die je kunt gebruiken in je trainingen. Naast de trainingen besteed je bij de periodisering in krachttraining ook minstens zoveel aandacht aan herstel en adaptie…",
    "needs_review": true,
-   "vimeo_id": "",
+   "vimeo_id": "344562274",
    "vimeo_hash": "",
    "source": "kennisreeks-mail",
    "published": true,
@@ -2971,8 +3026,8 @@
    "body": "De mind-muscle connection: Je spieren voelen voor meer resultaat? Mind-muscle connection: wat is het? Hoogstwaarschijnlijk heb je deze term wel eens voorbij zien komen in de sportschool of op het internet. Kort gezegd betekent het ‘focussen op de spier’ en ‘de spier goed voelen’ en het zou helpen om de spier beter te activeren en te gebruiken. Laten we beginnen met het feit dat de mind-muscle connection qua fenomeen geen (complete) onzin is. Het kan worden gedefinieerd als de kracht van de neurale connectie tussen je spieren en je hersenen. Dus het ‘voelen van je spier’ is zeker geen slechte omschrijving in de basis. Een goede mind-muscle connection zou een tweetal dingen betekenen. Mind-muscle connection: Goede proprioceptie ; met name de vaardigheid om te voelen welke spieren momenteel actief zijn, in bepaalde mate.\n\nDe vaardigheid om gemakkelijk het spieractivatiepatroon van je motorcortex (gedeelte in de hersenen) te overschrijden en zo actief te selecteren welke spieren actief zijn gedurende een bepaalde oefening.\n\nLaten we beginnen met punt 1. Zelfs al zou je een bovengemiddelde mind-muscle connection hebben, dan nog steeds is je beleving van de actieve spieren slechts héél matig gerelateerd aan de daadwerkelijke mate van spieractiviteit. Wat je voelt is namelijk voornamelijk vermoeidheid door de opbouw van metabole stress, zoals ‘het branden’ en spierrekken, géén directe spieractiviteit. Wat je voelt tijdens een oefening, zegt niks over welke spieren er daadwerkelijk allemaal een rol spelen en in welke mate. Zo kun je je spieren actief trainen zonder dat überhaupt te voelen. Is spieractiviteit te beïnvloeden? Allereerst functioneert je motorcortex (gedeelte in de hersenen) als een rationeel statistisch voorspellend systeem, wat nauwkeurig afgesteld is gedurende miljoenen jaren van evolutie. De meeste bewegingen, zoals simpelweg lopen bijvoorbeeld, zijn zo complex qua patroon van spieractivatie dat onze bewuste gedachten niet eens in de verste verte deze taak zo goed zouden kunnen verrichten als we automatisch al doen. Probeer je 1RM deadlift maar eens van de grond te tillen, terwijl je je focust op een bepaalde spiergroep. De meeste mensen zullen het gewicht niet kunnen tillen zonder een externe focus, zoals simpelweg het optillen van het gewicht of het rechtop gaan staan en je zenuwstelsel gewoon haar werk laten doen. Het ‘denken aan je hamstring die zich aanspant’ zal direct falen betekenen. Spiegelspier effect Je hebt hierbij ook het spiegelspier effect, aangezien je visuele feedback krijgt van de spieren die je in de spiegel kunt zien. Je wordt daarmee veel beter in het aanspannen en voelen van de ‘spiegelspieren’ dan andere spieren. Tijdens een Romanian deadlift (deadlift met licht gebogen knieën) zullen veel mensen bijvoorbeeld zeggen dat ze de oefening niet in hun hamstrings voelen. Dat kan natuurlijk aan een slechte techniek liggen, maar de meeste mensen hebben simpelweg niet voldoende zenuwaansturing om de spieren überhaupt te voelen werken. Motorneuronen bepalen beweging en de sensorische zenuwbanen leiden de informatie terug naar je brein. Dit is dus niet hetzelfde. Je kunt maximale spieractivatie bereiken, zonder de spier überhaupt te voelen werken. Het ‘voelen’ van spieractiviteit is grotendeels een psychologisch iets. Waar het daadwerkelijk plaats vindt, kan heel anders zijn. Het is heel nuttig om te gaan voelen waar je bepaalde bewegingen voelt, maar het staat los van hoe hoog de spieractiviteit daadwerkelijk is. https://journals.lww.com/nsca-jscr/Fulltext/2014/06000/Muscle_Activation_During_Various_Hamstring.11.aspx Mocht je het interessant vinden dan kan je hier het hele onderzoek lezen. De hoofdbevindingen waren als volgt: Je vaardigheid om de spieraansturing tijdens een bench press te beïnvloeden is beperkt, zelfs wanneer je probeert om een spiergroep compleet te isoleren. Voor de borst was het hoogste verschil 7% van maximale spieractiviteit; 11% voor de triceps (percentueel verschil van 1RM aan maximale RMS EMG).\n\nJe vaardigheid om de spieraansturing te beïnvloeden neemt af naarmate de intensiteit van je werk toeneemt. Bij 80% intensiteit was er in feite geen verschil in de activiteit van beide spieren, ongeacht de spierfocus.\n\nZoals Greig & Marchant (2014) uitlegde: “ De bevinding dat een interne focus werd geassocieerd met verhoogde spieractiviteit … ondersteunt het voorstel dat een dergelijke focus leidt tot verhoogde neuro-musculaire ‘ruis’, vergeleken met een externe focus. ” Wederom geldt hierbij: Hoe meer je je actief richt op een bepaalde spier, hoe minder overload je zult kunnen creëren.Dit omdat je je zenuwstelsel actief gaat proberen te beïnvloeden. Je ‘blokkeert’ je aansturing dus in principe. Wanneer is de mind-muscle connection wenselijk? Als je geblesseerd bent kan de mind-muscle connection desondanks een nuttige tool zijn. Je kunt relatief hoge mate van spieractivatie bereiken met relatief lage belasting. Stress op je bindweefsel bij een bepaalde mate van spieractiviteit is dus lager, dan met prestatiegerichte krachttraining. KAATSU training is hierbij ook erg nuttig als (p)rehabilitatie methode. Hier zijn enkele tips om de mind-muscle connection voor je krachttraining maximaal te benutten. Ze zijn gebaseerd op het principe dat de het brein meer informatie verschaft krijgt, via actieve feedback. Raak de spiergroep die je probeert te benadrukken aan, indien mogelijk. Dit verschaft tastbare en voelbare feedback. Als je je cliënt met je handen aanraakt, is er alleen kinesthetische (voelbare) feedback, maar je kunt ook verbale feedback toevoegen.\n\nVerricht de oefening voor de spiegel. Dit verschaft visuele feedback.\n\nConclusie Je bent doorgaans beter af als je simpelweg je motorcortex zijn werk laat doen tijdens het trainen. Richt je actief op prestatie. Je zal dan automatisch de mate van spieractiviteit maximaliseren en je prestatie zal er daarnaast beter op zijn. Het proberen te isoleren van spieren is doorgaans alleen nuttig bij (p)rehabilitatie van blessures. Je maakt dan gebruik van de relatief hoge mate van spieractiviteit, met relatief lichte gewichten. De mind-muscle connectie kan dus nuttig zijn in bepaalde situaties. Het is alleen absoluut niet iets wat je prestatie gaat verbeteren en je meer resultaat gaat opleveren. In de meeste gevallen betekent het dus zelf het tegendeel. Ik wens je heel veel succes met trainen!",
    "summary": "De mind-muscle connection: Je spieren voelen voor meer resultaat? Mind-muscle connection: wat is het?",
    "needs_review": true,
-   "vimeo_id": "",
-   "vimeo_hash": "",
+   "vimeo_id": "255248120",
+   "vimeo_hash": "c43ee31d8b",
    "source": "kennisreeks-mail",
    "published": true,
    "completion": "handmatig",
@@ -2999,8 +3054,8 @@
    "body": "Vandaag hebben we het over werk vs vrije dagen. Als we gaan kijken naar hoe men tegenwoordig het eten op de vrije dagen inplant, dan bestaat dit meestal uit ongezonde maaltijden, vaak ongezonder dan op de dagen wanneer men aan het werk is. Als we gaan kijken naar hoe we onze vrije dag kunnen besteden zou ik je het volgende willen adviseren: - Mealpreppen: voor de rest van de week eten maken (op deze manier zorg je ervoor dat je de rest van de week weinig stress ervaart over wat je nu precies mag hebben). Zelf maak ik elke 3 weken 15 porties eten voor maandag tm vrijdag. In het weekend eet ik meestal iets anders om het af te wisselen. - Extra training inlassen: aangezien we 101 smoesjes kunnen bedenken waarom we niét kunnen trainen, is het juist nu hèt moment om wel te gaan. - Extra beweging: buiten je training om kan je ook bewust kiezen om wat extra cardio te doen door bijvoorbeeld een wandeling te maken. Ook kan je je ó zo lang uitgestelde mobiliteit/rekoefeningen gaan doen. - Maak voor jezelf een to do lijst wat je graag zou willen doen wanneer je vrij bent. Net zoals bij de training, kunnen er heel veel dingen gebeuren waarom je deze dingen niet gaat doen. Ik wens je heel veel plezier met je vrije dagen.",
    "summary": "Vandaag hebben we het over werk vs vrije dagen. Als we gaan kijken naar hoe men tegenwoordig het eten op de vrije dagen inplant, dan bestaat dit meestal uit ongezonde maaltijden, vaak ongezonder dan op de dagen wanneer men aan het werk is.",
    "needs_review": true,
-   "vimeo_id": "",
-   "vimeo_hash": "",
+   "vimeo_id": "255245494",
+   "vimeo_hash": "2b52543ec3",
    "source": "kennisreeks-mail",
    "published": true,
    "completion": "handmatig",
@@ -3490,7 +3545,7 @@
    "body": "Veel mensen hebben van kinds af aangeleerd dat het ontbijt de belangrijkste maaltijd van de dag is. Het zou namelijk zorgen voor een goede start van de dag met voldoende energie. Maar klopt dit wel? Is het ontbijt écht de belangrijkste maaltijd van de dag? Wat gebeurt er als je deze maaltijd overslaat?\n\nBreakfast, het Engelse woord voor ontbijt. Letterlijk vertaald: het doorbreken van een vastentijd. In dit geval betekent het dat het de eerste maaltijd is wanneer je wakker wordt. Tijdens je slaap ben je namelijk aan het vasten, omdat je ruim 7 tot 8 uur niet eet. Wanneer het ontbijt wordt genuttigd maakt in essentie niet uit. Op werkdagen ontbijt je misschien al om 7 uur ’s ochtends en op een zondag misschien pas om 12 uur ’s middags. Het gaat enkel en alleen om het doorbreken van die vastentijd. Meestal doe je dit binnen een uur nadat je wakker wordt.\n\nEr zijn veel onderzoeken gedaan naar het belang van het ontbijt. Het nuttigen van een ontbijt blijkt echter geen belangrijk effect te hebben op gewicht, gewichtsverlies en vetmassa. Wel blijkt dat het ontbijt zorgt voor een groter gevoel van verzadiging. Een eiwitrijk ontbijt zou zorgen voor de grootste verzadiging waardoor je minder trek krijgt gedurende de dag en ’s avonds minder last hebt van die snackdrang. Wat dan dus indirect wel weer een effect heeft op gewichtsverlies, omdat je uiteindelijk minder calorieën nuttigt.\n\nHet ontbijt blijkt niet alleen invloed te hebben op het verzadigingsgevoel, maar ook op het activiteitenniveau. Uit onderzoek is namelijk gebleken dat mensen die niet ontbeten, minder energiek en actief waren, want het ontbijt zou zorgen voor een hoger activiteitenniveau, met name ’s ochtends.\n\nOver het algemeen kan ontbijten een positief effect hebben als vetverbranding het doel is, omdat het kan zorgen voor een verzadigd gevoel en minder trek gedurende de dag. Niet ontbijten laat daarentegen wel meer ruimte over voor de rest van de dag. Als jouw andere maaltijden echter niet calorierijker zijn dan je zou doen als je wel had ontbeten, kan dit ook een manier zijn om een calorierestrictie creëren. Conclusie: doe wat werkt voor jou. Ontbijten is een voorkeur en je kunt zelf bepalen of het bij je past of niet.",
    "summary": "Veel mensen hebben van kinds af aangeleerd dat het ontbijt de belangrijkste maaltijd van de dag is. Het zou namelijk zorgen voor een goede start van de dag met voldoende energie.",
    "needs_review": true,
-   "vimeo_id": "",
+   "vimeo_id": "344635729",
    "vimeo_hash": "",
    "source": "kennisreeks-mail",
    "published": true,
@@ -3924,7 +3979,7 @@
    "body": "In deze email wil ik wat uitleg geven over wat voor effect de menstruatie op het lichaam kan hebben wanneer het gaat om trainen.\n\nVoor veel dames heeft de menstruatie invloed op de training. Maar het is niet alleen tijdens de menstruatie zelf die van invloed kan zijn op je krachtdoelen: de hormonale schommelingen die je lichaam de hele maand voor en na je menstruatie ervaart, kunnen ook je training beïnvloeden. Maar niet getreurd, er zijn strategieën die je kunt gebruiken waarbij je menstruatie kan helpen met het behalen van jouw doelen.\n\nMenstruatie (3 tot 7 dagen)\n\nDe fase die het gemakkelijkst te identificeren is, is de feitelijke menstruatie, en dat is wanneer je bloedt. Tijdens deze fase wil je misschien blijven bewegen om je lichaam te helpen herstellen van krampen, maar kom niet in de verleiding om superhard te gaan.\n\nFolliculaire fase (ongeveer 16 dagen)\n\nDe week tot anderhalve week nadat je bent gestopt met bloeden, wordt de folliculaire fase genoemd, en dat is wanneer je oestrogeenspiegels stijgen. Misschien wil je weer meteen voluit gaan nadat je bent gestopt met bloeden, omdat die piek in oestrogeen je waarschijnlijk een boost van uithoudingsvermogen heeft gegeven.\n\nLuteale fase (ongeveer 14 dagen)\n\nOvulatie splitst je folliculaire fase van de volgende fase, dat is je luteale fase, die duurt tot je volgende menstruatie. Hormonale veranderingen tijdens deze fase worden vaak geassocieerd met vermoeidheid, honger en prikkelbaarheid, waardoor je misschien wordt verleid je trainingen over te slaan. Maar het actief blijven tijdens de luteale fase kan zelfs geweldig aanvoelen als je je opgeblazen voelt.\n\nUit studies is gebleken dat het benadrukken van krachttraining voor het onderlichaam tijdens het menstrueren en gedurende anderhalve week nadat je bent gestopt met bloeden, kan helpen bij het opbouwen van krachttoename en spiermassa. En hoewel je natuurlijk de hele maand benen kunt en moet trainen, als het lichaam het toelaat, is dit soort logisch: het soort samengesteld lichaamswerk dat beentraining biedt, kan je krampen helpen compenseren, waardoor je een nog betere training krijgt. Dit kan een van de redenen zijn dat het zwaar trainen van de benen tijdens de menstruatie en je folliculaire fase super effectief kan zijn.\n\nNog een reden om gedurende de week en een half na je menstruatie zwaar te trainen: je folliculaire fase geeft je lichaam vaak hogere oestrogeenspiegels. En hogere oestrogeenspiegels kunnen leiden tot een verhoogd uithoudingsvermogen van de spieren, waardoor je je spiergroepen harder en vaker kunt raken. Dit wordt het moment waarop je de sprint en het HIIT-werk dat je misschien zou willen doen, wilt benadrukken: want nogmaals, die boosts in uithoudingsvermogen kunnen een grote bijdrage leveren aan het maximaliseren van je winst.\n\nConcentreer je op je bovenlichaam vlak voor je menstruatie.\n\nWanneer je lichaam over het algemeen meer vermoeid is, zoals tijdens de luteale fase vlak voor je menstruatie, is het logisch dat intensieve training in het onderlichaam moeilijker uit te voeren en moeilijker te herstellen is.\n\nMaar aangezien uit onderzoek is gebleken dat bicep curls effectiever zijn tijdens de luteale fase, wilt je je misschien focussen op het trainen van je bovenlichaam, met wat licht onderlichaamwerk. Natuurlijk moet je je bovenlichaam de hele maand trainen, maar als je de neiging hebt om opgeblazen en vermoeid te zijn, wil je misschien hiervan profiteren en je bovenlichaam trainen zodat je onderlichaam niet te veel hoeft te bewegen.",
    "summary": "In deze email wil ik wat uitleg geven over wat voor effect de menstruatie op het lichaam kan hebben wanneer het gaat om trainen.  Voor veel dames heeft de menstruatie invloed op de training.",
    "needs_review": true,
-   "vimeo_id": "",
+   "vimeo_id": "344639030",
    "vimeo_hash": "",
    "source": "kennisreeks-mail",
    "published": true,
@@ -4060,7 +4115,7 @@
    "body": "In deze email ga ik wat uitleg geven over de voedingssupplementen creatine, melatonine, magnesium, Whey en pre-workout - Creatine is een lichaamseigen stof die betrokken is bij de energievoorziening van je spieren. De lever en alvleesklier synthetiseren creatine uit verschillende aminozuren, wat resulteert in de aanmaak van één tot twee gram creatine per dag. Daarnaast komt creatine je lichaam binnen via voedingsmiddelen, zoals vlees en vis. Creatine voorziet je spieren van energie. Wanneer jij traint zal de creatinefosfaatpoel in jouw lichaam afnemen en treedt vermoeidheid op. Wanneer je extra creatine neemt wordt deze fosfaatpoel weer opgevuld zodat je meer herhalingen kunt maken. Dit betekent niet dat je opeens 10 kg zwaarder kunt gaan trainen of een hele extra set zonder moeite erbij kunt doen. Nee deze extra lading creatine kan er voor zorgen dat je nét die laatste twee herhalingen nog kunt uitvoeren. Naast meer energie in je spieren, zorgt creatine ook voor een sneller herstel na het sporten. - Melatonine is een hormoon dat aangemaakt wordt in de pijnappelklier in de hersenen. Melatonine helpt de regulatie van je slaap-waakcyclus. Je lichaam heeft zijn eigen klok die jouw slapen en waken controleert. Deze interne klok regelt hoeveel melatonine jouw lichaam aanmaakt. Je melatonine begint meestal te stijgen in het midden tot late avond en blijft voor het grootste gedeelte van de nacht hoog. ’s Ochtends vroeg daalt je melatoninespiegel weer. Licht heeft invloed op de hoeveelheid melatonine die jouw lichaam produceert. In de winter kan je lichaam eerder of later melatonine produceren dan in de zomer. Wanneer je ouder wordt zullen deze natuurlijke melatonine levels lager worden. Een belangrijk hormoon met een tegengestelde werking is cortisol. Dit hormoon is juist overdag actief bij het waken. Zo is het dag- en nachtpatroon een soort dans tussen deze twee hormonen. Waarom melatonine gebruiken? Melatonine zorgt voor het inslapen, doorslapen, de diepte van de slaap en de duur ervan. Daarnaast is melatonine ook een goede antioxidant die ons beschermt tegen een overmaat aan vrije radicalen in ons lichaam. Heb je moeite met een van deze bovenstaande punten, dan is het verstandig om melatonine te nemen voordat je gaat slapen. Maar voordat je extra melatonine gaat nemen, is het verstandig dat eerst je slaapritme op orde is. Ga op dezelfde tijd naar bed, geen (blauw) licht zoals je tv en telefoon minimaal een half uur voordat je op bed gaat, verlaag stress door bijvoorbeeld te mediteren voordat je op bed gaat of lees een boek. - Magnesium is een mineraal dat je lichaam onder andere nodig heeft voor de vorming van bot en spieren. In producten zoals granen, noten, melkproducten en vlees zitten magnesium. Een tekort aan magnesium zal niet snel voorkomen wanneer je goed eet, omdat dit in de meeste voedingsmiddelen zit: Milligram magnesium per portie 1 handje ongezouten pinda’s (25 gram) 54 mg 1 grote lepel gekookte spinazie (50 gram) 39 mg 1 grote lepel gekookte volkorenpasta (60 gram) 28 mg 1 stukje kipfilet (gaar, 70 g) 25 mg 1 snee volkorenbrood (35 gram) 19 mg 1 glas halfvolle melk (150 ml) 18 mg Magnesium is onder andere goed voor: - De vorming van spieren en botten. - De overdracht van prikkels en spieren en in - zenuwbanen. - Het goed functioneren van spieren. - Een goede werking van een groot aantal enzymen. - De energieproductie van de lichaamscellen. De dagelijks aanbevolen hoeveelheid magnesium is bij mannen 350 mg en bij vrouwen 300 mg. Een teveel aan magnesium kan leiden tot darmklachten. - Whey is een van de meeste populaire eiwit merken op de markt. Dit omdat het eiwitgehalte van Whey erg hoog ligt, namelijk 80% of meer. Daarnaast neemt het lichaam dit ontzettend makkelijk op. Na het nemen van zo’n eiwitshake zullen na 20 minuten al de eerste eiwitten in de bloedbaan terecht komen. Je spieren zullen snel voorzien worden van de benodigde bouwstoffen. Daarnaast geeft Whey een langer verzadigd gevoel en helpt je energie en focus te stabiliseren door het uitbalanceren van de bloedsuikerspiegel. Dit bekent dus een voller gevoel en een verminderde koolhydraatbehoefte. Dit betekent niet dat iedereen die spiermassa wilt aankomen verplicht aan de eiwitshakes moet. In tegendeel. Je kunt in feite al je eiwitten uit normale voeding halen, maar wanneer je hier moeite mee hebt is Whey en snelle en goede oplossing. - Pre-workout . Tijdens het sporten kan er verzuring ontstaan in je spieren. Dit is een direct gevolg van de ophoping van melkzuur. Dit wordt gevormd wanneer er een tekort aan zuurstof ontstaat in de spieren wanneer koolhydraten als energiebron worden gebruikt. Hoe groter de ophoping van melkzuur, des te minder kunnen je spieren samentrekken. Wordt de ophoping te groot, dan ontstaat er een punt dat de spieren niet meer kunnen bewegen (vermoeidheid). Deze ophoping van melkzuur is dus duidelijk ongewenst en willen we zoveel mogelijk voorkomen zover dat mogelijk is. Hoe doen we dat? Simpel. Je lichaam moet het zuurstoftekort dat ontstaat in de spieren beperken en tegelijkertijd het melkzuur opruimen. Hier is waar pre-workout aan te pas komt. Pre-workout zorgt voor de volgende aanpassingen: - (geleidelijke) verhoging van lichaamstemperatuur. - Verwijding van luchtwegen. - Aanpassingen aan de bloedsomloop/hartvaatstelsel (bloedvaten en hart). - Energie vrijmaken - Uitschakeling van spijsverteringssysteem. - Efficiëntere spiercontractie (samentrekken van spieren) - Mentale focus op de sportactiviteit. Deze aanpassingen zorgen voor dat de toevoer van zuurstof/voedingsmiddelen en de afvoer van afvalstoffen zo efficiënt mogelijk plaatsvindt, waardoor verzuring wordt tegengegaan. Dit in combinatie met de energie leverende en vet verbrandende werking maakt pre-workout een goed component van een succesvolle training.",
    "summary": "In deze email ga ik wat uitleg geven over de voedingssupplementen creatine, melatonine, magnesium, Whey en pre-workout - Creatine is een lichaamseigen stof die betrokken is bij de energievoorziening van je spieren. De lever en alvleesklier …",
    "needs_review": true,
-   "vimeo_id": "",
+   "vimeo_id": "344638312",
    "vimeo_hash": "",
    "source": "kennisreeks-mail",
    "published": true,
@@ -4290,33 +4345,6 @@
    "action_links": []
   },
   {
-   "ref": "bibv-vrouwen-en-krachttraining",
-   "track_key": "bibliotheek",
-   "module_ref": "bib-training",
-   "title": "vrouwen en krachttraining",
-   "order": 26,
-   "categories": [
-    "training"
-   ],
-   "access_packages": [
-    "small_group_plus",
-    "challenge_90",
-    "performance",
-    "alles"
-   ],
-   "vimeo_id": "315607499",
-   "vimeo_hash": "",
-   "needs_review": true,
-   "source": "oude website (2019)",
-   "summary": "",
-   "published": true,
-   "completion": "handmatig",
-   "body": "",
-   "step_label": "",
-   "key_points": [],
-   "action_links": []
-  },
-  {
    "ref": "bibv-dames-moeten-meer-eten",
    "track_key": "bibliotheek",
    "module_ref": "bib-voeding",
@@ -4386,33 +4414,6 @@
     "alles"
    ],
    "vimeo_id": "317020445",
-   "vimeo_hash": "",
-   "needs_review": true,
-   "source": "oude website (2019)",
-   "summary": "",
-   "published": true,
-   "completion": "handmatig",
-   "body": "",
-   "step_label": "",
-   "key_points": [],
-   "action_links": []
-  },
-  {
-   "ref": "bibv-micro-plates",
-   "track_key": "bibliotheek",
-   "module_ref": "bib-training",
-   "title": "Micro plates",
-   "order": 27,
-   "categories": [
-    "training"
-   ],
-   "access_packages": [
-    "small_group_plus",
-    "challenge_90",
-    "performance",
-    "alles"
-   ],
-   "vimeo_id": "317036849",
    "vimeo_hash": "",
    "needs_review": true,
    "source": "oude website (2019)",
@@ -5094,6 +5095,3582 @@
    "summary": "",
    "published": true,
    "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "pc-1072452204",
+   "track_key": "performance",
+   "module_ref": "pc-stance",
+   "title": "Wat is jouw Inner Stance",
+   "order": 1,
+   "vimeo_id": "1072452204",
+   "vimeo_hash": "e86616ab1c",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Leadership Week 1: Wat is jouw Inner Stance",
+   "duration_min": 5,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1078484782",
+   "track_key": "performance",
+   "module_ref": "pc-stance",
+   "title": "Jouw ongewenst geprogrammeerde toekomst",
+   "order": 2,
+   "vimeo_id": "1078484782",
+   "vimeo_hash": "b451a7c1e9",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Dreamteam week 11; Jouw ongewenst geprogrammeerde toekomst",
+   "duration_min": 5,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1072456639",
+   "track_key": "performance",
+   "module_ref": "pc-voordeel",
+   "title": "Het verborgen voordeel syndroom",
+   "order": 1,
+   "vimeo_id": "1072456639",
+   "vimeo_hash": "9abc372f66",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Leadership week 2: Het verborgen voordeel syndroom",
+   "duration_min": 10,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1147304297",
+   "track_key": "performance",
+   "module_ref": "pc-voordeel",
+   "title": "Secondary Benefit Syndrome",
+   "order": 2,
+   "vimeo_id": "1147304297",
+   "vimeo_hash": "00568d6b7e",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Commitment Week 51: Secondary Benefit Syndrome",
+   "duration_min": 5,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1168114292",
+   "track_key": "performance",
+   "module_ref": "pc-voordeel",
+   "title": "Escape cards",
+   "order": 3,
+   "vimeo_id": "1168114292",
+   "vimeo_hash": "8e018dd53c",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Commitment Week 9: Escape cards",
+   "duration_min": 4,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1091737009",
+   "track_key": "performance",
+   "module_ref": "pc-comfort",
+   "title": "War on comfort (1)",
+   "order": 1,
+   "vimeo_id": "1091737009",
+   "vimeo_hash": "7f7139009e",
+   "categories": [
+    "gewoontes"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex leadership - War on Comfort week 10",
+   "duration_min": 5,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1091739238",
+   "track_key": "performance",
+   "module_ref": "pc-comfort",
+   "title": "War on comfort (2)",
+   "order": 2,
+   "vimeo_id": "1091739238",
+   "vimeo_hash": "50b8e54ac7",
+   "categories": [
+    "gewoontes"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Leadership week 11: War on Comfort (2)",
+   "duration_min": 4,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1082434745",
+   "track_key": "performance",
+   "module_ref": "pc-comfort",
+   "title": "Motivatie VS Discipline",
+   "order": 3,
+   "vimeo_id": "1082434745",
+   "vimeo_hash": "11ac578b9e",
+   "categories": [
+    "gewoontes"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Dreamteam Week 13: Motivatie VS Discipline",
+   "duration_min": 4,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-933148368",
+   "track_key": "performance",
+   "module_ref": "pc-comfort",
+   "title": "Uithoudingsvermogen (1)",
+   "order": 4,
+   "vimeo_id": "933148368",
+   "vimeo_hash": "fd9e648f5f",
+   "categories": [
+    "gewoontes"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Self Leadership week 15: Uithoudingsvermogen",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-933150255",
+   "track_key": "performance",
+   "module_ref": "pc-comfort",
+   "title": "Uithoudingsvermogen (2)",
+   "order": 5,
+   "vimeo_id": "933150255",
+   "vimeo_hash": "9c93f2c440",
+   "categories": [
+    "gewoontes"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Self Leadership week 16: Uithoudingsvermogen 2",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-941917158",
+   "track_key": "performance",
+   "module_ref": "pc-comfort",
+   "title": "Setback protocol",
+   "order": 6,
+   "vimeo_id": "941917158",
+   "vimeo_hash": "c0b14006c2",
+   "categories": [
+    "gewoontes"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Self Leadership week 18: Setback protocol",
+   "duration_min": 7,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-958156034",
+   "track_key": "performance",
+   "module_ref": "pc-comfort",
+   "title": "Being relentless",
+   "order": 7,
+   "vimeo_id": "958156034",
+   "vimeo_hash": "771c125a36",
+   "categories": [
+    "gewoontes"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Self leadership week 24: Being relentless",
+   "duration_min": 6,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-970462295",
+   "track_key": "performance",
+   "module_ref": "pc-comfort",
+   "title": "Bar raising proces",
+   "order": 8,
+   "vimeo_id": "970462295",
+   "vimeo_hash": "100c7fb67e",
+   "categories": [
+    "gewoontes"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Self Leadership week 26 - Bar raising proces 2",
+   "duration_min": 8,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-925930052",
+   "track_key": "performance",
+   "module_ref": "pc-comfort",
+   "title": "Het leven is moeilijk",
+   "order": 9,
+   "vimeo_id": "925930052",
+   "vimeo_hash": "f094eba60d",
+   "categories": [
+    "gewoontes"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Self Leadership week 12: het leven is moeilijk (2)",
+   "duration_min": 5,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1076542422",
+   "track_key": "performance",
+   "module_ref": "pc-tijd",
+   "title": "Timemanagement",
+   "order": 1,
+   "vimeo_id": "1076542422",
+   "vimeo_hash": "17ce5d0b9d",
+   "categories": [
+    "tijd"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Leadership Week 3: Timemanagement",
+   "duration_min": 1,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1098656092",
+   "track_key": "performance",
+   "module_ref": "pc-tijd",
+   "title": "Commitment + Jouw agenda",
+   "order": 2,
+   "vimeo_id": "1098656092",
+   "vimeo_hash": "68bcd832e2",
+   "categories": [
+    "tijd"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Leadership Week 27: Commitment + Jouw agenda",
+   "duration_min": 4,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1102192986",
+   "track_key": "performance",
+   "module_ref": "pc-tijd",
+   "title": "Open cycles of action (1): projecten",
+   "order": 3,
+   "vimeo_id": "1102192986",
+   "vimeo_hash": "e1cad41a71",
+   "categories": [
+    "tijd"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Open Cycles of Actions - Projecten & Shit",
+   "duration_min": 3,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1102199917",
+   "track_key": "performance",
+   "module_ref": "pc-tijd",
+   "title": "Open cycles of action (2)",
+   "order": 4,
+   "vimeo_id": "1102199917",
+   "vimeo_hash": "cb2df4e092",
+   "categories": [
+    "tijd"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Leadership - Open Cycles of Action (2)",
+   "duration_min": 3,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1104059305",
+   "track_key": "performance",
+   "module_ref": "pc-tijd",
+   "title": "Open cycles of action (3): completion",
+   "order": 5,
+   "vimeo_id": "1104059305",
+   "vimeo_hash": "0d5627809d",
+   "categories": [
+    "tijd"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Leadership : Open Cycles of Actions - Completion",
+   "duration_min": 5,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1150634831",
+   "track_key": "performance",
+   "module_ref": "pc-tijd",
+   "title": "Jouw Perfect Repeatable Week",
+   "order": 6,
+   "vimeo_id": "1150634831",
+   "vimeo_hash": "6fd5288a6a",
+   "categories": [
+    "tijd"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Commitment week 1: Jouw Perfect Repeatable Week",
+   "duration_min": 10,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1157009928",
+   "track_key": "performance",
+   "module_ref": "pc-tijd",
+   "title": "HRA & LRA",
+   "order": 7,
+   "vimeo_id": "1157009928",
+   "vimeo_hash": "bbaa907d2c",
+   "categories": [
+    "tijd"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Commitment Week 4: HRA & LRA",
+   "duration_min": 4,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1145625159",
+   "track_key": "performance",
+   "module_ref": "pc-tijd",
+   "title": "Must (not to) do's",
+   "order": 8,
+   "vimeo_id": "1145625159",
+   "vimeo_hash": "a8a993a2ca",
+   "categories": [
+    "tijd"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Commitment Week 51: Must (Not to) Do’s/",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-920615434",
+   "track_key": "performance",
+   "module_ref": "pc-tijd",
+   "title": "Betaal met je aandacht",
+   "order": 9,
+   "vimeo_id": "920615434",
+   "vimeo_hash": "d468de7e0f",
+   "categories": [
+    "tijd"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Self Leadership week 11 2024: Betaal met je aandacht",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-911540306",
+   "track_key": "performance",
+   "module_ref": "pc-tijd",
+   "title": "Focus & completion (2)",
+   "order": 10,
+   "vimeo_id": "911540306",
+   "vimeo_hash": "ec86161366",
+   "categories": [
+    "tijd"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Silver Week 23 focus + completion 2",
+   "duration_min": 5,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-913336350",
+   "track_key": "performance",
+   "module_ref": "pc-tijd",
+   "title": "Focus & completion (3)",
+   "order": 11,
+   "vimeo_id": "913336350",
+   "vimeo_hash": "8f204f1f15",
+   "categories": [
+    "tijd"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Silver Week 24: Focus & Completion (3)",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-866876668",
+   "track_key": "performance",
+   "module_ref": "pc-tijd",
+   "title": "Starten vs starten met starten",
+   "order": 12,
+   "vimeo_id": "866876668",
+   "vimeo_hash": "fcef1b92fd",
+   "categories": [
+    "tijd"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Starten vs starten met starten",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-931042510",
+   "track_key": "performance",
+   "module_ref": "pc-tijd",
+   "title": "Take inventory",
+   "order": 13,
+   "vimeo_id": "931042510",
+   "vimeo_hash": "9be74ac836",
+   "categories": [
+    "tijd"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Take inventory 2",
+   "duration_min": 3,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1105949920",
+   "track_key": "performance",
+   "module_ref": "pc-communicatie",
+   "title": "Communicatie 1",
+   "order": 1,
+   "vimeo_id": "1105949920",
+   "vimeo_hash": "c799113572",
+   "categories": [
+    "relaties"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Leadership: Communicatie 1",
+   "duration_min": 6,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1107999868",
+   "track_key": "performance",
+   "module_ref": "pc-communicatie",
+   "title": "Communicatie 2",
+   "order": 2,
+   "vimeo_id": "1107999868",
+   "vimeo_hash": "2b8cc4d881",
+   "categories": [
+    "relaties"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Leadership: Communicatie 2",
+   "duration_min": 6,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1109659445",
+   "track_key": "performance",
+   "module_ref": "pc-communicatie",
+   "title": "Communicatie 3",
+   "order": 3,
+   "vimeo_id": "1109659445",
+   "vimeo_hash": "1951f663fb",
+   "categories": [
+    "relaties"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Leadership - Communicatie 3",
+   "duration_min": 8,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1103700865",
+   "track_key": "performance",
+   "module_ref": "pc-communicatie",
+   "title": "Communicatie - Timing",
+   "order": 4,
+   "vimeo_id": "1103700865",
+   "vimeo_hash": "475fc51b89",
+   "categories": [
+    "relaties"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Communicatie - Timing",
+   "duration_min": 0,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1082457644",
+   "track_key": "performance",
+   "module_ref": "pc-communicatie",
+   "title": "Verzoeken (1)",
+   "order": 5,
+   "vimeo_id": "1082457644",
+   "vimeo_hash": "f639bb83b1",
+   "categories": [
+    "relaties"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Leadership week 6: Verzoeken (1)",
+   "duration_min": 6,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1084765712",
+   "track_key": "performance",
+   "module_ref": "pc-communicatie",
+   "title": "Brutale verzoeken (2)",
+   "order": 6,
+   "vimeo_id": "1084765712",
+   "vimeo_hash": "c7edbc094d",
+   "categories": [
+    "relaties"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Leadership week 7: Brutale verzoeken (2)",
+   "duration_min": 5,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1065065018",
+   "track_key": "performance",
+   "module_ref": "pc-communicatie",
+   "title": "Krachtige verzoeken",
+   "order": 7,
+   "vimeo_id": "1065065018",
+   "vimeo_hash": "367bf055f3",
+   "categories": [
+    "relaties"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Dreamteam week 5: Krachtige verzoeken 2",
+   "duration_min": 13,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1111663301",
+   "track_key": "performance",
+   "module_ref": "pc-communicatie",
+   "title": "Afspraken vs Verwachtingen",
+   "order": 8,
+   "vimeo_id": "1111663301",
+   "vimeo_hash": "e42af82ab8",
+   "categories": [
+    "relaties"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Leadership week 34: Afspraken vs Verwachtingen",
+   "duration_min": 1,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1113867538",
+   "track_key": "performance",
+   "module_ref": "pc-communicatie",
+   "title": "Klagen",
+   "order": 9,
+   "vimeo_id": "1113867538",
+   "vimeo_hash": "a6e4311e9a",
+   "categories": [
+    "relaties"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Commitment Week 35: Klagen",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1140792175",
+   "track_key": "performance",
+   "module_ref": "pc-communicatie",
+   "title": "Feedback",
+   "order": 10,
+   "vimeo_id": "1140792175",
+   "vimeo_hash": "a08dac799a",
+   "categories": [
+    "relaties"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Commitment week 48: Feedback",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1171793797",
+   "track_key": "performance",
+   "module_ref": "pc-communicatie",
+   "title": "Het Nee-virus",
+   "order": 11,
+   "vimeo_id": "1171793797",
+   "vimeo_hash": "032f5a44f9",
+   "categories": [
+    "relaties"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Commitment week 11: Het Nee-virus",
+   "duration_min": 7,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-875998023",
+   "track_key": "performance",
+   "module_ref": "pc-communicatie",
+   "title": "Taal",
+   "order": 12,
+   "vimeo_id": "875998023",
+   "vimeo_hash": "bb1e1464ed",
+   "categories": [
+    "relaties"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Silver week 8: Taal 2",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-878303044",
+   "track_key": "performance",
+   "module_ref": "pc-communicatie",
+   "title": "Verklaringen",
+   "order": 13,
+   "vimeo_id": "878303044",
+   "vimeo_hash": "368bb7a1a6",
+   "categories": [
+    "relaties"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Verklaringen",
+   "duration_min": 1,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1078493509",
+   "track_key": "performance",
+   "module_ref": "pc-strategie",
+   "title": "Zichtbaarheid strategie (1)",
+   "order": 1,
+   "vimeo_id": "1078493509",
+   "vimeo_hash": "c67b611d61",
+   "categories": [
+    "doelen"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Leadership week 4 : Zichtbaarheid strategie",
+   "duration_min": 12,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1081458099",
+   "track_key": "performance",
+   "module_ref": "pc-strategie",
+   "title": "Zichtbaarheid strategie (2)",
+   "order": 2,
+   "vimeo_id": "1081458099",
+   "vimeo_hash": "635b348623",
+   "categories": [
+    "doelen"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Leadership Week 5: zichtbaarheid strategie (2)",
+   "duration_min": 1,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1143384508",
+   "track_key": "performance",
+   "module_ref": "pc-strategie",
+   "title": "Strategie",
+   "order": 3,
+   "vimeo_id": "1143384508",
+   "vimeo_hash": "95942bfbc7",
+   "categories": [
+    "doelen"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Commitment week 49: Strategie (1)",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1148727614",
+   "track_key": "performance",
+   "module_ref": "pc-strategie",
+   "title": "Winnende strategie voor 2026",
+   "order": 4,
+   "vimeo_id": "1148727614",
+   "vimeo_hash": "5052cb69af",
+   "categories": [
+    "doelen"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Commitment Week 52: Winnende strategie voor 2026",
+   "duration_min": 4,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1117428222",
+   "track_key": "performance",
+   "module_ref": "pc-strategie",
+   "title": "Besluitvaardigheid (1)",
+   "order": 5,
+   "vimeo_id": "1117428222",
+   "vimeo_hash": "8d3d1cbbd7",
+   "categories": [
+    "doelen"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Commitment Week 37: Besluitvaardigheid 1",
+   "duration_min": 63,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1117444684",
+   "track_key": "performance",
+   "module_ref": "pc-strategie",
+   "title": "Besluitvaardigheid (2)",
+   "order": 6,
+   "vimeo_id": "1117444684",
+   "vimeo_hash": "284ec75589",
+   "categories": [
+    "doelen"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Commitment Week 37: Besluitvaardigheid (2)",
+   "duration_min": 4,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1069026191",
+   "track_key": "performance",
+   "module_ref": "pc-strategie",
+   "title": "Structuur voor prestatie",
+   "order": 7,
+   "vimeo_id": "1069026191",
+   "vimeo_hash": "d3e8374922",
+   "categories": [
+    "doelen"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Structuur voor prestatie",
+   "duration_min": 1,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1123850187",
+   "track_key": "performance",
+   "module_ref": "pc-geld",
+   "title": "Geld mindset",
+   "order": 1,
+   "vimeo_id": "1123850187",
+   "vimeo_hash": "19d0effdb6",
+   "categories": [
+    "tijd"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Commitment Week 40: Geld mindset",
+   "duration_min": 62,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1126173562",
+   "track_key": "performance",
+   "module_ref": "pc-geld",
+   "title": "Geld behouden",
+   "order": 2,
+   "vimeo_id": "1126173562",
+   "vimeo_hash": "28f9682a5a",
+   "categories": [
+    "tijd"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Commitment week 41:  Geld behouden",
+   "duration_min": 16,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1129776084",
+   "track_key": "performance",
+   "module_ref": "pc-geld",
+   "title": "Financieel leiderschap",
+   "order": 3,
+   "vimeo_id": "1129776084",
+   "vimeo_hash": "2b28a9bdf6",
+   "categories": [
+    "tijd"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Commitment week 43: Financieel leiderschap",
+   "duration_min": 3,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1134272598",
+   "track_key": "performance",
+   "module_ref": "pc-geld",
+   "title": "Competency well-being",
+   "order": 4,
+   "vimeo_id": "1134272598",
+   "vimeo_hash": "98ac988ae5",
+   "categories": [
+    "tijd"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Commitment :  Competency Well-being",
+   "duration_min": 14,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1138916934",
+   "track_key": "performance",
+   "module_ref": "pc-geld",
+   "title": "Overtuigingen & societal well-being",
+   "order": 5,
+   "vimeo_id": "1138916934",
+   "vimeo_hash": "9ba6368b12",
+   "categories": [
+    "tijd"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Commitment Week 47: Overtuigingen & societal well-being",
+   "duration_min": 15,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1156053897",
+   "track_key": "performance",
+   "module_ref": "pc-standaarden",
+   "title": "Standaarden",
+   "order": 1,
+   "vimeo_id": "1156053897",
+   "vimeo_hash": "e2f034bf4e",
+   "categories": [
+    "doelen"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Commitment Week 3: Standaarden",
+   "duration_min": 3,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1160181179",
+   "track_key": "performance",
+   "module_ref": "pc-standaarden",
+   "title": "Leef naar je standaarden",
+   "order": 2,
+   "vimeo_id": "1160181179",
+   "vimeo_hash": "a5cbf931c7",
+   "categories": [
+    "doelen"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Commitment Week 5: Leef naar je standaarden",
+   "duration_min": 1,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1164317078",
+   "track_key": "performance",
+   "module_ref": "pc-standaarden",
+   "title": "Strong Point B",
+   "order": 3,
+   "vimeo_id": "1164317078",
+   "vimeo_hash": "9603c1af26",
+   "categories": [
+    "doelen"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Commitment week 7: Strong Point B",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-871822306",
+   "track_key": "performance",
+   "module_ref": "pc-standaarden",
+   "title": "Implementatie 4 beloftes",
+   "order": 4,
+   "vimeo_id": "871822306",
+   "vimeo_hash": "4524360322",
+   "categories": [
+    "doelen"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: implementatie 4 beloftes",
+   "duration_min": 1,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1096885555",
+   "track_key": "performance",
+   "module_ref": "pc-kickstart",
+   "title": "Masterclass: houding & gedrag",
+   "order": 1,
+   "vimeo_id": "1096885555",
+   "vimeo_hash": "704799fe26",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Kickstart Masterclass -Houding & Gedrag",
+   "duration_min": 64,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1098767701",
+   "track_key": "performance",
+   "module_ref": "pc-kickstart",
+   "title": "Masterclass: laserfocus",
+   "order": 2,
+   "vimeo_id": "1098767701",
+   "vimeo_hash": "792d69032f",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Kickstart - Masterclass laserfocus",
+   "duration_min": 65,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1100568596",
+   "track_key": "performance",
+   "module_ref": "pc-kickstart",
+   "title": "Masterclass: belemmerende overtuigingen",
+   "order": 3,
+   "vimeo_id": "1100568596",
+   "vimeo_hash": "0e592ec7ad",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Kickstart - Masterclass 'Belemmerende Overtuigingen'",
+   "duration_min": 70,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "pc-1102456526",
+   "track_key": "performance",
+   "module_ref": "pc-kickstart",
+   "title": "Masterclass: communicatie",
+   "order": 4,
+   "vimeo_id": "1102456526",
+   "vimeo_hash": "0904915759",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Masterlass Apex Kickstart - Communicatie",
+   "duration_min": 59,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-991920011",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-seizoen",
+   "title": "Vakantie tips",
+   "order": 101,
+   "vimeo_id": "991920011",
+   "vimeo_hash": "e11842d76b",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Vakantie tips",
+   "duration_min": 11,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1100306840",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-seizoen",
+   "title": "Vakantie video Apex Online Coaching",
+   "order": 102,
+   "vimeo_id": "1100306840",
+   "vimeo_hash": "b51d59795d",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Vakantie video Apex Online Coaching",
+   "duration_min": 5,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1128885992",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Integriteit",
+   "order": 101,
+   "vimeo_id": "1128885992",
+   "vimeo_hash": "3a0ac43405",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching : Integriteit",
+   "duration_min": 7,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1133397176",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Stilzwijgende belofte",
+   "order": 102,
+   "vimeo_id": "1133397176",
+   "vimeo_hash": "6959c50f75",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 45: Stilzwijgende belofte",
+   "duration_min": 3,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1139993032",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Overall Open Cycle of Action (3)",
+   "order": 103,
+   "vimeo_id": "1139993032",
+   "vimeo_hash": "802bb6929f",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching week 48: Overall Open Cycle of Action (3)",
+   "duration_min": 4,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1142022679",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-herstel",
+   "title": "Slaappresentatie",
+   "order": 101,
+   "vimeo_id": "1142022679",
+   "vimeo_hash": "6eca7eac00",
+   "categories": [
+    "herstel"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 49 - Slaappresentatie",
+   "duration_min": 58,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1144450542",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Zig-zag",
+   "order": 104,
+   "vimeo_id": "1144450542",
+   "vimeo_hash": "6cd8cab860",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 50: zig-zag",
+   "duration_min": 4,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1146903011",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Cirkel wereld",
+   "order": 105,
+   "vimeo_id": "1146903011",
+   "vimeo_hash": "50732831c1",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 51: Cirkel wereld",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1148602059",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-seizoen",
+   "title": "Fijne feestdagen",
+   "order": 103,
+   "vimeo_id": "1148602059",
+   "vimeo_hash": "3c9c2ccf51",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 52: Fijne feestdagen",
+   "duration_min": 6,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1150028377",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-seizoen",
+   "title": "Voorbereid het jaar in",
+   "order": 104,
+   "vimeo_id": "1150028377",
+   "vimeo_hash": "5b0ea99484",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 1: Voorbereid het jaar in",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1151614002",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-seizoen",
+   "title": "Goede voornemens",
+   "order": 105,
+   "vimeo_id": "1151614002",
+   "vimeo_hash": "2da85ba5f3",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching week 2: goede voornemens",
+   "duration_min": 5,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1153544315",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Amateur VS Professional",
+   "order": 106,
+   "vimeo_id": "1153544315",
+   "vimeo_hash": "91cb724bb9",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 3: Amateur VS Professional",
+   "duration_min": 17,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1153560274",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Professional VS Amateur",
+   "order": 107,
+   "vimeo_id": "1153560274",
+   "vimeo_hash": "6d1e468d7e",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 4: Professional VS Amateur",
+   "duration_min": 13,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1158382479",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Voorbereiding",
+   "order": 108,
+   "vimeo_id": "1158382479",
+   "vimeo_hash": "7859bd84e7",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 5: voorbereiding",
+   "duration_min": 3,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1161077032",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Thermostaat VS Thermometer",
+   "order": 109,
+   "vimeo_id": "1161077032",
+   "vimeo_hash": "4185b0a24d",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 6: Thermostaat VS Thermometer",
+   "duration_min": 3,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1163258701",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Train als een atleet",
+   "order": 110,
+   "vimeo_id": "1163258701",
+   "vimeo_hash": "501c4c7781",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching : Train als een atleet",
+   "duration_min": 3,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1165917675",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Winnende Strategie",
+   "order": 111,
+   "vimeo_id": "1165917675",
+   "vimeo_hash": "cb1746a321",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Winnende Strategie",
+   "duration_min": 8,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1166726035",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Escape Cards",
+   "order": 112,
+   "vimeo_id": "1166726035",
+   "vimeo_hash": "18230953e5",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 9: Escape Cards",
+   "duration_min": 5,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1171705352",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Wat als het tegenovergestelde waar zou zijn ?",
+   "order": 113,
+   "vimeo_id": "1171705352",
+   "vimeo_hash": "62d5af057d",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 10: Wat als het tegenovergestelde waar zou zijn ?",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1173966754",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "3 componenten van spiergroei",
+   "order": 114,
+   "vimeo_id": "1173966754",
+   "vimeo_hash": "845325624d",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching: 3 componenten van spiergroei",
+   "duration_min": 8,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1176160499",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Blauw licht",
+   "order": 115,
+   "vimeo_id": "1176160499",
+   "vimeo_hash": "a4752ac984",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 13: Blauw licht",
+   "duration_min": 6,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1178390660",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Discipline",
+   "order": 116,
+   "vimeo_id": "1178390660",
+   "vimeo_hash": "8473ec1e21",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 14: Discipline",
+   "duration_min": 12,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1180832558",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-seizoen",
+   "title": "Havenfeesten",
+   "order": 106,
+   "vimeo_id": "1180832558",
+   "vimeo_hash": "009bfc5154",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 14: Havenfeesten",
+   "duration_min": 8,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1182532274",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Eigenaar VS Slachtoffer",
+   "order": 117,
+   "vimeo_id": "1182532274",
+   "vimeo_hash": "ea01a69b50",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 16: Eigenaar VS Slachtoffer",
+   "duration_min": 3,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1185894860",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Radical Ownership Challenge",
+   "order": 118,
+   "vimeo_id": "1185894860",
+   "vimeo_hash": "d718b885ea",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 17: Radical Ownership Challenge",
+   "duration_min": 3,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1185915341",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Niemand gaat het voor jou doen",
+   "order": 119,
+   "vimeo_id": "1185915341",
+   "vimeo_hash": "0e02a845d2",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 19:  Niemand gaat het voor jou doen",
+   "duration_min": 6,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1191196066",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "12 redenen waarom jouw gewicht fluctueert",
+   "order": 120,
+   "vimeo_id": "1191196066",
+   "vimeo_hash": "f40a3148d7",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: 12 redenen waarom jouw gewicht fluctueert",
+   "duration_min": 11,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1193239630",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Wie ben jij als niemand kijkt?",
+   "order": 121,
+   "vimeo_id": "1193239630",
+   "vimeo_hash": "889dc4cd43",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching week 21: Wie ben jij als niemand kijkt?",
+   "duration_min": 3,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1194689594",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "De gewoontelus",
+   "order": 122,
+   "vimeo_id": "1194689594",
+   "vimeo_hash": "acf35c357a",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 22: De gewoontelus",
+   "duration_min": 8,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1194690043",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Apex fat loss pyramid",
+   "order": 123,
+   "vimeo_id": "1194690043",
+   "vimeo_hash": "",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 23: Apex fat loss pyramid",
+   "duration_min": 4,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1199308412",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Apex Food pyramid",
+   "order": 124,
+   "vimeo_id": "1199308412",
+   "vimeo_hash": "17839d01f1",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching week 24: Apex Food pyramid",
+   "duration_min": 6,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1203411955",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Integriteit heeft geen voorkeursweer ☀️",
+   "order": 125,
+   "vimeo_id": "1203411955",
+   "vimeo_hash": "b64417cbfe",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 26: Integriteit heeft geen voorkeursweer ☀️",
+   "duration_min": 6,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1205429294",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Iets snappen doet helemaal niets",
+   "order": 126,
+   "vimeo_id": "1205429294",
+   "vimeo_hash": "3ffbdd7c54",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 27: Iets snappen doet helemaal niets",
+   "duration_min": 6,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1207334889",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "7 Fuck it regels",
+   "order": 127,
+   "vimeo_id": "1207334889",
+   "vimeo_hash": "2f4d0ebcf8",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 28: 7 Fuck it regels",
+   "duration_min": 4,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1210793327",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Conditions of te game",
+   "order": 128,
+   "vimeo_id": "1210793327",
+   "vimeo_hash": "525f0c9de6",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 29: Conditions of te game",
+   "duration_min": 4,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1210798101",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "If there is no sincere commitment",
+   "order": 129,
+   "vimeo_id": "1210798101",
+   "vimeo_hash": "0d8de34536",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 31: If there is no sincere commitment",
+   "duration_min": 3,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1211313888",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Powerful vs not powerful",
+   "order": 130,
+   "vimeo_id": "1211313888",
+   "vimeo_hash": "8fd60b9fca",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 30- Powerful vs not powerful",
+   "duration_min": 3,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1215470492",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Just stop it",
+   "order": 131,
+   "vimeo_id": "1215470492",
+   "vimeo_hash": "5b07e8cbd4",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 32: Just stop it",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1216935597",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Alleen resultaat telt",
+   "order": 132,
+   "vimeo_id": "1216935597",
+   "vimeo_hash": "7efdfff6ea",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 33: Alleen resultaat telt",
+   "duration_min": 4,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1218859140",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Terug naar de routine",
+   "order": 133,
+   "vimeo_id": "1218859140",
+   "vimeo_hash": "2f3d07df02",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 34: Terug naar de routine",
+   "duration_min": 6,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1220812964",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-seizoen",
+   "title": "Kermis voorbereiding 1/2",
+   "order": 107,
+   "vimeo_id": "1220812964",
+   "vimeo_hash": "e33877038b",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 35  Kermis voorbereiding 1/2",
+   "duration_min": 17,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1222655635",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-seizoen",
+   "title": "Kermis voorbereiding 2/2",
+   "order": 108,
+   "vimeo_id": "1222655635",
+   "vimeo_hash": "d0dcaeddbb",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 36: Kermis voorbereiding 2/2",
+   "duration_min": 10,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1223677492",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-seizoen",
+   "title": "After kermis dip",
+   "order": 109,
+   "vimeo_id": "1223677492",
+   "vimeo_hash": "9fa92c0fed",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 37: After kermis dip",
+   "duration_min": 4,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1223939756",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-seizoen",
+   "title": "After Kermis Results",
+   "order": 110,
+   "vimeo_id": "1223939756",
+   "vimeo_hash": "59e040cfca",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 37: After Kermis Results",
+   "duration_min": 4,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibw-1228745215",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-mindset",
+   "title": "Weloverwogen beslissing",
+   "order": 134,
+   "vimeo_id": "1228745215",
+   "vimeo_hash": "3cbba55c23",
+   "categories": [
+    "mindset"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "summary": "",
+   "key_points": [],
+   "needs_review": true,
+   "source": "Vimeo: Apex Online Coaching Week 39: Weloverwogen beslissing",
+   "duration_min": 8,
+   "published": true,
+   "completion": "handmatig",
+   "body": "",
+   "step_label": "",
+   "action_links": []
+  },
+  {
+   "ref": "bibc-255244445",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-voeding",
+   "title": "Kennisclip · Apex energiebalans",
+   "order": 201,
+   "vimeo_id": "255244445",
+   "vimeo_hash": "74dc164c86",
+   "categories": [
+    "voeding"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2018)",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-255245198",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-voeding",
+   "title": "Kennisclip · Creatine",
+   "order": 202,
+   "vimeo_id": "255245198",
+   "vimeo_hash": "e53ef67213",
+   "categories": [
+    "voeding"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2018)",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-255248261",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-voeding",
+   "title": "Kennisclip · Na 8 uur eten",
+   "order": 203,
+   "vimeo_id": "255248261",
+   "vimeo_hash": "360dc20a8a",
+   "categories": [
+    "voeding"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2018)",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-255248728",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-training",
+   "title": "Kennisclip · Spierpijn",
+   "order": 201,
+   "vimeo_id": "255248728",
+   "vimeo_hash": "57cc50161c",
+   "categories": [
+    "training"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2018)",
+   "duration_min": 3,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-258434565",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-training",
+   "title": "Kennisclip · Achterlijke plank variaties en correcte uitvoering",
+   "order": 202,
+   "vimeo_id": "258434565",
+   "vimeo_hash": "d3b1a4d851",
+   "categories": [
+    "training"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2018)",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-258435933",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-training",
+   "title": "Kennisclip · Buikspier oefening zonder pijn in je rug/nek",
+   "order": 203,
+   "vimeo_id": "258435933",
+   "vimeo_hash": "2365e8e5a0",
+   "categories": [
+    "training"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2018)",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-258436458",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-training",
+   "title": "Kennisclip · Last met buikspier oefeningen en een dode mug",
+   "order": 204,
+   "vimeo_id": "258436458",
+   "vimeo_hash": "f434e66e5e",
+   "categories": [
+    "training"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2018)",
+   "duration_min": 3,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-266376963",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-voeding",
+   "title": "Kennisclip · Alcohol en vetopslag",
+   "order": 204,
+   "vimeo_id": "266376963",
+   "vimeo_hash": "",
+   "categories": [
+    "voeding"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2018)",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-315893239",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-lichaam",
+   "title": "Kennisclip · Menstruatie cyclus",
+   "order": 201,
+   "vimeo_id": "315893239",
+   "vimeo_hash": "fbcdd9d34a",
+   "categories": [
+    "lichaam"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2019)",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-317020445",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-voeding",
+   "title": "Kennisclip · Waarom te weinig eten niet je grootste probleem is tijdens afvallen",
+   "order": 205,
+   "vimeo_id": "317020445",
+   "vimeo_hash": "39b5c514c7",
+   "categories": [
+    "voeding"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2019)",
+   "duration_min": 1,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-317022631",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-voeding",
+   "title": "Kennisclip · Cheat meals",
+   "order": 206,
+   "vimeo_id": "317022631",
+   "vimeo_hash": "62681bd4b6",
+   "categories": [
+    "voeding"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2019)",
+   "duration_min": 1,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-317031098",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-voeding",
+   "title": "Kennisclip · Vrouwen moeten meer eten",
+   "order": 207,
+   "vimeo_id": "317031098",
+   "vimeo_hash": "1f1b7bc091",
+   "categories": [
+    "voeding"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2019)",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-342719325",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-gewoontes",
+   "title": "Kennisclip · Nalevingstriggers",
+   "order": 201,
+   "vimeo_id": "342719325",
+   "vimeo_hash": "",
+   "categories": [
+    "gewoontes"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2019)",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-344609659",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-voeding",
+   "title": "Kennisclip · Detoxen",
+   "order": 208,
+   "vimeo_id": "344609659",
+   "vimeo_hash": "",
+   "categories": [
+    "voeding"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2019)",
+   "duration_min": 1,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-344635035",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-voeding",
+   "title": "Kennisclip · Te weinig eten",
+   "order": 209,
+   "vimeo_id": "344635035",
+   "vimeo_hash": "",
+   "categories": [
+    "voeding"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2019)",
+   "duration_min": 0,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-344635289",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-voeding",
+   "title": "Kennisclip · Te weinig calorieen eten en niet afvallen",
+   "order": 210,
+   "vimeo_id": "344635289",
+   "vimeo_hash": "",
+   "categories": [
+    "voeding"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2019)",
+   "duration_min": 1,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-344635885",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-training",
+   "title": "Kennisclip · NEAT",
+   "order": 205,
+   "vimeo_id": "344635885",
+   "vimeo_hash": "",
+   "categories": [
+    "training"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2019)",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-344636202",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-gewoontes",
+   "title": "Kennisclip · Het nieuwe normaal",
+   "order": 202,
+   "vimeo_id": "344636202",
+   "vimeo_hash": "",
+   "categories": [
+    "gewoontes"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2019)",
+   "duration_min": 1,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-344636398",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-training",
+   "title": "Kennisclip · Neurologische adaptatie",
+   "order": 206,
+   "vimeo_id": "344636398",
+   "vimeo_hash": "",
+   "categories": [
+    "training"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2019)",
+   "duration_min": 0,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-344638196",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-voeding",
+   "title": "Kennisclip · Duurzaamheid voedingskeuzes",
+   "order": 211,
+   "vimeo_id": "344638196",
+   "vimeo_hash": "",
+   "categories": [
+    "voeding"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2019)",
+   "duration_min": 1,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-344638504",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-voeding",
+   "title": "Kennisclip · Goed eet nog steeds dood",
+   "order": 212,
+   "vimeo_id": "344638504",
+   "vimeo_hash": "",
+   "categories": [
+    "voeding"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2019)",
+   "duration_min": 0,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-344638529",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-voeding",
+   "title": "Kennisclip · Hoe snel kan je vet verliezen",
+   "order": 213,
+   "vimeo_id": "344638529",
+   "vimeo_hash": "",
+   "categories": [
+    "voeding"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2019)",
+   "duration_min": 1,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-344638611",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-voeding",
+   "title": "Kennisclip · Lichamelijk vet",
+   "order": 214,
+   "vimeo_id": "344638611",
+   "vimeo_hash": "",
+   "categories": [
+    "voeding"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2019)",
+   "duration_min": 1,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-344638654",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-herstel",
+   "title": "Kennisclip · Meditatie niet zweverig",
+   "order": 202,
+   "vimeo_id": "344638654",
+   "vimeo_hash": "",
+   "categories": [
+    "herstel"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2019)",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-344638769",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-voeding",
+   "title": "Kennisclip · Meer eten voor dames",
+   "order": 215,
+   "vimeo_id": "344638769",
+   "vimeo_hash": "",
+   "categories": [
+    "voeding"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2019)",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-344639356",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-training",
+   "title": "Kennisclip · Rocky friday",
+   "order": 207,
+   "vimeo_id": "344639356",
+   "vimeo_hash": "",
+   "categories": [
+    "training"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2019)",
+   "duration_min": 2,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
+   "body": "",
+   "step_label": "",
+   "key_points": [],
+   "action_links": []
+  },
+  {
+   "ref": "bibc-344639799",
+   "track_key": "bibliotheek",
+   "module_ref": "bib-voeding",
+   "title": "Kennisclip · Toning creme",
+   "order": 216,
+   "vimeo_id": "344639799",
+   "vimeo_hash": "",
+   "categories": [
+    "voeding"
+   ],
+   "access_packages": [
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "needs_review": true,
+   "source": "Vimeo (2019)",
+   "duration_min": 1,
+   "published": true,
+   "completion": "handmatig",
+   "summary": "",
    "body": "",
    "step_label": "",
    "key_points": [],

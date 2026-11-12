@@ -73,5 +73,17 @@ for t in seed["trajecten"]:
                        f"{', '.join(CAT.get(c, c) for c in l['categories'])} |")
     out.append("")
 
+VIMEO = {v["id"]: v for v in json.loads((ROOT / "content" / "bron" / "vimeo-catalogus.json").read_text())}
+wl = [l for l in lessen if l.get("vimeo_id") in VIMEO and VIMEO[l["vimeo_id"]].get("embed") == "whitelist"]
+out.append("## Vimeo-insluiten: alleen op je eigen domein")
+out.append("")
+out.append(f"Deze {len(wl)} video's mogen in Vimeo alleen ingesloten worden op `apexonlinecoaching.nl` (en kckacademy.nl). "
+           "Draait de Base44-app op `app.apexonlinecoaching.nl`, dan werken ze. Gebruik je (ook) het `.base44.app`-adres, "
+           "voeg dat domein dan toe in Vimeo (selecteer de video's → *Privacy* → *Insluiten*). Alle andere video's mogen overal ingesloten worden.")
+out.append("")
+for l in sorted(wl, key=lambda l: l["title"]):
+    out.append(f"- {vlink(l)} · {l['title']}")
+out.append("")
+
 (ROOT / "docs" / "02-videocatalogus.md").write_text("\n".join(out) + "\n")
 print("docs/02-videocatalogus.md geschreven")
