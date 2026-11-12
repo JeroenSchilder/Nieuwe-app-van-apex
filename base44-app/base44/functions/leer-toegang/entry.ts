@@ -4,7 +4,7 @@
 // schrijft daarna met de service-role.
 import { createClientFromRequest } from "npm:@base44/sdk";
 
-const ALLOWED = ["apex_packages", "apex_role", "apex_coach_email", "apex_cohort", "apex_start_date"];
+const ALLOWED = ["apex_packages", "apex_role", "apex_coach_email", "apex_cohort", "apex_start_date", "apex_phone"];
 
 export default async function (req) {
   const base44 = createClientFromRequest(req);

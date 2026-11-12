@@ -56,6 +56,12 @@ export async function ensureDemo() {
     { ref: "c90-kickoff", data: { status: "feedback", answers: { gezondheid_cijfer: 5, gezondheid_a: "Te weinig beweging, slecht slapen", gezondheid_b: "3x per week trainen, 7 uur slaap", doel_achter: "Een voorbeeld zijn voor mijn kinderen" }, feedback: "Sterke start Eva! Maak Punt B bij relaties nog concreter: wat doe je wekelijks?", feedback_by: "Coach Lisa", feedback_at: new Date().toISOString(), feedback_seen: false } },
     { ref: "c90-s1", data: { status: "ingediend", answers: { cirkel: "Elke maandag opnieuw beginnen met gezond eten", zigzag: "Sporten: 2 weken goed, dan weer niet", straight: "Mijn werk", kost: "De cirkel met eten", acties: "Zondag maaltijden preppen en dinsdag + donderdag vast trainen" } } },
   ]);
+  // Sanne heeft zich al 2× afgemeld voor een training; een 3e afmelding in de agenda geeft een melding.
+  for (const [d, t] of [[12, "Small group ma 19:00"], [5, "Small group vr 09:00"]]) {
+    const when = new Date(Date.now() - d * 86400000).toISOString();
+    demo.table("LeerAfmelding").push({ id: `afm-${d}`, member_email: "sanne@demo.apex", member_name: "Sanne de Vries", coach_email: "",
+      training: t, training_start: when, cancelled_at: when, source: "handmatig", created_date: when, created_by_id: "u-admin" });
+  }
   // Mark is 9 dagen niet actief geweest (zichtbaar in Beheer → Herinneringen → Proefrun).
   const ago = new Date(Date.now() - 9 * 86400000).toISOString();
   for (const r of demo.table("LeerVoortgang").filter((x) => x.member_email === "mark@demo.apex")) Object.assign(r, { completed_at: ago, created_date: ago });

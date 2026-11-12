@@ -1,4 +1,4 @@
-// LET OP: NIET als nieuw bestand plaatsen. Voeg deze 5 velden toe aan de 'properties'
+// LET OP: NIET als nieuw bestand plaatsen. Voeg deze 6 velden toe aan de 'properties'
 // van je BESTAANDE base44/entities/User.jsonc (bestaande velden laten staan).
 {
   "name": "User",
@@ -46,6 +46,10 @@
       "type": "string",
       "format": "date",
       "description": "Startdatum traject"
+    },
+    "apex_phone": {
+      "type": "string",
+      "description": "Mobiel nummer (voor WhatsApp-meldingen), bijv. +31612345678"
     }
   }
 }

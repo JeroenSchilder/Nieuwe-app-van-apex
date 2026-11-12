@@ -11,6 +11,9 @@ De module is geschreven volgens de officiële Base44-conventies: Vite + React, s
 | `base44/functions/leer-toegang/entry.ts` | Backend-functie waarmee een admin pakketten toekent |
 | `base44/functions/leer-herinneringen/entry.ts` | Backend-functie voor de herinneringen: inactieve leden (7/30/30 dagen) en agenda (dag van tevoren) |
 | `base44/workflows/Leeromgeving herinneringen.jsonc` | Workflow die die functie elke ochtend om 08:47 draait (Builder-plan of hoger) |
+| `base44/functions/leer-afmelding-check/entry.ts` | Controleert na elke afmelding of iemand vaker dan de drempel heeft afgezegd, en stuurt dan een bericht aan het lid en de trainer |
+| `base44/functions/leer-afmelding-webhook/entry.ts` | Ontvangt afmeldingen van buiten de app, bijvoorbeeld uit Trainin via Zapier of Make |
+| `base44/workflows/Leeromgeving afmeldingen.jsonc` | Workflow die de controle start bij elke nieuwe afmelding |
 | `src/pages/` | `Leeromgeving.jsx` (leden), `LeerCoach.jsx` (coach), `LeerBeheer.jsx` (admin) |
 | `src/components/leeromgeving/` | Alle onderdelen en de logica |
 | `../content/leeromgeving-seed.json` | Alle startcontent: 171 lessen en 19 opdrachten |
@@ -75,6 +78,18 @@ Herinneringen staan standaard **uit**, met proefmodus aan. Zo gaat er niets per 
 4. Is dat goed? Vink *Herinneringen aan* aan en haal *Proefmodus* weg.
 
 De mails gaan via Base44 (SendEmail) naar je app-gebruikers.
+
+## Stap 2c: meldingen bij herhaaldelijk afzeggen
+
+1. Ga naar **Beheer → Afmeldingen**. Stel daar in:
+   - de drempel, bijvoorbeeld 3 keer binnen 30 dagen;
+   - eventueel alleen late afmeldingen, bijvoorbeeld binnen 24 uur voor de training;
+   - de teksten en het e-mailadres van de trainer.
+2. Afmeldingen komen op drie manieren binnen:
+   - **In de app:** een lid meldt zich af voor een agenda-item.
+   - **Handmatig:** jij registreert een afmelding in Beheer, bijvoorbeeld als iemand via WhatsApp afzegt.
+   - **Automatisch uit Trainin:** via de webhook-functie `leer-afmelding-webhook`. Zet in Base44 → Secrets een geheim `AFMELDING_WEBHOOK_SECRET`. Laat Zapier of Make bij elke afmelding in Trainin `{secret, email, training, start}` naar die functie sturen.
+3. **WhatsApp:** Base44 kan zelf geen WhatsApp versturen. Vul een webhook-URL in van een dienst die dat wel kan (Zapier, Make of Twilio met WhatsApp Business). De app stuurt per bericht `{to, message, name, type}`. Het mobiele nummer van een lid zet je bij **Leden & toegang**.
 
 ## Stap 3: routes in `src/App.jsx`
 

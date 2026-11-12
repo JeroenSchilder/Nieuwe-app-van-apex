@@ -10,6 +10,9 @@
 2. **De 50+ opdrachtvideo's.** Ik vond tot nu toe 19 opdrachten: 13 uit de 90 dagen challenge, 5 voor Fase 2 en de SLL-observaties. Staan de overige opdrachten in de huidige Apex app (`app.apexonlinecoaching.nl` → Opdrachten)? Die site is vanuit hier niet bereikbaar. Je kunt de opdrachten exporteren, of de pagina toestaan in de netwerkinstellingen.
 3. **Base44-toegang voor de installatie in één keer.** Zie [installatie route A](03-installatie-base44.md).
 
+4. **Afmeldingen bij trainingen (gebouwd, nog te koppelen):** de trainingen zelf worden in **Trainin** geboekt en afgezegd. Om die afmeldingen automatisch binnen te krijgen, is een koppeling nodig: heeft Trainin een webhook of Zapier-koppeling? Tot die er is, registreer je afmeldingen in Beheer → Afmeldingen, of lopen ze via de agenda in de app.
+5. **WhatsApp-berichten:** daarvoor is een dienst nodig met WhatsApp Business, bijvoorbeeld Twilio, of Zapier/Make met een WhatsApp-koppeling. Die dienst kost geld per bericht. Mail werkt meteen.
+
 ## Aannames die ik heb gedaan (zeg het als het anders moet)
 
 | Onderwerp | Gekozen | Alternatief |

@@ -813,7 +813,14 @@ for w in range(1, 13):
 INSTELLINGEN = [dict(key="herinneringen", enabled=False, test_mode=True, days=[7, 30, 30], min_progress=0, max_progress=90,
                      subject="{voornaam}, je volgende stap staat klaar",
                      body="Hoi {voornaam},\n\nHet is alweer even geleden dat je in de Apex leeromgeving bent geweest. Je volgende stap staat voor je klaar: {les} ({leerlijn}).\n\nPak hem vandaag op, al is het maar tien minuten: {link}\n\nSportieve groet,\nJeroen",
-                     app_url="https://app.apexonlinecoaching.nl/leren", event_reminders=True, from_name="Apex Online Coaching")]
+                     app_url="https://app.apexonlinecoaching.nl/leren", event_reminders=True, from_name="Apex Online Coaching"),
+               dict(key="afmeldingen", enabled=False, test_mode=True, threshold=3, period_days=30, late_hours=0,
+                    notify_member=True, notify_trainer=True, trainer_emails="", trainer_phone="", whatsapp_webhook_url="",
+                    member_subject="{voornaam}, we missen je bij de training",
+                    member_body="Hoi {voornaam},\n\nJe hebt je de afgelopen {dagen} dagen {aantal} keer afgemeld voor een training (laatste: {training}).\n\nIs er iets aan de hand of kunnen we je ergens mee helpen? Laat het me weten, dan zoeken we samen naar een oplossing.\n\nSportieve groet,\nJeroen",
+                    trainer_subject="Let op: {naam} heeft zich {aantal}× afgemeld in {dagen} dagen",
+                    trainer_body="{naam} heeft zich voor de {aantal}e keer afgemeld in de afgelopen {dagen} dagen.\n\nLaatste afmelding: {training} ({datum}).\n\nAlle afmeldingen in deze periode:\n{lijst}",
+                    from_name="Apex Online Coaching")]
 
 seed = dict(version=1, pakketten=PAKKETTEN, trajecten=TRAJECTEN, modules=MODULES, lessen=LESSEN,
             opdrachten=OPDRACHTEN, cohorten=COHORTEN, evenementen=EVENTS, instellingen=INSTELLINGEN)

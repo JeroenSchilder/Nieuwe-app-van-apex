@@ -1,0 +1,9 @@
+{
+  "name": "Leeromgeving afmeldingen",
+  "description": "Controleert na elke nieuwe afmelding of een lid vaker dan de drempel heeft afgezegd en stuurt dan een bericht aan lid en trainer",
+  "trigger": { "config": { "trigger_type": "entity", "entity_name": "LeerAfmelding", "events": ["create"] } },
+  "definition": {
+    "document": { "dsl": "1.0.0", "name": "leeromgeving_afmeldingen", "version": "1.0", "namespace": "base44" },
+    "do": [{ "controleer": { "call": "invoke_backend_function", "with": { "function_name": "leer-afmelding-check", "args": { "afmelding_id": "${ .trigger.entity_id }" } }, "then": "end" } }]
+  }
+}

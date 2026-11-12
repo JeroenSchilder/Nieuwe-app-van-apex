@@ -7,7 +7,7 @@ import ChipSelect from "./ChipSelect";
 import { userField } from "../lib/access";
 import { listUsers, setUserAccess } from "../lib/api";
 
-const FIELDS = ["apex_packages", "apex_role", "apex_coach_email", "apex_cohort", "apex_start_date"];
+const FIELDS = ["apex_packages", "apex_role", "apex_coach_email", "apex_cohort", "apex_start_date", "apex_phone"];
 
 function MemberRow({ u, packages, cohorts, coaches }) {
   const [v, setV] = useState(Object.fromEntries(FIELDS.map((k) => [k, userField(u, k) ?? (k === "apex_packages" ? [] : "")])));
@@ -40,7 +40,8 @@ function MemberRow({ u, packages, cohorts, coaches }) {
           <option value="">Ronde: geen</option>
           {cohorts.map((c) => <option key={c.key} value={c.key}>{c.name}</option>)}
         </select>
-        <Input type="date" className="h-9" value={v.apex_start_date || ""} onChange={(e) => set("apex_start_date")(e.target.value)} />
+        <Input type="date" className="h-9" title="Startdatum" value={v.apex_start_date || ""} onChange={(e) => set("apex_start_date")(e.target.value)} />
+        <Input className="h-9 sm:col-span-2" placeholder="Mobiel (voor WhatsApp), bijv. +31612345678" value={v.apex_phone || ""} onChange={(e) => set("apex_phone")(e.target.value)} />
       </div>
     </div>
   );

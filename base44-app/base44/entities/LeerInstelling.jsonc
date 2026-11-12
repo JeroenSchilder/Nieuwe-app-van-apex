@@ -52,6 +52,56 @@
     "from_name": {
       "type": "string",
       "description": "Afzendernaam"
+    },
+    "threshold": {
+      "type": "number",
+      "description": "Afmeldingen: na hoeveel afmeldingen een melding"
+    },
+    "period_days": {
+      "type": "number",
+      "description": "Afmeldingen: binnen hoeveel dagen"
+    },
+    "late_hours": {
+      "type": "number",
+      "description": "Afmeldingen: alleen tellen als binnen zoveel uur voor de training (0 = alle afmeldingen)"
+    },
+    "notify_member": {
+      "type": "boolean",
+      "default": true,
+      "description": "Afmeldingen: lid een bericht sturen"
+    },
+    "notify_trainer": {
+      "type": "boolean",
+      "default": true,
+      "description": "Afmeldingen: trainer een bericht sturen"
+    },
+    "trainer_emails": {
+      "type": "string",
+      "description": "Afmeldingen: e-mailadres(sen) van de trainer, gescheiden door komma's"
+    },
+    "trainer_phone": {
+      "type": "string",
+      "description": "Afmeldingen: telefoonnummer van de trainer voor WhatsApp"
+    },
+    "member_subject": {
+      "type": "string",
+      "description": "Afmeldingen: onderwerp mail aan lid"
+    },
+    "member_body": {
+      "type": "string",
+      "description": "Afmeldingen: tekst aan lid. Gebruik {voornaam}, {aantal}, {dagen}, {training}"
+    },
+    "trainer_subject": {
+      "type": "string",
+      "description": "Afmeldingen: onderwerp mail aan trainer"
+    },
+    "trainer_body": {
+      "type": "string",
+      "description": "Afmeldingen: tekst aan trainer. Gebruik {naam}, {aantal}, {dagen}, {training}, {datum}, {lijst}"
+    },
+    "whatsapp_webhook_url": {
+      "type": "string",
+      "description": "Afmeldingen: webhook voor WhatsApp (bijv. Zapier/Make/Twilio). Ontvangt JSON {to, message, name, type}"
     }
   },
   "required": [

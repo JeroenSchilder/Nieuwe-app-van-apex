@@ -14,6 +14,7 @@ Een leeromgeving voor Apex-leden in de stijl van Huddle, gebouwd als module voor
 - **Quiz met score**, zoals de afsluiter van Fase 1, met slagingspercentage en herkansen. **Certificaat** na afronden.
 - **Agenda:** groepscoachings, sessies en kickoff, met aan- en afmelden, "In mijn agenda" en een link om de InBody-meting in te plannen.
 - **Herinneringen:** automatische mail als een lid 7/30/30 dagen niet actief is (in te stellen), en de dag vóór een agenda-item.
+- **Afmeldingen:** zegt een lid vaker af dan de drempel (bijv. 3× in 30 dagen), dan krijgen het lid én de trainer automatisch een bericht, per mail en optioneel via WhatsApp. Afmeldingen komen uit de app, handmatig, of via een webhook uit Trainin.
 - **Beheer:** leden en pakketten, lessen en opdrachten bewerken (inclusief vragen- en quizbouwer), agenda, herinneringen, rondes en import/export.
 
 ## Mappen

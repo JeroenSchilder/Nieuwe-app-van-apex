@@ -128,6 +128,17 @@ export async function loadAgenda(user) {
 }
 
 export async function setRegistration(user, event, existing, status) {
+  if (existing && existing.status === "aangemeld" && status === "afgemeld") {
+    // Afmelding vastleggen; de workflow "Leeromgeving afmeldingen" controleert daarna de drempel.
+    await E().LeerAfmelding.create({
+      ...memberStamp(user),
+      training: event.title,
+      training_start: event.start,
+      cancelled_at: new Date().toISOString(),
+      source: "app",
+      event_id: event.id,
+    });
+  }
   if (existing) return E().LeerAanmelding.update(existing.id, { status });
   return E().LeerAanmelding.create({
     ...memberStamp(user),
@@ -182,6 +193,11 @@ export async function loadReminderSettings() {
   return s ? { ...REMINDER_DEFAULTS, ...s } : { ...REMINDER_DEFAULTS };
 }
 
+export async function saveSetting(s) {
+  const { id, created_date, updated_date, created_by, created_by_id, ...data } = s;
+  return id ? E().LeerInstelling.update(id, data) : E().LeerInstelling.create(data);
+}
+
 export async function saveReminderSettings(s) {
   const { id, created_date, updated_date, created_by, created_by_id, ...data } = s;
   return id ? E().LeerInstelling.update(id, data) : E().LeerInstelling.create(data);
@@ -194,4 +210,34 @@ export async function runReminders(dryRun) {
 
 export async function loadReminderLog() {
   return E().LeerHerinnering.list("-sent_at", 200);
+}
+
+// ---- Afmeldingen (beheer) --------------------------------------------------
+
+export const CANCEL_DEFAULTS = {
+  key: "afmeldingen", enabled: false, test_mode: true, threshold: 3, period_days: 30, late_hours: 0,
+  notify_member: true, notify_trainer: true, trainer_emails: "", trainer_phone: "", whatsapp_webhook_url: "",
+  member_subject: "{voornaam}, we missen je bij de training",
+  member_body: "Hoi {voornaam},\n\nJe hebt je de afgelopen {dagen} dagen {aantal} keer afgemeld voor een training (laatste: {training}).\n\nIs er iets aan de hand of kunnen we je ergens mee helpen? Laat het me weten, dan zoeken we samen naar een oplossing.\n\nSportieve groet,\nJeroen",
+  trainer_subject: "Let op: {naam} heeft zich {aantal}× afgemeld in {dagen} dagen",
+  trainer_body: "{naam} heeft zich voor de {aantal}e keer afgemeld in de afgelopen {dagen} dagen.\n\nLaatste afmelding: {training} ({datum}).\n\nAlle afmeldingen in deze periode:\n{lijst}",
+  from_name: "Apex Online Coaching",
+};
+
+export async function loadCancelSettings() {
+  const [s] = await E().LeerInstelling.filter({ key: "afmeldingen" });
+  return s ? { ...CANCEL_DEFAULTS, ...s } : { ...CANCEL_DEFAULTS };
+}
+
+export async function loadCancellations() {
+  return E().LeerAfmelding.list("-cancelled_at", 2000);
+}
+
+export async function addCancellation(data) {
+  return E().LeerAfmelding.create({ cancelled_at: new Date().toISOString(), source: "handmatig", ...data });
+}
+
+export async function checkCancellation(id) {
+  const res = await base44.functions.invoke("leer-afmelding-check", { afmelding_id: id, dry_run: true });
+  return res.data;
 }

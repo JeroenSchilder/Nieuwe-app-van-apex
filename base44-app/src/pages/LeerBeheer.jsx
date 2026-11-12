@@ -8,6 +8,7 @@ import AdminMembers from "@/components/leeromgeving/beheer/AdminMembers";
 import AdminSettings from "@/components/leeromgeving/beheer/AdminSettings";
 import AdminAgenda from "@/components/leeromgeving/beheer/AdminAgenda";
 import AdminReminders from "@/components/leeromgeving/beheer/AdminReminders";
+import AdminCancellations from "@/components/leeromgeving/beheer/AdminCancellations";
 import { isAdmin } from "@/components/leeromgeving/lib/access";
 import { loadContent } from "@/components/leeromgeving/lib/api";
 import { ROUTES } from "@/components/leeromgeving/lib/config";
@@ -17,6 +18,7 @@ const TABS = [
   { key: "content", label: "Lessen & opdrachten" },
   { key: "agenda", label: "Agenda" },
   { key: "herinneringen", label: "Herinneringen" },
+  { key: "afmeldingen", label: "Afmeldingen" },
   { key: "instellingen", label: "Leerlijnen & rondes" },
   { key: "import", label: "Import / export" },
 ];
@@ -65,6 +67,7 @@ export default function LeerBeheer() {
         {active === "content" && <AdminContent content={content} reload={reload} />}
         {active === "agenda" && <AdminAgenda content={content} />}
         {active === "herinneringen" && <AdminReminders />}
+        {active === "afmeldingen" && <AdminCancellations />}
         {active === "instellingen" && <AdminSettings content={content} reload={reload} />}
         {active === "import" && <AdminImport onDone={reload} />}
       </main>

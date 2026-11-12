@@ -1,7 +1,7 @@
 // Nagebootste Base44-client voor de lokale preview. Data staat in localStorage van de browser.
 // Bootst ook de RLS-regels na (LeerLes per pakket; inzendingen/voortgang alleen eigen, coach of admin).
 
-const KEY = "apex-leeromgeving-demo-v4";
+const KEY = "apex-leeromgeving-demo-v5";
 const listeners = new Set();
 
 function load() {
@@ -46,7 +46,7 @@ function canRead(entity, rec, u) {
   if (!u) return false;
   if (u.role === "admin") return true;
   if (entity === "LeerLes" || entity === "LeerEvent") return (rec.access_packages || []).some((p) => (u.apex_packages || []).includes(p));
-  if (entity === "LeerAanmelding") return rec.created_by_id === u.id || (rec.coach_email && rec.coach_email === u.email);
+  if (entity === "LeerAanmelding" || entity === "LeerAfmelding") return rec.created_by_id === u.id || (rec.coach_email && rec.coach_email === u.email);
   if (entity === "LeerHerinnering") return false;
   if (entity === "LeerInzending" || entity === "LeerVoortgang") {
     return rec.created_by_id === u.id || (rec.coach_email && rec.coach_email === u.email);
@@ -79,6 +79,7 @@ function handler(name) {
       const u = me();
       const rec = { ...structuredClone(data), id: uid(), created_date: now(), updated_date: now(), created_by: u?.email, created_by_id: u?.id };
       rows().push(rec); persist();
+      if (name === "LeerAfmelding") mockCancellationCheck(rec); // zoals de workflow in Base44
       return delay(rec);
     },
     async bulkCreate(list) { const out = []; for (const d of list) out.push(await this.create(d)); return out; },
@@ -93,6 +94,18 @@ function handler(name) {
 }
 
 const entities = new Proxy({}, { get: (_, name) => handler(name) });
+
+// Vereenvoudigde versie van base44/functions/leer-afmelding-check: logt alleen (proefmodus), verstuurt niets.
+function mockCancellationCheck(a) {
+  const cfg = demo.table("LeerInstelling").find((x) => x.key === "afmeldingen") || { threshold: 3, period_days: 30 };
+  const since = Date.now() - (cfg.period_days || 30) * 86400000;
+  const count = demo.table("LeerAfmelding").filter((x) => x.member_email === a.member_email && new Date(x.cancelled_at).getTime() >= since).length;
+  if (count < (cfg.threshold || 3)) return;
+  demo.table("LeerHerinnering").push({ id: uid(), member_email: a.member_email, member_name: a.member_name, kind: "afmelding", number: count,
+    sent_at: now(), test: true, detail: `${count}× afgemeld in ${cfg.period_days} dagen · proef: mail aan lid en trainer` });
+  a.notified = true;
+  persist();
+}
 
 // Vereenvoudigde versie van base44/functions/leer-herinneringen (alleen proefrun, verstuurt niets).
 function mockReminders() {

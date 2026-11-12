@@ -10916,6 +10916,24 @@
    "app_url": "https://app.apexonlinecoaching.nl/leren",
    "event_reminders": true,
    "from_name": "Apex Online Coaching"
+  },
+  {
+   "key": "afmeldingen",
+   "enabled": false,
+   "test_mode": true,
+   "threshold": 3,
+   "period_days": 30,
+   "late_hours": 0,
+   "notify_member": true,
+   "notify_trainer": true,
+   "trainer_emails": "",
+   "trainer_phone": "",
+   "whatsapp_webhook_url": "",
+   "member_subject": "{voornaam}, we missen je bij de training",
+   "member_body": "Hoi {voornaam},\n\nJe hebt je de afgelopen {dagen} dagen {aantal} keer afgemeld voor een training (laatste: {training}).\n\nIs er iets aan de hand of kunnen we je ergens mee helpen? Laat het me weten, dan zoeken we samen naar een oplossing.\n\nSportieve groet,\nJeroen",
+   "trainer_subject": "Let op: {naam} heeft zich {aantal}× afgemeld in {dagen} dagen",
+   "trainer_body": "{naam} heeft zich voor de {aantal}e keer afgemeld in de afgelopen {dagen} dagen.\n\nLaatste afmelding: {training} ({datum}).\n\nAlle afmeldingen in deze periode:\n{lijst}",
+   "from_name": "Apex Online Coaching"
   }
  ]
 }

@@ -16,7 +16,8 @@
       "description": "Soort",
       "enum": [
         "inactief",
-        "agenda"
+        "agenda",
+        "afmelding"
       ]
     },
     "number": {

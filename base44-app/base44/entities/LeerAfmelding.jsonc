@@ -1,0 +1,105 @@
+{
+  "name": "LeerAfmelding",
+  "type": "object",
+  "description": "Afmelding voor een training of agenda-item (uit de app, Trainin/webhook of handmatig)",
+  "properties": {
+    "member_email": {
+      "type": "string",
+      "description": "E-mail lid"
+    },
+    "member_name": {
+      "type": "string",
+      "description": "Naam lid"
+    },
+    "coach_email": {
+      "type": "string",
+      "description": "E-mail coach"
+    },
+    "training": {
+      "type": "string",
+      "description": "Training of agenda-item"
+    },
+    "training_start": {
+      "type": "string",
+      "description": "Begin van de training",
+      "format": "date-time"
+    },
+    "cancelled_at": {
+      "type": "string",
+      "description": "Afgemeld op",
+      "format": "date-time"
+    },
+    "late": {
+      "type": "boolean",
+      "default": false,
+      "description": "Laat afgemeld (binnen de ingestelde uren)"
+    },
+    "source": {
+      "type": "string",
+      "description": "Bron",
+      "enum": [
+        "app",
+        "trainin",
+        "handmatig"
+      ],
+      "default": "app",
+      "enumColors": [
+        "blue",
+        "purple",
+        "gray"
+      ]
+    },
+    "event_id": {
+      "type": "string",
+      "description": "LeerEvent ID (bij afmelding in de app)"
+    },
+    "notified": {
+      "type": "boolean",
+      "default": false,
+      "description": "Melding verstuurd"
+    }
+  },
+  "required": [
+    "member_email",
+    "training"
+  ],
+  "rls": {
+    "create": {
+      "$or": [
+        {
+          "data.member_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "data.coach_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
