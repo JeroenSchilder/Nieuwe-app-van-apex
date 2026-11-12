@@ -663,7 +663,7 @@ for i, (ref, title, cat, ids) in enumerate(PERF_MODULES, 1):
 
 # ---- Bibliotheek: weekvideo's (Apex Online Coaching week N) en presentaties
 module("bib-seizoen", "bibliotheek", "Feestdagen, kermis & vakantie", 11, category="gewoontes")
-SKIP_WEEK = {"1130851582", "1185893144", "1156067451", "1130851583", "396677358", "592728526"}  # dubbele versies
+SKIP_WEEK = {"1130851582", "1185893144", "1156067451", "1130851583", "396677358", "592728526", "1223939756"}  # dubbele versies
 SEIZOEN = re.compile(r"kermis|havenfeesten|feestdagen|vakantie|voornemens|het jaar in", re.I)
 counters2 = {}
 week_items = [v for v in VIMEO.values() if v["group"] in ("weekvideo", "presentatie", "seizoen") and v["id"] not in SKIP_WEEK
@@ -679,7 +679,9 @@ for v in sorted(week_items, key=lambda v: v["date"]):
     counters2[mod] = counters2.get(mod, 0) + 1
     les(f"bibw-{v['id']}", "bibliotheek", f"bib-{mod}", s.get("titel") or clean_title(v["name"]),
         100 + counters2[mod], vimeo_id=v["id"], vimeo_hash=v["hash"], categories=cats, access_packages=COACHING,
-        summary=s.get("samenvatting", ""), key_points=s.get("kernpunten", []), needs_review=not s,
+        summary=s.get("samenvatting", ""),
+        key_points=s.get("kernpunten", []) + ([f"Opdracht voor jezelf: {s['opdracht_suggestie']}"] if s.get("opdracht_suggestie") else []),
+        needs_review=(not s) or s.get("privacy_let_op", False) or s.get("samenvatting", "").startswith("(op basis van titel)"),
         source=f"Vimeo: {v['name']}", duration_min=round(v["dur"] / 60))
 
 # ---- Bibliotheek: korte kennisclips 2018-2021. Hoort een clip bij een bestaand artikel, dan krijgt dat de video.

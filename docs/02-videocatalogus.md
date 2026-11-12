@@ -2,7 +2,7 @@
 
 Automatisch gemaakt met `python3 tools/build_catalogus.py`. ⚠️ = nog controleren (video of tekst moet je even nalopen in Beheer → Lessen & opdrachten → 'Alleen nog controleren').
 
-**Totaal:** 5 leerlijnen · 301 lessen · 202 met Vimeo-video · 19 invulbare opdrachten · 278 nog te controleren.
+**Totaal:** 5 leerlijnen · 299 lessen · 201 met Vimeo-video · 19 invulbare opdrachten · 251 nog te controleren.
 
 ## Wie ziet wat
 
@@ -107,7 +107,7 @@ De leerlijn voor Performance Coaching klanten. Wordt in een later stadium gevuld
 | Communicatie & verzoeken | Brutale verzoeken (2) ⚠️ | [1084765712](https://vimeo.com/1084765712/c7edbc094d) | — | Relaties & omgeving |
 | Communicatie & verzoeken | Krachtige verzoeken ⚠️ | [1065065018](https://vimeo.com/1065065018/367bf055f3) | — | Relaties & omgeving |
 | Communicatie & verzoeken | Afspraken vs Verwachtingen ⚠️ | [1111663301](https://vimeo.com/1111663301/e42af82ab8) | — | Relaties & omgeving |
-| Communicatie & verzoeken | Klagen ⚠️ | [1113867538](https://vimeo.com/1113867538/a6e4311e9a) | — | Relaties & omgeving |
+| Communicatie & verzoeken | Klagen | [1113867538](https://vimeo.com/1113867538/a6e4311e9a) | — | Mindset & motivatie |
 | Communicatie & verzoeken | Feedback ⚠️ | [1140792175](https://vimeo.com/1140792175/a08dac799a) | — | Relaties & omgeving |
 | Communicatie & verzoeken | Het Nee-virus ⚠️ | [1171793797](https://vimeo.com/1171793797/032f5a44f9) | — | Relaties & omgeving |
 | Communicatie & verzoeken | Taal ⚠️ | [875998023](https://vimeo.com/875998023/bb1e1464ed) | — | Relaties & omgeving |
@@ -121,7 +121,7 @@ De leerlijn voor Performance Coaching klanten. Wordt in een later stadium gevuld
 | Zichtbaarheid, strategie & besluitvaardigheid | Structuur voor prestatie ⚠️ | [1069026191](https://vimeo.com/1069026191/d3e8374922) | — | Doelen stellen |
 | Geld & well-being | Geld mindset ⚠️ | [1123850187](https://vimeo.com/1123850187/19d0effdb6) | — | Tijd & leiderschap |
 | Geld & well-being | Geld behouden ⚠️ | [1126173562](https://vimeo.com/1126173562/28f9682a5a) | — | Tijd & leiderschap |
-| Geld & well-being | Financieel leiderschap ⚠️ | [1129776084](https://vimeo.com/1129776084/2b28a9bdf6) | — | Tijd & leiderschap |
+| Geld & well-being | Financieel leiderschap | [1129776084](https://vimeo.com/1129776084/2b28a9bdf6) | — | Doelen stellen, Mindset & motivatie |
 | Geld & well-being | Competency well-being ⚠️ | [1134272598](https://vimeo.com/1134272598/98ac988ae5) | — | Tijd & leiderschap |
 | Geld & well-being | Overtuigingen & societal well-being ⚠️ | [1138916934](https://vimeo.com/1138916934/9ba6368b12) | — | Tijd & leiderschap |
 | Standaarden & Strong Point B | Standaarden ⚠️ | [1156053897](https://vimeo.com/1156053897/e2f034bf4e) | — | Doelen stellen |
@@ -137,7 +137,7 @@ De leerlijn voor Performance Coaching klanten. Wordt in een later stadium gevuld
 
 Zoek op onderwerp of kies wat je nu nodig hebt.
 
-### Doelen stellen (6)
+### Doelen stellen (7)
 
 | Onderwerp | Video | Thema's | Bron |
 |---|---|---|---|
@@ -147,8 +147,9 @@ Zoek op onderwerp of kies wat je nu nodig hebt.
 | Tip 5: zoek een korte termijn doel | — | Doelen stellen | kennisreeks-mail |
 | Meten en vastleggen van de progressie | — | Doelen stellen | kennisreeks-mail |
 | Centimeter omtrek meten | [250170430](https://vimeo.com/250170430) | Doelen stellen | oude website (2018) |
+| Alleen resultaat telt: drie soorten beloftes | [1216935597](https://vimeo.com/1216935597/7efdfff6ea) | Doelen stellen, Mindset & motivatie | Vimeo: Apex Online Coaching Week 33: Alleen resultaat telt |
 
-### Mindset & motivatie (41)
+### Mindset & motivatie (30)
 
 | Onderwerp | Video | Thema's | Bron |
 |---|---|---|---|
@@ -159,7 +160,7 @@ Zoek op onderwerp of kies wat je nu nodig hebt.
 | Winnaarsmentaliteit | — | Mindset & motivatie | kennisreeks-mail |
 | Geluk | — | Mindset & motivatie | kennisreeks-mail |
 | Psychologie | — | Mindset & motivatie | kennisreeks-mail |
-| Integriteit | [1128885992](https://vimeo.com/1128885992/3a0ac43405) | Mindset & motivatie | Vimeo: Apex Online Coaching : Integriteit |
+| Integriteit: je woord houden | [1128885992](https://vimeo.com/1128885992/3a0ac43405) | Mindset & motivatie | Vimeo: Apex Online Coaching : Integriteit |
 | Stilzwijgende belofte | [1133397176](https://vimeo.com/1133397176/6959c50f75) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 45: Stilzwijgende belofte |
 | Overall Open Cycle of Action (3) | [1139993032](https://vimeo.com/1139993032/802bb6929f) | Mindset & motivatie | Vimeo: Apex Online Coaching week 48: Overall Open Cycle of Action (3) |
 | Zig-zag | [1144450542](https://vimeo.com/1144450542/6cd8cab860) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 50: zig-zag |
@@ -172,29 +173,18 @@ Zoek op onderwerp of kies wat je nu nodig hebt.
 | Winnende Strategie | [1165917675](https://vimeo.com/1165917675/cb1746a321) | Mindset & motivatie | Vimeo: Winnende Strategie |
 | Escape Cards | [1166726035](https://vimeo.com/1166726035/18230953e5) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 9: Escape Cards |
 | Wat als het tegenovergestelde waar zou zijn ? | [1171705352](https://vimeo.com/1171705352/62d5af057d) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 10: Wat als het tegenovergestelde waar zou zijn ? |
-| 3 componenten van spiergroei | [1173966754](https://vimeo.com/1173966754/845325624d) | Mindset & motivatie | Vimeo: Apex Online Coaching: 3 componenten van spiergroei |
-| Blauw licht | [1176160499](https://vimeo.com/1176160499/a4752ac984) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 13: Blauw licht |
-| Discipline | [1178390660](https://vimeo.com/1178390660/8473ec1e21) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 14: Discipline |
-| Eigenaar VS Slachtoffer | [1182532274](https://vimeo.com/1182532274/ea01a69b50) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 16: Eigenaar VS Slachtoffer |
-| Radical Ownership Challenge | [1185894860](https://vimeo.com/1185894860/d718b885ea) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 17: Radical Ownership Challenge |
-| Niemand gaat het voor jou doen | [1185915341](https://vimeo.com/1185915341/0e02a845d2) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 19:  Niemand gaat het voor jou doen |
-| 12 redenen waarom jouw gewicht fluctueert | [1191196066](https://vimeo.com/1191196066/f40a3148d7) | Mindset & motivatie | Vimeo: 12 redenen waarom jouw gewicht fluctueert |
-| Wie ben jij als niemand kijkt? | [1193239630](https://vimeo.com/1193239630/889dc4cd43) | Mindset & motivatie | Vimeo: Apex Online Coaching week 21: Wie ben jij als niemand kijkt? |
-| De gewoontelus | [1194689594](https://vimeo.com/1194689594/acf35c357a) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 22: De gewoontelus |
-| Apex fat loss pyramid | [1194690043](https://vimeo.com/1194690043) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 23: Apex fat loss pyramid |
-| Apex Food pyramid | [1199308412](https://vimeo.com/1199308412/17839d01f1) | Mindset & motivatie | Vimeo: Apex Online Coaching week 24: Apex Food pyramid |
-| Integriteit heeft geen voorkeursweer ☀️ | [1203411955](https://vimeo.com/1203411955/b64417cbfe) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 26: Integriteit heeft geen voorkeursweer ☀️ |
+| Eigenaar vs. slachtoffer | [1182532274](https://vimeo.com/1182532274/ea01a69b50) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 16: Eigenaar VS Slachtoffer |
+| Radical Ownership Challenge: 7 dagen 'ik koos' | [1185894860](https://vimeo.com/1185894860/d718b885ea) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 17: Radical Ownership Challenge |
+| Niemand gaat het voor jou doen | [1185915341](https://vimeo.com/1185915341/0e02a845d2) | Mindset & motivatie, Doelen stellen | Vimeo: Apex Online Coaching Week 19:  Niemand gaat het voor jou doen |
+| Wie ben jij als niemand kijkt? | [1193239630](https://vimeo.com/1193239630/889dc4cd43) | Mindset & motivatie, Gewoontes & discipline | Vimeo: Apex Online Coaching week 21: Wie ben jij als niemand kijkt? |
 | Iets snappen doet helemaal niets | [1205429294](https://vimeo.com/1205429294/3ffbdd7c54) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 27: Iets snappen doet helemaal niets |
-| 7 Fuck it regels | [1207334889](https://vimeo.com/1207334889/2f4d0ebcf8) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 28: 7 Fuck it regels |
-| Conditions of te game | [1210793327](https://vimeo.com/1210793327/525f0c9de6) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 29: Conditions of te game |
-| If there is no sincere commitment | [1210798101](https://vimeo.com/1210798101/0d8de34536) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 31: If there is no sincere commitment |
-| Powerful vs not powerful | [1211313888](https://vimeo.com/1211313888/8fd60b9fca) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 30- Powerful vs not powerful |
-| Just stop it | [1215470492](https://vimeo.com/1215470492/5b07e8cbd4) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 32: Just stop it |
-| Alleen resultaat telt | [1216935597](https://vimeo.com/1216935597/7efdfff6ea) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 33: Alleen resultaat telt |
-| Terug naar de routine | [1218859140](https://vimeo.com/1218859140/2f3d07df02) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 34: Terug naar de routine |
-| Weloverwogen beslissing | [1228745215](https://vimeo.com/1228745215/3cbba55c23) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 39: Weloverwogen beslissing |
+| De 7 f*ck it-regels | [1207334889](https://vimeo.com/1207334889/2f4d0ebcf8) | Mindset & motivatie, Relaties & omgeving | Vimeo: Apex Online Coaching Week 28: 7 Fuck it regels |
+| Conditions of the game | [1210793327](https://vimeo.com/1210793327/525f0c9de6) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 29: Conditions of te game |
+| Zonder echt commitment werkt niets | [1210798101](https://vimeo.com/1210798101/0d8de34536) | Mindset & motivatie, Doelen stellen | Vimeo: Apex Online Coaching Week 31: If there is no sincere commitment |
+| Powerful vs. not powerful | [1211313888](https://vimeo.com/1211313888/8fd60b9fca) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 30- Powerful vs not powerful |
+| Just stop it | [1215470492](https://vimeo.com/1215470492/5b07e8cbd4) | Mindset & motivatie, Gewoontes & discipline | Vimeo: Apex Online Coaching Week 32: Just stop it |
 
-### Gewoontes & discipline (12)
+### Gewoontes & discipline (13)
 
 | Onderwerp | Video | Thema's | Bron |
 |---|---|---|---|
@@ -208,10 +198,11 @@ Zoek op onderwerp of kies wat je nu nodig hebt.
 | Tijdsindeling | — | Gewoontes & discipline, Tijd & leiderschap | kennisreeks-mail |
 | Robots vs normale mensen | — | Gewoontes & discipline | kennisreeks-mail |
 | Mythe - een gewoonte aanleren | — | Gewoontes & discipline | kennisreeks-mail |
+| De gewoontelus: trigger, routine, beloning | [1194689594](https://vimeo.com/1194689594/acf35c357a) | Gewoontes & discipline, Voeding | Vimeo: Apex Online Coaching Week 22: De gewoontelus |
 | Kennisclip · Nalevingstriggers | [342719325](https://vimeo.com/342719325) | Gewoontes & discipline | Vimeo (2019) |
 | Kennisclip · Het nieuwe normaal | [344636202](https://vimeo.com/344636202) | Gewoontes & discipline | Vimeo (2019) |
 
-### Voeding (67)
+### Voeding (69)
 
 | Onderwerp | Video | Thema's | Bron |
 |---|---|---|---|
@@ -266,6 +257,8 @@ Zoek op onderwerp of kies wat je nu nodig hebt.
 | Cheat meals | [317022631](https://vimeo.com/317022631) | Voeding | oude website (2019) |
 | Afvallen en te weinig eten | [317020445](https://vimeo.com/317020445) | Voeding | oude website (2019) |
 | Creatine, hoe zit dat nou eigenlijk? | [255245198](https://vimeo.com/255245198) | Voeding | oude website (2018) |
+| De Apex fat loss pyramid | [1194690043](https://vimeo.com/1194690043) | Voeding, Tijd & leiderschap | Vimeo: Apex Online Coaching Week 23: Apex fat loss pyramid |
+| De Apex food pyramid | [1199308412](https://vimeo.com/1199308412/17839d01f1) | Voeding | Vimeo: Apex Online Coaching week 24: Apex Food pyramid |
 | Kennisclip · Apex energiebalans | [255244445](https://vimeo.com/255244445/74dc164c86) | Voeding | Vimeo (2018) |
 | Kennisclip · Creatine | [255245198](https://vimeo.com/255245198/e53ef67213) | Voeding | Vimeo (2018) |
 | Kennisclip · Na 8 uur eten | [255248261](https://vimeo.com/255248261/360dc20a8a) | Voeding | Vimeo (2018) |
@@ -283,7 +276,7 @@ Zoek op onderwerp of kies wat je nu nodig hebt.
 | Kennisclip · Meer eten voor dames | [344638769](https://vimeo.com/344638769) | Voeding | Vimeo (2019) |
 | Kennisclip · Toning creme | [344639799](https://vimeo.com/344639799) | Voeding | Vimeo (2019) |
 
-### Training & techniek (41)
+### Training & techniek (42)
 
 | Onderwerp | Video | Thema's | Bron |
 |---|---|---|---|
@@ -321,6 +314,7 @@ Zoek op onderwerp of kies wat je nu nodig hebt.
 | De mind muscle connection | [255248120](https://vimeo.com/255248120) | Training & techniek | oude website (2018) |
 | Pull ups en schouderpositie | [255248562](https://vimeo.com/255248562) | Training & techniek | oude website (2018) |
 | De juiste set up voor de Dumbbell press | [253480437](https://vimeo.com/253480437) | Training & techniek | oude website (2018) |
+| De 3 componenten van spiergroei | [1173966754](https://vimeo.com/1173966754/845325624d) | Training & techniek | Vimeo: Apex Online Coaching: 3 componenten van spiergroei |
 | Kennisclip · Spierpijn | [255248728](https://vimeo.com/255248728/57cc50161c) | Training & techniek | Vimeo (2018) |
 | Kennisclip · Achterlijke plank variaties en correcte uitvoering | [258434565](https://vimeo.com/258434565/d3b1a4d851) | Training & techniek | Vimeo (2018) |
 | Kennisclip · Buikspier oefening zonder pijn in je rug/nek | [258435933](https://vimeo.com/258435933/2365e8e5a0) | Training & techniek | Vimeo (2018) |
@@ -351,22 +345,24 @@ Zoek op onderwerp of kies wat je nu nodig hebt.
 | Foam roller · Onderarm (binnenkant) | [254645753](https://vimeo.com/254645753) | Mobiliteit & foam rollen | oude website (2018) |
 | Foam roller · Voorkant scheenbeenspier | [254648759](https://vimeo.com/254648759) | Mobiliteit & foam rollen | oude website (2018) |
 
-### Slaap, stress & herstel (10)
+### Slaap, stress & herstel (12)
 
 | Onderwerp | Video | Thema's | Bron |
 |---|---|---|---|
 | Nummer 1 prioriteit voor resultaat: slaap | [592728526](https://vimeo.com/592728526) | Slaap, stress & herstel | kennisreeks-mail |
 | Wat is stress? | — | Slaap, stress & herstel | kennisreeks-mail |
 | Wat is herstel? | — | Slaap, stress & herstel | kennisreeks-mail |
-| Blauw licht | — | Slaap, stress & herstel | kennisreeks-mail |
+| Blauw licht | [344635388](https://vimeo.com/344635388) | Slaap, stress & herstel | kennisreeks-mail |
 | Vechten tegen sociale stress | — | Slaap, stress & herstel, Relaties & omgeving | kennisreeks-mail |
 | Supplementen voor herstel | — | Slaap, stress & herstel | kennisreeks-mail |
 | Relaxen | — | Slaap, stress & herstel | kennisreeks-mail |
 | Werk vs vrije dagen | [255245494](https://vimeo.com/255245494/2b52543ec3) | Slaap, stress & herstel, Tijd & leiderschap | kennisreeks-mail |
 | Slaappresentatie | [1142022679](https://vimeo.com/1142022679/6eca7eac00) | Slaap, stress & herstel | Vimeo: Apex Online Coaching Week 49 - Slaappresentatie |
+| Beter slapen: geen blauw licht voor bed | [1176160499](https://vimeo.com/1176160499/a4752ac984) | Slaap, stress & herstel, Gewoontes & discipline | Vimeo: Apex Online Coaching Week 13: Blauw licht |
+| Discipline bouwen rond je slaap | [1178390660](https://vimeo.com/1178390660/8473ec1e21) | Slaap, stress & herstel, Gewoontes & discipline, Mindset & motivatie | Vimeo: Apex Online Coaching Week 14: Discipline |
 | Kennisclip · Meditatie niet zweverig | [344638654](https://vimeo.com/344638654) | Slaap, stress & herstel | Vimeo (2019) |
 
-### Lichaam & gezondheid (7)
+### Lichaam & gezondheid (8)
 
 | Onderwerp | Video | Thema's | Bron |
 |---|---|---|---|
@@ -376,6 +372,7 @@ Zoek op onderwerp of kies wat je nu nodig hebt.
 | Zwangerschap | — | Lichaam & gezondheid | kennisreeks-mail |
 | Leeftijdsverschil en trainen | — | Lichaam & gezondheid | kennisreeks-mail |
 | Heeft warm weer invloed op mijn gewicht? | — | Lichaam & gezondheid | kennisreeks-mail |
+| 12 redenen waarom je gewicht schommelt | [1191196066](https://vimeo.com/1191196066/f40a3148d7) | Lichaam & gezondheid, Voeding, Slaap, stress & herstel | Vimeo: 12 redenen waarom jouw gewicht fluctueert |
 | Kennisclip · Menstruatie cyclus | [315893239](https://vimeo.com/315893239/fbcdd9d34a) | Lichaam & gezondheid | Vimeo (2019) |
 
 ### Relaties & omgeving (1)
@@ -384,7 +381,7 @@ Zoek op onderwerp of kies wat je nu nodig hebt.
 |---|---|---|---|
 | Check in invloed van de mensen in jouw omgeving | — | Relaties & omgeving | kennisreeks-mail |
 
-### Feestdagen, kermis & vakantie (10)
+### Feestdagen, kermis & vakantie (11)
 
 | Onderwerp | Video | Thema's | Bron |
 |---|---|---|---|
@@ -393,11 +390,12 @@ Zoek op onderwerp of kies wat je nu nodig hebt.
 | Fijne feestdagen | [1148602059](https://vimeo.com/1148602059/3c9c2ccf51) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 52: Fijne feestdagen |
 | Voorbereid het jaar in | [1150028377](https://vimeo.com/1150028377/5b0ea99484) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 1: Voorbereid het jaar in |
 | Goede voornemens | [1151614002](https://vimeo.com/1151614002/2da85ba5f3) | Mindset & motivatie | Vimeo: Apex Online Coaching week 2: goede voornemens |
-| Havenfeesten | [1180832558](https://vimeo.com/1180832558/009bfc5154) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 14: Havenfeesten |
-| Kermis voorbereiding 1/2 | [1220812964](https://vimeo.com/1220812964/e33877038b) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 35  Kermis voorbereiding 1/2 |
-| Kermis voorbereiding 2/2 | [1222655635](https://vimeo.com/1222655635/d0dcaeddbb) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 36: Kermis voorbereiding 2/2 |
-| After kermis dip | [1223677492](https://vimeo.com/1223677492/9fa92c0fed) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 37: After kermis dip |
-| After Kermis Results | [1223939756](https://vimeo.com/1223939756/59e040cfca) | Mindset & motivatie | Vimeo: Apex Online Coaching Week 37: After Kermis Results |
+| Feestje of event? Zo blijf je op koers | [1180832558](https://vimeo.com/1180832558/009bfc5154) | Voeding, Gewoontes & discipline | Vimeo: Apex Online Coaching Week 14: Havenfeesten |
+| Integriteit heeft geen voorkeursweer | [1203411955](https://vimeo.com/1203411955/b64417cbfe) | Training & techniek, Slaap, stress & herstel, Mindset & motivatie | Vimeo: Apex Online Coaching Week 26: Integriteit heeft geen voorkeursweer ☀️ |
+| Terug naar je routine | [1218859140](https://vimeo.com/1218859140/2f3d07df02) | Gewoontes & discipline, Mindset & motivatie | Vimeo: Apex Online Coaching Week 34: Terug naar de routine |
+| Kermis voorbereiding 1: wat alcohol met je doet | [1220812964](https://vimeo.com/1220812964/e33877038b) | Voeding, Slaap, stress & herstel | Vimeo: Apex Online Coaching Week 35  Kermis voorbereiding 1/2 |
+| Kermis voorbereiding 2: supplementen, slaap en voeding | [1222655635](https://vimeo.com/1222655635/d0dcaeddbb) | Slaap, stress & herstel, Voeding | Vimeo: Apex Online Coaching Week 36: Kermis voorbereiding 2/2 |
+| Na de kermis: pak de draad weer op | [1223677492](https://vimeo.com/1223677492/9fa92c0fed) | Slaap, stress & herstel, Gewoontes & discipline | Vimeo: Apex Online Coaching Week 37: After kermis dip |
 
 ## Vimeo-insluiten: alleen op je eigen domein
 

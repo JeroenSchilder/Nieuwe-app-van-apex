@@ -1,7 +1,7 @@
 // Nagebootste Base44-client voor de lokale preview. Data staat in localStorage van de browser.
 // Bootst ook de RLS-regels na (LeerLes per pakket; inzendingen/voortgang alleen eigen, coach of admin).
 
-const KEY = "apex-leeromgeving-demo";
+const KEY = "apex-leeromgeving-demo-v2";
 const listeners = new Set();
 
 function load() {
