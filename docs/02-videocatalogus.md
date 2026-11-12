@@ -2,7 +2,7 @@
 
 Automatisch gemaakt met `python3 tools/build_catalogus.py`. ⚠️ = nog controleren (video of tekst moet je even nalopen in Beheer → Lessen & opdrachten → 'Alleen nog controleren').
 
-**Totaal:** 5 leerlijnen · 300 lessen · 201 met Vimeo-video · 20 invulbare opdrachten · 252 nog te controleren.
+**Totaal:** 5 leerlijnen · 300 lessen · 201 met Vimeo-video · 20 invulbare opdrachten · 251 nog te controleren.
 
 ## Wie ziet wat
 
@@ -31,7 +31,7 @@ Kijk de video's op volgorde en voer na elke video de actie uit. Zo heb ik zo sne
 | Stap 7 | De eerste 5 hoofdstukken van Straight Line Leadership | [1006354802](https://vimeo.com/1006354802/66ced837cf) | — | Start & apps, Mindset & motivatie |
 | Stap 8 | Download het hele e-book | — | Observaties Straight Line Leadership (4 vragen) | Start & apps, Mindset & motivatie |
 | Stap 9 | Download de InBody app | — | — | Start & apps |
-| Afsluiter | Check: ben je klaar voor je intake? ⚠️ | — | Klaar voor je intake? (8 vragen) | Start & apps |
+| Afsluiter | Check: ben je klaar voor je intake? | — | Klaar voor je intake? (8 vragen) | Start & apps |
 
 ## Fase 2 · Je doel stellen
 

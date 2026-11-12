@@ -193,7 +193,7 @@ opdracht("op-sll", "Observaties Straight Line Leadership", "fase1", "f1-s8", rep
                  f("toepassen", "Wat ga je vandaag of deze week anders doen?")])
 
 les("f1-quiz", "fase1", "f1-m1", "Check: ben je klaar voor je intake?", 10, step_label="Afsluiter",
-    categories=["start"], access_packages=ALL, assignment_ref="op-f1-quiz", needs_review=True,
+    categories=["start"], access_packages=ALL, assignment_ref="op-f1-quiz", needs_review=False,
     summary="Acht korte vragen over je stappenplan. Haal je 75% of meer, dan ben je klaar voor je intake.")
 
 def q(key, label, options, correct, explanation=""):
@@ -215,7 +215,8 @@ opdracht("op-f1-quiz", "Klaar voor je intake?", "fase1", "f1-quiz", kind="quiz",
                  q("sll", "Hoe lees je Straight Line Leadership?",
                    ["In één weekend uit", "Elke dag één hoofdstuk, en je observaties vul je in de app in", "Alleen de samenvattingen"],
                    "Elke dag één hoofdstuk, en je observaties vul je in de app in"),
-                 q("meting", "Hoe vaak is er een InBody-meting?", ["Elke week", "Elke 4 weken", "Eén keer per kwartaal"], "Elke 4 weken")])
+                 q("meting", "Hoe vaak is er een InBody-meting?", ["Elke week", "Elke 4 weken", "Eén keer per kwartaal"], "Elke 4 weken",
+                   "Iedereen, in elk traject, heeft elke 4 weken een InBody-meting. Zo zie je je voortgang zwart op wit.")])
 
 # ===========================================================================
 # FASE 2 — Je doel stellen
