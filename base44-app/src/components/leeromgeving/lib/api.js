@@ -116,3 +116,82 @@ export async function setUserAccess(userId, values) {
     return E().User.update(userId, values);
   }
 }
+
+// ---- Agenda ----------------------------------------------------------------
+
+export async function loadAgenda(user) {
+  const [events, regs] = await Promise.all([
+    E().LeerEvent.list("start", 500),
+    E().LeerAanmelding.filter({ member_email: user.email }, "-created_date", 1000),
+  ]);
+  return { events, registrations: regs };
+}
+
+export async function setRegistration(user, event, existing, status) {
+  if (existing) return E().LeerAanmelding.update(existing.id, { status });
+  return E().LeerAanmelding.create({
+    ...memberStamp(user),
+    event_id: event.id,
+    event_title: event.title,
+    event_start: event.start,
+    status,
+  });
+}
+
+export async function loadAllRegistrations() {
+  return E().LeerAanmelding.list("-created_date", 5000);
+}
+
+// ---- Quiz ------------------------------------------------------------------
+
+export function scoreQuiz(assignment, answers) {
+  const qs = assignment.fields.filter((f) => f.type === "quiz");
+  const good = qs.filter((f) => answers[f.key] !== undefined && answers[f.key] === f.correct).length;
+  const score = qs.length ? Math.round((good / qs.length) * 100) : 0;
+  return { score, good, total: qs.length, passed: score >= (assignment.pass_percentage ?? 70) };
+}
+
+export async function saveQuizAttempt({ user, assignment, lesson, answers }) {
+  const r = scoreQuiz(assignment, answers);
+  await E().LeerInzending.create({
+    ...memberStamp(user),
+    opdracht_id: assignment.id,
+    opdracht_title: assignment.title,
+    les_id: lesson?.id || "",
+    track_key: lesson?.track_key || "",
+    answers,
+    status: r.passed ? "goedgekeurd" : "ingediend",
+    submitted_at: new Date().toISOString(),
+    score: r.score,
+    passed: r.passed,
+  });
+  return r;
+}
+
+// ---- Herinneringen (beheer) ------------------------------------------------
+
+export const REMINDER_DEFAULTS = {
+  key: "herinneringen", enabled: false, test_mode: true, days: [7, 30, 30], min_progress: 0, max_progress: 90,
+  subject: "{voornaam}, je volgende stap staat klaar",
+  body: "Hoi {voornaam},\n\nHet is alweer even geleden dat je in de Apex leeromgeving bent geweest. Je volgende stap staat voor je klaar: {les} ({leerlijn}).\n\nPak hem vandaag op, al is het maar tien minuten: {link}\n\nSportieve groet,\nJeroen",
+  app_url: "", event_reminders: true, from_name: "Apex Online Coaching",
+};
+
+export async function loadReminderSettings() {
+  const [s] = await E().LeerInstelling.filter({ key: "herinneringen" });
+  return s ? { ...REMINDER_DEFAULTS, ...s } : { ...REMINDER_DEFAULTS };
+}
+
+export async function saveReminderSettings(s) {
+  const { id, created_date, updated_date, created_by, created_by_id, ...data } = s;
+  return id ? E().LeerInstelling.update(id, data) : E().LeerInstelling.create(data);
+}
+
+export async function runReminders(dryRun) {
+  const res = await base44.functions.invoke("leer-herinneringen", { dry_run: dryRun });
+  return res.data;
+}
+
+export async function loadReminderLog() {
+  return E().LeerHerinnering.list("-sent_at", 200);
+}

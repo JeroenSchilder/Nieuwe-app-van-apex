@@ -37,10 +37,10 @@ Huddle is een Nederlands platform voor online cursussen, community en coaching, 
 | A.I.-coach die antwoordt uit je eigen lessen, met bronnen | **Nieuw:** "Vraag de coach". Zoekt de best passende lessen (alleen die van het lid zelf) en laat Base44-AI daaruit antwoorden, met links naar de lessen | ✅ toegevoegd |
 | Certificaat na afronden | **Nieuw:** certificaat bij Fase 2, de 90 dagen en Performance Coaching, af te drukken of op te slaan als PDF | ✅ toegevoegd |
 | Thumbnails en afbeeldingen | **Nieuw:** Vimeo-thumbnails met duur op alle videotegels | ✅ toegevoegd |
-| Quizzen met slagingspercentage | Invulbare opdrachten met 8 veldtypes, deadlines en coach-feedback. Een quiz met score zit er nog niet in | ➖ kan erbij |
-| Automatische herinnering bij inactiviteit (7 / 30 / 30 dagen) | Nog niet. Kan via ActiveCampaign (tags), dat je al gebruikt | ➖ voorstel |
+| Quizzen met slagingspercentage | **Quiz met score**, slagingspercentage, herkansen en uitleg per vraag, plus invulbare opdrachten | ✅ toegevoegd |
+| Automatische herinnering bij inactiviteit (7 / 30 / 30 dagen) | **In de app zelf:** dagen, tekst en voortgangsgrenzen in te stellen, met proefrun en logboek | ✅ toegevoegd |
 | Community, kanalen, chats, ledenoverzicht, gamification | Niet gebouwd; Apex gebruikt WhatsApp-groepen | ➖ bewuste keuze |
-| Evenementen-agenda | De Zoom-link en sessie-info van de ronde staan op het dashboard. Een volledige agenda zit er niet in | ➖ kan erbij |
+| Evenementen-agenda | **Agenda** met aan- en afmelden, .ics-export, herhalen, aanmeldlijst en herinnering de dag van tevoren | ✅ toegevoegd |
 | AI-cursusgenerator | Niet nodig: de content komt uit jouw eigen mails en Vimeo | — |
 
 ## Waar Apex sterker is dan Huddle
@@ -51,7 +51,5 @@ Huddle is een Nederlands platform voor online cursussen, community en coaching, 
 
 ## Nog te kiezen (bouw ik als je wilt)
 
-1. **Herinneringen bij inactiviteit**, via ActiveCampaign. Bijvoorbeeld een tag "leeromgeving-inactief-7d" die een mail start.
-2. **Quiz met score**, bijvoorbeeld als kennischeck aan het eind van Fase 1.
-3. **Agenda** met groepscoachings, metingen en events, met aanmelden.
-4. **Community-light:** één "successen"-feed binnen de leeromgeving, als je WhatsApp wilt vervangen.
+1. **Community-light:** één "successen"-feed binnen de leeromgeving, als je WhatsApp wilt vervangen.
+2. **Punten en streaks** op basis van afgeronde lessen en opdrachten.

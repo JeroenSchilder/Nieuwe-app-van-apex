@@ -8,10 +8,11 @@ import LessonView from "@/components/leeromgeving/lid/LessonView";
 import LibraryView from "@/components/leeromgeving/lid/LibraryView";
 import MyAssignments from "@/components/leeromgeving/lid/MyAssignments";
 import CoachChat from "@/components/leeromgeving/lid/CoachChat";
+import AgendaView from "@/components/leeromgeving/lid/AgendaView";
 
 // Ledenomgeving. Navigatie via de URL: ?tab=home|bibliotheek|opdrachten, ?traject=<key>, ?les=<id>
 export default function Leeromgeving() {
-  const { loading, user, mine, derived, refreshMine } = useLeeromgeving();
+  const { loading, user, mine, agenda, derived, refreshMine, refreshAgenda } = useLeeromgeving();
   const [params, setParams] = useSearchParams();
   const tab = params.get("tab") || "home";
   const trackKey = params.get("traject");
@@ -43,10 +44,12 @@ export default function Leeromgeving() {
     body = <TrackView track={track} derived={derived} user={user} onBack={() => go({ tab })} onOpenLesson={openLesson} />;
   } else if (tab === "bibliotheek") {
     body = <LibraryView derived={derived} onOpenLesson={openLesson} />;
+  } else if (tab === "agenda") {
+    body = <AgendaView agenda={agenda} user={user} refreshAgenda={refreshAgenda} />;
   } else if (tab === "opdrachten") {
     body = <MyAssignments derived={derived} onOpenLesson={openLesson} />;
   } else {
-    body = <HomeView derived={derived} onOpenTrack={(key) => go({ tab: "home", traject: key })}
+    body = <HomeView derived={derived} agenda={agenda} user={user} onOpenTrack={(key) => go({ tab: "home", traject: key })}
       onOpenLesson={(id) => go({ tab: "home", les: id })} onTab={(t) => go({ tab: t })} />;
   }
 

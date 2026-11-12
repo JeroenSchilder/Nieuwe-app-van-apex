@@ -1,0 +1,9 @@
+{
+  "name": "Leeromgeving herinneringen",
+  "description": "Stuurt elke ochtend herinneringen aan leden die een tijd niet actief zijn en aan aangemelde deelnemers van agenda-items van morgen",
+  "trigger": { "config": { "trigger_type": "scheduled", "cron_expression": "47 8 * * *", "timezone": "Europe/Amsterdam" } },
+  "definition": {
+    "document": { "dsl": "1.0.0", "name": "leeromgeving_herinneringen", "version": "1.0", "namespace": "base44" },
+    "do": [{ "herinneringen": { "call": "invoke_backend_function", "with": { "function_name": "leer-herinneringen" }, "then": "end" } }]
+  }
+}

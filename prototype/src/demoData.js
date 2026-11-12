@@ -24,6 +24,9 @@ export async function ensureDemo() {
   demo.setUser("u-admin");
   const s = structuredClone(seed);
   s.cohorten = s.cohorten.map((c) => ({ ...c, start_date: mondayWeeksAgo(4), name: "90 Dagen · demo-ronde", zoom_url: "https://zoom.us" }));
+  // Agenda van de demo-ronde laten aansluiten op de verschoven startdatum.
+  const shift = new Date(mondayWeeksAgo(4)).getTime() - new Date("2026-11-16").getTime();
+  s.evenementen = s.evenementen.map((e) => (e.cohort_key ? { ...e, start: new Date(new Date(e.start).getTime() + shift).toISOString(), end: e.end ? new Date(new Date(e.end).getTime() + shift).toISOString() : "" } : e));
   await importSeed(s);
 
   const E = base44.entities;
@@ -53,6 +56,11 @@ export async function ensureDemo() {
     { ref: "c90-kickoff", data: { status: "feedback", answers: { gezondheid_cijfer: 5, gezondheid_a: "Te weinig beweging, slecht slapen", gezondheid_b: "3x per week trainen, 7 uur slaap", doel_achter: "Een voorbeeld zijn voor mijn kinderen" }, feedback: "Sterke start Eva! Maak Punt B bij relaties nog concreter: wat doe je wekelijks?", feedback_by: "Coach Lisa", feedback_at: new Date().toISOString(), feedback_seen: false } },
     { ref: "c90-s1", data: { status: "ingediend", answers: { cirkel: "Elke maandag opnieuw beginnen met gezond eten", zigzag: "Sporten: 2 weken goed, dan weer niet", straight: "Mijn werk", kost: "De cirkel met eten", acties: "Zondag maaltijden preppen en dinsdag + donderdag vast trainen" } } },
   ]);
+  // Mark is 9 dagen niet actief geweest (zichtbaar in Beheer → Herinneringen → Proefrun).
+  const ago = new Date(Date.now() - 9 * 86400000).toISOString();
+  for (const r of demo.table("LeerVoortgang").filter((x) => x.member_email === "mark@demo.apex")) Object.assign(r, { completed_at: ago, created_date: ago });
+  for (const r of demo.table("LeerInzending").filter((x) => x.member_email === "mark@demo.apex")) Object.assign(r, { updated_date: ago, submitted_at: ago });
+  demo.save();
   demo.db.seeded = true;
   demo.setUser("u-90");
 }

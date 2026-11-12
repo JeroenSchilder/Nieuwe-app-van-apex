@@ -2,6 +2,8 @@ import { ArrowRight, MessageSquare, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import TrackCard from "./TrackCard";
+import EventCard from "./EventCard";
+import { visibleEvents } from "./AgendaView";
 import { formatDate } from "../lib/access";
 
 // Eerstvolgende open, niet-afgeronde les binnen de leerlijnen (bibliotheek telt niet mee).
@@ -14,7 +16,7 @@ function nextLesson(tracks) {
   return null;
 }
 
-export default function HomeView({ derived, onOpenTrack, onOpenLesson, onTab }) {
+export default function HomeView({ derived, agenda, user, onOpenTrack, onOpenLesson, onTab }) {
   const next = nextLesson(derived.tracks);
   const newFeedback = Object.values(derived.submissionsByAssignment).flat()
     .filter((s) => s.feedback && !s.feedback_seen);
@@ -43,6 +45,14 @@ export default function HomeView({ derived, onOpenTrack, onOpenLesson, onTab }) 
           <MessageSquare className="h-5 w-5 text-primary" />
           <span className="flex-1 text-sm">Je hebt <b>{newFeedback.length}</b> nieuwe feedback van je coach.</span>
           <ArrowRight className="h-4 w-4" />
+        </button>
+      )}
+
+      {agenda && visibleEvents(agenda, user)[0] && (
+        <button onClick={() => onTab("agenda")} className="block w-full text-left">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-primary">Eerstvolgende in je agenda</p>
+          <EventCard event={visibleEvents(agenda, user)[0]} compact
+            registration={agenda.registrations.find((r) => r.event_id === visibleEvents(agenda, user)[0].id)} />
         </button>
       )}
 

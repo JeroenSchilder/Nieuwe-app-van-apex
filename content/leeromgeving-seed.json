@@ -48,7 +48,7 @@
     "performance",
     "alles"
    ],
-   "subtitle": "In 9 stappen klaar voor je intake",
+   "subtitle": "In 9 stappen en een korte check klaar voor je intake",
    "description": "Kijk de video's op volgorde en voer na elke video de actie uit. Zo heb ik zo snel mogelijk al jouw informatie en ben ik goed voorbereid op je intake.",
    "published": true,
    "certificate": false
@@ -733,6 +733,36 @@
    "vimeo_hash": "",
    "key_points": [],
    "needs_review": false
+  },
+  {
+   "ref": "f1-quiz",
+   "track_key": "fase1",
+   "module_ref": "f1-m1",
+   "title": "Check: ben je klaar voor je intake?",
+   "order": 10,
+   "step_label": "Afsluiter",
+   "categories": [
+    "start"
+   ],
+   "access_packages": [
+    "small_group",
+    "small_group_plus",
+    "challenge_90",
+    "performance",
+    "alles"
+   ],
+   "assignment_ref": "op-f1-quiz",
+   "needs_review": true,
+   "summary": "Acht korte vragen over je stappenplan. Haal je 75% of meer, dan ben je klaar voor je intake.",
+   "published": true,
+   "completion": "handmatig",
+   "thumbnail_url": "",
+   "transcript": "",
+   "body": "",
+   "vimeo_id": "",
+   "vimeo_hash": "",
+   "key_points": [],
+   "action_links": []
   },
   {
    "ref": "f2-l1",
@@ -9485,6 +9515,120 @@
    "repeatable": true,
    "coach_review": false,
    "intro": "Alleen lezen levert je niets op. Reflectie en toepassing wel. Vul dit formulier in na elk hoofdstuk.",
+   "kind": "opdracht",
+   "deadline_day_offset": null,
+   "lock_after_deadline": false
+  },
+  {
+   "ref": "op-f1-quiz",
+   "title": "Klaar voor je intake?",
+   "track_key": "fase1",
+   "lesson_ref": "f1-quiz",
+   "fields": [
+    {
+     "key": "eten",
+     "label": "Hoe lang van tevoren eet je niet meer voor de InBody-meting?",
+     "type": "quiz",
+     "options": [
+      "1 uur",
+      "2 uur",
+      "3 uur",
+      "6 uur"
+     ],
+     "correct": "3 uur",
+     "explanation": "Eten beïnvloedt de meting; 3 uur van tevoren niet eten."
+    },
+    {
+     "key": "drinken",
+     "label": "Hoe lang van tevoren drink je niet meer?",
+     "type": "quiz",
+     "options": [
+      "30 minuten",
+      "1 uur",
+      "2 uur",
+      "3 uur"
+     ],
+     "correct": "2 uur",
+     "explanation": ""
+    },
+    {
+     "key": "trainen",
+     "label": "Mag je trainen op de dag van je meting?",
+     "type": "quiz",
+     "options": [
+      "Ja, als het licht is",
+      "Nee",
+      "Alleen cardio"
+     ],
+     "correct": "Nee",
+     "explanation": "Training verandert je vochtbalans en daarmee de uitslag."
+    },
+    {
+     "key": "sieraden",
+     "label": "Wat doe je af voordat je op de InBody stapt?",
+     "type": "quiz",
+     "options": [
+      "Je sieraden",
+      "Niets",
+      "Alleen je schoenen"
+     ],
+     "correct": "Je sieraden",
+     "explanation": "Sieraden kunnen de meting beïnvloeden. Kom ook met schone voeten."
+    },
+    {
+     "key": "fotos",
+     "label": "Waarom maken we foto's bij de startmeting?",
+     "type": "quiz",
+     "options": [
+      "Voor social media",
+      "Om je startpositie vast te leggen en later te vergelijken",
+      "Dat is verplicht voor de verzekering"
+     ],
+     "correct": "Om je startpositie vast te leggen en later te vergelijken",
+     "explanation": ""
+    },
+    {
+     "key": "trainin",
+     "label": "Waar plan je je meting in?",
+     "type": "quiz",
+     "options": [
+      "In de Apex app",
+      "In Trainin",
+      "Via WhatsApp"
+     ],
+     "correct": "In Trainin",
+     "explanation": ""
+    },
+    {
+     "key": "sll",
+     "label": "Hoe lees je Straight Line Leadership?",
+     "type": "quiz",
+     "options": [
+      "In één weekend uit",
+      "Elke dag één hoofdstuk, en je observaties vul je in de app in",
+      "Alleen de samenvattingen"
+     ],
+     "correct": "Elke dag één hoofdstuk, en je observaties vul je in de app in",
+     "explanation": ""
+    },
+    {
+     "key": "meting",
+     "label": "Hoe vaak is er een InBody-meting?",
+     "type": "quiz",
+     "options": [
+      "Elke week",
+      "Elke 4 weken",
+      "Eén keer per kwartaal"
+     ],
+     "correct": "Elke 4 weken",
+     "explanation": ""
+    }
+   ],
+   "kind": "quiz",
+   "pass_percentage": 75,
+   "repeatable": true,
+   "coach_review": false,
+   "intro": "Je mag de quiz zo vaak maken als je wilt.",
    "deadline_day_offset": null,
    "lock_after_deadline": false
   },
@@ -9519,6 +9663,7 @@
    ],
    "intro": "Neem de tijd. Hoe eerlijker je bent, hoe meer je hieraan hebt.",
    "coach_review": true,
+   "kind": "opdracht",
    "repeatable": false,
    "deadline_day_offset": null,
    "lock_after_deadline": false
@@ -9600,6 +9745,7 @@
    ],
    "intro": "Geef per pijler een cijfer (1-10) en beschrijf waar je nu staat (A) en waar je over 90 dagen wilt staan (B).",
    "coach_review": true,
+   "kind": "opdracht",
    "repeatable": false,
    "deadline_day_offset": null,
    "lock_after_deadline": false
@@ -9645,6 +9791,7 @@
    ],
    "intro": "Vraag steeds opnieuw 'waarom is dát belangrijk?' tot je bij de kern komt.",
    "coach_review": true,
+   "kind": "opdracht",
    "repeatable": false,
    "deadline_day_offset": null,
    "lock_after_deadline": false
@@ -9684,6 +9831,7 @@
     }
    ],
    "coach_review": true,
+   "kind": "opdracht",
    "intro": "",
    "repeatable": false,
    "deadline_day_offset": null,
@@ -9774,6 +9922,7 @@
    "lock_after_deadline": true,
    "intro": "Als je deze opdracht goed maakt, haal je betere resultaten, loop je makkelijker door het traject en weet je waarom jij in actie komt.",
    "coach_review": true,
+   "kind": "opdracht",
    "repeatable": false
   },
   {
@@ -9812,6 +9961,7 @@
    "deadline_day_offset": 5,
    "lock_after_deadline": true,
    "coach_review": true,
+   "kind": "opdracht",
    "intro": "",
    "repeatable": false
   },
@@ -9862,6 +10012,7 @@
    "deadline_day_offset": 5,
    "lock_after_deadline": true,
    "coach_review": true,
+   "kind": "opdracht",
    "intro": "",
    "repeatable": false
   },
@@ -9912,6 +10063,7 @@
    "deadline_day_offset": 5,
    "lock_after_deadline": true,
    "coach_review": true,
+   "kind": "opdracht",
    "intro": "",
    "repeatable": false
   },
@@ -9956,6 +10108,7 @@
    "deadline_day_offset": 5,
    "lock_after_deadline": true,
    "coach_review": true,
+   "kind": "opdracht",
    "intro": "",
    "repeatable": false
   },
@@ -10020,6 +10173,7 @@
    "deadline_day_offset": 5,
    "lock_after_deadline": true,
    "coach_review": true,
+   "kind": "opdracht",
    "intro": "",
    "repeatable": false
   },
@@ -10066,6 +10220,7 @@
    "deadline_day_offset": 5,
    "lock_after_deadline": true,
    "coach_review": true,
+   "kind": "opdracht",
    "intro": "",
    "repeatable": false
   },
@@ -10121,6 +10276,7 @@
    "deadline_day_offset": 5,
    "lock_after_deadline": true,
    "coach_review": true,
+   "kind": "opdracht",
    "intro": "",
    "repeatable": false
   },
@@ -10157,6 +10313,7 @@
    "deadline_day_offset": 5,
    "lock_after_deadline": true,
    "coach_review": true,
+   "kind": "opdracht",
    "intro": "",
    "repeatable": false
   },
@@ -10203,6 +10360,7 @@
    "deadline_day_offset": 5,
    "lock_after_deadline": true,
    "coach_review": true,
+   "kind": "opdracht",
    "intro": "",
    "repeatable": false
   },
@@ -10255,6 +10413,7 @@
    "deadline_day_offset": 5,
    "lock_after_deadline": true,
    "coach_review": true,
+   "kind": "opdracht",
    "intro": "",
    "repeatable": false
   },
@@ -10318,6 +10477,7 @@
    "deadline_day_offset": 5,
    "lock_after_deadline": true,
    "coach_review": true,
+   "kind": "opdracht",
    "intro": "",
    "repeatable": false
   },
@@ -10353,6 +10513,7 @@
    "deadline_day_offset": 5,
    "lock_after_deadline": true,
    "coach_review": true,
+   "kind": "opdracht",
    "intro": "",
    "repeatable": false
   },
@@ -10416,6 +10577,7 @@
    "deadline_day_offset": 5,
    "lock_after_deadline": false,
    "coach_review": true,
+   "kind": "opdracht",
    "intro": "",
    "repeatable": false
   }
@@ -10429,6 +10591,331 @@
    "session_info": "Maandag 20:15 via Zoom",
    "zoom_url": "",
    "active": true
+  }
+ ],
+ "evenementen": [
+  {
+   "ref": "ev-gc-1",
+   "title": "Groepscoaching",
+   "kind": "groepscoaching",
+   "start": "2026-12-10T20:15:00+01:00",
+   "end": "2026-12-10T21:30:00+01:00",
+   "location": "Apex Performance Centre, Papaverstraat 26b, Volendam (1e etage)",
+   "description": "Samen met een groep gelijkgestemden stel je doelen, creëer je focus en word je comfortabel met het oncomfortabele.",
+   "registration": true,
+   "access_packages": [
+    "small_group",
+    "small_group_plus",
+    "performance",
+    "alles"
+   ]
+  },
+  {
+   "ref": "ev-gc-2",
+   "title": "Groepscoaching",
+   "kind": "groepscoaching",
+   "start": "2027-01-07T20:15:00+01:00",
+   "end": "2027-01-07T21:30:00+01:00",
+   "location": "Apex Performance Centre, Papaverstraat 26b, Volendam (1e etage)",
+   "description": "Samen met een groep gelijkgestemden stel je doelen, creëer je focus en word je comfortabel met het oncomfortabele.",
+   "registration": true,
+   "access_packages": [
+    "small_group",
+    "small_group_plus",
+    "performance",
+    "alles"
+   ]
+  },
+  {
+   "ref": "ev-gc-3",
+   "title": "Groepscoaching",
+   "kind": "groepscoaching",
+   "start": "2027-02-04T20:15:00+01:00",
+   "end": "2027-02-04T21:30:00+01:00",
+   "location": "Apex Performance Centre, Papaverstraat 26b, Volendam (1e etage)",
+   "description": "Samen met een groep gelijkgestemden stel je doelen, creëer je focus en word je comfortabel met het oncomfortabele.",
+   "registration": true,
+   "access_packages": [
+    "small_group",
+    "small_group_plus",
+    "performance",
+    "alles"
+   ]
+  },
+  {
+   "ref": "ev-gc-4",
+   "title": "Groepscoaching",
+   "kind": "groepscoaching",
+   "start": "2027-03-04T20:15:00+01:00",
+   "end": "2027-03-04T21:30:00+01:00",
+   "location": "Apex Performance Centre, Papaverstraat 26b, Volendam (1e etage)",
+   "description": "Samen met een groep gelijkgestemden stel je doelen, creëer je focus en word je comfortabel met het oncomfortabele.",
+   "registration": true,
+   "access_packages": [
+    "small_group",
+    "small_group_plus",
+    "performance",
+    "alles"
+   ]
+  },
+  {
+   "ref": "ev-gc-5",
+   "title": "Groepscoaching",
+   "kind": "groepscoaching",
+   "start": "2027-04-01T20:15:00+01:00",
+   "end": "2027-04-01T21:30:00+01:00",
+   "location": "Apex Performance Centre, Papaverstraat 26b, Volendam (1e etage)",
+   "description": "Samen met een groep gelijkgestemden stel je doelen, creëer je focus en word je comfortabel met het oncomfortabele.",
+   "registration": true,
+   "access_packages": [
+    "small_group",
+    "small_group_plus",
+    "performance",
+    "alles"
+   ]
+  },
+  {
+   "ref": "ev-gc-6",
+   "title": "Groepscoaching",
+   "kind": "groepscoaching",
+   "start": "2027-04-29T20:15:00+01:00",
+   "end": "2027-04-29T21:30:00+01:00",
+   "location": "Apex Performance Centre, Papaverstraat 26b, Volendam (1e etage)",
+   "description": "Samen met een groep gelijkgestemden stel je doelen, creëer je focus en word je comfortabel met het oncomfortabele.",
+   "registration": true,
+   "access_packages": [
+    "small_group",
+    "small_group_plus",
+    "performance",
+    "alles"
+   ]
+  },
+  {
+   "ref": "ev-c90-kickoff",
+   "title": "Kickoff 90 Dagen Challenge",
+   "kind": "kickoff",
+   "start": "2026-11-14T10:00:00+01:00",
+   "end": "2026-11-14T14:00:00+01:00",
+   "location": "Apex Performance Centre, Papaverstraat 26b, Volendam (1e etage)",
+   "registration": true,
+   "cohort_key": "c90-voorbeeld",
+   "description": "Live op locatie: de fundamenten voor de komende 90 dagen.",
+   "access_packages": [
+    "challenge_90",
+    "performance",
+    "alles"
+   ]
+  },
+  {
+   "ref": "ev-c90-s1",
+   "title": "90 Dagen Challenge · coachingsessie 1",
+   "kind": "sessie",
+   "start": "2026-11-23T20:15:00+01:00",
+   "end": "2026-11-23T21:30:00+01:00",
+   "online_url": "",
+   "registration": false,
+   "cohort_key": "c90-voorbeeld",
+   "description": "Online via Zoom. De link vind je bovenaan je leerlijn.",
+   "access_packages": [
+    "challenge_90",
+    "performance",
+    "alles"
+   ]
+  },
+  {
+   "ref": "ev-c90-s2",
+   "title": "90 Dagen Challenge · coachingsessie 2",
+   "kind": "sessie",
+   "start": "2026-11-30T20:15:00+01:00",
+   "end": "2026-11-30T21:30:00+01:00",
+   "online_url": "",
+   "registration": false,
+   "cohort_key": "c90-voorbeeld",
+   "description": "Online via Zoom. De link vind je bovenaan je leerlijn.",
+   "access_packages": [
+    "challenge_90",
+    "performance",
+    "alles"
+   ]
+  },
+  {
+   "ref": "ev-c90-s3",
+   "title": "90 Dagen Challenge · coachingsessie 3",
+   "kind": "sessie",
+   "start": "2026-12-07T20:15:00+01:00",
+   "end": "2026-12-07T21:30:00+01:00",
+   "online_url": "",
+   "registration": false,
+   "cohort_key": "c90-voorbeeld",
+   "description": "Online via Zoom. De link vind je bovenaan je leerlijn.",
+   "access_packages": [
+    "challenge_90",
+    "performance",
+    "alles"
+   ]
+  },
+  {
+   "ref": "ev-c90-s4",
+   "title": "90 Dagen Challenge · coachingsessie 4",
+   "kind": "sessie",
+   "start": "2026-12-14T20:15:00+01:00",
+   "end": "2026-12-14T21:30:00+01:00",
+   "online_url": "",
+   "registration": false,
+   "cohort_key": "c90-voorbeeld",
+   "description": "Online via Zoom. De link vind je bovenaan je leerlijn.",
+   "access_packages": [
+    "challenge_90",
+    "performance",
+    "alles"
+   ]
+  },
+  {
+   "ref": "ev-c90-s5",
+   "title": "90 Dagen Challenge · coachingsessie 5",
+   "kind": "sessie",
+   "start": "2026-12-21T20:15:00+01:00",
+   "end": "2026-12-21T21:30:00+01:00",
+   "online_url": "",
+   "registration": false,
+   "cohort_key": "c90-voorbeeld",
+   "description": "Online via Zoom. De link vind je bovenaan je leerlijn.",
+   "access_packages": [
+    "challenge_90",
+    "performance",
+    "alles"
+   ]
+  },
+  {
+   "ref": "ev-c90-s6",
+   "title": "90 Dagen Challenge · coachingsessie 6",
+   "kind": "sessie",
+   "start": "2026-12-28T20:15:00+01:00",
+   "end": "2026-12-28T21:30:00+01:00",
+   "online_url": "",
+   "registration": false,
+   "cohort_key": "c90-voorbeeld",
+   "description": "Online via Zoom. De link vind je bovenaan je leerlijn.",
+   "access_packages": [
+    "challenge_90",
+    "performance",
+    "alles"
+   ]
+  },
+  {
+   "ref": "ev-c90-s7",
+   "title": "90 Dagen Challenge · coachingsessie 7",
+   "kind": "sessie",
+   "start": "2027-01-04T20:15:00+01:00",
+   "end": "2027-01-04T21:30:00+01:00",
+   "online_url": "",
+   "registration": false,
+   "cohort_key": "c90-voorbeeld",
+   "description": "Online via Zoom. De link vind je bovenaan je leerlijn.",
+   "access_packages": [
+    "challenge_90",
+    "performance",
+    "alles"
+   ]
+  },
+  {
+   "ref": "ev-c90-s8",
+   "title": "90 Dagen Challenge · coachingsessie 8",
+   "kind": "sessie",
+   "start": "2027-01-11T20:15:00+01:00",
+   "end": "2027-01-11T21:30:00+01:00",
+   "online_url": "",
+   "registration": false,
+   "cohort_key": "c90-voorbeeld",
+   "description": "Online via Zoom. De link vind je bovenaan je leerlijn.",
+   "access_packages": [
+    "challenge_90",
+    "performance",
+    "alles"
+   ]
+  },
+  {
+   "ref": "ev-c90-s9",
+   "title": "90 Dagen Challenge · coachingsessie 9",
+   "kind": "sessie",
+   "start": "2027-01-18T20:15:00+01:00",
+   "end": "2027-01-18T21:30:00+01:00",
+   "online_url": "",
+   "registration": false,
+   "cohort_key": "c90-voorbeeld",
+   "description": "Online via Zoom. De link vind je bovenaan je leerlijn.",
+   "access_packages": [
+    "challenge_90",
+    "performance",
+    "alles"
+   ]
+  },
+  {
+   "ref": "ev-c90-s10",
+   "title": "90 Dagen Challenge · coachingsessie 10",
+   "kind": "sessie",
+   "start": "2027-01-25T20:15:00+01:00",
+   "end": "2027-01-25T21:30:00+01:00",
+   "online_url": "",
+   "registration": false,
+   "cohort_key": "c90-voorbeeld",
+   "description": "Online via Zoom. De link vind je bovenaan je leerlijn.",
+   "access_packages": [
+    "challenge_90",
+    "performance",
+    "alles"
+   ]
+  },
+  {
+   "ref": "ev-c90-s11",
+   "title": "90 Dagen Challenge · coachingsessie 11",
+   "kind": "sessie",
+   "start": "2027-02-01T20:15:00+01:00",
+   "end": "2027-02-01T21:30:00+01:00",
+   "online_url": "",
+   "registration": false,
+   "cohort_key": "c90-voorbeeld",
+   "description": "Online via Zoom. De link vind je bovenaan je leerlijn.",
+   "access_packages": [
+    "challenge_90",
+    "performance",
+    "alles"
+   ]
+  },
+  {
+   "ref": "ev-c90-s12",
+   "title": "90 Dagen Challenge · coachingsessie 12",
+   "kind": "sessie",
+   "start": "2027-02-08T20:15:00+01:00",
+   "end": "2027-02-08T21:30:00+01:00",
+   "online_url": "",
+   "registration": false,
+   "cohort_key": "c90-voorbeeld",
+   "description": "Online via Zoom. De link vind je bovenaan je leerlijn.",
+   "access_packages": [
+    "challenge_90",
+    "performance",
+    "alles"
+   ]
+  }
+ ],
+ "instellingen": [
+  {
+   "key": "herinneringen",
+   "enabled": false,
+   "test_mode": true,
+   "days": [
+    7,
+    30,
+    30
+   ],
+   "min_progress": 0,
+   "max_progress": 90,
+   "subject": "{voornaam}, je volgende stap staat klaar",
+   "body": "Hoi {voornaam},\n\nHet is alweer even geleden dat je in de Apex leeromgeving bent geweest. Je volgende stap staat voor je klaar: {les} ({leerlijn}).\n\nPak hem vandaag op, al is het maar tien minuten: {link}\n\nSportieve groet,\nJeroen",
+   "app_url": "https://app.apexonlinecoaching.nl/leren",
+   "event_reminders": true,
+   "from_name": "Apex Online Coaching"
   }
  ]
 }

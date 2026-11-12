@@ -6,6 +6,7 @@ import VimeoPlayer from "../VimeoPlayer";
 import LessonContent from "./LessonContent";
 import TranscriptPanel from "./TranscriptPanel";
 import AssignmentPanel from "./AssignmentPanel";
+import QuizPanel from "./QuizPanel";
 import { markComplete, markIncomplete } from "../lib/api";
 import { CATEGORY_LABEL } from "../lib/config";
 
@@ -86,7 +87,14 @@ export default function LessonView({ lessonId, derived, user, mine, refreshMine,
 
       <LessonContent lesson={lesson} />
 
-      {assignment && (
+      {assignment?.kind === "quiz" && (
+        <QuizPanel key={assignment.id} assignment={assignment} lesson={lesson} derived={derived} user={user}
+          onSaved={async (passed) => {
+            if (passed && !done) await markComplete(user, lesson);
+            await refreshMine();
+          }} />
+      )}
+      {assignment && assignment.kind !== "quiz" && (
         <AssignmentPanel key={assignment.id} assignment={assignment} lesson={lesson} module={module} track={track}
           derived={derived} user={user}
           onSaved={async (submitted) => {

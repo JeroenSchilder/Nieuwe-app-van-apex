@@ -10,25 +10,25 @@ export default function MyAssignments({ derived, onOpenLesson }) {
     .map((l) => {
       const a = derived.assignmentsById[l.assignment_id];
       const subs = derived.submissionsByAssignment[a.id] || [];
-      const sub = a.repeatable ? null : subs[0];
+      const sub = a.kind === "quiz" ? subs.find((x) => x.passed) || subs[0] : a.repeatable ? null : subs[0];
       const deadline = assignmentDeadline(a, t.lessonState[l.id].module, t, t.schedule);
       const missed = !a.repeatable && a.lock_after_deadline && isPastDeadline(deadline)
         && (!sub || sub.status === "concept");
       return { t, l, a, sub, count: subs.length, deadline, missed };
     }));
 
-  const open = rows.filter((r) => !r.a.repeatable && !r.missed && (!r.sub || ["concept", "heropend"].includes(r.sub.status)));
+  const open = rows.filter((r) => (r.a.kind === "quiz" ? !r.sub?.passed : !r.a.repeatable && (!r.sub || ["concept", "heropend"].includes(r.sub.status))) && !r.missed);
   const rest = rows.filter((r) => !open.includes(r) && !r.missed);
   const missed = rows.filter((r) => r.missed);
 
   const Row = ({ r }) => {
-    const status = r.a.repeatable ? null : r.sub?.status || "open";
+    const status = r.a.kind === "quiz" ? (r.sub ? (r.sub.passed ? "goedgekeurd" : "heropend") : "open") : r.a.repeatable ? null : r.sub?.status || "open";
     return (
       <button onClick={() => onOpenLesson(r.l.id)} className="flex w-full items-center gap-3 rounded-lg border bg-card p-4 text-left hover:border-primary">
         <div className="min-w-0 flex-1 space-y-1">
           <p className="font-medium leading-snug">{r.a.title}</p>
           <p className="text-xs text-muted-foreground">
-            {r.t.title.split("·")[0].trim()}{r.deadline ? ` · deadline ${formatDate(r.deadline, true)}` : ""}{r.a.repeatable ? ` · ${r.count}× ingevuld` : ""}
+            {r.t.title.split("·")[0].trim()}{r.deadline ? ` · deadline ${formatDate(r.deadline, true)}` : ""}{r.a.kind === "quiz" && r.sub ? ` · beste score ${Math.max(...(derived.submissionsByAssignment[r.a.id] || []).map((x) => x.score || 0))}%` : r.a.repeatable ? ` · ${r.count}× ingevuld` : ""}
           </p>
           <div className="flex flex-wrap gap-1">
             {r.sub?.feedback && !r.sub.feedback_seen && <Badge>Nieuwe feedback</Badge>}

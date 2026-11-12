@@ -6,9 +6,11 @@ De module is geschreven volgens de officiële Base44-conventies: Vite + React, s
 
 | Map in `base44-app/` | Inhoud |
 |---|---|
-| `base44/entities/` | 8 nieuwe entiteiten (`Leer*.jsonc`), met rechten (RLS) |
+| `base44/entities/` | 12 nieuwe entiteiten (`Leer*.jsonc`), met rechten (RLS): content, voortgang, inzendingen, agenda, aanmeldingen, instellingen, herinneringenlog |
 | `base44/entities/User.velden-toevoegen.jsonc` | 5 velden die je **toevoegt** aan je bestaande `User.jsonc`. Dit is geen nieuw bestand |
 | `base44/functions/leer-toegang/entry.ts` | Backend-functie waarmee een admin pakketten toekent |
+| `base44/functions/leer-herinneringen/entry.ts` | Backend-functie voor de herinneringen: inactieve leden (7/30/30 dagen) en agenda (dag van tevoren) |
+| `base44/workflows/Leeromgeving herinneringen.jsonc` | Workflow die die functie elke ochtend om 08:47 draait (Builder-plan of hoger) |
 | `src/pages/` | `Leeromgeving.jsx` (leden), `LeerCoach.jsx` (coach), `LeerBeheer.jsx` (admin) |
 | `src/components/leeromgeving/` | Alle onderdelen en de logica |
 | `../content/leeromgeving-seed.json` | Alle startcontent: 171 lessen en 19 opdrachten |
@@ -59,9 +61,20 @@ Open in je app `base44/entities/User.jsonc` en voeg de 5 velden uit `User.velden
 
 > Backend-functies vragen een betaald Base44-abonnement. Heb je dat niet, dan zet je pakketten via het dashboard.
 
-## Stap 2: entiteiten en functie
+## Stap 2: entiteiten, functies en workflow
 
-Zet de 8 `Leer*.jsonc`-bestanden in `base44/entities/` en de map `leer-toegang` in `base44/functions/`. In de sandbox staan ze live zodra ze zijn weggeschreven.
+Zet de 12 `Leer*.jsonc`-bestanden in `base44/entities/`, de mappen `leer-toegang` en `leer-herinneringen` in `base44/functions/`, en het workflowbestand in `base44/workflows/`. In de sandbox staan ze live zodra ze zijn weggeschreven.
+
+## Stap 2b: herinneringen aanzetten
+
+Herinneringen staan standaard **uit**, met proefmodus aan. Zo gaat er niets per ongeluk de deur uit.
+
+1. Ga naar **Beheer → Herinneringen**.
+2. Controleer de dagen (standaard 7, 30 en 30), de tekst en de link.
+3. Klik op **Proefrun** om te zien wie er nu een mail zou krijgen.
+4. Is dat goed? Vink *Herinneringen aan* aan en haal *Proefmodus* weg.
+
+De mails gaan via Base44 (SendEmail) naar je app-gebruikers.
 
 ## Stap 3: routes in `src/App.jsx`
 

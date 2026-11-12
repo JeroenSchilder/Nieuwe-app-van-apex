@@ -41,6 +41,18 @@ export default function AssignmentEditor({ assignment, lesson, onSaved, onCancel
       <h3 className="font-semibold">{a.id ? "Opdracht bewerken" : "Nieuwe opdracht"}</h3>
       <div className="space-y-2"><Label>Titel</Label><Input value={a.title || ""} onChange={(e) => set("title", e.target.value)} /></div>
       <div className="space-y-2"><Label>Uitleg</Label><Textarea rows={2} value={a.intro || ""} onChange={(e) => set("intro", e.target.value)} /></div>
+      <div className="flex flex-wrap items-center gap-4 text-sm">
+        <label className="flex items-center gap-2">Soort
+          <select className="h-9 rounded-md border bg-background px-2" value={a.kind || "opdracht"} onChange={(e) => set("kind", e.target.value)}>
+            <option value="opdracht">Invulopdracht</option><option value="quiz">Quiz met score</option>
+          </select>
+        </label>
+        {a.kind === "quiz" && (
+          <label className="flex items-center gap-2">Geslaagd vanaf
+            <Input type="number" className="h-9 w-20" value={a.pass_percentage ?? 70} onChange={(e) => set("pass_percentage", Number(e.target.value))} /> %
+          </label>
+        )}
+      </div>
       <div className="grid gap-3 text-sm sm:grid-cols-2">
         <label className="flex items-center gap-2"><input type="checkbox" className="accent-primary" checked={!!a.repeatable} onChange={(e) => set("repeatable", e.target.checked)} /> Meerdere keren invulbaar</label>
         <label className="flex items-center gap-2"><input type="checkbox" className="accent-primary" checked={a.coach_review !== false} onChange={(e) => set("coach_review", e.target.checked)} /> Coach geeft feedback</label>
@@ -65,6 +77,17 @@ export default function AssignmentEditor({ assignment, lesson, onSaved, onCancel
               <Button size="icon" variant="ghost" disabled={i === a.fields.length - 1} onClick={() => move(i, 1)}><ArrowDown className="h-4 w-4" /></Button>
               <Button size="icon" variant="ghost" onClick={() => set("fields", a.fields.filter((_, j) => j !== i))}><Trash2 className="h-4 w-4" /></Button>
             </div>
+            {f.type === "quiz" && (
+              <div className="grid gap-2 sm:col-span-12 sm:grid-cols-2">
+                <Input placeholder="Antwoordopties, gescheiden door ;" value={(f.options || []).join("; ")}
+                  onChange={(e) => setField(i, { options: e.target.value.split(";").map((x) => x.trim()).filter(Boolean) })} />
+                <select className="h-10 rounded-md border bg-background px-2 text-sm" value={f.correct || ""} onChange={(e) => setField(i, { correct: e.target.value })}>
+                  <option value="">Kies het goede antwoord…</option>
+                  {(f.options || []).map((o) => <option key={o} value={o}>{o}</option>)}
+                </select>
+                <Input className="sm:col-span-2" placeholder="Uitleg na het antwoorden (optioneel)" value={f.explanation || ""} onChange={(e) => setField(i, { explanation: e.target.value })} />
+              </div>
+            )}
             {f.type === "select" && (
               <Input className="sm:col-span-12" placeholder="Opties, gescheiden door komma's" value={(f.options || []).join(", ")}
                 onChange={(e) => setField(i, { options: e.target.value.split(",").map((s) => s.trim()).filter(Boolean) })} />

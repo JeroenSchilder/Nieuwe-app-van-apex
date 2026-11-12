@@ -1,7 +1,7 @@
 // Nagebootste Base44-client voor de lokale preview. Data staat in localStorage van de browser.
 // Bootst ook de RLS-regels na (LeerLes per pakket; inzendingen/voortgang alleen eigen, coach of admin).
 
-const KEY = "apex-leeromgeving-demo-v3";
+const KEY = "apex-leeromgeving-demo-v4";
 const listeners = new Set();
 
 function load() {
@@ -45,7 +45,9 @@ function matches(rec, query = {}) {
 function canRead(entity, rec, u) {
   if (!u) return false;
   if (u.role === "admin") return true;
-  if (entity === "LeerLes") return (rec.access_packages || []).some((p) => (u.apex_packages || []).includes(p));
+  if (entity === "LeerLes" || entity === "LeerEvent") return (rec.access_packages || []).some((p) => (u.apex_packages || []).includes(p));
+  if (entity === "LeerAanmelding") return rec.created_by_id === u.id || (rec.coach_email && rec.coach_email === u.email);
+  if (entity === "LeerHerinnering") return false;
   if (entity === "LeerInzending" || entity === "LeerVoortgang") {
     return rec.created_by_id === u.id || (rec.coach_email && rec.coach_email === u.email);
   }
@@ -92,6 +94,30 @@ function handler(name) {
 
 const entities = new Proxy({}, { get: (_, name) => handler(name) });
 
+// Vereenvoudigde versie van base44/functions/leer-herinneringen (alleen proefrun, verstuurt niets).
+function mockReminders() {
+  const DAY = 86400000;
+  const cfg = demo.table("LeerInstelling").find((x) => x.key === "herinneringen") || { days: [7, 30, 30], min_progress: 0, max_progress: 90 };
+  const lessons = demo.table("LeerLes");
+  const tracks = Object.fromEntries(demo.table("LeerTraject").map((t) => [t.key, t]));
+  const out = { dry_run: true, enabled: !!cfg.enabled, inactief: [], agenda: [] };
+  for (const u of demo.table("User").filter((x) => x.role !== "admin" && x.apex_role !== "coach")) {
+    const pk = u.apex_packages || [];
+    const mine = lessons.filter((l) => tracks[l.track_key]?.published && tracks[l.track_key]?.type !== "bibliotheek" && (l.access_packages || []).some((p) => pk.includes(p)) && (tracks[l.track_key].access_packages || []).some((p) => pk.includes(p)));
+    const prog = demo.table("LeerVoortgang").filter((p) => p.member_email === u.email);
+    const acts = [...prog.map((p) => new Date(p.completed_at).getTime()), ...demo.table("LeerInzending").filter((x) => x.member_email === u.email).map((x) => new Date(x.updated_date).getTime())];
+    if (!acts.length || !mine.length) continue;
+    const last = Math.max(...acts);
+    const done = new Set(prog.map((p) => p.les_id));
+    const pct = Math.round((mine.filter((l) => done.has(l.id)).length / mine.length) * 100);
+    const days = Math.floor((Date.now() - last) / DAY);
+    if (pct < cfg.min_progress || pct > cfg.max_progress || days < (cfg.days?.[0] || 7)) continue;
+    const next = mine.find((l) => !done.has(l.id));
+    out.inactief.push({ email: u.email, naam: u.full_name, herinnering: 1, dagen_niet_actief: days, voortgang: pct, volgende_les: next?.title || "" });
+  }
+  return out;
+}
+
 export const base44 = {
   entities,
   auth: {
@@ -121,8 +147,9 @@ export const base44 = {
   },
   functions: {
     async invoke(fn, payload) {
-      if (fn !== "leer-toegang") throw Object.assign(new Error("Onbekende functie"), { response: { status: 404 } });
       if (me()?.role !== "admin") throw Object.assign(new Error("Geen toegang"), { response: { status: 403 } });
+      if (fn === "leer-herinneringen") return { data: mockReminders() };
+      if (fn !== "leer-toegang") throw Object.assign(new Error("Onbekende functie"), { response: { status: 404 } });
       const u = await entities.User.update(payload.user_id, payload.values);
       return { data: { success: true, user: u } };
     },

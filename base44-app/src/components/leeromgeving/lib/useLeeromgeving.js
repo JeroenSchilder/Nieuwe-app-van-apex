@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { base44 } from "@/api/base44Client";
-import { loadContent, loadMyState } from "./api";
+import { loadAgenda, loadContent, loadMyState } from "./api";
 import { canSeeLesson, canSeeTrack, moduleUnlock, sequentialLocked, trackSchedule, userField } from "./access";
 
 // Laadt gebruiker + content + eigen voortgang, en bouwt daar een kant-en-klare structuur van.
@@ -8,19 +8,25 @@ export default function useLeeromgeving() {
   const [user, setUser] = useState(null);
   const [content, setContent] = useState(null);
   const [mine, setMine] = useState({ progress: [], submissions: [] });
+  const [agenda, setAgenda] = useState({ events: [], registrations: [] });
   const [loading, setLoading] = useState(true);
 
   const refreshMine = useCallback(async (u) => {
     setMine(await loadMyState(u || user));
   }, [user]);
 
+  const refreshAgenda = useCallback(async (u) => {
+    setAgenda(await loadAgenda(u || user));
+  }, [user]);
+
   useEffect(() => {
     (async () => {
       const me = await base44.auth.me();
-      const [c, m] = await Promise.all([loadContent(), loadMyState(me)]);
+      const [c, m, a] = await Promise.all([loadContent(), loadMyState(me), loadAgenda(me)]);
       setUser(me);
       setContent(c);
       setMine(m);
+      setAgenda(a);
       setLoading(false);
     })();
   }, []);
@@ -70,5 +76,5 @@ export default function useLeeromgeving() {
     return { tracks, lockedTracks, lessonIndex, doneIds, cohort, assignmentsById, submissionsByAssignment };
   }, [content, user, mine]);
 
-  return { loading, user, content, mine, derived, refreshMine };
+  return { loading, user, content, mine, agenda, derived, refreshMine, refreshAgenda };
 }

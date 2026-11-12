@@ -45,6 +45,7 @@ export const FIELD_TYPES = [
   { key: "checkbox", label: "Vinkje (ja/nee)" },
   { key: "date", label: "Datum" },
   { key: "info", label: "Alleen uitleg (geen invulveld)" },
+  { key: "quiz", label: "Quizvraag (meerkeuze, met goed antwoord)" },
 ];
 
 export const ROUTES = {
@@ -52,3 +53,6 @@ export const ROUTES = {
   coach: "/leren/coach",
   admin: "/leren/beheer",
 };
+
+// Link waar leden zelf hun InBody-meting inplannen (Trainin).
+export const MEASUREMENT_URL = "https://apexonlinecoaching.trainin.app/activities/L67JD/meting-inbody-met-advies-fotos-en-omtrekmeting";

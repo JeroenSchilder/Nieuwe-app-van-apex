@@ -1,0 +1,98 @@
+{
+  "name": "LeerAanmelding",
+  "type": "object",
+  "description": "Aanmelding van een lid voor een agenda-item",
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "description": "LeerEvent ID"
+    },
+    "event_title": {
+      "type": "string",
+      "description": "Titel"
+    },
+    "event_start": {
+      "type": "string",
+      "description": "Begin",
+      "format": "date-time"
+    },
+    "member_email": {
+      "type": "string",
+      "description": "E-mail lid"
+    },
+    "member_name": {
+      "type": "string",
+      "description": "Naam lid"
+    },
+    "coach_email": {
+      "type": "string",
+      "description": "E-mail coach"
+    },
+    "status": {
+      "type": "string",
+      "description": "Status",
+      "enum": [
+        "aangemeld",
+        "afgemeld"
+      ],
+      "default": "aangemeld",
+      "enumColors": [
+        "green",
+        "gray"
+      ]
+    },
+    "reminder_sent": {
+      "type": "boolean",
+      "default": false,
+      "description": "Herinnering verstuurd"
+    }
+  },
+  "required": [
+    "event_id",
+    "member_email"
+  ],
+  "rls": {
+    "create": {
+      "data.member_email": "{{user.email}}"
+    },
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "data.coach_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

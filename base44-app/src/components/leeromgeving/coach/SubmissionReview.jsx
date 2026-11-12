@@ -34,6 +34,7 @@ export default function SubmissionReview({ submission, assignment, user, onBack,
           <p className="text-sm text-muted-foreground">
             {submission.member_name} · {submission.member_email}
             {submission.submitted_at && ` · ingeleverd ${formatDate(submission.submitted_at, true)}`}
+            {submission.score != null && ` · score ${submission.score}%${submission.passed ? " (geslaagd)" : ""}`}
           </p>
         </CardHeader>
         <CardContent>

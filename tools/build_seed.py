@@ -103,7 +103,7 @@ def opdracht(ref, title, track_key, lesson_ref, fields, **kw):
 # ===========================================================================
 traject(key="fase1", title="Fase 1 · Start bij Apex", order=1, type="stappenplan", sequential=True,
         drip="geen", icon="Rocket", access_packages=ALL,
-        subtitle="In 9 stappen klaar voor je intake",
+        subtitle="In 9 stappen en een korte check klaar voor je intake",
         description="Kijk de video's op volgorde en voer na elke video de actie uit. Zo heb ik zo snel "
                     "mogelijk al jouw informatie en ben ik goed voorbereid op je intake.")
 module("f1-m1", "fase1", "Jouw stappenplan", 1, description="Rond de stappen op volgorde af.")
@@ -191,6 +191,31 @@ opdracht("op-sll", "Observaties Straight Line Leadership", "fase1", "f1-s8", rep
                  f("inzicht", "Wat is je belangrijkste inzicht uit dit hoofdstuk?", required=True),
                  f("herkenning", "Waar herken je jezelf in?"),
                  f("toepassen", "Wat ga je vandaag of deze week anders doen?")])
+
+les("f1-quiz", "fase1", "f1-m1", "Check: ben je klaar voor je intake?", 10, step_label="Afsluiter",
+    categories=["start"], access_packages=ALL, assignment_ref="op-f1-quiz", needs_review=True,
+    summary="Acht korte vragen over je stappenplan. Haal je 75% of meer, dan ben je klaar voor je intake.")
+
+def q(key, label, options, correct, explanation=""):
+    return dict(key=key, label=label, type="quiz", options=options, correct=correct, explanation=explanation)
+
+opdracht("op-f1-quiz", "Klaar voor je intake?", "fase1", "f1-quiz", kind="quiz", pass_percentage=75, repeatable=True,
+         coach_review=False, intro="Je mag de quiz zo vaak maken als je wilt.",
+         fields=[q("eten", "Hoe lang van tevoren eet je niet meer voor de InBody-meting?", ["1 uur", "2 uur", "3 uur", "6 uur"], "3 uur",
+                   "Eten beïnvloedt de meting; 3 uur van tevoren niet eten."),
+                 q("drinken", "Hoe lang van tevoren drink je niet meer?", ["30 minuten", "1 uur", "2 uur", "3 uur"], "2 uur"),
+                 q("trainen", "Mag je trainen op de dag van je meting?", ["Ja, als het licht is", "Nee", "Alleen cardio"], "Nee",
+                   "Training verandert je vochtbalans en daarmee de uitslag."),
+                 q("sieraden", "Wat doe je af voordat je op de InBody stapt?", ["Je sieraden", "Niets", "Alleen je schoenen"], "Je sieraden",
+                   "Sieraden kunnen de meting beïnvloeden. Kom ook met schone voeten."),
+                 q("fotos", "Waarom maken we foto's bij de startmeting?",
+                   ["Voor social media", "Om je startpositie vast te leggen en later te vergelijken", "Dat is verplicht voor de verzekering"],
+                   "Om je startpositie vast te leggen en later te vergelijken"),
+                 q("trainin", "Waar plan je je meting in?", ["In de Apex app", "In Trainin", "Via WhatsApp"], "In Trainin"),
+                 q("sll", "Hoe lees je Straight Line Leadership?",
+                   ["In één weekend uit", "Elke dag één hoofdstuk, en je observaties vul je in de app in", "Alleen de samenvattingen"],
+                   "Elke dag één hoofdstuk, en je observaties vul je in de app in"),
+                 q("meting", "Hoe vaak is er een InBody-meting?", ["Elke week", "Elke 4 weken", "Eén keer per kwartaal"], "Elke 4 weken")])
 
 # ===========================================================================
 # FASE 2 — Je doel stellen
@@ -752,13 +777,45 @@ for l in LESSEN:
     if "alles" not in l["access_packages"]:
         l["access_packages"] = l["access_packages"] + ["alles"]
 for o in OPDRACHTEN:
+    o.setdefault("kind", "opdracht")
     o.setdefault("intro", "")
     o.setdefault("repeatable", False)
     o.setdefault("deadline_day_offset", None)
     o.setdefault("lock_after_deadline", False)
 
+# ---------------------------------------------------------------------------
+# AGENDA — voorbeelden; aanpassen in Beheer → Agenda
+# ---------------------------------------------------------------------------
+import datetime as _dt
+EVENTS = []
+APEX_ADRES = "Apex Performance Centre, Papaverstraat 26b, Volendam (1e etage)"
+gc = _dt.datetime(2026, 12, 10, 20, 15)
+for i in range(6):  # groepscoaching: elke 4 weken op donderdag
+    d = gc + _dt.timedelta(weeks=4 * i)
+    EVENTS.append(dict(ref=f"ev-gc-{i+1}", title="Groepscoaching", kind="groepscoaching", start=d.strftime("%Y-%m-%dT%H:%M:00+01:00"),
+                       end=(d + _dt.timedelta(hours=1, minutes=15)).strftime("%Y-%m-%dT%H:%M:00+01:00"), location=APEX_ADRES,
+                       description="Samen met een groep gelijkgestemden stel je doelen, creëer je focus en word je comfortabel met het oncomfortabele.",
+                       registration=True, access_packages=["small_group", "small_group_plus", "performance", "alles"]))
+c0 = _dt.datetime(2026, 11, 16, 20, 15)
+EVENTS.append(dict(ref="ev-c90-kickoff", title="Kickoff 90 Dagen Challenge", kind="kickoff",
+                   start=(c0 - _dt.timedelta(days=2, hours=10, minutes=15)).strftime("%Y-%m-%dT%H:%M:00+01:00"),
+                   end=(c0 - _dt.timedelta(days=2, hours=6, minutes=15)).strftime("%Y-%m-%dT%H:%M:00+01:00"),
+                   location=APEX_ADRES, registration=True, cohort_key="c90-voorbeeld",
+                   description="Live op locatie: de fundamenten voor de komende 90 dagen.", access_packages=CHALLENGE))
+for w in range(1, 13):
+    d = c0 + _dt.timedelta(weeks=w)
+    EVENTS.append(dict(ref=f"ev-c90-s{w}", title=f"90 Dagen Challenge · coachingsessie {w}", kind="sessie",
+                       start=d.strftime("%Y-%m-%dT%H:%M:00+01:00"), end=(d + _dt.timedelta(hours=1, minutes=15)).strftime("%Y-%m-%dT%H:%M:00+01:00"),
+                       online_url="", registration=False, cohort_key="c90-voorbeeld",
+                       description="Online via Zoom. De link vind je bovenaan je leerlijn.", access_packages=CHALLENGE))
+
+INSTELLINGEN = [dict(key="herinneringen", enabled=False, test_mode=True, days=[7, 30, 30], min_progress=0, max_progress=90,
+                     subject="{voornaam}, je volgende stap staat klaar",
+                     body="Hoi {voornaam},\n\nHet is alweer even geleden dat je in de Apex leeromgeving bent geweest. Je volgende stap staat voor je klaar: {les} ({leerlijn}).\n\nPak hem vandaag op, al is het maar tien minuten: {link}\n\nSportieve groet,\nJeroen",
+                     app_url="https://app.apexonlinecoaching.nl/leren", event_reminders=True, from_name="Apex Online Coaching")]
+
 seed = dict(version=1, pakketten=PAKKETTEN, trajecten=TRAJECTEN, modules=MODULES, lessen=LESSEN,
-            opdrachten=OPDRACHTEN, cohorten=COHORTEN)
+            opdrachten=OPDRACHTEN, cohorten=COHORTEN, evenementen=EVENTS, instellingen=INSTELLINGEN)
 OUT.write_text(json.dumps(seed, ensure_ascii=False, indent=1))
 print(f"{OUT.relative_to(ROOT)}: {len(TRAJECTEN)} leerlijnen, {len(MODULES)} modules, {len(LESSEN)} lessen "
       f"({sum(1 for l in LESSEN if l['vimeo_id'])} met video), {len(OPDRACHTEN)} opdrachten")

@@ -81,6 +81,15 @@
       "type": "boolean",
       "default": false,
       "description": "Lid heeft feedback gezien"
+    },
+    "score": {
+      "type": "number",
+      "description": "Quiz: score in procenten"
+    },
+    "passed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Quiz: geslaagd"
     }
   },
   "required": [

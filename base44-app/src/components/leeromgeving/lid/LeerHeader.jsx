@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ClipboardCheck, Home, Library, Settings, Users } from "lucide-react";
+import { CalendarDays, ClipboardCheck, Home, Library, Settings, Users } from "lucide-react";
 import { isAdmin, isCoach } from "../lib/access";
 import { ROUTES } from "../lib/config";
 
@@ -7,6 +7,7 @@ const TABS = [
   { key: "home", label: "Mijn traject", icon: Home },
   { key: "bibliotheek", label: "Bibliotheek", icon: Library },
   { key: "opdrachten", label: "Opdrachten", icon: ClipboardCheck },
+  { key: "agenda", label: "Agenda", icon: CalendarDays },
 ];
 
 export default function LeerHeader({ user, tab, onTab, badge = 0 }) {
@@ -28,7 +29,7 @@ export default function LeerHeader({ user, tab, onTab, badge = 0 }) {
           </Link>
         )}
       </div>
-      <nav className="mx-auto flex max-w-5xl gap-1 px-2">
+      <nav className="mx-auto flex max-w-5xl gap-1 overflow-x-auto px-2">
         {TABS.map(({ key, label, icon: Icon }) => (
           <button
             key={key}

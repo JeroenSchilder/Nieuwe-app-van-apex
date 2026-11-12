@@ -43,7 +43,8 @@
               "select",
               "checkbox",
               "date",
-              "info"
+              "info",
+              "quiz"
             ]
           },
           "help": {
@@ -67,6 +68,14 @@
           "max": {
             "type": "number",
             "description": ""
+          },
+          "correct": {
+            "type": "string",
+            "description": "Quiz: het juiste antwoord (moet gelijk zijn aan één van de opties)"
+          },
+          "explanation": {
+            "type": "string",
+            "description": "Quiz: uitleg na het antwoorden"
           }
         }
       },
@@ -94,6 +103,19 @@
     "ref": {
       "type": "string",
       "description": "Bron-referentie (import)"
+    },
+    "kind": {
+      "type": "string",
+      "description": "Soort: invulopdracht of quiz met score",
+      "enum": [
+        "opdracht",
+        "quiz"
+      ],
+      "default": "opdracht"
+    },
+    "pass_percentage": {
+      "type": "number",
+      "description": "Quiz: minimale score in procenten om te slagen"
     }
   },
   "required": [

@@ -60,6 +60,13 @@ export async function importSeed(seed, { overwrite = false, log = () => {} } = {
     assignment_id: l.assignment_ref ? opMap[l.assignment_ref] || "" : "",
   }));
 
+  log("Agenda…");
+  const curEvents = await E().LeerEvent.list("start", 2000);
+  await upsert("LeerEvent", seed.evenementen || [], "ref", curEvents);
+  log("Instellingen…");
+  const curSettings = await E().LeerInstelling.list(null, 50);
+  await upsert("LeerInstelling", seed.instellingen || [], "key", curSettings);
+
   log("Opdrachten koppelen aan lessen…");
   for (const o of seed.opdrachten || []) {
     if (o.lesson_ref && opMap[o.ref] && lesMap[o.lesson_ref]) {

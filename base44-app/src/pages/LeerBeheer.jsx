@@ -6,6 +6,8 @@ import AdminContent from "@/components/leeromgeving/beheer/AdminContent";
 import AdminImport from "@/components/leeromgeving/beheer/AdminImport";
 import AdminMembers from "@/components/leeromgeving/beheer/AdminMembers";
 import AdminSettings from "@/components/leeromgeving/beheer/AdminSettings";
+import AdminAgenda from "@/components/leeromgeving/beheer/AdminAgenda";
+import AdminReminders from "@/components/leeromgeving/beheer/AdminReminders";
 import { isAdmin } from "@/components/leeromgeving/lib/access";
 import { loadContent } from "@/components/leeromgeving/lib/api";
 import { ROUTES } from "@/components/leeromgeving/lib/config";
@@ -13,6 +15,8 @@ import { ROUTES } from "@/components/leeromgeving/lib/config";
 const TABS = [
   { key: "leden", label: "Leden & toegang" },
   { key: "content", label: "Lessen & opdrachten" },
+  { key: "agenda", label: "Agenda" },
+  { key: "herinneringen", label: "Herinneringen" },
   { key: "instellingen", label: "Leerlijnen & rondes" },
   { key: "import", label: "Import / export" },
 ];
@@ -59,6 +63,8 @@ export default function LeerBeheer() {
         {empty && <p className="mb-4 rounded-lg border border-primary/40 bg-primary/5 p-4 text-sm">Nog geen content. Importeer eerst <code>leeromgeving-seed.json</code>.</p>}
         {active === "leden" && <AdminMembers content={content} />}
         {active === "content" && <AdminContent content={content} reload={reload} />}
+        {active === "agenda" && <AdminAgenda content={content} />}
+        {active === "herinneringen" && <AdminReminders />}
         {active === "instellingen" && <AdminSettings content={content} reload={reload} />}
         {active === "import" && <AdminImport onDone={reload} />}
       </main>

@@ -1,0 +1,117 @@
+{
+  "name": "LeerEvent",
+  "type": "object",
+  "description": "Agenda-item: groepscoaching, sessie, meting of event",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Titel"
+    },
+    "kind": {
+      "type": "string",
+      "description": "Soort",
+      "enum": [
+        "groepscoaching",
+        "sessie",
+        "meting",
+        "kickoff",
+        "training",
+        "event"
+      ],
+      "default": "groepscoaching",
+      "enumColors": [
+        "purple",
+        "blue",
+        "green",
+        "yellow",
+        "gray",
+        "pink"
+      ]
+    },
+    "start": {
+      "type": "string",
+      "description": "Begin",
+      "format": "date-time"
+    },
+    "end": {
+      "type": "string",
+      "description": "Einde",
+      "format": "date-time"
+    },
+    "location": {
+      "type": "string",
+      "description": "Locatie (adres)"
+    },
+    "online_url": {
+      "type": "string",
+      "description": "Online link (Zoom)"
+    },
+    "description": {
+      "type": "string",
+      "description": "Omschrijving"
+    },
+    "booking_url": {
+      "type": "string",
+      "description": "Externe inschrijflink (bijv. Trainin voor een meting)"
+    },
+    "registration": {
+      "type": "boolean",
+      "default": true,
+      "description": "Leden kunnen zich aanmelden"
+    },
+    "capacity": {
+      "type": "number",
+      "description": "Maximaal aantal deelnemers (leeg = onbeperkt)"
+    },
+    "cohort_key": {
+      "type": "string",
+      "description": "Alleen voor deze ronde (LeerCohort key), leeg = iedereen met het pakket"
+    },
+    "access_packages": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Pakketten die dit item zien"
+    },
+    "ref": {
+      "type": "string",
+      "description": "Bron-referentie (import)"
+    }
+  },
+  "required": [
+    "title",
+    "start"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "data.access_packages": {
+            "$in": "{{user.data.apex_packages}}"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

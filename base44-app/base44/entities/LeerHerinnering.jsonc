@@ -1,0 +1,70 @@
+{
+  "name": "LeerHerinnering",
+  "type": "object",
+  "description": "Logboek van verstuurde herinneringen",
+  "properties": {
+    "member_email": {
+      "type": "string",
+      "description": "E-mail lid"
+    },
+    "member_name": {
+      "type": "string",
+      "description": "Naam lid"
+    },
+    "kind": {
+      "type": "string",
+      "description": "Soort",
+      "enum": [
+        "inactief",
+        "agenda"
+      ]
+    },
+    "number": {
+      "type": "number",
+      "description": "Volgnummer (1, 2, 3)"
+    },
+    "sent_at": {
+      "type": "string",
+      "description": "Verstuurd op",
+      "format": "date-time"
+    },
+    "days_inactive": {
+      "type": "number",
+      "description": "Dagen niet actief"
+    },
+    "test": {
+      "type": "boolean",
+      "default": false,
+      "description": "Proefmodus (niet echt verstuurd)"
+    },
+    "detail": {
+      "type": "string",
+      "description": "Toelichting"
+    }
+  },
+  "required": [
+    "member_email"
+  ],
+  "rls": {
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "name": "LeerInstelling",
+  "type": "object",
+  "description": "Instellingen van de leeromgeving (o.a. herinneringen)",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "Sleutel, bijv. herinneringen"
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Aan"
+    },
+    "test_mode": {
+      "type": "boolean",
+      "default": true,
+      "description": "Proefmodus: alleen bepalen wie een mail zou krijgen, niets versturen"
+    },
+    "days": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "description": "Dagen zonder activiteit per herinnering, bijv. [7, 30, 30]"
+    },
+    "min_progress": {
+      "type": "number",
+      "description": "Alleen bij voortgang vanaf (%)"
+    },
+    "max_progress": {
+      "type": "number",
+      "description": "Alleen bij voortgang tot (%)"
+    },
+    "subject": {
+      "type": "string",
+      "description": "Onderwerp van de mail"
+    },
+    "body": {
+      "type": "string",
+      "description": "Tekst van de mail. Gebruik {voornaam}, {les}, {leerlijn}, {link}"
+    },
+    "app_url": {
+      "type": "string",
+      "description": "Link naar de leeromgeving, bijv. https://app.apexonlinecoaching.nl/leren"
+    },
+    "event_reminders": {
+      "type": "boolean",
+      "default": true,
+      "description": "Dag van tevoren een herinnering sturen voor agenda-items waarvoor iemand is aangemeld"
+    },
+    "from_name": {
+      "type": "string",
+      "description": "Afzendernaam"
+    }
+  },
+  "required": [
+    "key"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
