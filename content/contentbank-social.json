@@ -1,0 +1,1558 @@
+{
+ "versie": 1,
+ "uitleg": "Ideeën voor social media uit de bibliotheek van de Apex leeromgeving. vimeo_id verwijst naar de video in het Vimeo-account van Apex; transcript = er is een doorzoekbaar transcript in content/leeromgeving-seed.json.",
+ "items": [
+  {
+   "soort": "video",
+   "pijler": "training",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Je traint drie keer per week en ziet geen verschil? Dan mis je één van deze drie.",
+   "titel": "De 3 componenten van spiergroei",
+   "punten": [
+    "Progressive overload: iets meer gewicht, meer herhalingen of een trager tempo dan vorige keer",
+    "Mechanische spanning: zak zo diep mogelijk en train tot (bijna) falen, RPE 9-10",
+    "Volume: train elke spiergroep minimaal twee keer per week",
+    "Tip: drink een halve liter water zo'n drie kwartier voor je training"
+   ],
+   "afsluiter": "Bij welke oefening zak je nog niet diep genoeg of stop je te vroeg, en wat is je correctie?",
+   "moment": "altijd",
+   "let_op": "",
+   "bron": {
+    "les": "De 3 componenten van spiergroei",
+    "vimeo_id": "1173966754",
+    "minuten": 8,
+    "transcript": true
+   },
+   "id": "cb-001"
+  },
+  {
+   "soort": "video",
+   "pijler": "herstel",
+   "vormen": [
+    "reel",
+    "carrousel"
+   ],
+   "haak": "Het laatste halfuur voor je gaat slapen bepaalt je vetverlies van morgen.",
+   "titel": "Beter slapen: geen blauw licht voor bed",
+   "punten": [
+    "Check je gemiddelde slaapduur, diepe slaap en slaapkwaliteit (horloge of app)",
+    "Het laatste halfuur voor bed geen telefoon, tablet, laptop of tv",
+    "Elke avond dezelfde routine, bijvoorbeeld een makkelijk boek lezen",
+    "Minimaal 7,5 uur slaap voor herstel"
+   ],
+   "afsluiter": "Wat is je gemiddelde slaapduur en slaapkwaliteit, en hoe ziet jouw vaste avondroutine er vanaf vanavond uit?",
+   "moment": "altijd",
+   "let_op": "",
+   "bron": {
+    "les": "Beter slapen: geen blauw licht voor bed",
+    "vimeo_id": "1176160499",
+    "minuten": 6,
+    "transcript": true
+   },
+   "id": "cb-002"
+  },
+  {
+   "soort": "video",
+   "pijler": "herstel",
+   "vormen": [
+    "carrousel"
+   ],
+   "haak": "Discipline is een spier. Zo train je hem vanavond al.",
+   "titel": "Discipline bouwen rond je slaap",
+   "punten": [
+    "Minimaal 7,5 uur: vijf slaapcycli van 90 minuten",
+    "Geen blauw licht een half tot een heel uur voor bed; een blauwlichtfilterbril kan helpen",
+    "Optimaliseer je slaapkamer: temperatuur, licht en geluid",
+    "Geen zware maaltijd vlak voor het slapen"
+   ],
+   "afsluiter": "Op welk slaapdomein (avondroutine, slaapkamer, voeding, schermen) ga jij deze week discipline bouwen, en wat doe je concreet?",
+   "moment": "altijd",
+   "let_op": "In de video wordt een lid bij naam genoemd: alleen als tekst of carrousel gebruiken, niet de video zelf.",
+   "bron": {
+    "les": "Discipline bouwen rond je slaap",
+    "vimeo_id": "1178390660",
+    "minuten": 12,
+    "transcript": false
+   },
+   "id": "cb-003"
+  },
+  {
+   "soort": "video",
+   "pijler": "voeding",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Feestje dit weekend? Zo maak je vooraf 1.250 kcal ruimte.",
+   "titel": "Feestje of event? Zo blijf je op koers",
+   "punten": [
+    "Maandag t/m vrijdag 3.000 extra stappen per dag levert ongeveer 750 kcal ruimte op",
+    "Elke dag 100 kcal minder eten geeft nog eens ongeveer 500 kcal",
+    "Op de dag zelf: een stevige wandeling in plaats van zware krachttraining",
+    "Geen vetten vlak voor of na alcohol; kies eiwitten en wat koolhydraten"
+   ],
+   "afsluiter": "Welke van de vijf strategieën pas jij toe voor je eerstvolgende feest of etentje?",
+   "moment": "december: kerst en oud en nieuw",
+   "let_op": "",
+   "bron": {
+    "les": "Feestje of event? Zo blijf je op koers",
+    "vimeo_id": "1180832558",
+    "minuten": 8,
+    "transcript": true
+   },
+   "id": "cb-004"
+  },
+  {
+   "soort": "video",
+   "pijler": "mindset",
+   "vormen": [
+    "reel",
+    "carrousel"
+   ],
+   "haak": "‘Ik had geen tijd’ klopt niet. Dit is wat je eigenlijk zegt.",
+   "titel": "Eigenaar vs. slachtoffer",
+   "punten": [
+    "Let op zinnen als 'ik had geen tijd' of 'ik was te moe'",
+    "Vervang 'ik had geen tijd' door 'ik maakte er geen prioriteit van'",
+    "Zodra je stopt met excuses, stop je met je macht weggeven",
+    "Niemand komt je redden: jouw doelen zijn jouw verantwoordelijkheid"
+   ],
+   "afsluiter": "Schrijf deze week elk excuus op dat je gebruikt en vraag je telkens af: spreek ik nu vanuit slachtofferschap of vanuit eigenaarschap?",
+   "moment": "altijd",
+   "let_op": "",
+   "bron": {
+    "les": "Eigenaar vs. slachtoffer",
+    "vimeo_id": "1182532274",
+    "minuten": 3,
+    "transcript": true
+   },
+   "id": "cb-005"
+  },
+  {
+   "soort": "video",
+   "pijler": "mindset",
+   "vormen": [
+    "challenge",
+    "reel"
+   ],
+   "haak": "Zeven dagen lang mag je maar één zin gebruiken: ‘ik koos ervoor’.",
+   "titel": "Radical Ownership Challenge: 7 dagen 'ik koos'",
+   "punten": [
+    "Je zit niet vast door omstandigheden, maar omdat je verantwoordelijkheid buiten jezelf legt",
+    "Zeven dagen geen uitzonderingen en geen 'ja, maar'",
+    "Corrigeer jezelf direct, in denken, spreken en taal",
+    "Je leven wordt er niet makkelijker van, wel eerlijker: jij pakt de controle terug"
+   ],
+   "afsluiter": "Houd zeven dagen bij wanneer je jezelf verdedigt of iets buiten jezelf legt, en schrijf de 'ik koos'-versie erbij.",
+   "moment": "altijd",
+   "let_op": "Leent zich voor een meedoe-actie in stories: elke dag één verboden zin.",
+   "bron": {
+    "les": "Radical Ownership Challenge: 7 dagen 'ik koos'",
+    "vimeo_id": "1185894860",
+    "minuten": 3,
+    "transcript": true
+   },
+   "id": "cb-006"
+  },
+  {
+   "soort": "video",
+   "pijler": "mindset",
+   "vormen": [
+    "reel"
+   ],
+   "haak": "Niemand maakt jouw doelen belangrijker dan jij. Ook je coach niet.",
+   "titel": "Niemand gaat het voor jou doen",
+   "punten": [
+    "Druk zijn is niet het probleem; de keuzes die je in die drukte maakt wel",
+    "Vraag jezelf: plan ik mijn training, bereid ik mijn voeding voor, durf ik nee te zeggen?",
+    "Winnaars zorgen dat hun omgeving geen excuus meer wordt",
+    "Regel voor zeven dagen: mijn doelen zijn mijn verantwoordelijkheid"
+   ],
+   "afsluiter": "Schrijf drie situaties op waarin je verwacht dat anderen rekening houden met jouw doelen, en per situatie één concrete actie waarmee jij het zelf regelt.",
+   "moment": "altijd",
+   "let_op": "",
+   "bron": {
+    "les": "Niemand gaat het voor jou doen",
+    "vimeo_id": "1185915341",
+    "minuten": 6,
+    "transcript": true
+   },
+   "id": "cb-007"
+  },
+  {
+   "soort": "video",
+   "pijler": "voeding",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Een kilo zwaarder dan gisteren? Dat is geen vet. Dit zijn de 12 redenen.",
+   "titel": "12 redenen waarom je gewicht schommelt",
+   "punten": [
+    "Zout, koolhydraten (1 gram glycogeen bindt ongeveer 3 gram vocht), alcohol en een volle darm geven tijdelijk extra gewicht",
+    "Stress, slecht slapen, zware training, creatine en hormonen (o.a. de menstruatiecyclus) zorgen voor vochtretentie",
+    "Te weinig drinken laat je juist meer vasthouden; richtlijn: 0,03 liter per kilo lichaamsgewicht",
+    "Weeg elke ochtend na het plassen, voor eten en drinken, en kijk naar het weekgemiddelde"
+   ],
+   "afsluiter": "Bereken je weekgemiddelde van de afgelopen twee weken: wat zegt de trend, los van die ene uitschieter?",
+   "moment": "altijd",
+   "let_op": "",
+   "bron": {
+    "les": "12 redenen waarom je gewicht schommelt",
+    "vimeo_id": "1191196066",
+    "minuten": 11,
+    "transcript": true
+   },
+   "id": "cb-008"
+  },
+  {
+   "soort": "video",
+   "pijler": "mindset",
+   "vormen": [
+    "reel",
+    "carrousel"
+   ],
+   "haak": "Wie ben jij als niemand kijkt?",
+   "titel": "Wie ben jij als niemand kijkt?",
+   "punten": [
+    "Je oude bril voelt veilig, maar houdt je waar je bent",
+    "Zet een andere bril op: ik ben een atleet, ik prioriteer mijn slaap",
+    "Een keuze is geen doel of wens",
+    "Je lichaam volgt altijd je identiteit"
+   ],
+   "afsluiter": "Schrijf één zin over wie jij bent op het gebied van je gezondheid en spreek die elke ochtend en avond hardop uit, het liefst voor de spiegel.",
+   "moment": "altijd",
+   "let_op": "",
+   "bron": {
+    "les": "Wie ben jij als niemand kijkt?",
+    "vimeo_id": "1193239630",
+    "minuten": 3,
+    "transcript": true
+   },
+   "id": "cb-009"
+  },
+  {
+   "soort": "video",
+   "pijler": "gewoontes",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Die snaaibui om negen uur ’s avonds is geen gebrek aan discipline. Het is een lus.",
+   "titel": "De gewoontelus: trigger, routine, beloning",
+   "punten": [
+    "Stress (trigger), snaaien op de bank (routine), ontspanning (beloning)",
+    "Vervang de routine: tien minuten wandelen of sporten geeft dezelfde ontspanning",
+    "Hoe vaker je iets herhaalt, hoe automatischer het wordt; extreem streng zijn houdt geen stand",
+    "Een maand iets laten staan, zoals suiker, maakt de trigger zwakker"
+   ],
+   "afsluiter": "Kies één gewoonte die je wilt veranderen: wat is de trigger, welke nieuwe routine zet je ervoor in de plaats, en hoe beloon je jezelf?",
+   "moment": "altijd",
+   "let_op": "",
+   "bron": {
+    "les": "De gewoontelus: trigger, routine, beloning",
+    "vimeo_id": "1194689594",
+    "minuten": 8,
+    "transcript": true
+   },
+   "id": "cb-010"
+  },
+  {
+   "soort": "video",
+   "pijler": "voeding",
+   "vormen": [
+    "carrousel"
+   ],
+   "haak": "Afvallen in volgorde van belang. Je training staat op plek vijf.",
+   "titel": "De Apex fat loss pyramid",
+   "punten": [
+    "1. Calorietekort: houd je voeding bij, dat kost maximaal tien minuten per dag",
+    "2. Slaap: slecht slapen ontregelt je honger- en verzadigingshormonen; mik op acht uur",
+    "3. Eiwit: 1,5 tot 2,2 gram per kilo lichaamsgewicht, sweet spot 1,8",
+    "4. NEAT, alles wat je buiten het sporten beweegt, en 5. pas dan je training"
+   ],
+   "afsluiter": "Check je schermtijd van gisteren: welke tien minuten daarvan besteed je vandaag aan het bijhouden van je voeding?",
+   "moment": "januari: goede voornemens",
+   "let_op": "",
+   "bron": {
+    "les": "De Apex fat loss pyramid",
+    "vimeo_id": "1194690043",
+    "minuten": 4,
+    "transcript": true
+   },
+   "id": "cb-011"
+  },
+  {
+   "soort": "video",
+   "pijler": "voeding",
+   "vormen": [
+    "carrousel"
+   ],
+   "haak": "Supplementen staan bovenaan je boodschappenlijst en onderaan deze piramide.",
+   "titel": "De Apex food pyramid",
+   "punten": [
+    "Volhouden eerst: maak gezond eten lekker en makkelijk, bijvoorbeeld met zoetstof in je kwark en vooraf geprepte bakjes",
+    "Energiebalans: volg je gewicht, omtrek of wekelijkse foto's om te zien of je echt in een tekort zit",
+    "Eiwit minimaal 1,8 g per kilo, vet 0,8 tot 1,1 g per kilo, de rest koolhydraten",
+    "Timing en supplementen zijn het minst belangrijk; drie tot zes maaltijden per dag volstaat"
+   ],
+   "afsluiter": "Wat eet jij nu dat je níet drie jaar kunt volhouden, en welke aanpassing maakt het wel vol te houden?",
+   "moment": "altijd",
+   "let_op": "",
+   "bron": {
+    "les": "De Apex food pyramid",
+    "vimeo_id": "1199308412",
+    "minuten": 6,
+    "transcript": true
+   },
+   "id": "cb-012"
+  },
+  {
+   "soort": "video",
+   "pijler": "training",
+   "vormen": [
+    "reel",
+    "carrousel"
+   ],
+   "haak": "Dertig graden is geen reden om je training over te slaan. Pas dit aan.",
+   "titel": "Integriteit heeft geen voorkeursweer",
+   "punten": [
+    "Minder sets of minder gewicht mag, een training overslaan niet",
+    "Weinig eetlust? Kies een ijskoude shake, smoothie, kwark of eieren",
+    "Drink minimaal een derde meer (rond de drie liter) met een snufje zout of elektrolyten",
+    "Train vroeg of laat, koel je polsen en nek vooraf, eet licht en douche koud na"
+   ],
+   "afsluiter": "Welke correcties maak jij, zodat je ook bij warm weer je commitments nakomt?",
+   "moment": "zomer: warme dagen",
+   "let_op": "",
+   "bron": {
+    "les": "Integriteit heeft geen voorkeursweer",
+    "vimeo_id": "1203411955",
+    "minuten": 6,
+    "transcript": true
+   },
+   "id": "cb-013"
+  },
+  {
+   "soort": "video",
+   "pijler": "mindset",
+   "vormen": [
+    "reel"
+   ],
+   "haak": "Een boek over zwemmen lezen voorkomt niet dat je verzuipt.",
+   "titel": "Iets snappen doet helemaal niets",
+   "punten": [
+    "Een boek over zwemmen lezen voorkomt niet dat je verzuipt",
+    "Hoeveel van je inzichten pas je echt dagelijks toe?",
+    "Doen, falen, opnieuw toepassen en blijven oefenen: zo maak je het je eigen",
+    "Moeilijk bestaat niet: er is doen en niet doen"
+   ],
+   "afsluiter": "Kies iets waarvan je al honderd keer hebt gezegd 'ik snap het', schrijf het op en zet vandaag nog de eerste stap.",
+   "moment": "altijd",
+   "let_op": "",
+   "bron": {
+    "les": "Iets snappen doet helemaal niets",
+    "vimeo_id": "1205429294",
+    "minuten": 6,
+    "transcript": true
+   },
+   "id": "cb-014"
+  },
+  {
+   "soort": "video",
+   "pijler": "mindset",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Zeven regels die je leven lichter maken. Regel één: f*ck wat mensen denken.",
+   "titel": "De 7 f*ck it-regels",
+   "punten": [
+    "F*ck wat mensen denken en f*ck beledigd zijn: het zet je in de slachtofferrol",
+    "F*ck falen: sta op en faal opnieuw, maar dan beter",
+    "F*ck middelmatigheid en terughoudendheid: speel je grootste spel",
+    "F*ck 'had ik maar' en negativiteit: begin nu en omring je met constructieve mensen"
+   ],
+   "afsluiter": "Welke van de zeven regels heb jij het hardst nodig, wat wordt er mogelijk als je dat gedrag stopt en welke correctie ga je maken?",
+   "moment": "altijd",
+   "let_op": "",
+   "bron": {
+    "les": "De 7 f*ck it-regels",
+    "vimeo_id": "1207334889",
+    "minuten": 4,
+    "transcript": true
+   },
+   "id": "cb-015"
+  },
+  {
+   "soort": "video",
+   "pijler": "mindset",
+   "vormen": [
+    "reel"
+   ],
+   "haak": "Geen kwark in huis is geen reden. Het hoort bij het spel.",
+   "titel": "Conditions of the game",
+   "punten": [
+    "Omstandigheden als het weer, je partner, je kinderen of een vakantie horen er gewoon bij",
+    "Ook op vakantie kun je trainen en je voeding voorbereiden",
+    "Plaats je verantwoordelijkheid bij jezelf, niet bij de situatie"
+   ],
+   "afsluiter": "Welke 'condition of the game' gebruik jij nog als excuus, en hoe ga je er voortaan mee om?",
+   "moment": "zomer: vakantie",
+   "let_op": "",
+   "bron": {
+    "les": "Conditions of the game",
+    "vimeo_id": "1210793327",
+    "minuten": 4,
+    "transcript": true
+   },
+   "id": "cb-016"
+  },
+  {
+   "soort": "video",
+   "pijler": "mindset",
+   "vormen": [
+    "reel"
+   ],
+   "haak": "‘Ik kijk wel even’ is geen commitment.",
+   "titel": "Zonder echt commitment werkt niets",
+   "punten": [
+    "Zonder commitment is advies, extra informatie of een motiverend boek nutteloos",
+    "Oprecht commitment is het fundament",
+    "Zeg A, doe A en je krijgt B",
+    "Commitment kan op elk domein: thuis, fysiek of in je business"
+   ],
+   "afsluiter": "Waar ga jij deze week 100% voor? Schrijf je commitment op en check volgende week of het gelukt is.",
+   "moment": "altijd",
+   "let_op": "",
+   "bron": {
+    "les": "Zonder echt commitment werkt niets",
+    "vimeo_id": "1210798101",
+    "minuten": 3,
+    "transcript": true
+   },
+   "id": "cb-017"
+  },
+  {
+   "soort": "video",
+   "pijler": "mindset",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Nadenken, googelen, erover praten. Het voelt als bezig zijn, maar het is uitstel.",
+   "titel": "Powerful vs. not powerful",
+   "punten": [
+    "Not powerful: nadenken, uitzoeken, googelen, klagen, erover praten, stressen",
+    "Ook eindeloos oefenen of overvoorbereiden is uitstel",
+    "Powerful: beslissen en doen",
+    "Tony Robbins: the path to success is to take massive determined action"
+   ],
+   "afsluiter": "Op welk punt ben jij nog not powerful (klagen, erover praten, anderen de schuld geven), en wat ga je in plaats daarvan doen?",
+   "moment": "altijd",
+   "let_op": "",
+   "bron": {
+    "les": "Powerful vs. not powerful",
+    "vimeo_id": "1211313888",
+    "minuten": 3,
+    "transcript": true
+   },
+   "id": "cb-018"
+  },
+  {
+   "soort": "video",
+   "pijler": "gewoontes",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Je hoeft niets nieuws te beginnen. Stop eerst hiermee.",
+   "titel": "Just stop it",
+   "punten": [
+    "Stop met dingen zeggen die je zwak maken",
+    "Stop met dingen eten, drinken en kopen die je zwak maken",
+    "Stop met negeren, goedpraten en accepteren wat je zwak maakt",
+    "Stop met leugens die je zwak maken"
+   ],
+   "afsluiter": "Met welke van deze regels moet jij stoppen, wat wordt de correctie en wat wordt er mogelijk als je die doorvoert?",
+   "moment": "januari: goede voornemens",
+   "let_op": "",
+   "bron": {
+    "les": "Just stop it",
+    "vimeo_id": "1215470492",
+    "minuten": 2,
+    "transcript": true
+   },
+   "id": "cb-019"
+  },
+  {
+   "soort": "video",
+   "pijler": "mindset",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Er zijn drie soorten beloftes. Twee ervan kosten je je resultaat.",
+   "titel": "Alleen resultaat telt: drie soorten beloftes",
+   "punten": [
+    "Krachtige belofte: komt vrijwel altijd uit",
+    "Zwakke belofte: ziet er hetzelfde uit, maar zit vol verhalen en excuses",
+    "Criminele belofte: je weet nu al dat je hem niet nakomt, zoals 12 keer per week sporten",
+    "Zet iets op het spel, zoals 250 burpees of €100 naar een goed doel"
+   ],
+   "afsluiter": "Welke twee krachtige beloftes maak jij deze week, en wat is je tegenprestatie als je ze niet nakomt?",
+   "moment": "januari: goede voornemens",
+   "let_op": "",
+   "bron": {
+    "les": "Alleen resultaat telt: drie soorten beloftes",
+    "vimeo_id": "1216935597",
+    "minuten": 4,
+    "transcript": true
+   },
+   "id": "cb-020"
+  },
+  {
+   "soort": "video",
+   "pijler": "gewoontes",
+   "vormen": [
+    "reel",
+    "carrousel"
+   ],
+   "haak": "Uit je ritme? Dit is het moment waarop je het meeste kunt winnen.",
+   "titel": "Terug naar je routine",
+   "punten": [
+    "Welke routine saboteert jouw resultaat en moet worden aangepast?",
+    "Wat kost het je dat je die routine laat bestaan: slaap, energie, focus?",
+    "Stop met bullshitten: geen telefoon tot middernacht, geen last-minute eten zonder plan",
+    "30 dagen consistent: niet perfect, wel je woord houden"
+   ],
+   "afsluiter": "Welke routine saboteert jouw resultaat, waarom stop je er nog niet mee, en welke bewezen routine pak je de komende 30 dagen weer op?",
+   "moment": "januari en na de zomervakantie",
+   "let_op": "",
+   "bron": {
+    "les": "Terug naar je routine",
+    "vimeo_id": "1218859140",
+    "minuten": 6,
+    "transcript": true
+   },
+   "id": "cb-021"
+  },
+  {
+   "soort": "video",
+   "pijler": "voeding",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Dertig mixdrankjes met gewone cola: 3.300 kcal, alleen al aan cola.",
+   "titel": "Kermis voorbereiding 1: wat alcohol met je doet",
+   "punten": [
+    "Alcohol heeft voorrang: vetverbranding en herstel liggen 12 tot 24 uur stil",
+    "Light frisdrank scheelt enorm: 30 mixdrankjes met gewone cola zijn alleen al 3.300 kcal aan cola",
+    "Eet vooraf, maar vetarm, en doe de dag erna geen zware krachttraining",
+    "Neem na elke vier glazen alcohol één glas water"
+   ],
+   "afsluiter": "Welke standaard stel jij voor de kermis? Bijvoorbeeld: geen shotjes, alleen light-frisdrank, maximaal zoveel glazen of een voorbereide maaltijd voor als je thuiskomt.",
+   "moment": "december: feestdagen; september: kermis",
+   "let_op": "",
+   "bron": {
+    "les": "Kermis voorbereiding 1: wat alcohol met je doet",
+    "vimeo_id": "1220812964",
+    "minuten": 17,
+    "transcript": true
+   },
+   "id": "cb-022"
+  },
+  {
+   "soort": "video",
+   "pijler": "herstel",
+   "vormen": [
+    "carrousel"
+   ],
+   "haak": "Zo herstel je sneller na een avond drinken.",
+   "titel": "Kermis voorbereiding 2: supplementen, slaap en voeding",
+   "punten": [
+    "ORS voor het slapen en bij het opstaan, magnesium voor diepere slaap en spierherstel, gebufferde vitamine C 's ochtends",
+    "Koele slaapkamer (17 tot 19 graden), geen suiker of zware maaltijd voor bed",
+    "Maximaal drie eiwitrijke, licht verteerbare en vetarme maaltijden per dag",
+    "Kies light-varianten: een mixdrankje met cola light scheelt zo'n 120 kcal"
+   ],
+   "afsluiter": "Wat leg je vóór de feestdagen al klaar (supplementen, zout, voorbereide maaltijden) zodat je herstel geregeld is?",
+   "moment": "december: feestdagen; september: kermis",
+   "let_op": "",
+   "bron": {
+    "les": "Kermis voorbereiding 2: supplementen, slaap en voeding",
+    "vimeo_id": "1222655635",
+    "minuten": 10,
+    "transcript": true
+   },
+   "id": "cb-023"
+  },
+  {
+   "soort": "video",
+   "pijler": "gewoontes",
+   "vormen": [
+    "reel",
+    "carrousel"
+   ],
+   "haak": "De schade zit niet in het feest. Die zit in de vier dagen erna.",
+   "titel": "Na de kermis: pak de draad weer op",
+   "punten": [
+    "Diepe slaap: telefoon weg, geen late koffie of suiker, donkere en koele kamer, eventueel magnesium",
+    "Start weer met creatine, voldoende water en 's ochtends een snufje Keltisch zeezout",
+    "Pak je dagelijkse basics op: stappen, training, wegen en voeding bijhouden",
+    "Start starting: doe wat werkt en stop met wat niet werkt"
+   ],
+   "afsluiter": "Wat werkt voor jou en ga je vandaag weer doen, en waar stop je mee?",
+   "moment": "1 en 2 januari; na de kermis",
+   "let_op": "",
+   "bron": {
+    "les": "Na de kermis: pak de draad weer op",
+    "vimeo_id": "1223677492",
+    "minuten": 4,
+    "transcript": true
+   },
+   "id": "cb-024"
+  },
+  {
+   "soort": "model",
+   "pijler": "mindset",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Begin je elke maandag opnieuw? Dan zit je in de cirkel.",
+   "titel": "Cirkel, zigzag of straight line",
+   "punten": [
+    "Cirkel: je komt steeds terug bij af",
+    "Zigzag: je zet stappen vooruit en weer terug",
+    "Straight line: je doet wat nodig is, in een rechte lijn naar je doel"
+   ],
+   "afsluiter": "Dit is één van de twaalf sessies van de 90 Dagen Challenge.",
+   "moment": "in de weken voor de start van een nieuwe ronde",
+   "let_op": "Betaalde inhoud: deel het model, niet de hele sessie of de opdracht.",
+   "bron": {
+    "les": "Sessie 1 · Cirkel, zigzag of straight line",
+    "vimeo_id": "899626509",
+    "minuten": 0,
+    "transcript": false
+   },
+   "id": "cb-025"
+  },
+  {
+   "soort": "model",
+   "pijler": "mindset",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Wie moet jij zijn, om te doen wat nodig is, om te krijgen wat je wilt?",
+   "titel": "Obstakels & jouw Inner Stance",
+   "punten": [
+    "Herken uitstelgedrag, alles-of-niets denken en het ontbreken van prioriteiten",
+    "Kies bewust een nieuwe identiteit, bijvoorbeeld: 'ik ben een atleet'",
+    "Pas die identiteit toe, juist op de momenten dat het schuurt"
+   ],
+   "afsluiter": "Dit is één van de twaalf sessies van de 90 Dagen Challenge.",
+   "moment": "in de weken voor de start van een nieuwe ronde",
+   "let_op": "Betaalde inhoud: deel het model, niet de hele sessie of de opdracht.",
+   "bron": {
+    "les": "Sessie 2 · Obstakels & jouw Inner Stance",
+    "vimeo_id": "1081863327",
+    "minuten": 2,
+    "transcript": false
+   },
+   "id": "cb-026"
+  },
+  {
+   "soort": "model",
+   "pijler": "mindset",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Geen zin? Doe het twee minuten.",
+   "titel": "Personal Presence Drill & het verborgen voordeel",
+   "punten": [
+    "Honger vs. trek: focus op eiwitten en vast voedsel, groente bij elke maaltijd",
+    "Personal Presence Drill: dagelijks 5 minuten in de spiegel, bij elke gedachte zeg je 'niet dat'",
+    "Twee-minutenregel: begin gewoon twee minuten. Je traint discipline, niet motivatie"
+   ],
+   "afsluiter": "Dit is één van de twaalf sessies van de 90 Dagen Challenge.",
+   "moment": "in de weken voor de start van een nieuwe ronde",
+   "let_op": "Betaalde inhoud: deel het model, niet de hele sessie of de opdracht.",
+   "bron": {
+    "les": "Sessie 6 · Personal Presence Drill & het verborgen voordeel",
+    "vimeo_id": "1147260570",
+    "minuten": 6,
+    "transcript": false
+   },
+   "id": "cb-027"
+  },
+  {
+   "soort": "model",
+   "pijler": "mindset",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Doordeweeks gaat het prima. In het weekend verlies je het.",
+   "titel": "Beloftes & het weekend",
+   "punten": [
+    "Hormonen, vocht, zout, glycogeen, stress en darminhoud vertekenen het getal op de weegschaal",
+    "Kijk ook naar centimeters, energie, hoe je kleding zit en je foto's",
+    "Vier soorten beloftes: krachtig, zwak, crimineel en geen belofte"
+   ],
+   "afsluiter": "Dit is één van de twaalf sessies van de 90 Dagen Challenge.",
+   "moment": "in de weken voor de start van een nieuwe ronde",
+   "let_op": "Betaalde inhoud: deel het model, niet de hele sessie of de opdracht.",
+   "bron": {
+    "les": "Sessie 7 · Beloftes & het weekend",
+    "vimeo_id": "917131451",
+    "minuten": 1,
+    "transcript": false
+   },
+   "id": "cb-028"
+  },
+  {
+   "soort": "model",
+   "pijler": "mindset",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Tijd is niet het probleem. Dit zijn de drie echte oorzaken.",
+   "titel": "Timemanagement: krachtige vs. zwakke acties",
+   "punten": [
+    "The path to success is to take massive determined actions",
+    "Maak het onderscheid zwart-wit",
+    "Nog 4 weken: tijd voor massieve actie"
+   ],
+   "afsluiter": "Dit is één van de twaalf sessies van de 90 Dagen Challenge.",
+   "moment": "in de weken voor de start van een nieuwe ronde",
+   "let_op": "Betaalde inhoud: deel het model, niet de hele sessie of de opdracht.",
+   "bron": {
+    "les": "Sessie 8 · Timemanagement: krachtige vs. zwakke acties",
+    "vimeo_id": "919727077",
+    "minuten": 1,
+    "transcript": false
+   },
+   "id": "cb-029"
+  },
+  {
+   "soort": "model",
+   "pijler": "mindset",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Je lichaam waarschuwt je al. Herken je deze oranje lichten?",
+   "titel": "Stressmanagement",
+   "punten": [
+    "Orange lights: opgejaagd, vol hoofd, geïrriteerd, in slaap vallen op de bank",
+    "Red lights: duizeligheid, fysieke spanning, je zwaar of geblokkeerd voelen, slaapproblemen",
+    "10-secondenregel: tel af van 10 naar 0 en doe het gewoon"
+   ],
+   "afsluiter": "Dit is één van de twaalf sessies van de 90 Dagen Challenge.",
+   "moment": "in de weken voor de start van een nieuwe ronde",
+   "let_op": "Betaalde inhoud: deel het model, niet de hele sessie of de opdracht.",
+   "bron": {
+    "les": "Sessie 9 · Stressmanagement",
+    "vimeo_id": "922584746",
+    "minuten": 2,
+    "transcript": false
+   },
+   "id": "cb-030"
+  },
+  {
+   "soort": "model",
+   "pijler": "mindset",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "‘Ik ben nu eenmaal een pleaser.’ Het klinkt als een eigenschap. Het is een escape card.",
+   "titel": "Je toekomst: de brief aan jezelf",
+   "punten": [
+    "Je escape card is het enige dat je nog tegenhoudt",
+    "Twee-minutenregel: doe het nu",
+    "Schrijf meetbaar, geen vage intenties"
+   ],
+   "afsluiter": "Dit is één van de twaalf sessies van de 90 Dagen Challenge.",
+   "moment": "in de weken voor de start van een nieuwe ronde",
+   "let_op": "Betaalde inhoud: deel het model, niet de hele sessie of de opdracht.",
+   "bron": {
+    "les": "Sessie 10 · Je toekomst: de brief aan jezelf",
+    "vimeo_id": "924987684",
+    "minuten": 1,
+    "transcript": false
+   },
+   "id": "cb-031"
+  },
+  {
+   "soort": "model",
+   "pijler": "mindset",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Zeventig procent dark side, dertig procent light side.",
+   "titel": "Het 5G-schema & Dark side vs. Light side",
+   "punten": [
+    "Dark side: gedrevenheid, moed, volharding, kracht, confronterend",
+    "Light side: verbindend, geduldig, vriendelijk, accepterend, ontspannen",
+    "Een krachtig persoon schakelt bewust tussen dark en light side"
+   ],
+   "afsluiter": "Dit is één van de twaalf sessies van de 90 Dagen Challenge.",
+   "moment": "in de weken voor de start van een nieuwe ronde",
+   "let_op": "Betaalde inhoud: deel het model, niet de hele sessie of de opdracht.",
+   "bron": {
+    "les": "Sessie 11 · Het 5G-schema & Dark side vs. Light side",
+    "vimeo_id": "927528380",
+    "minuten": 1,
+    "transcript": false
+   },
+   "id": "cb-032"
+  },
+  {
+   "soort": "model",
+   "pijler": "mindset",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Wie geeft je kracht en wie kost je kracht? Teken je sociogram.",
+   "titel": "Sociogram: jouw relaties",
+   "punten": [
+    "Het belang van een relatie",
+    "De kwaliteit van een relatie",
+    "Waar wil je meer tijd en energie in steken?"
+   ],
+   "afsluiter": "Dit is één van de twaalf sessies van de 90 Dagen Challenge.",
+   "moment": "in de weken voor de start van een nieuwe ronde",
+   "let_op": "Betaalde inhoud: deel het model, niet de hele sessie of de opdracht.",
+   "bron": {
+    "les": "Sessie 12 · Sociogram: jouw relaties",
+    "vimeo_id": "929920361",
+    "minuten": 1,
+    "transcript": true
+   },
+   "id": "cb-033"
+  },
+  {
+   "soort": "tip",
+   "pijler": "voeding",
+   "vormen": [
+    "story",
+    "enkele post"
+   ],
+   "haak": "Tip 1 van 15: zet alle lekkernijen uit zicht.",
+   "titel": "Zet alle lekkernijen uit zicht",
+   "punten": [
+    "Vandaag de eerste tip die ervoor zorgt dat jij ook in deze periode kunt knallen om zo dichter bij je doel te komen. Des te actiever jij aan de slag gaat met de tips, des te beter het resultaat."
+   ],
+   "afsluiter": "Bewaar deze tip.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Tip 1: zet alle lekkernijen uit zicht",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-034",
+   "moment": "altijd"
+  },
+  {
+   "soort": "tip",
+   "pijler": "voeding",
+   "vormen": [
+    "story",
+    "enkele post"
+   ],
+   "haak": "Tip 2 van 15: drink voldoende water.",
+   "titel": "Drink voldoende water",
+   "punten": [
+    "Wanneer je vaak kampt met honger/ leeg gevoel kan het helpen om veel water te drinken. Minimaal 2 liter per dag."
+   ],
+   "afsluiter": "Bewaar deze tip.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Tip 2: drink voldoende water",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-035",
+   "moment": "altijd"
+  },
+  {
+   "soort": "tip",
+   "pijler": "doelen",
+   "vormen": [
+    "story",
+    "enkele post"
+   ],
+   "haak": "Tip 3 van 15: weeg jezelf dagelijks.",
+   "titel": "Weeg jezelf dagelijks",
+   "punten": [
+    "Het klinkt misschien irritant en het is ook even wennen, maar één ding wat zeker werkt om jouw progressie goed bij te houden is jezelf dagelijks te wegen. En zeker bij de dames."
+   ],
+   "afsluiter": "Bewaar deze tip.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Tip 3: weeg jezelf dagelijks",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-036",
+   "moment": "altijd"
+  },
+  {
+   "soort": "tip",
+   "pijler": "voeding",
+   "vormen": [
+    "story",
+    "enkele post"
+   ],
+   "haak": "Tip 4 van 15: kies een verantwoord tussendoortje.",
+   "titel": "Kies een verantwoord tussendoortje",
+   "punten": [
+    "Je kent het wel, die lekkere trek. Wanneer deze op komt spelen ben je snel geneigd om een lekker stukje chocola te nemen maar dit is natuurlijk niet het ideale tussendoortje wanneer je probeert af te vallen maar ook niet als je op de goede manier wilt aankomen."
+   ],
+   "afsluiter": "Bewaar deze tip.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Tip 4: kies een verantwoord tussendoortje",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-037",
+   "moment": "altijd"
+  },
+  {
+   "soort": "tip",
+   "pijler": "doelen",
+   "vormen": [
+    "story",
+    "enkele post"
+   ],
+   "haak": "Tip 5 van 15: zoek een korte termijn doel.",
+   "titel": "Zoek een korte termijn doel",
+   "punten": [
+    "Als voorbeeld: je hebt jouw einddoel voor ogen: aan het einde van dit jaar 30 kg meer bankdrukken of 30 kg afvallen. Dat klinkt erg veel en voor sommigen misschien zelfs onhaalbaar."
+   ],
+   "afsluiter": "Bewaar deze tip.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Tip 5: zoek een korte termijn doel",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-038",
+   "moment": "altijd"
+  },
+  {
+   "soort": "tip",
+   "pijler": "voeding",
+   "vormen": [
+    "story",
+    "enkele post"
+   ],
+   "haak": "Tip 6 van 15: neem de tijd om te eten.",
+   "titel": "Neem de tijd om te eten",
+   "punten": [
+    "Je kent het wel, je bent de hele dag bezig geweest en nu heb je echte grote mannen honger. Je bent geneigd om zo snel mogelijk te eten om die honger te stillen maar dit kan nog wel eens tegenwerken in jouw afvalproces."
+   ],
+   "afsluiter": "Bewaar deze tip.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Tip 6: neem de tijd om te eten",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-039",
+   "moment": "altijd"
+  },
+  {
+   "soort": "tip",
+   "pijler": "voeding",
+   "vormen": [
+    "story",
+    "enkele post"
+   ],
+   "haak": "Tip 7 van 15: houd bij wat je eet.",
+   "titel": "Houd bij wat je eet",
+   "punten": [
+    "Zowel wanneer je wilt afvallen als wanneer je wilt aankomen is het belangrijk dat je op je energiebalans let. Dit betekent dat je minder calorieën moet eten dan jouw lichaam nodig heeft of meer calorieën moet verbanden dan je binnenkrijgt als je wilt afvallen en juiste meer moet eten en minder verbranden als je wilt aankomen."
+   ],
+   "afsluiter": "Bewaar deze tip.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Tip 7: houd bij wat je eet",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-040",
+   "moment": "altijd"
+  },
+  {
+   "soort": "tip",
+   "pijler": "voeding",
+   "vormen": [
+    "story",
+    "enkele post"
+   ],
+   "haak": "Tip 8 van 15: grootte bord en bestek.",
+   "titel": "Grootte bord en bestek",
+   "punten": [
+    "Soms heb je zoveel honger dat je het grootse pannenkoekenbord of de grootste beslagkom die je kunt vinden uit de kast pakt en deze tot z’n nok aan toe vult met eten. Vervolgens schrok je dit naar binnen en eet je je bordje schoon leeg zoals mama jou geleerd heeft, wat resulteert in een hogere calorie inname dan je eigenlijk wilt."
+   ],
+   "afsluiter": "Bewaar deze tip.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Tip 8: grootte bord en bestek",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-041",
+   "moment": "altijd"
+  },
+  {
+   "soort": "tip",
+   "pijler": "voeding",
+   "vormen": [
+    "story",
+    "enkele post"
+   ],
+   "haak": "Tip 9 van 15: eet tot je 80% vol zit.",
+   "titel": "Eet tot je 80% vol zit",
+   "punten": [
+    "Heerlijk uitbuiken op de bank nadat je je helemaal vol hebt gegeten. Dit kan soms wel lekker zijn maar vaak ervaar je dat volle gevoel als niet prettig."
+   ],
+   "afsluiter": "Bewaar deze tip.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Tip 9: eet tot je 80% vol zit",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-042",
+   "moment": "altijd"
+  },
+  {
+   "soort": "tip",
+   "pijler": "voeding",
+   "vormen": [
+    "story",
+    "enkele post"
+   ],
+   "haak": "Tip 10 van 15: zoek afleiding.",
+   "titel": "Zoek afleiding",
+   "punten": [
+    "Iedereen kent het wel, je hebt een hele dag niks te doen en je verveelt je gewoon enorm. En zoals we allemaal weten, verveling resulteert (vaak) in eten."
+   ],
+   "afsluiter": "Bewaar deze tip.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Tip 10: zoek afleiding",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-043",
+   "moment": "altijd"
+  },
+  {
+   "soort": "tip",
+   "pijler": "voeding",
+   "vormen": [
+    "story",
+    "enkele post"
+   ],
+   "haak": "Tip 11 van 15: doe geen boodschappen op een lege maag.",
+   "titel": "Doe geen boodschappen op een lege maag",
+   "punten": [
+    "Je kent het wel, je wordt wakker, je hebt honger, opent de koelkast en ja hoor, geen eten. Dus hup kleren aan en snel naar de supermarkt, want die lege maag moet gevuld worden."
+   ],
+   "afsluiter": "Bewaar deze tip.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Tip 11: doe geen boodschappen op een lege maag",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-044",
+   "moment": "altijd"
+  },
+  {
+   "soort": "tip",
+   "pijler": "voeding",
+   "vormen": [
+    "story",
+    "enkele post"
+   ],
+   "haak": "Tip 12 van 15: breng je NEAT omhoog.",
+   "titel": "Breng je NEAT omhoog",
+   "punten": [
+    "NEAT: Non Excercise Activity Thermogenises. Of te wel; bewegen buiten je trainingen om."
+   ],
+   "afsluiter": "Bewaar deze tip.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Tip 12: breng je NEAT omhoog",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-045",
+   "moment": "altijd"
+  },
+  {
+   "soort": "tip",
+   "pijler": "voeding",
+   "vormen": [
+    "story",
+    "enkele post"
+   ],
+   "haak": "Tip 13 van 15: eet TEF verhogende voedingsmiddelen.",
+   "titel": "Eet TEF verhogende voedingsmiddelen",
+   "punten": [
+    "TEF: Thermogenic effect of food. Wat makkelijker gezegd; de algehele toename van de stofwisseling die wordt ervaren na het eten van voedsel."
+   ],
+   "afsluiter": "Bewaar deze tip.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Tip 13: eet TEF verhogende voedingsmiddelen",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-046",
+   "moment": "altijd"
+  },
+  {
+   "soort": "tip",
+   "pijler": "voeding",
+   "vormen": [
+    "story",
+    "enkele post"
+   ],
+   "haak": "Tip 14 van 15: pas op met vet.",
+   "titel": "Pas op met vet",
+   "punten": [
+    "In onze vorige tip hebben we je al wat informatie gegeven over de verschillende soorten vetten en welke je beter niet kunt gebruiken. Nu is het zo dat de gezonden vetten goed voor je zijn maar wel een behoorlijk aantal calorieën bevatten."
+   ],
+   "afsluiter": "Bewaar deze tip.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Tip 14: pas op met vet",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-047",
+   "moment": "altijd"
+  },
+  {
+   "soort": "tip",
+   "pijler": "voeding",
+   "vormen": [
+    "story",
+    "enkele post"
+   ],
+   "haak": "Tip 15 van 15: maak sportafspraken met jezelf.",
+   "titel": "Maak sportafspraken met jezelf",
+   "punten": [
+    "De motiverende sport fase. Elke paar maanden komt het weer om de hoek kijken."
+   ],
+   "afsluiter": "Bewaar deze tip.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Tip 15: maak sportafspraken met jezelf",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-048",
+   "moment": "altijd"
+  },
+  {
+   "soort": "mythe",
+   "pijler": "voeding",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Is het ontbijt echt de belangrijkste maaltijd van de dag?",
+   "titel": "Is het ontbijt de belangrijkste maaltijd van de dag?",
+   "punten": [
+    "Veel mensen hebben van kinds af aangeleerd dat het ontbijt de belangrijkste maaltijd van de dag is. Het zou namelijk zorgen voor een goede start van de dag met voldoende energie. Maar klopt dit wel?"
+   ],
+   "afsluiter": "Stuur dit naar iemand die dit nog gelooft.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Is het ontbijt de belangrijkste maaltijd van de dag?",
+    "vimeo_id": "344635729",
+    "minuten": 2,
+    "transcript": false
+   },
+   "id": "cb-049",
+   "moment": "altijd"
+  },
+  {
+   "soort": "mythe",
+   "pijler": "voeding",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Buikspieroefeningen verbranden geen buikvet.",
+   "titel": "Lokale vetverbranding vs algehele vetverbranding",
+   "punten": [
+    "Je ziet het vaak genoeg voorbijkomen, die reclames van die zelfverklaarde personal trainers met teksten als ‘’wil jij ook je buikvet verminderen? Volg dan dit schema!’’. En nog meer van deze onzin."
+   ],
+   "afsluiter": "Stuur dit naar iemand die dit nog gelooft.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Lokale vetverbranding vs algehele vetverbranding",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-050",
+   "moment": "altijd"
+  },
+  {
+   "soort": "mythe",
+   "pijler": "gewoontes",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Een gewoonte aanleren duurt 21 dagen. Klopt dat?",
+   "titel": "Mythe - een gewoonte aanleren",
+   "punten": [
+    "Mythe : Een gewoonte aanleren kost veel tijd De mythe dat een verandering lang duurt en dat er heel veel fysieke strijd geleverd moet worden is niet helemaal juist. Ook deze aanname is het gevolg van een geconditioneerde gedachten. Een verandering kost tijd hoor ik vaak."
+   ],
+   "afsluiter": "Stuur dit naar iemand die dit nog gelooft.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Mythe - een gewoonte aanleren",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-051",
+   "moment": "altijd"
+  },
+  {
+   "soort": "mythe",
+   "pijler": "lichaam",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Zwaarder op de weegschaal als het warm is? Dit is waarom.",
+   "titel": "Heeft warm weer invloed op mijn gewicht?",
+   "punten": [
+    "De invloed van warmte op je gewicht Van warmte op zich word je niet zwaarder. Maar sommige effecten van warmte kunnen er toch voor zorgen dat je je zwaarder voelt of een hoger getal op de weegschaal ziet. Je leest hieronder drie effecten plus een tip om daar wat aan te doen."
+   ],
+   "afsluiter": "Stuur dit naar iemand die dit nog gelooft.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Heeft warm weer invloed op mijn gewicht?",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-052",
+   "moment": "altijd"
+  },
+  {
+   "soort": "mythe",
+   "pijler": "voeding",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Val je sneller af met intermittent fasting?",
+   "titel": "Intermittent fasting",
+   "punten": [
+    "Vandaag wil ik wat uitleggen over intermitterend vasten. Wat is het, hoe werkt het, is het gezond en val je hierdoor sneller en/of beter af? Intermitterend vasten is een eetpatroon waarbij je wisselt tussen eetperiodes en vasten."
+   ],
+   "afsluiter": "Stuur dit naar iemand die dit nog gelooft.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Intermittent fasting",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-053",
+   "moment": "altijd"
+  },
+  {
+   "soort": "mythe",
+   "pijler": "voeding",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Koolhydraten schrappen: werkt het ketogeen dieet beter?",
+   "titel": "Ketogeen dieet",
+   "punten": [
+    "Vandaag ga ik het hebben over het ketogeen dieet. Wat is het, wat zijn de effecten en is het een gezonde en efficiënte manier van afvallen? Wat is een ketogeen (keto) dieet?"
+   ],
+   "afsluiter": "Stuur dit naar iemand die dit nog gelooft.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Ketogeen dieet",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-054",
+   "moment": "altijd"
+  },
+  {
+   "soort": "mythe",
+   "pijler": "voeding",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Maakt suiker je dik?",
+   "titel": "Suiker",
+   "punten": [
+    "Wat is suiker? Waarvoor heb je het nodig? En wat doet suiker in je lichaam?"
+   ],
+   "afsluiter": "Stuur dit naar iemand die dit nog gelooft.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Suiker",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-055",
+   "moment": "altijd"
+  },
+  {
+   "soort": "mythe",
+   "pijler": "voeding",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Als je vet verliest, waar blijft het dan?",
+   "titel": "Vet verbranden waar blijft het?",
+   "punten": [
+    "Altijd al benieuwd geweest waar dat vet wat jij verbrandt blijft? Lees dan verder. Wanneer je vet verliest, gaat de vetcel nergens heen en verplaatst zich ook niet in spiercellen om vervolgens verbrand te worden."
+   ],
+   "afsluiter": "Stuur dit naar iemand die dit nog gelooft.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Vet verbranden waar blijft het?",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-056",
+   "moment": "altijd"
+  },
+  {
+   "soort": "mythe",
+   "pijler": "voeding",
+   "vormen": [
+    "carrousel",
+    "reel"
+   ],
+   "haak": "Helpt koffie voor je training echt?",
+   "titel": "Cafeïne",
+   "punten": [
+    "In deze email wil ik wat vertellen over de effecten van cafeïne op het menselijk lichaam. Cafeïne levert op zichzelf geen voedingswaarde. Het is smakeloos, dus je weet niet per se of het in je eten zit."
+   ],
+   "afsluiter": "Stuur dit naar iemand die dit nog gelooft.",
+   "let_op": "Tekst komt uit de oude mailreeks: lees hem na voor je post.",
+   "bron": {
+    "les": "Cafeïne",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-057",
+   "moment": "altijd"
+  },
+  {
+   "soort": "mythe",
+   "pijler": "voeding",
+   "vormen": [
+    "reel"
+   ],
+   "haak": "Word je dik van eten na acht uur ’s avonds?",
+   "titel": "Na 8 uur eten",
+   "punten": [],
+   "afsluiter": "Stuur dit naar iemand die dit nog gelooft.",
+   "let_op": "Bestaande korte video uit 2018-2019: check beeldkwaliteit en of de inhoud nog klopt.",
+   "bron": {
+    "les": "Kennisclip · Na 8 uur eten",
+    "vimeo_id": "255248261",
+    "minuten": 2,
+    "transcript": false
+   },
+   "id": "cb-058",
+   "moment": "altijd"
+  },
+  {
+   "soort": "mythe",
+   "pijler": "voeding",
+   "vormen": [
+    "reel"
+   ],
+   "haak": "Detoxen: wat doet het echt?",
+   "titel": "Detoxen",
+   "punten": [],
+   "afsluiter": "Stuur dit naar iemand die dit nog gelooft.",
+   "let_op": "Bestaande korte video uit 2018-2019: check beeldkwaliteit en of de inhoud nog klopt.",
+   "bron": {
+    "les": "Kennisclip · Detoxen",
+    "vimeo_id": "344609659",
+    "minuten": 1,
+    "transcript": false
+   },
+   "id": "cb-059",
+   "moment": "altijd"
+  },
+  {
+   "soort": "mythe",
+   "pijler": "voeding",
+   "vormen": [
+    "reel"
+   ],
+   "haak": "Heb je een cheat meal nodig?",
+   "titel": "Cheat meals",
+   "punten": [],
+   "afsluiter": "Stuur dit naar iemand die dit nog gelooft.",
+   "let_op": "Bestaande korte video uit 2018-2019: check beeldkwaliteit en of de inhoud nog klopt.",
+   "bron": {
+    "les": "Kennisclip · Cheat meals",
+    "vimeo_id": "317022631",
+    "minuten": 1,
+    "transcript": false
+   },
+   "id": "cb-060",
+   "moment": "altijd"
+  },
+  {
+   "soort": "mythe",
+   "pijler": "voeding",
+   "vormen": [
+    "reel"
+   ],
+   "haak": "Smeer je vet weg met een crème?",
+   "titel": "Toning creme",
+   "punten": [],
+   "afsluiter": "Stuur dit naar iemand die dit nog gelooft.",
+   "let_op": "Bestaande korte video uit 2018-2019: check beeldkwaliteit en of de inhoud nog klopt.",
+   "bron": {
+    "les": "Kennisclip · Toning creme",
+    "vimeo_id": "344639799",
+    "minuten": 1,
+    "transcript": false
+   },
+   "id": "cb-061",
+   "moment": "altijd"
+  },
+  {
+   "soort": "mythe",
+   "pijler": "voeding",
+   "vormen": [
+    "reel"
+   ],
+   "haak": "Creatine: voor wie en waarom?",
+   "titel": "Creatine",
+   "punten": [],
+   "afsluiter": "Stuur dit naar iemand die dit nog gelooft.",
+   "let_op": "Bestaande korte video uit 2018-2019: check beeldkwaliteit en of de inhoud nog klopt.",
+   "bron": {
+    "les": "Kennisclip · Creatine",
+    "vimeo_id": "255245198",
+    "minuten": 2,
+    "transcript": false
+   },
+   "id": "cb-062",
+   "moment": "altijd"
+  },
+  {
+   "soort": "mythe",
+   "pijler": "voeding",
+   "vormen": [
+    "reel"
+   ],
+   "haak": "Veel vrouwen eten te weinig om af te vallen.",
+   "titel": "Vrouwen moeten meer eten",
+   "punten": [],
+   "afsluiter": "Stuur dit naar iemand die dit nog gelooft.",
+   "let_op": "Bestaande korte video uit 2018-2019: check beeldkwaliteit en of de inhoud nog klopt.",
+   "bron": {
+    "les": "Kennisclip · Vrouwen moeten meer eten",
+    "vimeo_id": "317031098",
+    "minuten": 2,
+    "transcript": false
+   },
+   "id": "cb-063",
+   "moment": "altijd"
+  },
+  {
+   "soort": "mythe",
+   "pijler": "voeding",
+   "vormen": [
+    "reel"
+   ],
+   "haak": "Je eet weinig en valt toch niet af. Hoe kan dat?",
+   "titel": "Te weinig calorieen eten en niet afvallen",
+   "punten": [],
+   "afsluiter": "Stuur dit naar iemand die dit nog gelooft.",
+   "let_op": "Bestaande korte video uit 2018-2019: check beeldkwaliteit en of de inhoud nog klopt.",
+   "bron": {
+    "les": "Kennisclip · Te weinig calorieen eten en niet afvallen",
+    "vimeo_id": "344635289",
+    "minuten": 1,
+    "transcript": false
+   },
+   "id": "cb-064",
+   "moment": "altijd"
+  },
+  {
+   "soort": "mythe",
+   "pijler": "voeding",
+   "vormen": [
+    "reel"
+   ],
+   "haak": "Hoe snel kun je vet verliezen?",
+   "titel": "Hoe snel kan je vet verliezen",
+   "punten": [],
+   "afsluiter": "Stuur dit naar iemand die dit nog gelooft.",
+   "let_op": "Bestaande korte video uit 2018-2019: check beeldkwaliteit en of de inhoud nog klopt.",
+   "bron": {
+    "les": "Kennisclip · Hoe snel kan je vet verliezen",
+    "vimeo_id": "344638529",
+    "minuten": 1,
+    "transcript": false
+   },
+   "id": "cb-065",
+   "moment": "altijd"
+  }
+ ]
+}
