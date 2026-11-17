@@ -1,6 +1,78 @@
 {
- "versie": 1,
- "uitleg": "Ideeën voor social media uit de bibliotheek van de Apex leeromgeving. vimeo_id verwijst naar de video in het Vimeo-account van Apex; transcript = er is een doorzoekbaar transcript in content/leeromgeving-seed.json.",
+ "versie": 2,
+ "uitleg": "Ideeën voor social media uit de bibliotheek van de Apex leeromgeving. vimeo_id verwijst naar de video in het Vimeo-account van Apex; transcript = er is een doorzoekbaar transcript in content/leeromgeving-seed.json. prioriteit 1 = past het best bij wat op Jeroens Instagram werkt (cijfers Apex Socials, 18-11-2026); id's blijven gelijk, nieuwe items komen achteraan.",
+ "plan": [
+  {
+   "dag": "do 19-11",
+   "id": "cb-066",
+   "haak": "Welke belofte maak jij het vaakst? Kies 1, 2, 3 of 4."
+  },
+  {
+   "dag": "vr 20-11",
+   "id": "cb-014",
+   "haak": "Een boek over zwemmen lezen voorkomt niet dat je verzuipt."
+  },
+  {
+   "dag": "do 26-11",
+   "id": "cb-074",
+   "haak": "Ze ging van 30% naar 70% van haar acties uitvoeren. Niet door harder te werken."
+  },
+  {
+   "dag": "vr 27-11",
+   "id": "cb-067",
+   "haak": "In welke wereld leef jij nu? Kies 1, 2 of 3."
+  },
+  {
+   "dag": "do 3-12",
+   "id": "cb-005",
+   "haak": "‘Ik had geen tijd’ klopt niet. Dit is wat je eigenlijk zegt."
+  },
+  {
+   "dag": "vr 4-12",
+   "id": "cb-073",
+   "haak": "Het weekend: welke ben jij? Kies 1, 2 of 3."
+  },
+  {
+   "dag": "do 10-12",
+   "id": "cb-004",
+   "haak": "Feestje dit weekend? Zo maak je vooraf 1.250 kcal ruimte."
+  },
+  {
+   "dag": "vr 11-12",
+   "id": "cb-068",
+   "haak": "Op welke trede laat jij je resultaat liggen? Kies 1 tot 5."
+  },
+  {
+   "dag": "do 17-12",
+   "id": "cb-022",
+   "haak": "Dertig mixdrankjes met gewone cola: 3.300 kcal, alleen al aan cola."
+  },
+  {
+   "dag": "vr 18-12",
+   "id": "cb-069",
+   "haak": "Hoeveel van deze oranje lichten herken jij deze week? 0 tot 4."
+  },
+  {
+   "dag": "do 24-12",
+   "id": null,
+   "haak": "Persoonlijke post, zelf schrijven (je best scorende soort): terugblik op je jaar"
+  },
+  {
+   "dag": "vr 1-1",
+   "id": "cb-024",
+   "haak": "De schade zit niet in het feest. Die zit in de vier dagen erna."
+  },
+  {
+   "dag": "do 7-1",
+   "id": "cb-019",
+   "haak": "Je hoeft niets nieuws te beginnen. Stop eerst hiermee."
+  },
+  {
+   "dag": "vr 8-1",
+   "id": "cb-020",
+   "haak": "Er zijn drie soorten beloftes. Twee ervan kosten je je resultaat."
+  }
+ ],
  "items": [
   {
    "soort": "video",
@@ -26,7 +98,10 @@
     "minuten": 8,
     "transcript": true
    },
-   "id": "cb-001"
+   "id": "cb-001",
+   "prioriteit": 2,
+   "waarom": "Past bij je pijlers; het onderwerp voeding en weekend scoorde bij jou net onder normaal (47).",
+   "plaatsen": "dinsdag tot en met vrijdag, niet op maandag"
   },
   {
    "soort": "video",
@@ -52,7 +127,10 @@
     "minuten": 6,
     "transcript": true
    },
-   "id": "cb-002"
+   "id": "cb-002",
+   "prioriteit": 2,
+   "waarom": "Past bij je pijlers; het onderwerp voeding en weekend scoorde bij jou net onder normaal (47).",
+   "plaatsen": "dinsdag tot en met vrijdag, niet op maandag"
   },
   {
    "soort": "video",
@@ -77,7 +155,10 @@
     "minuten": 12,
     "transcript": false
    },
-   "id": "cb-003"
+   "id": "cb-003",
+   "prioriteit": 2,
+   "waarom": "Past bij je pijlers; het onderwerp voeding en weekend scoorde bij jou net onder normaal (47).",
+   "plaatsen": "dinsdag tot en met vrijdag, niet op maandag"
   },
   {
    "soort": "video",
@@ -103,7 +184,10 @@
     "minuten": 8,
     "transcript": true
    },
-   "id": "cb-004"
+   "id": "cb-004",
+   "prioriteit": 2,
+   "waarom": "Past bij je pijlers; het onderwerp voeding en weekend scoorde bij jou net onder normaal (47).",
+   "plaatsen": "dinsdag tot en met vrijdag, niet op maandag"
   },
   {
    "soort": "video",
@@ -129,7 +213,10 @@
     "minuten": 3,
     "transcript": true
    },
-   "id": "cb-005"
+   "id": "cb-005",
+   "prioriteit": 1,
+   "waarom": "Confronterend en over weten versus doen: dit soort posts scoort bij jou gemiddeld 52 (normaal is 50, verkopend 17).",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
   },
   {
    "soort": "video",
@@ -155,7 +242,10 @@
     "minuten": 3,
     "transcript": true
    },
-   "id": "cb-006"
+   "id": "cb-006",
+   "prioriteit": 1,
+   "waarom": "Confronterend en over weten versus doen: dit soort posts scoort bij jou gemiddeld 52 (normaal is 50, verkopend 17).",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
   },
   {
    "soort": "video",
@@ -180,7 +270,10 @@
     "minuten": 6,
     "transcript": true
    },
-   "id": "cb-007"
+   "id": "cb-007",
+   "prioriteit": 1,
+   "waarom": "Confronterend en over weten versus doen: dit soort posts scoort bij jou gemiddeld 52 (normaal is 50, verkopend 17).",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
   },
   {
    "soort": "video",
@@ -206,7 +299,10 @@
     "minuten": 11,
     "transcript": true
    },
-   "id": "cb-008"
+   "id": "cb-008",
+   "prioriteit": 2,
+   "waarom": "Past bij je pijlers; het onderwerp voeding en weekend scoorde bij jou net onder normaal (47).",
+   "plaatsen": "dinsdag tot en met vrijdag, niet op maandag"
   },
   {
    "soort": "video",
@@ -232,7 +328,10 @@
     "minuten": 3,
     "transcript": true
    },
-   "id": "cb-009"
+   "id": "cb-009",
+   "prioriteit": 1,
+   "waarom": "Confronterend en over weten versus doen: dit soort posts scoort bij jou gemiddeld 52 (normaal is 50, verkopend 17).",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
   },
   {
    "soort": "video",
@@ -258,7 +357,10 @@
     "minuten": 8,
     "transcript": true
    },
-   "id": "cb-010"
+   "id": "cb-010",
+   "prioriteit": 2,
+   "waarom": "Past bij je pijlers; het onderwerp voeding en weekend scoorde bij jou net onder normaal (47).",
+   "plaatsen": "dinsdag tot en met vrijdag, niet op maandag"
   },
   {
    "soort": "video",
@@ -283,7 +385,10 @@
     "minuten": 4,
     "transcript": true
    },
-   "id": "cb-011"
+   "id": "cb-011",
+   "prioriteit": 2,
+   "waarom": "Past bij je pijlers; het onderwerp voeding en weekend scoorde bij jou net onder normaal (47).",
+   "plaatsen": "dinsdag tot en met vrijdag, niet op maandag"
   },
   {
    "soort": "video",
@@ -308,7 +413,10 @@
     "minuten": 6,
     "transcript": true
    },
-   "id": "cb-012"
+   "id": "cb-012",
+   "prioriteit": 2,
+   "waarom": "Past bij je pijlers; het onderwerp voeding en weekend scoorde bij jou net onder normaal (47).",
+   "plaatsen": "dinsdag tot en met vrijdag, niet op maandag"
   },
   {
    "soort": "video",
@@ -334,7 +442,10 @@
     "minuten": 6,
     "transcript": true
    },
-   "id": "cb-013"
+   "id": "cb-013",
+   "prioriteit": 2,
+   "waarom": "Past bij je pijlers; het onderwerp voeding en weekend scoorde bij jou net onder normaal (47).",
+   "plaatsen": "dinsdag tot en met vrijdag, niet op maandag"
   },
   {
    "soort": "video",
@@ -359,7 +470,10 @@
     "minuten": 6,
     "transcript": true
    },
-   "id": "cb-014"
+   "id": "cb-014",
+   "prioriteit": 1,
+   "waarom": "Confronterend en over weten versus doen: dit soort posts scoort bij jou gemiddeld 52 (normaal is 50, verkopend 17).",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
   },
   {
    "soort": "video",
@@ -385,7 +499,10 @@
     "minuten": 4,
     "transcript": true
    },
-   "id": "cb-015"
+   "id": "cb-015",
+   "prioriteit": 2,
+   "waarom": "Past bij je pijlers; het onderwerp voeding en weekend scoorde bij jou net onder normaal (47).",
+   "plaatsen": "dinsdag tot en met vrijdag, niet op maandag"
   },
   {
    "soort": "video",
@@ -409,7 +526,10 @@
     "minuten": 4,
     "transcript": true
    },
-   "id": "cb-016"
+   "id": "cb-016",
+   "prioriteit": 2,
+   "waarom": "Past bij je pijlers; het onderwerp voeding en weekend scoorde bij jou net onder normaal (47).",
+   "plaatsen": "dinsdag tot en met vrijdag, niet op maandag"
   },
   {
    "soort": "video",
@@ -434,7 +554,10 @@
     "minuten": 3,
     "transcript": true
    },
-   "id": "cb-017"
+   "id": "cb-017",
+   "prioriteit": 1,
+   "waarom": "Confronterend en over weten versus doen: dit soort posts scoort bij jou gemiddeld 52 (normaal is 50, verkopend 17).",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
   },
   {
    "soort": "video",
@@ -460,7 +583,10 @@
     "minuten": 3,
     "transcript": true
    },
-   "id": "cb-018"
+   "id": "cb-018",
+   "prioriteit": 1,
+   "waarom": "Confronterend en over weten versus doen: dit soort posts scoort bij jou gemiddeld 52 (normaal is 50, verkopend 17).",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
   },
   {
    "soort": "video",
@@ -486,7 +612,10 @@
     "minuten": 2,
     "transcript": true
    },
-   "id": "cb-019"
+   "id": "cb-019",
+   "prioriteit": 1,
+   "waarom": "Confronterend en over weten versus doen: dit soort posts scoort bij jou gemiddeld 52 (normaal is 50, verkopend 17).",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
   },
   {
    "soort": "video",
@@ -512,7 +641,10 @@
     "minuten": 4,
     "transcript": true
    },
-   "id": "cb-020"
+   "id": "cb-020",
+   "prioriteit": 1,
+   "waarom": "Confronterend en over weten versus doen: dit soort posts scoort bij jou gemiddeld 52 (normaal is 50, verkopend 17).",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
   },
   {
    "soort": "video",
@@ -538,7 +670,10 @@
     "minuten": 6,
     "transcript": true
    },
-   "id": "cb-021"
+   "id": "cb-021",
+   "prioriteit": 2,
+   "waarom": "Past bij je pijlers; het onderwerp voeding en weekend scoorde bij jou net onder normaal (47).",
+   "plaatsen": "dinsdag tot en met vrijdag, niet op maandag"
   },
   {
    "soort": "video",
@@ -564,7 +699,10 @@
     "minuten": 17,
     "transcript": true
    },
-   "id": "cb-022"
+   "id": "cb-022",
+   "prioriteit": 2,
+   "waarom": "Past bij je pijlers; het onderwerp voeding en weekend scoorde bij jou net onder normaal (47).",
+   "plaatsen": "dinsdag tot en met vrijdag, niet op maandag"
   },
   {
    "soort": "video",
@@ -589,7 +727,10 @@
     "minuten": 10,
     "transcript": true
    },
-   "id": "cb-023"
+   "id": "cb-023",
+   "prioriteit": 2,
+   "waarom": "Past bij je pijlers; het onderwerp voeding en weekend scoorde bij jou net onder normaal (47).",
+   "plaatsen": "dinsdag tot en met vrijdag, niet op maandag"
   },
   {
    "soort": "video",
@@ -615,7 +756,10 @@
     "minuten": 4,
     "transcript": true
    },
-   "id": "cb-024"
+   "id": "cb-024",
+   "prioriteit": 2,
+   "waarom": "Past bij je pijlers; het onderwerp voeding en weekend scoorde bij jou net onder normaal (47).",
+   "plaatsen": "dinsdag tot en met vrijdag, niet op maandag"
   },
   {
    "soort": "model",
@@ -631,7 +775,7 @@
     "Zigzag: je zet stappen vooruit en weer terug",
     "Straight line: je doet wat nodig is, in een rechte lijn naar je doel"
    ],
-   "afsluiter": "Dit is één van de twaalf sessies van de 90 Dagen Challenge.",
+   "afsluiter": "Herken je dit? Reageer met één woord.",
    "moment": "in de weken voor de start van een nieuwe ronde",
    "let_op": "Betaalde inhoud: deel het model, niet de hele sessie of de opdracht.",
    "bron": {
@@ -640,7 +784,10 @@
     "minuten": 0,
     "transcript": false
    },
-   "id": "cb-025"
+   "id": "cb-025",
+   "prioriteit": 1,
+   "waarom": "Confronterend en over weten versus doen: dit soort posts scoort bij jou gemiddeld 52 (normaal is 50, verkopend 17).",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
   },
   {
    "soort": "model",
@@ -656,7 +803,7 @@
     "Kies bewust een nieuwe identiteit, bijvoorbeeld: 'ik ben een atleet'",
     "Pas die identiteit toe, juist op de momenten dat het schuurt"
    ],
-   "afsluiter": "Dit is één van de twaalf sessies van de 90 Dagen Challenge.",
+   "afsluiter": "Herken je dit? Reageer met één woord.",
    "moment": "in de weken voor de start van een nieuwe ronde",
    "let_op": "Betaalde inhoud: deel het model, niet de hele sessie of de opdracht.",
    "bron": {
@@ -665,7 +812,10 @@
     "minuten": 2,
     "transcript": false
    },
-   "id": "cb-026"
+   "id": "cb-026",
+   "prioriteit": 1,
+   "waarom": "Confronterend en over weten versus doen: dit soort posts scoort bij jou gemiddeld 52 (normaal is 50, verkopend 17).",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
   },
   {
    "soort": "model",
@@ -681,7 +831,7 @@
     "Personal Presence Drill: dagelijks 5 minuten in de spiegel, bij elke gedachte zeg je 'niet dat'",
     "Twee-minutenregel: begin gewoon twee minuten. Je traint discipline, niet motivatie"
    ],
-   "afsluiter": "Dit is één van de twaalf sessies van de 90 Dagen Challenge.",
+   "afsluiter": "Herken je dit? Reageer met één woord.",
    "moment": "in de weken voor de start van een nieuwe ronde",
    "let_op": "Betaalde inhoud: deel het model, niet de hele sessie of de opdracht.",
    "bron": {
@@ -690,7 +840,10 @@
     "minuten": 6,
     "transcript": false
    },
-   "id": "cb-027"
+   "id": "cb-027",
+   "prioriteit": 2,
+   "waarom": "Past bij je pijlers; het onderwerp voeding en weekend scoorde bij jou net onder normaal (47).",
+   "plaatsen": "dinsdag tot en met vrijdag, niet op maandag"
   },
   {
    "soort": "model",
@@ -706,7 +859,7 @@
     "Kijk ook naar centimeters, energie, hoe je kleding zit en je foto's",
     "Vier soorten beloftes: krachtig, zwak, crimineel en geen belofte"
    ],
-   "afsluiter": "Dit is één van de twaalf sessies van de 90 Dagen Challenge.",
+   "afsluiter": "Herken je dit? Reageer met één woord.",
    "moment": "in de weken voor de start van een nieuwe ronde",
    "let_op": "Betaalde inhoud: deel het model, niet de hele sessie of de opdracht.",
    "bron": {
@@ -715,7 +868,10 @@
     "minuten": 1,
     "transcript": false
    },
-   "id": "cb-028"
+   "id": "cb-028",
+   "prioriteit": 1,
+   "waarom": "Confronterend en over weten versus doen: dit soort posts scoort bij jou gemiddeld 52 (normaal is 50, verkopend 17).",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
   },
   {
    "soort": "model",
@@ -731,7 +887,7 @@
     "Maak het onderscheid zwart-wit",
     "Nog 4 weken: tijd voor massieve actie"
    ],
-   "afsluiter": "Dit is één van de twaalf sessies van de 90 Dagen Challenge.",
+   "afsluiter": "Herken je dit? Reageer met één woord.",
    "moment": "in de weken voor de start van een nieuwe ronde",
    "let_op": "Betaalde inhoud: deel het model, niet de hele sessie of de opdracht.",
    "bron": {
@@ -740,7 +896,10 @@
     "minuten": 1,
     "transcript": false
    },
-   "id": "cb-029"
+   "id": "cb-029",
+   "prioriteit": 2,
+   "waarom": "Past bij je pijlers; het onderwerp voeding en weekend scoorde bij jou net onder normaal (47).",
+   "plaatsen": "dinsdag tot en met vrijdag, niet op maandag"
   },
   {
    "soort": "model",
@@ -756,7 +915,7 @@
     "Red lights: duizeligheid, fysieke spanning, je zwaar of geblokkeerd voelen, slaapproblemen",
     "10-secondenregel: tel af van 10 naar 0 en doe het gewoon"
    ],
-   "afsluiter": "Dit is één van de twaalf sessies van de 90 Dagen Challenge.",
+   "afsluiter": "Herken je dit? Reageer met één woord.",
    "moment": "in de weken voor de start van een nieuwe ronde",
    "let_op": "Betaalde inhoud: deel het model, niet de hele sessie of de opdracht.",
    "bron": {
@@ -765,7 +924,10 @@
     "minuten": 2,
     "transcript": false
    },
-   "id": "cb-030"
+   "id": "cb-030",
+   "prioriteit": 2,
+   "waarom": "Past bij je pijlers; het onderwerp voeding en weekend scoorde bij jou net onder normaal (47).",
+   "plaatsen": "dinsdag tot en met vrijdag, niet op maandag"
   },
   {
    "soort": "model",
@@ -781,7 +943,7 @@
     "Twee-minutenregel: doe het nu",
     "Schrijf meetbaar, geen vage intenties"
    ],
-   "afsluiter": "Dit is één van de twaalf sessies van de 90 Dagen Challenge.",
+   "afsluiter": "Herken je dit? Reageer met één woord.",
    "moment": "in de weken voor de start van een nieuwe ronde",
    "let_op": "Betaalde inhoud: deel het model, niet de hele sessie of de opdracht.",
    "bron": {
@@ -790,7 +952,10 @@
     "minuten": 1,
     "transcript": false
    },
-   "id": "cb-031"
+   "id": "cb-031",
+   "prioriteit": 1,
+   "waarom": "Confronterend en over weten versus doen: dit soort posts scoort bij jou gemiddeld 52 (normaal is 50, verkopend 17).",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
   },
   {
    "soort": "model",
@@ -806,7 +971,7 @@
     "Light side: verbindend, geduldig, vriendelijk, accepterend, ontspannen",
     "Een krachtig persoon schakelt bewust tussen dark en light side"
    ],
-   "afsluiter": "Dit is één van de twaalf sessies van de 90 Dagen Challenge.",
+   "afsluiter": "Herken je dit? Reageer met één woord.",
    "moment": "in de weken voor de start van een nieuwe ronde",
    "let_op": "Betaalde inhoud: deel het model, niet de hele sessie of de opdracht.",
    "bron": {
@@ -815,7 +980,10 @@
     "minuten": 1,
     "transcript": false
    },
-   "id": "cb-032"
+   "id": "cb-032",
+   "prioriteit": 2,
+   "waarom": "Past bij je pijlers; het onderwerp voeding en weekend scoorde bij jou net onder normaal (47).",
+   "plaatsen": "dinsdag tot en met vrijdag, niet op maandag"
   },
   {
    "soort": "model",
@@ -831,7 +999,7 @@
     "De kwaliteit van een relatie",
     "Waar wil je meer tijd en energie in steken?"
    ],
-   "afsluiter": "Dit is één van de twaalf sessies van de 90 Dagen Challenge.",
+   "afsluiter": "Herken je dit? Reageer met één woord.",
    "moment": "in de weken voor de start van een nieuwe ronde",
    "let_op": "Betaalde inhoud: deel het model, niet de hele sessie of de opdracht.",
    "bron": {
@@ -840,7 +1008,10 @@
     "minuten": 1,
     "transcript": true
    },
-   "id": "cb-033"
+   "id": "cb-033",
+   "prioriteit": 2,
+   "waarom": "Past bij je pijlers; het onderwerp voeding en weekend scoorde bij jou net onder normaal (47).",
+   "plaatsen": "dinsdag tot en met vrijdag, niet op maandag"
   },
   {
    "soort": "tip",
@@ -863,7 +1034,10 @@
     "transcript": false
    },
    "id": "cb-034",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "tip",
@@ -886,7 +1060,10 @@
     "transcript": false
    },
    "id": "cb-035",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "tip",
@@ -909,7 +1086,10 @@
     "transcript": false
    },
    "id": "cb-036",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "tip",
@@ -932,7 +1112,10 @@
     "transcript": false
    },
    "id": "cb-037",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "tip",
@@ -955,7 +1138,10 @@
     "transcript": false
    },
    "id": "cb-038",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "tip",
@@ -978,7 +1164,10 @@
     "transcript": false
    },
    "id": "cb-039",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "tip",
@@ -1001,7 +1190,10 @@
     "transcript": false
    },
    "id": "cb-040",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "tip",
@@ -1024,7 +1216,10 @@
     "transcript": false
    },
    "id": "cb-041",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "tip",
@@ -1047,7 +1242,10 @@
     "transcript": false
    },
    "id": "cb-042",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "tip",
@@ -1070,7 +1268,10 @@
     "transcript": false
    },
    "id": "cb-043",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "tip",
@@ -1093,7 +1294,10 @@
     "transcript": false
    },
    "id": "cb-044",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "tip",
@@ -1116,7 +1320,10 @@
     "transcript": false
    },
    "id": "cb-045",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "tip",
@@ -1139,7 +1346,10 @@
     "transcript": false
    },
    "id": "cb-046",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "tip",
@@ -1162,7 +1372,10 @@
     "transcript": false
    },
    "id": "cb-047",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "tip",
@@ -1185,7 +1398,10 @@
     "transcript": false
    },
    "id": "cb-048",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "mythe",
@@ -1208,7 +1424,10 @@
     "transcript": false
    },
    "id": "cb-049",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "mythe",
@@ -1231,7 +1450,10 @@
     "transcript": false
    },
    "id": "cb-050",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "mythe",
@@ -1254,7 +1476,10 @@
     "transcript": false
    },
    "id": "cb-051",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "mythe",
@@ -1277,7 +1502,10 @@
     "transcript": false
    },
    "id": "cb-052",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "mythe",
@@ -1300,7 +1528,10 @@
     "transcript": false
    },
    "id": "cb-053",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "mythe",
@@ -1323,7 +1554,10 @@
     "transcript": false
    },
    "id": "cb-054",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "mythe",
@@ -1346,7 +1580,10 @@
     "transcript": false
    },
    "id": "cb-055",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "mythe",
@@ -1369,7 +1606,10 @@
     "transcript": false
    },
    "id": "cb-056",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "mythe",
@@ -1392,7 +1632,10 @@
     "transcript": false
    },
    "id": "cb-057",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "mythe",
@@ -1412,7 +1655,10 @@
     "transcript": false
    },
    "id": "cb-058",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "mythe",
@@ -1432,7 +1678,10 @@
     "transcript": false
    },
    "id": "cb-059",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "mythe",
@@ -1452,7 +1701,10 @@
     "transcript": false
    },
    "id": "cb-060",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "mythe",
@@ -1472,7 +1724,10 @@
     "transcript": false
    },
    "id": "cb-061",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "mythe",
@@ -1492,7 +1747,10 @@
     "transcript": false
    },
    "id": "cb-062",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "mythe",
@@ -1512,7 +1770,10 @@
     "transcript": false
    },
    "id": "cb-063",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "mythe",
@@ -1532,7 +1793,10 @@
     "transcript": false
    },
    "id": "cb-064",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
   },
   {
    "soort": "mythe",
@@ -1552,7 +1816,323 @@
     "transcript": false
    },
    "id": "cb-065",
-   "moment": "altijd"
+   "moment": "altijd",
+   "prioriteit": 3,
+   "waarom": "Uitleg en tips: hiervan staan geen posts in je top 10. Test er twee of drie voordat je er een reeks van maakt.",
+   "plaatsen": "als dagelijkse clip of story"
+  },
+  {
+   "soort": "zelftest",
+   "pijler": "mindset",
+   "vormen": [
+    "reel",
+    "carrousel"
+   ],
+   "haak": "Welke belofte maak jij het vaakst? Kies 1, 2, 3 of 4.",
+   "titel": "Welke belofte maak jij het vaakst?",
+   "punten": [
+    "1. Krachtig: je komt hem 100% na",
+    "2. Zwak: 50%, afhankelijk van hoe je je voelt",
+    "3. Crimineel: je weet al dat je hem breekt voordat je hem maakt",
+    "4. Geen belofte"
+   ],
+   "afsluiter": "Reageer met je cijfer. Wees eerlijk.",
+   "bron": {
+    "les": "Sessie 7 · Beloftes & het weekend",
+    "vimeo_id": "917131451",
+    "minuten": 1,
+    "transcript": false
+   },
+   "id": "cb-066",
+   "moment": "altijd",
+   "let_op": "",
+   "prioriteit": 1,
+   "waarom": "Zelftests worden bij jou het vaakst gedeeld (beste reel van het jaar: 977 keer).",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
+  },
+  {
+   "soort": "zelftest",
+   "pijler": "mindset",
+   "vormen": [
+    "reel",
+    "carrousel"
+   ],
+   "haak": "In welke wereld leef jij nu? Kies 1, 2 of 3.",
+   "titel": "In welke wereld leef jij nu?",
+   "punten": [
+    "1. Cirkel: je begint elke maandag opnieuw",
+    "2. Zigzag: twee weken goed, dan weer terug",
+    "3. Straight line: je doet wat nodig is, ook als het schuurt"
+   ],
+   "afsluiter": "Reageer met je cijfer en met het gebied waar het over gaat.",
+   "bron": {
+    "les": "Sessie 1 · Cirkel, zigzag of straight line",
+    "vimeo_id": "899626509",
+    "minuten": 0,
+    "transcript": false
+   },
+   "id": "cb-067",
+   "moment": "altijd",
+   "let_op": "",
+   "prioriteit": 1,
+   "waarom": "Zelftests worden bij jou het vaakst gedeeld (beste reel van het jaar: 977 keer).",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
+  },
+  {
+   "soort": "zelftest",
+   "pijler": "voeding",
+   "vormen": [
+    "reel",
+    "carrousel"
+   ],
+   "haak": "Op welke trede laat jij je resultaat liggen? Kies 1 tot 5.",
+   "titel": "Op welke trede laat jij je resultaat liggen?",
+   "punten": [
+    "1. Calorietekort: je houdt je voeding niet bij",
+    "2. Slaap: minder dan 7,5 uur",
+    "3. Eiwit: je haalt het niet",
+    "4. Beweging buiten het sporten",
+    "5. Training"
+   ],
+   "afsluiter": "De meeste mensen beginnen bij 5. Begin bij 1.",
+   "bron": {
+    "les": "De Apex fat loss pyramid",
+    "vimeo_id": "1194690043",
+    "minuten": 4,
+    "transcript": true
+   },
+   "id": "cb-068",
+   "moment": "altijd",
+   "let_op": "",
+   "prioriteit": 1,
+   "waarom": "Zelftests worden bij jou het vaakst gedeeld (beste reel van het jaar: 977 keer).",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
+  },
+  {
+   "soort": "zelftest",
+   "pijler": "herstel",
+   "vormen": [
+    "reel",
+    "carrousel"
+   ],
+   "haak": "Hoeveel van deze oranje lichten herken jij deze week? 0 tot 4.",
+   "titel": "Hoeveel van deze oranje lichten herken jij deze week?",
+   "punten": [
+    "Je voelt je opgejaagd",
+    "Je hoofd staat vol",
+    "Geïrriteerd zonder reden",
+    "In slaap vallen op de bank"
+   ],
+   "afsluiter": "Reageer met je aantal. Bij 3 of 4: wat schuif je al weken voor je uit?",
+   "bron": {
+    "les": "Sessie 9 · Stressmanagement",
+    "vimeo_id": "922584746",
+    "minuten": 2,
+    "transcript": false
+   },
+   "id": "cb-069",
+   "moment": "altijd",
+   "let_op": "",
+   "prioriteit": 1,
+   "waarom": "Zelftests worden bij jou het vaakst gedeeld (beste reel van het jaar: 977 keer).",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
+  },
+  {
+   "soort": "zelftest",
+   "pijler": "mindset",
+   "vormen": [
+    "reel",
+    "carrousel"
+   ],
+   "haak": "Wat zei jij deze week? Kies 1 of 2.",
+   "titel": "Wat zei jij deze week?",
+   "punten": [
+    "1. ‘Ik had geen tijd’",
+    "2. ‘Ik maakte er geen prioriteit van’"
+   ],
+   "afsluiter": "Zelfde week, andere zin. Welke geeft jou de controle terug?",
+   "bron": {
+    "les": "Eigenaar vs. slachtoffer",
+    "vimeo_id": "1182532274",
+    "minuten": 3,
+    "transcript": true
+   },
+   "id": "cb-070",
+   "moment": "altijd",
+   "let_op": "",
+   "prioriteit": 1,
+   "waarom": "Zelftests worden bij jou het vaakst gedeeld (beste reel van het jaar: 977 keer).",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
+  },
+  {
+   "soort": "zelftest",
+   "pijler": "mindset",
+   "vormen": [
+    "reel",
+    "carrousel"
+   ],
+   "haak": "Powerful of not powerful? Tel hoeveel je er deze week deed.",
+   "titel": "Powerful of not powerful?",
+   "punten": [
+    "Erover nadenken",
+    "Googelen en uitzoeken",
+    "Erover praten",
+    "Er een nachtje over slapen",
+    "Het doen"
+   ],
+   "afsluiter": "Alleen de laatste telt.",
+   "bron": {
+    "les": "Powerful vs. not powerful",
+    "vimeo_id": "1211313888",
+    "minuten": 3,
+    "transcript": true
+   },
+   "id": "cb-071",
+   "moment": "altijd",
+   "let_op": "",
+   "prioriteit": 1,
+   "waarom": "Zelftests worden bij jou het vaakst gedeeld (beste reel van het jaar: 977 keer).",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
+  },
+  {
+   "soort": "zelftest",
+   "pijler": "mindset",
+   "vormen": [
+    "reel",
+    "carrousel"
+   ],
+   "haak": "Hoeveel procent dark side ben jij? Kies 1, 2 of 3.",
+   "titel": "Hoeveel procent dark side ben jij?",
+   "punten": [
+    "1. 70% dark side: gedreven, confronterend, doelgericht",
+    "2. 50/50",
+    "3. 70% light side: geduldig, zorgzaam, kalm"
+   ],
+   "afsluiter": "Geen van drie is fout. Past het bij wat je wilt bereiken?",
+   "bron": {
+    "les": "Sessie 11 · Het 5G-schema & Dark side vs. Light side",
+    "vimeo_id": "927528380",
+    "minuten": 1,
+    "transcript": false
+   },
+   "id": "cb-072",
+   "moment": "altijd",
+   "let_op": "",
+   "prioriteit": 1,
+   "waarom": "Zelftests worden bij jou het vaakst gedeeld (beste reel van het jaar: 977 keer).",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
+  },
+  {
+   "soort": "zelftest",
+   "pijler": "gewoontes",
+   "vormen": [
+    "reel",
+    "carrousel"
+   ],
+   "haak": "Het weekend: welke ben jij? Kies 1, 2 of 3.",
+   "titel": "Het weekend: welke ben jij?",
+   "punten": [
+    "1. Ik houd het bij, ook op zaterdag",
+    "2. Vrijdagavond laat ik het los",
+    "3. Maandag begin ik weer opnieuw"
+   ],
+   "afsluiter": "Het weekend telt even hard mee als maandag.",
+   "bron": {
+    "les": "Sessie 7 · Beloftes & het weekend",
+    "vimeo_id": "917131451",
+    "minuten": 1,
+    "transcript": false
+   },
+   "id": "cb-073",
+   "moment": "altijd",
+   "let_op": "",
+   "prioriteit": 1,
+   "waarom": "Zelftests worden bij jou het vaakst gedeeld (beste reel van het jaar: 977 keer).",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
+  },
+  {
+   "soort": "klantverhaal",
+   "pijler": "mindset",
+   "vormen": [
+    "foto met tekst",
+    "carrousel"
+   ],
+   "haak": "Ze ging van 30% naar 70% van haar acties uitvoeren. Niet door harder te werken.",
+   "titel": "Ze ging van 30% naar 70% van haar acties uitvoeren. Niet door harder te werken.",
+   "punten": [
+    "Ze stopte met beschrijven wat er misging",
+    "Ze begon te verklaren waaróm het misging",
+    "En paste daarna één ding in haar gedrag aan"
+   ],
+   "afsluiter": "Wat beschrijf jij al weken, zonder het te verklaren?",
+   "let_op": "Gebaseerd op een echte deelnemer. Vraag toestemming en laat alles weg waaraan iemand in Volendam hem of haar kan herkennen.",
+   "bron": {
+    "les": "Sessie 10 · Je toekomst: de brief aan jezelf",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-074",
+   "moment": "altijd",
+   "prioriteit": 1,
+   "waarom": "Klantverhalen zonder naam staan op plek 2 en 5 van je laatste 90 dagen.",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
+  },
+  {
+   "soort": "klantverhaal",
+   "pijler": "mindset",
+   "vormen": [
+    "foto met tekst",
+    "carrousel"
+   ],
+   "haak": "Hij vroeg nooit om hulp. ‘Zo ben ik nu eenmaal.’",
+   "titel": "Hij vroeg nooit om hulp. ‘Zo ben ik nu eenmaal.’",
+   "punten": [
+    "Alles zelf doen voelde als een eigenschap",
+    "Het was een escape card: een excuus om geen verantwoordelijkheid te nemen",
+    "Eén keer hulp vragen veranderde zijn week"
+   ],
+   "afsluiter": "Welke zin gebruik jij om niets te hoeven veranderen?",
+   "let_op": "Gebaseerd op een echte deelnemer. Vraag toestemming en laat alles weg waaraan iemand in Volendam hem of haar kan herkennen.",
+   "bron": {
+    "les": "Sessie 10 · Je toekomst: de brief aan jezelf",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-075",
+   "moment": "altijd",
+   "prioriteit": 1,
+   "waarom": "Klantverhalen zonder naam staan op plek 2 en 5 van je laatste 90 dagen.",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
+  },
+  {
+   "soort": "klantverhaal",
+   "pijler": "mindset",
+   "vormen": [
+    "foto met tekst",
+    "carrousel"
+   ],
+   "haak": "Ze haalde 68.000 stappen in een week. En toch telde het niet.",
+   "titel": "Ze haalde 68.000 stappen in een week. En toch telde het niet.",
+   "punten": [
+    "De afspraak was: bewijs insturen vóór de deadline",
+    "Dat lukte niet door haar werk",
+    "Het punt is niet of de regel eerlijk is, maar wat je doet binnen de regels"
+   ],
+   "afsluiter": "Zoek jij een oplossing, of gebruik je de omstandigheid als excuus?",
+   "let_op": "Gebaseerd op een echte deelnemer. Vraag toestemming en laat alles weg waaraan iemand in Volendam hem of haar kan herkennen.",
+   "bron": {
+    "les": "Sessie 9 · Stressmanagement",
+    "vimeo_id": "",
+    "minuten": null,
+    "transcript": false
+   },
+   "id": "cb-076",
+   "moment": "altijd",
+   "prioriteit": 1,
+   "waarom": "Klantverhalen zonder naam staan op plek 2 en 5 van je laatste 90 dagen.",
+   "plaatsen": "donderdag of vrijdag vóór 14:00"
   }
  ]
 }
